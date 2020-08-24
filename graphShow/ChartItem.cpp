@@ -332,8 +332,8 @@ void ChartItem::SLOT_openAttributeWidget()
     Ui::ChartAttribute *ui = ca->getUi();
     QString tt = ui->comboBox_ZoomColor->currentText();
     qDebug()<<tt;
-    connect(ui->comboBox_ZoomColor,(void (QObject::*)(int))&QComboBox::currentIndexChanged,
-            this,(void (QObject::*)(int))&ChartItem::test);
+	this->connect(ui->comboBox_ZoomColor,QOverload<int>::of(&QComboBox::currentIndexChanged),
+			this,&ChartItem::test);
     //this->
 
 }

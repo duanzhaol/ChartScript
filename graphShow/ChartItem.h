@@ -1,12 +1,12 @@
-﻿#ifndef MYCHARTITEM_H
-#define MYCHARTITEM_H
+﻿#ifndef CHARTITEM_H
+#define CHARTITEM_H
 #include<QChart>
 #include "ChartAttribute.h"
 /**
  * @brief The ChartItem class
  * 继承自QChart，在QChart的基础上增加了拖拽，缩放，选择等功能，使用方法和QChart相同
  */
-class ChartItem: public QtCharts::QChart
+class ChartItem:public QtCharts::QChart
 {
     Q_OBJECT
 public:
@@ -142,4 +142,4 @@ private slots:
 };
 
 
-#endif // MYCHARTITEM_H
+#endif // CHARTITEM_H
