@@ -1,3 +1,4 @@
-*.autosave
 *.pro
-*.user
+*.pro.user
+*.autosave
+main.cpp
