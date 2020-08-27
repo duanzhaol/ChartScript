@@ -2,6 +2,10 @@
 #define QCHARTVIEWFACTORY_H
 #include<QChartView>
 #include "GraphicsScene.h"
+/**
+ * @brief 	在工厂中可以获得正确设定过的view
+
+ */
 class QChartViewFactory
 {
 public:
