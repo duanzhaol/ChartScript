@@ -6,6 +6,9 @@
  * @brief The ChartItem class
  * 继承自QChart，在QChart的基础上增加了拖拽，缩放，选择等功能，使用方法和QChart相同
  */
+namespace Ui {
+class ChartAttribute;
+}
 class ChartItem:public QtCharts::QChart
 {
     Q_OBJECT
@@ -25,6 +28,7 @@ public:
     /**
      * @brief
      * 画图函数，每次发生改变都会调用这个函数。这里主要实现了被选中后的绘图事件
+     * 同时设置了默认的选择框颜色
      * @param painter 不懂
      * @param option 不懂
      * @param widget 不懂
@@ -129,16 +133,40 @@ private:
      * 缩放后的矩形边界
      */
     QRectF getNewPlace(int type,QPointF LT,QPointF RB);
-    QSizeF	m_size;
-    /**
+     /**
      * @brief ChartItem::SLOT_openAttributeWidget
      * 打开属性窗口的槽函数
      * @bug 会报错，信号发不过来，因此属性窗口无法产生实质性的改变
      */
     void SLOT_openAttributeWidget();
-private slots:
-    void test(int i);
+    /**
+     * @brief 属性窗口ui对象的引用
+     */
+    Ui::ChartAttribute *attr;
+    /**
+     * @brief 存储设定的选择框颜色
+     */
+    QColor selectColor;
+    /**
+     * @brief 存储设定的缩放小圆圈颜色
+     */
+    QColor zoomColor;
+    /**
+     * @brief 根据传入的颜色，设定所有小圆圈的颜色
+     * @param 改变的颜色
+     */
+    void setCircleColor(QColor color);
 
+private slots:
+    /**
+     * @brief 属性窗口点击确定的槽函数
+     * 会根据combox的选项，设定对应的属性
+     * 选择框颜色的设定方式：改变私有属性selectColor,然后再paint种调用这个属性
+     * 圆圈的颜色谁的设定方式:调用setCircleColor函数
+     */
+    void setAttr();
+
+    //void on_confirmAttr_clicked();
 };
 
 

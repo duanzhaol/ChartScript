@@ -14,6 +14,10 @@ class ChartAttribute : public QDialog
     Q_OBJECT
 
 public:
+    /**
+    * @brief 窗口构造函数，在这里设定了combox的选项
+    * @param parent
+    */
    ChartAttribute(QWidget *parent = nullptr);
 
     ~ChartAttribute();
@@ -23,11 +27,7 @@ public:
      * @return ui*
      */
     Ui::ChartAttribute* getUi();
-public slots:
-    /**
-     * @brief 点击确定的槽函数
-     */
-    void on_confirmAttr_clicked();
+
 
 private:
     Ui::ChartAttribute *ui;

@@ -1,5 +1,5 @@
 ﻿#include "ChartAttribute.h"
-#include "ui_ChartAttribute.h"
+#include "ui_chartattribute.h"
 #include<QDebug>
 ChartAttribute::ChartAttribute(QWidget *parent) :
     QDialog(parent),
@@ -8,7 +8,7 @@ ChartAttribute::ChartAttribute(QWidget *parent) :
     ui->setupUi(this);
     ui->comboBox_ZoomColor->clear();
     QStringList strList;
-    strList<<"White"<<"Red";
+    strList<<"white"<<"black"<<"red"<<"green"<<"blue"<<"cyan"<<"magenta"<<"yellow"<<"gray"<<"transparent";
     ui->comboBox_ZoomColor->addItems(strList);
     ui->comboBox_SelectColor->addItems(strList);
 
@@ -20,12 +20,6 @@ ChartAttribute::~ChartAttribute()
 }
 
 
-
-void ChartAttribute::on_confirmAttr_clicked(){
-    qDebug()<<"123";
-    this->close();
-
-}
 Ui::ChartAttribute* ChartAttribute::getUi(){
     return ui;
 }

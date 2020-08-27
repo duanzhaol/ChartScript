@@ -9,7 +9,7 @@
 #include<QStyleOptionGraphicsItem>
 #include<QGraphicsLayout>
 #include<QWidget>
-#include "ui_ChartAttribute.h"
+#include "ui_chartattribute.h"
 
 
 ChartItem::ChartItem()
@@ -42,12 +42,15 @@ void ChartItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
         //qDebug()<<geometry();
         painter->setRenderHint(QPainter::Antialiasing, true);
         if (option->state & QStyle::State_HasFocus)
+                    painter->setPen(Qt::yellow);//我也不知道这是干啥的
+                else{
+            if(selectColor==nullptr){
+                painter->setPen(Qt::blue);//设置默认选择框颜色
+             }else{
+                painter->setPen(selectColor);//设置默认选择框颜色
+            }
+        }
 
-                    painter->setPen(Qt::yellow);
-
-                else
-
-                    painter->setPen(Qt::blue);
         //painter->setPen(QPen(Qt::black,1,Qt::SolidLine));//在这里调整边框的颜色及线条粗细
         double radius=5;//小圆圈的半径
         setCircleVisible(true);
@@ -65,9 +68,16 @@ void ChartItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
     }
 }
 
-void ChartItem::test(int index)
+
+
+void ChartItem::setAttr()
 {
-    qDebug()<<"test"<<index;
+    selectColor.setNamedColor(attr->comboBox_SelectColor->currentText());
+    zoomColor.setNamedColor(attr->comboBox_ZoomColor->currentText());
+    setCircleColor(zoomColor);
+    qDebug()<<"SLECT"<<selectColor;
+    qDebug()<<"ZOOM"<<zoomColor;
+    //ca->close();
 }
 
 void ChartItem::mousePressEvent(QGraphicsSceneMouseEvent *event)
@@ -327,14 +337,28 @@ QRectF ChartItem::getNewPlace(int type, QPointF LT, QPointF RB)
 
 void ChartItem::SLOT_openAttributeWidget()
 {
-    ChartAttribute *ca=new ChartAttribute();
+
+    ChartAttribute *ca = new ChartAttribute();
     ca->show();
-    Ui::ChartAttribute *ui = ca->getUi();
-    QString tt = ui->comboBox_ZoomColor->currentText();
+    attr = ca->getUi();
+    QString tt = attr->comboBox_ZoomColor->currentText();
     qDebug()<<tt;
-	this->connect(ui->comboBox_ZoomColor,QOverload<int>::of(&QComboBox::currentIndexChanged),
-			this,&ChartItem::test);
+//    this->connect(attr->comboBox_ZoomColor,QOverload<int>::of(&QComboBox::currentIndexChanged),
+//            this,&ChartItem::test);
     //this->
+    this->connect(attr->confirmAttr,&QPushButton::clicked,
+            this,&ChartItem::setAttr);
 
 }
 
+void ChartItem::setCircleColor(QColor color)
+{
+   circle11->setBrush(color);
+   circle12->setBrush(color);
+   circle13->setBrush(color);
+   circle21->setBrush(color);
+   circle23->setBrush(color);
+   circle31->setBrush(color);
+   circle32->setBrush(color);
+   circle33->setBrush(color);
+}

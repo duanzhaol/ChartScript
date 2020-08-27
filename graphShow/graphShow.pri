@@ -1,4 +1,5 @@
 SOURCES += \
+    $$PWD/qchartviewfactory.cpp \
 	graphShow/ChartItem.cpp \
 	graphShow/GraphicsScene.cpp \
 	graphShow/chartattribute.cpp \
@@ -6,11 +7,11 @@ SOURCES += \
 	graphShow/multimimedata.cpp \
 
 HEADERS += \
+	$$PWD/qchartviewfactory.h \
 	graphShow/ChartAttribute.h \
 	graphShow/ChartItem.h \
 	graphShow/GraphicsScene.h \
 	graphShow/multimimedata.h
 
 FORMS += \
-	graphShow/mainwindow.ui \
 	graphShow/chartattribute.ui
