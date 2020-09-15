@@ -24,7 +24,7 @@ public:
      * 返回的结果好像不太对，但是能用，不晓得为什么，这里以后可能会出现问题（碰撞检测等）
      * @return 返回边界的矩形
      */
-    QRectF boundingRect() const;
+    //QRectF boundingRect() const;
     /**
      * @brief
      * 画图函数，每次发生改变都会调用这个函数。这里主要实现了被选中后的绘图事件

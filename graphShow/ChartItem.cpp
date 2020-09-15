@@ -24,12 +24,15 @@ ChartItem::ChartItem()
 
 }
 
-QRectF ChartItem::boundingRect() const
-{
-   // qDebug()<<plotArea();
-   // qDebug()<<this->layout()->geometry();
-    return this->layout()->geometry();
-}
+//QRectF ChartItem::boundingRect() const
+//{
+//     auto a=QGraphicsWidget::boundingRect();
+//     qDebug()<<a;
+//     return a;
+//   // qDebug()<<plotArea();
+//   // qDebug()<<this->layout()->geometry();
+//   // return this->layout()->geometry();
+//}
 
 void ChartItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
@@ -77,6 +80,10 @@ void ChartItem::setAttr()
     setCircleColor(zoomColor);
     qDebug()<<"SLECT"<<selectColor;
     qDebug()<<"ZOOM"<<zoomColor;
+    //this->setTheme(QtCharts::QChart::ChartThemeBlueCerulean);
+    this->setTitle("abc");
+//this->setDropShadowEnabled(true);//背景阴影
+    this->setBackgroundVisible(true);
     //ca->close();
 }
 

@@ -5,7 +5,7 @@ QChartViewFactory::QChartViewFactory()
 
 }
 
-QtCharts::QChartView *QChartViewFactory::createView(GraphicsScene *sc)
+QtCharts::QChartView *QChartViewFactory::createView(GraphicsScene *sc,myWindow *win)
 {
     QtCharts::QChartView *view=new QtCharts::QChartView();
     view->setScene(sc);

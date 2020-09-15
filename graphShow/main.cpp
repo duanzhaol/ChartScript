@@ -15,9 +15,11 @@
 #include<QDebug>
 #include <QChartView>
 #include"qchartviewfactory.h"
+#include"mywindow.h"
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+    myWindow *myWindows=new myWindow();
 
     //QChart是一个QGraphicsWidget子类，能管理多个统计图元素
     ChartItem *chart =  new ChartItem();
@@ -55,12 +57,18 @@ int main(int argc, char *argv[])
     chart2->setFlag(QGraphicsItem::ItemIsMovable,true);
     chart2->setFlag(QGraphicsItem::ItemIsSelectable,true);
     chart2->acceptDrops();
+    //chart2->setTheme(QtCharts::QChart::ChartThemeBlueCerulean);
     GraphicsScene *sc = new GraphicsScene();
     sc->addItem(chart);
     sc->addItem(chart2);
+//    QGraphicsView *view=new QGraphicsView(sc);
+//    view->show();
+//    view->setDragMode(QGraphicsView::RubberBandDrag);//重要
     //MyChartItem chart2=chart;
-    QChartViewFactory *factory=new QChartViewFactory();//声明一个view工厂
-    QtCharts::QChartView* view =factory->createView(sc);
-
+    //QChartViewFactory *factory=new QChartViewFactory();//声明一个view工厂
+    //QtCharts::QChartView* view =factory->createView(sc,myWindows);
+    //myWindows->show();
+    myWindows->setScene(sc);
+    myWindows->show();
     return a.exec();
 }

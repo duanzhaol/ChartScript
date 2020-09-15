@@ -2,6 +2,7 @@
 #define GRAPHICSSCENE_H
 #include<QGraphicsScene>
 #include "ChartItem.h"
+
 /**
  * @brief
  * 自定义的场景类，继承自QGraphicsScene
