@@ -1,4 +1,4 @@
-#ifndef SCENEDIALOGTITLE_H
+﻿#ifndef SCENEDIALOGTITLE_H
 #define SCENEDIALOGTITLE_H
 
 #include <QDialog>
@@ -6,7 +6,9 @@
 namespace Ui {
 class SceneDialogTitle;
 }
-
+/**
+ * @brief 设置窗口标题的弹窗类
+ */
 class SceneDialogTitle : public QDialog
 {
     Q_OBJECT

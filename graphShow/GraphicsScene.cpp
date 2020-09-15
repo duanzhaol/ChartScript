@@ -62,3 +62,38 @@ void GraphicsScene::selectAll()
         myItem->setSelected(true);
     }
 }
+
+void GraphicsScene::ThemeChanged(int type)
+{
+    foreach(QGraphicsItem *item,selectedItems()){
+        qDebug()<<type;
+        ChartItem *myItem=dynamic_cast<ChartItem*>(item);
+        switch (type) {
+        case 0:
+            myItem->setTheme(QtCharts::QChart::ChartThemeLight);
+            break;
+        case 1:
+            myItem->setTheme(QtCharts::QChart::ChartThemeBlueCerulean);
+            break;
+        case 2:
+            myItem->setTheme(QtCharts::QChart::ChartThemeDark);
+            break;
+        case 3:
+            myItem->setTheme(QtCharts::QChart::ChartThemeBrownSand);
+            break;
+        case 4:
+            myItem->setTheme(QtCharts::QChart::ChartThemeBlueNcs);
+            break;
+        case 5:
+            myItem->setTheme(QtCharts::QChart::ChartThemeHighContrast);
+            break;
+        case 6:
+            myItem->setTheme(QtCharts::QChart::ChartThemeBlueIcy);
+            break;
+        case 7:
+            myItem->setTheme(QtCharts::QChart::ChartThemeQt);
+            break;
+
+        }
+    }
+}

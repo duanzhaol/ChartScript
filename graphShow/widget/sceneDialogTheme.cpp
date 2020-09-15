@@ -1,6 +1,6 @@
 ﻿#include "sceneDialogTheme.h"
 #include "ui_scenedialogtheme.h"
-
+#include<QDebug>
 SceneDialogTheme::SceneDialogTheme(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::sceneDialogTheme)
@@ -16,4 +16,10 @@ SceneDialogTheme::SceneDialogTheme(QWidget *parent) :
 SceneDialogTheme::~SceneDialogTheme()
 {
     delete ui;
+}
+
+void SceneDialogTheme::on_buttonBox_accepted()
+{
+    //qDebug()<<"123";
+    emit ThemeChange(ui->comboBox->currentIndex());
 }

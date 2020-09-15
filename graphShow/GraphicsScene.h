@@ -53,6 +53,11 @@ public slots:
      * @brief 槽函数，选择所有item
      */
     void selectAll();
+    /**
+     * @brief 主题改变的槽函数，只改变该scene中已经选中的item
+     * @param 目标主题的索引
+     */
+    void ThemeChanged(int type);
 };
 
 #endif // GRAPHICSSCENE_H
