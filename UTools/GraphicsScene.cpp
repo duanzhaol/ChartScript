@@ -1,6 +1,7 @@
 ﻿#include "GraphicsScene.h"
 #include<QDebug>
 #include <QGraphicsSceneMouseEvent>
+#include"GraphicsSelectBoxProxyItem.h"
 GraphicsScene::GraphicsScene(QObject *parent)
 {
 	clearFocus();
@@ -15,7 +16,7 @@ void GraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
 			 if(event->modifiers()==Qt::ControlModifier){//按ctrl多选
 				 qDebug()<<"ctrl选中";
 				 foreach(QGraphicsItem *item,items(event->scenePos())){
-					 ChartItem *myItem=dynamic_cast<ChartItem*>(item);
+                                         GraphicsSelectBoxProxyItem *myItem=dynamic_cast<GraphicsSelectBoxProxyItem*>(item);
 					 selectItems.append(myItem);
 					 qDebug()<<selectItems;
 				 }
@@ -48,7 +49,7 @@ void GraphicsScene::keyPressEvent(QKeyEvent *event)
 void GraphicsScene::deleteSelect()
 {
 	foreach(QGraphicsItem *item,selectedItems()){
-		ChartItem *myItem=dynamic_cast<ChartItem*>(item);
+                GraphicsSelectBoxProxyItem *myItem=dynamic_cast<GraphicsSelectBoxProxyItem*>(item);
 //        selectItems.append(myItem);
 //        qDebug()<<selectItems;
 		removeItem(myItem);
@@ -58,7 +59,7 @@ void GraphicsScene::deleteSelect()
 void GraphicsScene::selectAll()
 {
 	foreach(QGraphicsItem *item,items()){
-		ChartItem *myItem=dynamic_cast<ChartItem*>(item);
+                GraphicsSelectBoxProxyItem *myItem=dynamic_cast<GraphicsSelectBoxProxyItem*>(item);
 		myItem->setSelected(true);
 	}
 }

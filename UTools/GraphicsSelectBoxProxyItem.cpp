@@ -7,13 +7,14 @@
 #include<QRectF>
 #include<QStyleOptionGraphicsItem>
 #include<QGraphicsLayout>
+#include <QApplication>
 #include<QWidget>
 
 
-void GraphicsSelectBoxProxyItem::setItem(QGraphicsWidget *item)
+void GraphicsSelectBoxProxyItem::setItem(MovableProxyWidget *item)
 {
 	this->item = item;
-	resize(item->boundingRect().width(),item->boundingRect().height());
+    resize(item->boundingRect().width(),item->boundingRect().height());
 }
 
 GraphicsSelectBoxProxyItem::GraphicsSelectBoxProxyItem()
@@ -63,10 +64,10 @@ void GraphicsSelectBoxProxyItem::paint(QPainter *painter, const QStyleOptionGrap
 }
 
 
+
 void GraphicsSelectBoxProxyItem::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
-
-	if(event->button() == Qt::LeftButton){
+    if(event->button() == Qt::LeftButton){
 		int type=IsInResizeArea(event->pos());
 		if(type!=0){
 			m_bIsResizing = type;
@@ -149,27 +150,27 @@ void GraphicsSelectBoxProxyItem::hoverMoveEvent(QGraphicsSceneHoverEvent *event)
 	}
 	QGraphicsItem::hoverMoveEvent(event);
 }
-
+#include <QMessageBox>
 
 void GraphicsSelectBoxProxyItem::creatCircle()
 {
-	QRectF rect=QRectF(0,0,10,10);
-	circle11=new QGraphicsEllipseItem(rect,this);
-	circle11->setVisible(false);
-	circle12=new QGraphicsEllipseItem(rect,this);
-	circle12->setVisible(false);
-	circle13=new QGraphicsEllipseItem(rect,this);
-	circle13->setVisible(false);
-	circle21=new QGraphicsEllipseItem(rect,this);
-	circle21->setVisible(false);
-	circle23=new QGraphicsEllipseItem(rect,this);
-	circle23->setVisible(false);
-	circle31=new QGraphicsEllipseItem(rect,this);
-	circle31->setVisible(false);
-	circle32=new QGraphicsEllipseItem(rect,this);
-	circle32->setVisible(false);
-	circle33=new QGraphicsEllipseItem(rect,this);
-	circle33->setVisible(false);
+
+
+    auto createACircle = [this](CircleType*&circle){
+        static QRectF rect=QRectF(0,0,10,10);
+        circle = new CircleType(rect,this);
+        circle->setVisible(false);
+    };
+
+    createACircle(circle11);
+    createACircle(circle12);
+    createACircle(circle13);
+    createACircle(circle21);
+    createACircle(circle23);
+    createACircle(circle31);
+    createACircle(circle32);
+    createACircle(circle33);
+
 }
 
 void GraphicsSelectBoxProxyItem::setCircleVisible(bool vis)
@@ -177,8 +178,8 @@ void GraphicsSelectBoxProxyItem::setCircleVisible(bool vis)
 	if(vis){
 		if(circle11->isVisible())
 			return;
-		circle11->setVisible(true);
-		circle12->setVisible(true);
+        circle11->setVisible(true);
+                circle12->setVisible(true);
 		circle13->setVisible(true);
 		circle21->setVisible(true);
 		circle23->setVisible(true);
@@ -201,18 +202,18 @@ void GraphicsSelectBoxProxyItem::setCircleVisible(bool vis)
 
 void GraphicsSelectBoxProxyItem::setCirclePos()
 {
-	double radius=5;//小圆圈的半径
-	QRectF circleRect=QRectF(0,0,2*radius,2*radius);//决定圆形的矩形
+    int radius=5;//小圆圈的半径
+    QRect circleRect=QRect(0,0,2*radius,2*radius);//决定圆形的矩形
 	double width=this->boundingRect().right();
 	double height=this->boundingRect().bottom();
-	circle11->setRect(circleRect.adjusted(0,0,0,0));
-	circle12->setRect(circleRect.adjusted(width/2-radius,0,width/2-radius,0));
-	circle13->setRect(circleRect.adjusted(width-radius,0,width-radius,0));
-	circle21->setRect(circleRect.adjusted(0,height/2-radius,0,height/2-radius));//21
-	circle23->setRect(circleRect.adjusted(width-radius,height/2-radius,width-radius,height/2-radius));//23
-	circle31->setRect(circleRect.adjusted(0,height-radius,0,height-radius));//31
-	circle32->setRect(circleRect.adjusted(width/2-radius,height-radius,width/2-radius,height-radius));//32
-	circle33->setRect(circleRect.adjusted(width-radius,height-radius,width-radius,height-radius));//33
+    circle11->setRect(circleRect.adjusted(0,0,0,0));
+    circle12->setRect(circleRect.adjusted(width/2-radius,0,width/2-radius,0));
+    circle13->setRect(circleRect.adjusted(width-radius,0,width-radius,0));
+    circle21->setRect(circleRect.adjusted(0,height/2-radius,0,height/2-radius));//21
+    circle23->setRect(circleRect.adjusted(width-radius,height/2-radius,width-radius,height/2-radius));//23
+    circle31->setRect(circleRect.adjusted(0,height-radius,0,height-radius));//31
+    circle32->setRect(circleRect.adjusted(width/2-radius,height-radius,width/2-radius,height-radius));//32
+    circle33->setRect(circleRect.adjusted(width-radius,height-radius,width-radius,height-radius));//33
 
 }
 
@@ -286,14 +287,8 @@ QRectF GraphicsSelectBoxProxyItem::getNewPlace(int type, QPointF LT, QPointF RB)
 
 void GraphicsSelectBoxProxyItem::setCircleColor(QColor color)
 {
-   circle11->setBrush(color);
-   circle12->setBrush(color);
-   circle13->setBrush(color);
-   circle21->setBrush(color);
-   circle23->setBrush(color);
-   circle31->setBrush(color);
-   circle32->setBrush(color);
-   circle33->setBrush(color);
+
+
 }
 
 QRectF GraphicsSelectBoxProxyItem::boundingRect() const

@@ -2,6 +2,10 @@
 #define GRAPHICSSELECTBOXPROXYITEM_H
 
 #include<QChart>
+#include <QPushButton>
+#include <QLabel>
+#include <QGraphicsProxyWidget>
+#include "../NodeShow/MovableProxyWidget.h"
 
 /**
  * @brief The GraphicsSelectBoxProxyItem class
@@ -9,10 +13,10 @@
 
 class GraphicsSelectBoxProxyItem:public QGraphicsWidget{
 	Q_OBJECT
-	QGraphicsWidget*item;
+    QGraphicsWidget*item;
 public:
 
-	void setItem(QGraphicsWidget*item);
+    void setItem(MovableProxyWidget*item);
 
 	/**
 	 * @brief
@@ -63,24 +67,21 @@ protected:
 	 * hover事件，可根据pos()获取鼠标位置
 	 */
 	void hoverMoveEvent(QGraphicsSceneHoverEvent* event) override;
-	/**
-	 * @brief
-	 * 双击事件，弹出窗口
-	 * @param event
-	 */
-	void mouseDoubleClickEvent(QGraphicsSceneMouseEvent* event) override;
+
 private:
 	/**
 	 * @brief 缩放用的圆圈
-	 */
-	QGraphicsEllipseItem* circle11;
-	QGraphicsEllipseItem* circle12;
-	QGraphicsEllipseItem* circle13;
-	QGraphicsEllipseItem* circle21;
-	QGraphicsEllipseItem* circle23;
-	QGraphicsEllipseItem* circle31;
-	QGraphicsEllipseItem* circle32;
-	QGraphicsEllipseItem* circle33;
+     */
+
+    using CircleType = QGraphicsEllipseItem;
+    CircleType* circle11;
+    CircleType* circle12;
+    CircleType* circle13;
+    CircleType* circle21;
+    CircleType* circle23;
+    CircleType* circle31;
+    CircleType* circle32;
+    CircleType* circle33;
 	/**
 	 * @brief
 	 * 创建缩放用圆圈，初始都创建在左上角，设置不可见
