@@ -1,5 +1,6 @@
 ﻿#include "MovableInputPortProxyWidget.h"
 #include <QDebug>
+#include <QMessageBox>
 
 QWidget *MovableInputPortProxyWidget::widget()const
 {

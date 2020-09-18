@@ -2,33 +2,32 @@ RESOURCES += \
     $$PWD/resource.qrc
 
 FORMS += \
-	$$PWD/GraphicsDataNode.ui \
-	$$PWD/GraphicsStartNode.ui
+	$$PWD/GraphicsNode/GraphicsDataNode.ui \
+	$$PWD/GraphicsNode/GraphicsStartNode.ui
 
 HEADERS += \
-    $$PWD/ConnectLineItem.h \
-    $$PWD/DualPortWidget.h \
-    $$PWD/GraphicsDataNode.h \
-    $$PWD/GraphicsStartNode.h \
-    $$PWD/InputPortWidget.h \
-    $$PWD/MovableDualPortProxyWidget.h \
-    $$PWD/MovableInputPortProxyWidget.h \
-    $$PWD/MovableOutputPortProxyWidget.h \
-    $$PWD/MovableProxyWidget.h \
-    $$PWD/OutputPortWidget.h \
-    $$PWD/PortWidget.h
+	$$PWD/ConnectLine/ConnectLineItem.h \
+	$$PWD/GraphicsNode/DualPortWidget.h \
+	$$PWD/GraphicsNode/GraphicsDataNode.h \
+	$$PWD/GraphicsNode/GraphicsStartNode.h \
+	$$PWD/GraphicsNode/InputPortWidget.h \
+	$$PWD/GraphicsNode/OutputPortWidget.h \
+	$$PWD/GraphicsNode/PortWidget.h \
+	$$PWD/ProxyWidget/MovableDualPortProxyWidget.h \
+	$$PWD/ProxyWidget/MovableInputPortProxyWidget.h \
+	$$PWD/ProxyWidget/MovableOutputPortProxyWidget.h \
+	$$PWD/ProxyWidget/MovableProxyWidget.h
 
 SOURCES += \
-    $$PWD/ConnectLineItem.cpp \
-    $$PWD/DualPortWidget.cpp \
-    $$PWD/GraphicsDataNode.cpp \
-    $$PWD/GraphicsStartNode.cpp \
-    $$PWD/InputPortWidget.cpp \
-    $$PWD/MovableDualPortProxyWidget.cpp \
-    $$PWD/MovableInputPortProxyWidget.cpp \
-    $$PWD/MovableOutputPortProxyWidget.cpp \
-    $$PWD/MovableProxyWidget.cpp \
-    $$PWD/OutputPortWidget.cpp \
-    $$PWD/PortWidget.cpp \
-    $$PWD/main.cpp \
-    $$PWD/main.cpp
+	$$PWD/ConnectLine/ConnectLineItem.cpp \
+	$$PWD/GraphicsNode/DualPortWidget.cpp \
+	$$PWD/GraphicsNode/GraphicsDataNode.cpp \
+	$$PWD/GraphicsNode/GraphicsStartNode.cpp \
+	$$PWD/GraphicsNode/InputPortWidget.cpp \
+	$$PWD/GraphicsNode/OutputPortWidget.cpp \
+	$$PWD/GraphicsNode/PortWidget.cpp \
+	$$PWD/ProxyWidget/MovableDualPortProxyWidget.cpp \
+	$$PWD/ProxyWidget/MovableInputPortProxyWidget.cpp \
+	$$PWD/ProxyWidget/MovableOutputPortProxyWidget.cpp \
+	$$PWD/ProxyWidget/MovableProxyWidget.cpp
+
