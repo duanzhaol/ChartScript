@@ -11,6 +11,7 @@ HEADERS += \
     $$PWD/GraphicsDataNode.h \
     $$PWD/GraphicsStartNode.h \
     $$PWD/InputPortInterface.h \
+    $$PWD/MovableDualPortProxyWidget.h \
     $$PWD/MovableProxyWidget.h \
     $$PWD/MovableSinglePortProxyWidget.h \
     $$PWD/OutputPortInterface.h \
@@ -20,6 +21,8 @@ SOURCES += \
     $$PWD/ConnectLineItem.cpp \
     $$PWD/GraphicsDataNode.cpp \
     $$PWD/GraphicsStartNode.cpp \
+    $$PWD/MovableDualPortProxyWidget.cpp \
     $$PWD/MovableProxyWidget.cpp \
     $$PWD/MovableSinglePortProxyWidget.cpp \
+    $$PWD/main.cpp \
     $$PWD/main.cpp

@@ -25,3 +25,8 @@ InputPortType *MovableSinglePortProxyWidget::getInputPort()
     return this->getGraphicsDataNode()->getInputPort();
 }
 
+
+QPointF MovableSinglePortProxyWidget::getInputPortCoordinate(const QGraphicsItem *item)
+{
+	return this->mapToItem(item,this->getInputPort()->pos());
+}

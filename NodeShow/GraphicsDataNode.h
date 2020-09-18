@@ -12,14 +12,14 @@ class GraphicsDataNode;
 using InputPortType = QPushButton;
 using OutputPortType = QPushButton;
 
-class GraphicsDataNode : public QWidget,public DualPortInterface
+class GraphicsDataNode : public QWidget{
 	Q_OBJECT
 
 public:
     explicit GraphicsDataNode(QWidget *parent = nullptr);
     ~GraphicsDataNode();
-    virtual InputPortType* getInputPort() override;
-    virtual OutputPortType* getOutputPort() override;
+	InputPortType* getInputPort();
+	OutputPortType* getOutputPort();
 
 private:
     Ui::GraphicsDataNode *ui;
@@ -27,16 +27,9 @@ private:
 	// QWidget interface
 protected:
 	virtual void mousePressEvent(QMouseEvent *event) override;
+};
 
 
-    // OutputPortInterface interface
-    public:
-    virtual QPointF getOutputPortCoordinate(const QGraphicsItem *item) override;
-
-    // InputPortInterface interface
-    public:
-    virtual QPointF getInputPortCoordinate(const QGraphicsItem *item) override;
-    };
 
 
 #endif // GraphicsDataNode_H

@@ -41,12 +41,12 @@ GraphicsDataNode::~GraphicsDataNode()
     delete ui;
 }
 
-QPushButton *GraphicsDataNode::getInputPort()
+InputPortType *GraphicsDataNode::getInputPort()
 {
     return ui->inputPort;
 }
 
-QPushButton *GraphicsDataNode::getOutputPort()
+OutputPortType *GraphicsDataNode::getOutputPort()
 {
     return ui->outputPort;
 }
@@ -58,11 +58,3 @@ void GraphicsDataNode::mousePressEvent(QMouseEvent *event)
 }
 
 
-QPointF GraphicsDataNode::getOutputPortCoordinate(const QGraphicsItem *item)
-{
-
-}
-
-QPointF GraphicsDataNode::getInputPortCoordinate(const QGraphicsItem *item)
-{
-}

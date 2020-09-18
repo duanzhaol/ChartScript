@@ -3,9 +3,9 @@
 
 #include "MovableProxyWidget.h"
 #include "GraphicsDataNode.h"
+#include "InputPortInterface.h"
 
-
-class MovableSinglePortProxyWidget :public MovableProxyWidget
+class MovableSinglePortProxyWidget :public MovableProxyWidget,public InputPortInterface
 {
     Q_OBJECT
     QWidget* widget()const;
@@ -19,6 +19,12 @@ public:
 
     InputPortType*getInputPort();
 
+
+	// InputPortInterface interface
+public:
+	virtual QPointF getInputPortCoordinate(const QGraphicsItem *item) override;
 };
+
+
 
 #endif // MovableSinglePortProxyWidget_H
