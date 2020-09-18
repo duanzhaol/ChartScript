@@ -4,6 +4,7 @@
 #include <QListView>
 #include <QPainter>
 #include  <QDebug>
+#include <QMessageBox>
 
 GraphicsDataNode::GraphicsDataNode(QWidget *parent) :
 	PortWidget(parent),
@@ -13,7 +14,6 @@ GraphicsDataNode::GraphicsDataNode(QWidget *parent) :
   ui->setupUi(this);
   ui->comboBox->setView(new QListView());
   ui->lineEdit->setEnabled(true);
-  ui->inputPort->pos();
 
   QWidget::setWindowFlags(Qt::FramelessWindowHint);//设置窗口无边框
 

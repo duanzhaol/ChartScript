@@ -17,7 +17,7 @@ void MovableOutputPortProxyWidget::setOutputPortWidget(OutputPortWidget *node)
 
 OutputPortWidget *MovableOutputPortProxyWidget::getOutputPortWidget()
 {
-	return reinterpret_cast<OutputPortWidget*>(this->widget());
+	return dynamic_cast<OutputPortWidget*>(this->widget());
 }
 
 OutputPort *MovableOutputPortProxyWidget::getOutputPort()
@@ -27,5 +27,5 @@ OutputPort *MovableOutputPortProxyWidget::getOutputPort()
 
 QPointF MovableOutputPortProxyWidget::getOutputPortCoordinate(const QGraphicsItem *item)
 {
-	return this->mapToItem(item,this->getOutputPort()->pos());
+	return this->mapToItem(item,this->getOutputPort()->pos()+QPointF(10,10));
 }

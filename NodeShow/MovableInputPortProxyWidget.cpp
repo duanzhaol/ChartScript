@@ -1,4 +1,5 @@
 ﻿#include "MovableInputPortProxyWidget.h"
+#include <QDebug>
 
 QWidget *MovableInputPortProxyWidget::widget()const
 {
@@ -17,7 +18,7 @@ void MovableInputPortProxyWidget::setInputPortWidget(InputPortWidget *node)
 
 InputPortWidget *MovableInputPortProxyWidget::getInputPortWidget()
 {
-	return reinterpret_cast<InputPortWidget*>(this->widget());
+	return dynamic_cast<InputPortWidget*>(this->widget());
 }
 
 InputPort *MovableInputPortProxyWidget::getInputPort()
@@ -28,5 +29,5 @@ InputPort *MovableInputPortProxyWidget::getInputPort()
 
 QPointF MovableInputPortProxyWidget::getInputPortCoordinate(const QGraphicsItem *item)
 {
-	return this->mapToItem(item,this->getInputPort()->pos());
+	return this->mapToItem(item,this->getInputPort()->pos()+QPointF(10,10));
 }
