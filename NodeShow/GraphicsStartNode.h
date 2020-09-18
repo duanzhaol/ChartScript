@@ -1,13 +1,14 @@
-#ifndef GRAPHICSSTARTNODE_H
+﻿#ifndef GRAPHICSSTARTNODE_H
 #define GRAPHICSSTARTNODE_H
 
 #include <QWidget>
+#include "OutputPortWidget.h"
 
 namespace Ui {
 class GraphicsStartNode;
 }
 
-class GraphicsStartNode : public QWidget
+class GraphicsStartNode : public OutputPortWidget
 {
     Q_OBJECT
 
@@ -17,6 +18,12 @@ public:
 
 private:
     Ui::GraphicsStartNode *ui;
+
+	// InputPortWidget interface
+public:
+	virtual OutputPort *getOutputPort() override;
 };
+
+
 
 #endif // GRAPHICSSTARTNODE_H

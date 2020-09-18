@@ -12,7 +12,7 @@ public:
     // QGraphicsItem interface
 protected:
 	virtual void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
-        virtual void mouseMoveEvent(QGraphicsSceneMouseEvent *event) override;
+	virtual void mouseMoveEvent(QGraphicsSceneMouseEvent *event) override;
 
 private:
 	QPointF coordinateDifference;

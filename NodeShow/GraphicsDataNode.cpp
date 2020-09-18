@@ -6,8 +6,8 @@
 #include  <QDebug>
 
 GraphicsDataNode::GraphicsDataNode(QWidget *parent) :
-                              QWidget(parent),
-                              ui(new Ui::GraphicsDataNode)
+	PortWidget(parent),
+	ui(new Ui::GraphicsDataNode)
 {
 
   ui->setupUi(this);
@@ -41,20 +41,13 @@ GraphicsDataNode::~GraphicsDataNode()
     delete ui;
 }
 
-InputPortType *GraphicsDataNode::getInputPort()
+InputPort *GraphicsDataNode::getInputPort()
 {
     return ui->inputPort;
 }
 
-OutputPortType *GraphicsDataNode::getOutputPort()
+OutputPort *GraphicsDataNode::getOutputPort()
 {
     return ui->outputPort;
 }
-
-
-void GraphicsDataNode::mousePressEvent(QMouseEvent *event)
-{
-
-}
-
 

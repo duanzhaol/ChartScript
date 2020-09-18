@@ -3,31 +3,37 @@
 
 #include <QPushButton>
 #include <QWidget>
-#include "DualPortInterface.h"
+#include "DualPortWidget.h"
 
 namespace Ui {
 class GraphicsDataNode;
 }
 
-using InputPortType = QPushButton;
-using OutputPortType = QPushButton;
+using InputPort = QPushButton;
+using OutputPort = QPushButton;
 
-class GraphicsDataNode : public QWidget{
+class GraphicsDataNode : public DualPortWidget{
 	Q_OBJECT
 
 public:
     explicit GraphicsDataNode(QWidget *parent = nullptr);
-    ~GraphicsDataNode();
-	InputPortType* getInputPort();
-	OutputPortType* getOutputPort();
+	~GraphicsDataNode()override;
+
+	// OutputPortWidget interface
+public:
+	virtual OutputPort *getOutputPort() override;
+
+	// InputPortWidget interface
+public:
+	virtual InputPort *getInputPort() override;
 
 private:
-    Ui::GraphicsDataNode *ui;
-
-	// QWidget interface
-protected:
-	virtual void mousePressEvent(QMouseEvent *event) override;
+	Ui::GraphicsDataNode *ui;
 };
+
+
+
+
 
 
 

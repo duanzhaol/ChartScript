@@ -1,10 +1,11 @@
 ﻿#ifndef CONNECTLINEITEM_H
 #define CONNECTLINEITEM_H
 
-#include "MovableSinglePortProxyWidget.h"
+#include "MovableInputPortProxyWidget.h"
 #include <QGraphicsPolygonItem>
 #include <QGraphicsItem>
-#include "DualPortInterface.h"
+#include "DualPortWidget.h"
+#include "MovableOutputPortProxyWidget.h"
 
 
 
@@ -13,7 +14,7 @@ class ConnectLineItem:public QGraphicsPolygonItem
 
 public:
 
-  explicit ConnectLineItem(InputPortInterface*inputPort,OutputPortInterface*outputPort);
+  explicit ConnectLineItem(MovableInputPortProxyWidget*inputPort,MovableOutputPortProxyWidget*outputPort);
 
   // QGraphicsItem interface
 public:
@@ -22,8 +23,8 @@ public:
   QPainterPath shape() const override;
 
 private:
-  InputPortInterface*inputNode;
-  OutputPortInterface*outputNode;
+  MovableInputPortProxyWidget*inputNode;
+  MovableOutputPortProxyWidget*outputNode;
   QPolygonF mArrow;
 
 

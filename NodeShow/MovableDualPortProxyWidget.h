@@ -1,18 +1,17 @@
 ﻿#ifndef MOVABLEDUALPORTPROXYWIDGET_H
 #define MOVABLEDUALPORTPROXYWIDGET_H
 
-#include "MovableSinglePortProxyWidget.h"
-#include "OutputPortInterface.h"
+#include "MovableInputPortProxyWidget.h"
+#include "OutputPortWidget.h"
+#include "MovableOutputPortProxyWidget.h"
 
-class MovableDualPortProxyWidget:public MovableSinglePortProxyWidget,public OutputPortInterface
+class MovableDualPortProxyWidget:public MovableInputPortProxyWidget,public MovableOutputPortProxyWidget
 {
 public:
 	MovableDualPortProxyWidget();
-
-	// OutputPortInterface interface
-public:
-	virtual OutputPortType *getOutputPort() override;
-	virtual QPointF getOutputPortCoordinate(const QGraphicsItem *item) override;
+	void setInputPortWidget(InputPortWidget*node) = delete;
+	void setOutputPortWidget(InputPortWidget*node) = delete;
+	void setDualPortWidget(DualPortWidget*node);
 };
 
 

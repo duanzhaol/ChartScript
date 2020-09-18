@@ -5,12 +5,8 @@ MovableDualPortProxyWidget::MovableDualPortProxyWidget()
 
 }
 
-OutputPortType *MovableDualPortProxyWidget::getOutputPort()
+void MovableDualPortProxyWidget::setDualPortWidget(DualPortWidget *node)
 {
-	return MovableSinglePortProxyWidget::getGraphicsDataNode()->getOutputPort();
+	MovableProxyWidget::setWidget(node);
 }
 
-QPointF MovableDualPortProxyWidget::getOutputPortCoordinate(const QGraphicsItem *item)
-{
-	return this->mapToItem(item,this->getOutputPort()->pos());
-}
