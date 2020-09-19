@@ -5,7 +5,7 @@
 #include <QPushButton>
 #include <QLabel>
 #include <QGraphicsProxyWidget>
-#include "../NodeShow/MovableProxyWidget.h"
+#include "../NodeShow/ProxyWidget/MovableProxyWidget.h"
 
 /**
  * @brief The GraphicsSelectBoxProxyItem class
