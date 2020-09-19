@@ -9,8 +9,8 @@ namespace Ui {
 class GraphicsDataNode;
 }
 
-using InputPort = QPushButton;
-using OutputPort = QPushButton;
+using InputPort = QWidget;
+using OutputPort = QWidget;
 
 class GraphicsDataNode : public DualPortWidget{
 	Q_OBJECT

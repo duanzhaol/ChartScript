@@ -10,7 +10,7 @@ class MovableDualPortProxyWidget:public MovableInputPortProxyWidget,public Movab
 public:
 	MovableDualPortProxyWidget();
 	void setInputPortWidget(InputPortWidget*node) = delete;
-	void setOutputPortWidget(InputPortWidget*node) = delete;
+    void setOutputPortWidget(OutputPortWidget*node) = delete;
 	void setDualPortWidget(DualPortWidget*node);
 };
 

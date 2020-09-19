@@ -30,5 +30,6 @@ InputPort *MovableInputPortProxyWidget::getInputPort()
 
 QPointF MovableInputPortProxyWidget::getInputPortCoordinate(const QGraphicsItem *item)
 {
-	return this->mapToItem(item,this->getInputPort()->pos()+QPointF(10,10));
+
+    return this->mapToItem(item,this->getInputPort()->pos()+QPointF(10,10));
 }

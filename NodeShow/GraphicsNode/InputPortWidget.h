@@ -5,7 +5,7 @@
 #include <QGraphicsItem>
 #include "PortWidget.h"
 
-using InputPort = QPushButton;
+using InputPort = QWidget;
 
 class InputPortWidget:virtual public PortWidget{
 public:

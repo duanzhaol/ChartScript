@@ -36,8 +36,8 @@ void ConnectLineItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *o
 
 	//  painter->setPen(QPen(Qt::blue,5));
 
-	QPointF right = inputNode->getInputPortCoordinate(this);
-	QPointF left = outputNode->getOutputPortCoordinate(this);
+    QPointF right = inputNode->getInputPortCoordinate(this);
+    QPointF left = outputNode->getOutputPortCoordinate(this);
 
 	//  painter->drawLine(left,right);
 

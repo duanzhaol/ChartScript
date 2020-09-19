@@ -27,5 +27,5 @@ OutputPort *MovableOutputPortProxyWidget::getOutputPort()
 
 QPointF MovableOutputPortProxyWidget::getOutputPortCoordinate(const QGraphicsItem *item)
 {
-	return this->mapToItem(item,this->getOutputPort()->pos()+QPointF(10,10));
+    return this->mapToItem(item,this->getOutputPort()->pos()+QPointF(10,10));
 }
