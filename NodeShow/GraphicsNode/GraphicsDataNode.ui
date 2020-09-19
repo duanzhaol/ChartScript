@@ -317,6 +317,19 @@ border-radius:10px;</string>
     <string>in</string>
    </property>
   </widget>
+  <widget class="QWidget" name="Port" native="true">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>210</y>
+     <width>20</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="windowTitle">
+    <string>Form</string>
+   </property>
+  </widget>
   <zorder>nodeBackground</zorder>
   <zorder>comboBox</zorder>
   <zorder>outputPort</zorder>
@@ -325,6 +338,7 @@ border-radius:10px;</string>
   <zorder>lineEdit_2</zorder>
   <zorder>label</zorder>
   <zorder>label_2</zorder>
+  <zorder>Port</zorder>
  </widget>
  <resources/>
  <connections/>
