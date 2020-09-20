@@ -2,6 +2,7 @@
 #define GRAPHICSDATANODEINTERFACE_H
 
 #include "GraphicsNodeInterface.h"
+#include "../DataModel/AbstractDataNode.h"
 #include <QVariant>
 
 class GraphicsDataNodeInterface:public GraphicsNodeInterface{

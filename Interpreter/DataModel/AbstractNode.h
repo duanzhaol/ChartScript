@@ -1,7 +1,7 @@
 ﻿#ifndef ABSTRACTNODE_H
 #define ABSTRACTNODE_H
 #include <QHash>
-#include "../GraphicsNodeInterface/GraphicsDataNodeInterface.h"
+#include "../GraphicsNodeInterface/GraphicsNodeInterface.h"
 
 
 /**
