@@ -1,7 +1,12 @@
 ﻿#include "StartNode.h"
 
-StartNode::StartNode()
-	:AbstractNode (QStringLiteral("Start"))
+StartNode::StartNode(GraphicsNodeInterface*node)
+	:AbstractNode (node)
+{
+
+}
+
+StartNode::~StartNode()
 {
 
 }

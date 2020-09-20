@@ -1,13 +1,25 @@
 ﻿#include "AbstractNode.h"
 
-AbstractNode::NodeName_t AbstractNode::getNodeName() const
+
+GraphicsNodeInterface *AbstractNode::getNode() const
 {
-	return nodeName;
+	return node;
 }
 
-void AbstractNode::setNodeName(const NodeName_t &value)
+void AbstractNode::setNode(GraphicsNodeInterface *value)
 {
-	nodeName = value;
+	node = value;
+}
+
+void AbstractNode::verifyConnectable(AbstractNode *node)
+{
+	//do nothing
+}
+
+AbstractNode::AbstractNode(GraphicsNodeInterface*node)
+	:node(node)
+{
+
 }
 
 void AbstractNode::process()
@@ -17,9 +29,20 @@ void AbstractNode::process()
 	}
 }
 
+AbstractNode::~AbstractNode()
+{
+
+}
+
 void AbstractNode::addNextNodes(AbstractNode *node)
 {
-	this->nextNodes.insert(node->getNodeName(),node);
+	this->verifyConnectable(node);
+	this->nextNodes.insert(node->getNode()->getNodeName(),node);
+}
+
+void AbstractNode::removeNextNode(AbstractNode *node)
+{
+	this->nextNodes.remove(node->getNode()->getNodeName());
 }
 
 

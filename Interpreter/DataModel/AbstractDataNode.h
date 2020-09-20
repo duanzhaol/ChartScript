@@ -1,20 +1,34 @@
 ﻿#ifndef ABSTRACTDATANODE_H
 #define ABSTRACTDATANODE_H
 #include "AbstractNode.h"
+#include "../GraphicsNodeInterface/GraphicsDataNodeInterface.h"
+#include "../Exception/TypeUnconvertible.h"
 #include <QVariant>
+
+/**
+ * @brief The AbstractDataNode class
+ *
+ */
 
 class AbstractDataNode : public AbstractNode
 {
-protected:
-	QVariant nodeData;
 public:
-	AbstractDataNode(const QString&name);
+	AbstractDataNode(GraphicsDataNodeInterface*node);
+	~AbstractDataNode()override;
 
 	// AbstractNode interface
 public:
 	virtual void process() override;
-	QVariant getNodeData() const;
-	void setNodeData(const QVariant &value);
+
+	// AbstractNode interface
+public:
+	virtual GraphicsDataNodeInterface *getNode() const override;
+
+	// AbstractNode interface
+protected:
+	virtual void verifyConnectable(AbstractNode *node) override;
+private:
+	void processTypeCasting(AbstractDataNode*node)const;
 };
 
 #endif // ABSTRACTDATANODE_H

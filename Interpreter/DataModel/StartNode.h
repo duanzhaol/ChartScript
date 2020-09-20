@@ -3,10 +3,10 @@
 
 #include "AbstractNode.h"
 
-class StartNode:public AbstractNode
-{
+class StartNode:public AbstractNode{
 public:
-	StartNode();
+	StartNode(GraphicsNodeInterface*node);
+	~StartNode()override;
 };
 
 #endif // STARTNODE_H
