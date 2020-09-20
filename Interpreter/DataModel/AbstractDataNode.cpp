@@ -36,12 +36,13 @@ void AbstractDataNode::verifyConnectable(AbstractNode *node)
 	if(dataNode == nullptr) return;
 	processTypeCasting(dataNode);
 }
-
+#include <QDebug>
 void AbstractDataNode::processTypeCasting(AbstractDataNode *node) const
 {
 	QVariant* outputData = this->getNode()->getNodeData(),
 			*inputData = node->getNode()->getNodeData();
+
 	if(!outputData->canConvert(inputData->type())){
-		throw new TypeUnconvertible(outputData->type(),inputData->type());
+		throw TypeUnconvertible(outputData->type(),inputData->type());
 	}
 }

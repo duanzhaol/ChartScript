@@ -21,9 +21,10 @@ class TypeUnconvertible:public InterpreterErrorException
 public:
 	TypeUnconvertible(const QVariant::Type outputNodeType,const QVariant::Type inputNodeType);
 
-	// exception interface
+
+	// InterpreterException interface
 public:
-	virtual const char *what() const override;
+	virtual QString getWhy() const override;
 };
 
 #endif // CONNECTEXCEPTION_H

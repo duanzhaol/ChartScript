@@ -13,6 +13,7 @@ void AbstractNode::setNode(GraphicsNodeInterface *value)
 
 void AbstractNode::verifyConnectable(AbstractNode *node)
 {
+	Q_UNUSED(node);
 	//do nothing
 }
 

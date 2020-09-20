@@ -11,9 +11,10 @@ class ImplicitTypeConversion:public InterpreterWarnningException
 public:
 	ImplicitTypeConversion(const QVariant::Type outputNodeType,const QVariant::Type inputNodeType);
 
-	// exception interface
+
+	// InterpreterException interface
 public:
-	virtual const char *what() const override;
+	virtual QString getWhy() const override;
 };
 
 #endif // IMPLICITTYPECONVERSION_H
