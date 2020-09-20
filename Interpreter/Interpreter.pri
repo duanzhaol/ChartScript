@@ -6,7 +6,6 @@ SOURCES += \
 	$$PWD/Exception/InterpreterException.cpp \
 	$$PWD/Exception/TypeUnconvertible.cpp \
 	$$PWD/Interpreter/InterpreterController.cpp \
-	$$PWD/main.cpp
 
 HEADERS += \
 	$$PWD/DataModel/AbstractDataNode.h \
