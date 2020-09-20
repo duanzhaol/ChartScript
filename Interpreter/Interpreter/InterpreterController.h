@@ -14,6 +14,8 @@
 
 class InterpreterController{
 	StartNode* startNode = nullptr;
+	static InterpreterController*globalController;
+	InterpreterController();
 public:
 	/** the unique start node of this process */
 	InterpreterController(StartNode*startNode);
@@ -30,6 +32,11 @@ public:
 	 *  this function will do nothing if two nodes are not connected yet.
 	*/
 	void removeConnect(AbstractNode*outputNode,AbstractNode*inputNode);
+	/**
+	 * @brief getGlobalInstance
+	 * @return return the global unique Interpreter Controller.
+	 */
+	static InterpreterController* getGlobalInstance();
 };
 
 #endif // INTERPRETERCONTROLLER_H

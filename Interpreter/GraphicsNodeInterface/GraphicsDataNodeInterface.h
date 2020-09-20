@@ -6,8 +6,8 @@
 
 class GraphicsDataNodeInterface:public GraphicsNodeInterface{
 public:
-	virtual QVariant*getNodeData() = 0;
-	virtual void setNodeData(QVariant*newData) = 0;
+	virtual QVariant getNodeData() = 0;
+	virtual void setNodeData(const QVariant&newData) = 0;
 };
 
 #endif // GRAPHICSDATANODEINTERFACE_H
