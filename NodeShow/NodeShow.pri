@@ -3,7 +3,8 @@ RESOURCES += \
 
 FORMS += \
 	$$PWD/GraphicsNode/GraphicsDataNode.ui \
-	$$PWD/GraphicsNode/GraphicsStartNode.ui
+	$$PWD/GraphicsNode/GraphicsStartNode.ui \
+	$$PWD/GraphicsNode/Port.ui
 
 HEADERS += \
 	$$PWD/ConnectLine/ConnectLineItem.h \
@@ -12,6 +13,7 @@ HEADERS += \
 	$$PWD/GraphicsNode/GraphicsStartNode.h \
 	$$PWD/GraphicsNode/InputPortWidget.h \
 	$$PWD/GraphicsNode/OutputPortWidget.h \
+	$$PWD/GraphicsNode/Port.h \
 	$$PWD/GraphicsNode/PortWidget.h \
 	$$PWD/ProxyWidget/MovableDualPortProxyWidget.h \
 	$$PWD/ProxyWidget/MovableInputPortProxyWidget.h \
@@ -25,6 +27,7 @@ SOURCES += \
 	$$PWD/GraphicsNode/GraphicsStartNode.cpp \
 	$$PWD/GraphicsNode/InputPortWidget.cpp \
 	$$PWD/GraphicsNode/OutputPortWidget.cpp \
+	$$PWD/GraphicsNode/Port.cpp \
 	$$PWD/GraphicsNode/PortWidget.cpp \
 	$$PWD/ProxyWidget/MovableDualPortProxyWidget.cpp \
 	$$PWD/ProxyWidget/MovableInputPortProxyWidget.cpp \

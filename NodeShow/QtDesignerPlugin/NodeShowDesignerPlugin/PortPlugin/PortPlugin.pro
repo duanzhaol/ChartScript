@@ -1,11 +1,9 @@
 CONFIG      += plugin debug_and_release
-TARGET      = $$qtLibraryTarget(portplugin)
+TARGET      = $$qtLibraryTarget(portpluginplugin)
 TEMPLATE    = lib
 
-HEADERS     = PortPlugin.h \
-	Port.h
-SOURCES     = PortPlugin.cpp \
-	Port.cpp
+HEADERS     = PortPluginPlugin.h
+SOURCES     = PortPluginPlugin.cpp
 RESOURCES   = icons.qrc
 LIBS        += -L. 
 
@@ -18,7 +16,5 @@ greaterThan(QT_MAJOR_VERSION, 4) {
 target.path = $$[QT_INSTALL_PLUGINS]/designer
 INSTALLS    += target
 
-include(port.pri)
-
-FORMS += \
-	Port.ui
+include(portplugin.pri)
+include(../../../NodeShow.pri)

@@ -6,20 +6,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>20</width>
-    <height>20</height>
+    <width>16</width>
+    <height>16</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QPushButton" name="outputPort">
+  <widget class="QPushButton" name="inputButton">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>20</width>
-     <height>20</height>
+     <width>16</width>
+     <height>16</height>
     </rect>
    </property>
    <property name="minimumSize">
@@ -36,27 +36,27 @@
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton {
-    border: 1px solid #333333;
-    padding: 4px;
-	border-radius:10px;
-    
-	background-color: rgb(255, 255, 255);
-}
+							 border: 1px solid #333333;
+							 padding: 4px;
+							 border-radius:8px;
 
-QPushButton:hover {
-    background-color: rgb(52, 167, 255);
-    border-color: #444444;
-}
+							 background-color: rgb(255, 255, 255);
+						 }
 
-QPushButton:pressed {
-    background-color: rgb(46, 39, 239);
-    border-color: #333333;
-    color: yellow;
-}
+						 QPushButton:hover {
+							 background-color: rgb(52, 167, 255);
+							 border-color: #444444;
+						 }
 
-QPushButton:disabled {
-    color: #333333;
-}</string>
+						 QPushButton:pressed {
+							 background-color: rgb(46, 39, 239);
+							 border-color: #333333;
+							 color: yellow;
+						 }
+
+						 QPushButton:disabled {
+							 color: #333333;
+						 }</string>
    </property>
    <property name="text">
     <string/>

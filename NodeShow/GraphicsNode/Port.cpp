@@ -2,13 +2,13 @@
 #include "ui_Port.h"
 
 Port::Port(QWidget *parent) :
-	QWidget(parent),
-	ui(new Ui::Port)
+      QWidget(parent),
+      ui(new Ui::Port)
 {
-	ui->setupUi(this);
+    ui->setupUi(this);
 }
 
 Port::~Port()
 {
-	delete ui;
+    delete ui;
 }

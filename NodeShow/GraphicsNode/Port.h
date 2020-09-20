@@ -9,14 +9,14 @@ class Port;
 
 class Port : public QWidget
 {
-	Q_OBJECT
+    Q_OBJECT
 
 public:
-	explicit Port(QWidget *parent = nullptr);
-	~Port();
+    explicit Port(QWidget *parent = nullptr);
+    ~Port();
 
 private:
-	Ui::Port *ui;
+    Ui::Port *ui;
 };
 
 #endif // PORT_H
