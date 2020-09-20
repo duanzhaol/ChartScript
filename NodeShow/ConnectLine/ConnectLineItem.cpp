@@ -1,5 +1,8 @@
 ﻿#include "ConnectLineItem.h"
+#include"Interpreter/Interpreter/InterpreterController.h"
+#include "Interpreter/GraphicsNodeInterface/GraphicsNodeInterface.h"
 
+#include <QDebug>
 #include <QPainter>
 
 
@@ -9,6 +12,10 @@ ConnectLineItem::ConnectLineItem(MovableInputPortProxyWidget *inputNode,
 	  outputNode(outputNode)
 {
 
+    InterpreterController::getGlobalInstance()->addConnect(
+        dynamic_cast<GraphicsNodeInterface*>(outputNode->getOutputPortWidget())->getInterpreterNode(),
+        dynamic_cast<GraphicsNodeInterface*>(inputNode->getInputPortWidget())->getInterpreterNode()
+        );
 }
 
 QRectF ConnectLineItem::boundingRect() const

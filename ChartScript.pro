@@ -11,12 +11,9 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = ChartScript
 TEMPLATE = app
 
-<<<<<<< HEAD
 include(UTools/UTools.pri)
 include(NodeShow/NodeShow.pri)
-=======
 include(Interpreter/Interpreter.pri)
->>>>>>> 8bb3eb108e6b300eedd88e1b6108ff2dea4837ea
 
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which has been marked as deprecated (the exact warnings
@@ -35,14 +32,4 @@ CONFIG += c++1z
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
-
-<<<<<<< HEAD
-HEADERS +=
-
-SOURCES +=
-=======
-
-
-
->>>>>>> 8bb3eb108e6b300eedd88e1b6108ff2dea4837ea
 

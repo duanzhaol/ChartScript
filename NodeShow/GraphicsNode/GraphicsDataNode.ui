@@ -119,7 +119,7 @@ border-radius:50%;
     <string/>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QLineEdit" name="dataNodeData">
    <property name="geometry">
     <rect>
      <x>90</x>
@@ -144,7 +144,7 @@ border-radius:10px;</string>
     <string>Hello World!</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_2">
+  <widget class="QLineEdit" name="dataNodeName">
    <property name="geometry">
     <rect>
      <x>40</x>
@@ -233,8 +233,8 @@ border-radius:10px;</string>
   </widget>
   <zorder>nodeBackground</zorder>
   <zorder>comboBox</zorder>
-  <zorder>lineEdit</zorder>
-  <zorder>lineEdit_2</zorder>
+  <zorder>dataNodeData</zorder>
+  <zorder>dataNodeName</zorder>
   <zorder>label</zorder>
   <zorder>label_2</zorder>
   <zorder>inputPort</zorder>

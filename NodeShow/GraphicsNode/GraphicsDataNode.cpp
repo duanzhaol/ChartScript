@@ -5,6 +5,7 @@
 #include <QPainter>
 #include  <QDebug>
 #include <QMessageBox>
+#include "Interpreter/DataModel/AbstractDataNode.h"
 
 GraphicsDataNode::GraphicsDataNode(QWidget *parent) :
 	PortWidget(parent),
@@ -13,7 +14,7 @@ GraphicsDataNode::GraphicsDataNode(QWidget *parent) :
 
   ui->setupUi(this);
   ui->comboBox->setView(new QListView());
-  ui->lineEdit->setEnabled(true);
+
 
   QWidget::setWindowFlags(Qt::FramelessWindowHint);//设置窗口无边框
 
@@ -51,3 +52,29 @@ OutputPort *GraphicsDataNode::getOutputPort()
     return ui->outputPort;
 }
 
+
+
+NodeName GraphicsDataNode::getNodeName()
+{
+    return ui->dataNodeName->text();
+}
+
+void GraphicsDataNode::setNodeName(const NodeName&newNodeName)
+{
+    ui->dataNodeName->setText(newNodeName);
+}
+
+AbstractNode *GraphicsDataNode::getInterpreterNode()
+{
+    return static_cast<AbstractNode*>(new AbstractDataNode(this));
+}
+
+QVariant GraphicsDataNode::getNodeData()
+{
+    return QVariant::fromValue(ui->dataNodeData->text());
+}
+
+void GraphicsDataNode::setNodeData(const QVariant&newData)
+{
+    ui->dataNodeData->setText(newData.toString());
+}

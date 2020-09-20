@@ -38,12 +38,12 @@ AbstractNode::~AbstractNode()
 void AbstractNode::addNextNodes(AbstractNode *node)
 {
 	this->verifyConnectable(node);
-	this->nextNodes.insert(node->getNode()->getNodeName(),node);
+    this->nextNodes.insert(node->getNode()->getNodeName(),node);
 }
 
 void AbstractNode::removeNextNode(AbstractNode *node)
 {
-	this->nextNodes.remove(node->getNode()->getNodeName());
+    this->nextNodes.remove(node->getNode()->getNodeName());
 }
 
 
