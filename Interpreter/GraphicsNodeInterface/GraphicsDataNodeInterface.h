@@ -2,12 +2,11 @@
 #define GRAPHICSDATANODEINTERFACE_H
 
 #include "GraphicsNodeInterface.h"
-#include "../DataModel/AbstractDataNode.h"
 #include <QVariant>
 
-class GraphicsDataNodeInterface:public GraphicsNodeInterface{
+class GraphicsDataNodeInterface{
 public:
-	virtual QVariant getNodeData() = 0;
+	virtual QVariant getNodeData()const = 0;
 	virtual void setNodeData(const QVariant&newData) = 0;
 };
 

@@ -13,7 +13,7 @@
  */
 
 class InterpreterController{
-	StartNode* startNode = nullptr;
+	AbstractNode* startNode = nullptr;
 	static InterpreterController*globalController;
 	InterpreterController();
 public:
@@ -37,6 +37,7 @@ public:
 	 * @return return the global unique Interpreter Controller.
 	 */
 	static InterpreterController* getGlobalInstance();
+	void setStartNode(AbstractNode*start);
 };
 
 #endif // INTERPRETERCONTROLLER_H

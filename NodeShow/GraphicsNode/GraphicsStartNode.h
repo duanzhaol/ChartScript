@@ -3,12 +3,13 @@
 
 #include <QWidget>
 #include "OutputPortWidget.h"
+#include "Interpreter/DataModel/AbstractNode.h"
 
 namespace Ui {
 class GraphicsStartNode;
 }
 
-class GraphicsStartNode : public OutputPortWidget
+class GraphicsStartNode : public OutputPortWidget,public AbstractNode
 {
     Q_OBJECT
 
@@ -22,6 +23,17 @@ private:
 	// InputPortWidget interface
 public:
 	virtual OutputPort *getOutputPort() override;
+
+	// GraphicsNodeInterface interface
+public:
+	virtual NodeName getNodeName()const override;
+	virtual void setNodeName(const NodeName &newNodeName) override;
+
+	// QWidget interface
+public:
+	virtual void mousePressEvent(QMouseEvent *event) override;
+
+
 };
 
 

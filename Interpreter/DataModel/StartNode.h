@@ -5,7 +5,7 @@
 
 class StartNode:public AbstractNode{
 public:
-	StartNode(GraphicsNodeInterface*node);
+	StartNode();
 	~StartNode()override;
 };
 

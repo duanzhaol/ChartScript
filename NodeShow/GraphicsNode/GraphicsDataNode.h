@@ -4,7 +4,7 @@
 #include <QPushButton>
 #include <QWidget>
 #include "DualPortWidget.h"
-#include "Interpreter/GraphicsNodeInterface/GraphicsDataNodeInterface.h"
+#include "Interpreter/DataModel/AbstractDataNode.h"
 
 namespace Ui {
 class GraphicsDataNode;
@@ -13,7 +13,7 @@ class GraphicsDataNode;
 using InputPort = QWidget;
 using OutputPort = QWidget;
 
-class GraphicsDataNode : public DualPortWidget,public GraphicsDataNodeInterface{
+class GraphicsDataNode : public DualPortWidget,public AbstractDataNode{
 	Q_OBJECT
 
 public:
@@ -33,13 +33,12 @@ private:
 
     // GraphicsNodeInterface interface
 public:
-    virtual NodeName getNodeName() override;
+	virtual NodeName getNodeName()const override;
     virtual void setNodeName(const NodeName&newNodeName) override;
-    virtual AbstractNode *getInterpreterNode() override;
 
     // GraphicsDataNodeInterface interface
 public:
-    virtual QVariant getNodeData() override;
+	virtual QVariant getNodeData()const override;
     virtual void setNodeData(const QVariant&newData) override;
 
 };

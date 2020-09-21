@@ -1,5 +1,5 @@
 ﻿#include "InterpreterController.h"
-
+#include <QDebug>
 InterpreterController::InterpreterController()
 {
 
@@ -30,6 +30,11 @@ void InterpreterController::removeConnect(AbstractNode *outputNode, AbstractNode
 InterpreterController *InterpreterController::getGlobalInstance()
 {
 	return InterpreterController::globalController;
+}
+
+void InterpreterController::setStartNode(AbstractNode *start)
+{
+	this->startNode = start;
 }
 
 InterpreterController* InterpreterController::globalController = new InterpreterController;

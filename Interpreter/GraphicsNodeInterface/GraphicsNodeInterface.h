@@ -2,17 +2,13 @@
 #define GRAPHICSNODEINTERFACE_H
 
 #include <QString>
-
 using NodeName = QString;
-
-class AbstractNode;
 
 class GraphicsNodeInterface{
 public:
 
-    virtual NodeName getNodeName() = 0;
+	virtual NodeName getNodeName()const = 0;
     virtual void setNodeName(const NodeName&newNodeName) = 0;
-    virtual class AbstractNode*getInterpreterNode() = 0;
 
 };
 

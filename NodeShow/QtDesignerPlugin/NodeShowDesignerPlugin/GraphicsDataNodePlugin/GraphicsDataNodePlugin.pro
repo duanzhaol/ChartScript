@@ -18,3 +18,8 @@ INSTALLS    += target
 
 include(graphicsdatanodeplugin.pri)
 include(../../../NodeShow.pri)
+include(../../../../Interpreter/Interpreter.pri)
+
+INCLUDEPATH += C:\MyApplication\QTProject\ChartScript2\Interpreter\ChartScript
+
+

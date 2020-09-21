@@ -54,7 +54,7 @@ OutputPort *GraphicsDataNode::getOutputPort()
 
 
 
-NodeName GraphicsDataNode::getNodeName()
+NodeName GraphicsDataNode::getNodeName()const
 {
     return ui->dataNodeName->text();
 }
@@ -64,12 +64,9 @@ void GraphicsDataNode::setNodeName(const NodeName&newNodeName)
     ui->dataNodeName->setText(newNodeName);
 }
 
-AbstractNode *GraphicsDataNode::getInterpreterNode()
-{
-    return static_cast<AbstractNode*>(new AbstractDataNode(this));
-}
 
-QVariant GraphicsDataNode::getNodeData()
+
+QVariant GraphicsDataNode::getNodeData()const
 {
     return QVariant::fromValue(ui->dataNodeData->text());
 }

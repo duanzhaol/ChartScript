@@ -20,5 +20,4 @@ HEADERS += \
 	$$PWD/GraphicsNodeInterface/GraphicsNodeInterface.h \
 	$$PWD/Interpreter/InterpreterController.h
 
-INCLUDEPATH += DataModel \
-GraphicsNodeInterface
+INCLUDEPATH += DataModel

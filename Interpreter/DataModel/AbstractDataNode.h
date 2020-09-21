@@ -1,8 +1,8 @@
 ﻿#ifndef ABSTRACTDATANODE_H
 #define ABSTRACTDATANODE_H
 #include "AbstractNode.h"
-#include "../GraphicsNodeInterface/GraphicsDataNodeInterface.h"
 #include "../Exception/TypeUnconvertible.h"
+#include "../GraphicsNodeInterface/GraphicsDataNodeInterface.h"
 #include <QVariant>
 
 /**
@@ -10,19 +10,17 @@
  *
  */
 
-class AbstractDataNode : public AbstractNode
+
+class AbstractDataNode:public AbstractNode,public GraphicsDataNodeInterface
 {
 public:
-	AbstractDataNode(GraphicsDataNodeInterface*node);
-	~AbstractDataNode()override;
+	AbstractDataNode();
+	~AbstractDataNode();
 
 	// AbstractNode interface
 public:
 	virtual void process() override;
 
-	// AbstractNode interface
-public:
-	virtual GraphicsDataNodeInterface *getNode() const override;
 
 	// AbstractNode interface
 protected:

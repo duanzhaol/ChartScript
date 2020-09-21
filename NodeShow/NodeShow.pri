@@ -33,10 +33,10 @@ SOURCES += \
 	$$PWD/ProxyWidget/MovableInputPortProxyWidget.cpp \
 	$$PWD/ProxyWidget/MovableOutputPortProxyWidget.cpp \
 	$$PWD/ProxyWidget/MovableProxyWidget.cpp \
-	$$PWD/main.cpp
 
 INCLUDEPATH += \
 	$$PWD/ConnectLine \
 	$$PWD/GraphicsNode \
 	$$PWD/ProxyWidget
+	$$PWD/../../Interpreter
 
