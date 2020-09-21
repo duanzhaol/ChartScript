@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>250</width>
-    <height>122</height>
+    <width>231</width>
+    <height>121</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -31,7 +31,7 @@ background: rgba(255, 255, 255, 0);
   <widget class="QComboBox" name="comboBox">
    <property name="geometry">
     <rect>
-     <x>80</x>
+     <x>70</x>
      <y>50</y>
      <width>91</width>
      <height>31</height>
@@ -46,20 +46,20 @@ background: rgba(255, 255, 255, 0);
    <property name="styleSheet">
     <string notr="true">
 QComboBox {border-radius:10px;background:rgb(97, 97, 97);color:#ffffff;
-padding-left:30px;
+padding-left:15px;
 }  
 
 QComboBox QAbstractItemView {background:rgb(189, 189, 189);color:#ffffff;} 
  
 
 QComboBox::drop-down{
-width: 20px;
+width: 15px;
 border-left: 1px solid #ffffff; 
 }    
 
-QComboBox::down-arrow {image: url(:/img/img/xia.png);height:40px;width:20px;}   
+QComboBox::down-arrow {image: url(:/img/img/xia.png);height:30px;width:15px;}   
 
-QListView::item{padding-left:30px;background:rgb(152, 152, 152);color:#ffffff;}  
+QListView::item{padding-left:15px;background:rgb(152, 152, 152);color:#ffffff;}  
 
 QListView::item:selected{ 
 color:#DCDCDC;
@@ -71,6 +71,11 @@ color:#DCDCDC;
 background:rgb(94,167,255);
 }</string>
    </property>
+   <item>
+    <property name="text">
+     <string>long long</string>
+    </property>
+   </item>
    <item>
     <property name="text">
      <string>String</string>
@@ -91,16 +96,11 @@ background:rgb(94,167,255);
      <string>int</string>
     </property>
    </item>
-   <item>
-    <property name="text">
-     <string>long long</string>
-    </property>
-   </item>
   </widget>
   <widget class="QLabel" name="nodeBackground">
    <property name="geometry">
     <rect>
-     <x>10</x>
+     <x>0</x>
      <y>0</y>
      <width>231</width>
      <height>121</height>
@@ -122,9 +122,9 @@ border-radius:50%;
   <widget class="QLineEdit" name="dataNodeData">
    <property name="geometry">
     <rect>
-     <x>90</x>
+     <x>40</x>
      <y>90</y>
-     <width>81</width>
+     <width>151</width>
      <height>21</height>
     </rect>
    </property>
@@ -137,8 +137,7 @@ border-radius:50%;
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">border:0px;
-border-radius:10px;</string>
+    <string notr="true">border:1px solid rgba(255, 255, 255, 0)</string>
    </property>
    <property name="text">
     <string>Hello World!</string>
@@ -147,7 +146,7 @@ border-radius:10px;</string>
   <widget class="QLineEdit" name="dataNodeName">
    <property name="geometry">
     <rect>
-     <x>40</x>
+     <x>30</x>
      <y>10</y>
      <width>161</width>
      <height>31</height>
@@ -162,8 +161,8 @@ border-radius:10px;</string>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">border:3px solid rgb(126, 126, 126);
-border-radius:10px;</string>
+    <string notr="true">border:2px solid rgb(111, 111, 111);
+border-radius:5px;</string>
    </property>
    <property name="text">
     <string> 数据节点</string>
@@ -172,7 +171,7 @@ border-radius:10px;</string>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>190</x>
+     <x>180</x>
      <y>50</y>
      <width>31</width>
      <height>21</height>
@@ -193,7 +192,7 @@ border-radius:10px;</string>
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>30</x>
+     <x>20</x>
      <y>50</y>
      <width>31</width>
      <height>21</height>
@@ -211,20 +210,20 @@ border-radius:10px;</string>
     <string>in</string>
    </property>
   </widget>
-  <widget class="Port" name="inputPort">
+  <widget class="Port" name="inputPort" native="true">
    <property name="geometry">
     <rect>
-     <x>10</x>
+     <x>0</x>
      <y>50</y>
      <width>16</width>
      <height>16</height>
     </rect>
    </property>
   </widget>
-  <widget class="Port" name="outputPort">
+  <widget class="Port" name="outputPort" native="true">
    <property name="geometry">
     <rect>
-     <x>220</x>
+     <x>210</x>
      <y>50</y>
      <width>16</width>
      <height>16</height>
