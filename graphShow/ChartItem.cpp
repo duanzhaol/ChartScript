@@ -89,7 +89,7 @@ void ChartItem::setAttr()
 
 void ChartItem::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
-
+    qDebug()<<event;
     if(event->button() == Qt::LeftButton){
         int type=IsInResizeArea(event->pos());
         if(type!=0){

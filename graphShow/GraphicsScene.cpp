@@ -10,6 +10,7 @@ void GraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
 
     QGraphicsScene::mousePressEvent(event);
+
     if(!event->isAccepted()){
         if (event->button() == Qt::LeftButton){
              if(event->modifiers()==Qt::ControlModifier){//按ctrl多选
