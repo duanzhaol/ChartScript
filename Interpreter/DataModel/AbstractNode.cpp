@@ -1,15 +1,8 @@
 ﻿#include "AbstractNode.h"
+#include <QDebug>
 
 
-GraphicsNodeInterface *AbstractNode::getNode() const
-{
-	return node;
-}
 
-void AbstractNode::setNode(GraphicsNodeInterface *value)
-{
-	node = value;
-}
 
 void AbstractNode::verifyConnectable(AbstractNode *node)
 {
@@ -17,8 +10,7 @@ void AbstractNode::verifyConnectable(AbstractNode *node)
 	//do nothing
 }
 
-AbstractNode::AbstractNode(GraphicsNodeInterface*node)
-	:node(node)
+AbstractNode::AbstractNode()
 {
 
 }
@@ -38,12 +30,12 @@ AbstractNode::~AbstractNode()
 void AbstractNode::addNextNodes(AbstractNode *node)
 {
 	this->verifyConnectable(node);
-    this->nextNodes.insert(node->getNode()->getNodeName(),node);
+	this->nextNodes.insert(node->getNodeName(),node);
 }
 
 void AbstractNode::removeNextNode(AbstractNode *node)
 {
-    this->nextNodes.remove(node->getNode()->getNodeName());
+	this->nextNodes.remove(node->getNodeName());
 }
 
 

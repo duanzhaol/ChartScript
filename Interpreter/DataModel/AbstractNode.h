@@ -1,8 +1,8 @@
 ﻿#ifndef ABSTRACTNODE_H
 #define ABSTRACTNODE_H
 #include <QHash>
-#include "../GraphicsNodeInterface/GraphicsDataNodeInterface.h"
-
+#include <QMultiHash>
+#include "../GraphicsNodeInterface/GraphicsNodeInterface.h"
 
 /**
  * @brief The AbstractNode class,the base class of all DataModel which also called node
@@ -10,19 +10,17 @@
 
 using NodeName = QString;
 
-class AbstractNode{
+class AbstractNode:public GraphicsNodeInterface{
 protected:
 	/** storge inputNodes` pointers which connected by this node*/
 	QHash<NodeName,AbstractNode*> nextNodes;
-    /** this node`data interface of GraphicsShow Model */
-    class GraphicsNodeInterface*node = nullptr;
 	/** @brief throw corresponding exception if this node can not connect to given node.
 	 * @throw InterpreterException
 	*/
 	virtual void verifyConnectable(AbstractNode*node);
 
 public:
-    AbstractNode(class GraphicsNodeInterface*node);
+	AbstractNode();
 	/** start interpret from this(make this to root node) */
 	virtual void process();
 	virtual ~AbstractNode();
@@ -34,10 +32,7 @@ public:
 	 *  nothing will happen if this has not been connected with node before.
 	*/
 	void removeNextNode(AbstractNode*node);
-	/** getter for GraphicsNodeInterface*/
-    virtual class GraphicsNodeInterface *getNode() const;
-	/** setter for GraphicsNodeInterface*/
-    void setNode(class GraphicsNodeInterface *value);
+
 };
 
 #endif // ABSTRACTNODE_H

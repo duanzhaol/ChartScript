@@ -13,8 +13,8 @@ ConnectLineItem::ConnectLineItem(MovableInputPortProxyWidget *inputNode,
 {
 
     InterpreterController::getGlobalInstance()->addConnect(
-        dynamic_cast<GraphicsNodeInterface*>(outputNode->getOutputPortWidget())->getInterpreterNode(),
-        dynamic_cast<GraphicsNodeInterface*>(inputNode->getInputPortWidget())->getInterpreterNode()
+		dynamic_cast<AbstractNode*>(outputNode->getOutputPortWidget()),
+		dynamic_cast<AbstractNode*>(inputNode->getInputPortWidget())
         );
 }
 
