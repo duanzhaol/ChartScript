@@ -2,6 +2,7 @@
 #define ABSTRACTNODE_H
 #include <QHash>
 #include <QMultiHash>
+#include "../Interpreter/ModelCodingInterface.h"
 #include "../GraphicsNodeInterface/GraphicsNodeInterface.h"
 
 /**
@@ -10,7 +11,10 @@
 
 using NodeName = QString;
 
-class AbstractNode:public GraphicsNodeInterface{
+class AbstractNode:
+		public GraphicsNodeInterface,
+		public ModelCodingInterface
+{
 public:
 	/** @brief throw corresponding exception if this node can not connect to given node.
 	 * @throw InterpreterException
@@ -29,6 +33,10 @@ public:
 	 * as this node will be covered.
 	 */
 	void testNodeNameIfDuplicate(const NodeName&nodeName)const;
+
+	// ModelCodingInterface interface
+public:
+	virtual CodeText getModelName() const override;
 };
 
 #endif // ABSTRACTNODE_H

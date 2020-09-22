@@ -28,6 +28,11 @@ public:
 protected:
 	void processTypeCasting(AbstractDataNode*node)const;
 	bool isConvertible (QVariant::Type type1,QVariant::Type type2)const;
+
+	// ModelCodingInterface interface
+public:
+	virtual CodeText dataTexting() const override;
+	virtual CodeText getModelType() const override;
 };
 
 #endif // ABSTRACTDATANODE_H

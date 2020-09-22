@@ -1,13 +1,14 @@
 ﻿#ifndef GRAPHICSAREANODEINTERFACE_H
 #define GRAPHICSAREANODEINTERFACE_H
 #include <QList>
+#include "../DataModel/AbstractArrayNode.h"
 
 class GraphicsAreaNodeInterface{
 public:
-	virtual QList<qreal>& getUpperXData() = 0;
-	virtual QList<qreal>& getUpperYData() = 0;
-	virtual QList<qreal>& getBottomXData() = 0;
-	virtual QList<qreal>& getBottomYData() = 0;
+	virtual AbstractArrayNode* getUpperXData()const = 0;
+	virtual AbstractArrayNode* getUpperYData()const = 0;
+	virtual AbstractArrayNode* getBottomXData()const = 0;
+	virtual AbstractArrayNode* getBottomYData()const = 0;
 };
 
 #endif // GRAPHICSAREANODEINTERFACE_H

@@ -14,6 +14,7 @@ SOURCES += \
 	$$PWD/Exception/NodeNameConflictException.cpp \
 	$$PWD/Exception/TypeUnconvertible.cpp \
 	$$PWD/Interpreter/InterpreterController.cpp \
+	$$PWD/Interpreter/ModelCodingInterpreter.cpp \
 	$$PWD/Transmitter/GraphShowTransmitter.cpp
 
 HEADERS += \
@@ -42,6 +43,8 @@ HEADERS += \
 	$$PWD/GraphicsNodeInterface/GraphicsXYNodeInterface.h \
 	$$PWD/GraphicsShowInterface/GraphicsShowInterface.h \
 	$$PWD/Interpreter/InterpreterController.h \
+	$$PWD/Interpreter/ModelCodingInterface.h \
+	$$PWD/Interpreter/ModelCodingInterpreter.h \
 	$$PWD/Transmitter/GraphShowTransmitter.h
 
 INCLUDEPATH += DataModel

@@ -10,11 +10,15 @@ void AbstractAreaSeries::process(AbstractNode *nextNode)
 {
 	AbstractSeriesNode::process(nextNode);
 
-	auto getLine = [](QList<qreal>&x,QList<qreal>&y)->QtCharts::QLineSeries*{
+	auto getLine = [](AbstractArrayNode*xNode,AbstractArrayNode*yNode)->QtCharts::QLineSeries*{
 		auto line = new QtCharts::QLineSeries;
+
+		auto x = xNode->getNodeData().toList();
+		auto y = yNode->getNodeData().toList();
+
 		int size = qMin(x.size(),y.size());
 		for(int index = 0;index < size; ++index){
-			line->append(x[index],y[index]);
+			line->append(x[index].toDouble(),y[index].toDouble());
 		}
 		return line;
 	};
@@ -29,4 +33,15 @@ void AbstractAreaSeries::process(AbstractNode *nextNode)
 QtCharts::QAbstractSeries *AbstractAreaSeries::getSeries() const
 {
 	return this->series;
+}
+
+
+CodeText AbstractAreaSeries::dataTexting() const
+{
+	return QString("");
+}
+
+CodeText AbstractAreaSeries::getModelType() const
+{
+	return QStringLiteral("AreaSeries");
 }

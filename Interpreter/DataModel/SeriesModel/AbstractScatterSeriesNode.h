@@ -20,6 +20,11 @@ public:
 	// AbstractSeriesNode interface
 public:
 	virtual QtCharts::QAbstractSeries *getSeries() const override;
+
+	// ModelCodingInterface interface
+public:
+	virtual CodeText dataTexting() const override;
+	virtual CodeText getModelType() const override;
 };
 
 #endif // ABSTRACTSCATTERSERIESNODE_H

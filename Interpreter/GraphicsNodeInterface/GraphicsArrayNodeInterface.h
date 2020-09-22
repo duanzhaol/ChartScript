@@ -5,7 +5,7 @@
 
 class GraphicsArrayNodeInterface{
 public:
-	virtual QVariant::Type getElementType() = 0;
+	virtual QVariant::Type getElementType()const = 0;
 };
 
 #endif // GRAPHICSARRAYNODEINTERFACE_H

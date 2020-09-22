@@ -33,3 +33,9 @@ void AbstractNode::testNodeNameIfDuplicate(const NodeName &nodeName) const
 		throw NodeNameConflictException(nodeName);
 	}
 }
+
+
+CodeText AbstractNode::getModelName() const
+{
+	return this->getNodeName();
+}
