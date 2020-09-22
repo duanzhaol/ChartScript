@@ -6,6 +6,7 @@
 #include  <QDebug>
 #include <QMessageBox>
 #include "Interpreter/DataModel/AbstractDataNode.h"
+#include "../../UTools/UniqueNamer.h"
 
 GraphicsDataNode::GraphicsDataNode(QWidget *parent) :
 	PortWidget(parent),
@@ -34,6 +35,7 @@ GraphicsDataNode::GraphicsDataNode(QWidget *parent) :
 
   setMask(bmp);
 
+  ui->dataNodeName->setText(UniqueNamerPool::getNamer(NamerSeed::GraphShow).getUniqueName());
 
 }
 

@@ -12,13 +12,11 @@ AbstractDataNode::~AbstractDataNode()
 }
 
 
-void AbstractDataNode::process()
+void AbstractDataNode::process(AbstractNode* nextNode)
 {
-	AbstractNode::process();
-	for(AbstractNode*node:this->nextNodes){
-		if(dynamic_cast<AbstractDataNode*>(node) != nullptr){
-			dynamic_cast<AbstractDataNode*>(node)->setNodeData(this->getNodeData());
-		}
+	AbstractNode::process(nextNode);
+	if(dynamic_cast<AbstractDataNode*>(nextNode) != nullptr){
+		dynamic_cast<AbstractDataNode*>(nextNode)->setNodeData(this->getNodeData());
 	}
 }
 

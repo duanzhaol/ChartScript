@@ -19,11 +19,11 @@ public:
 
 	// AbstractNode interface
 public:
-	virtual void process() override;
+	virtual void process(AbstractNode*nextNode) override;
 
 
 	// AbstractNode interface
-protected:
+public:
 	virtual void verifyConnectable(AbstractNode *node) override;
 private:
 	void processTypeCasting(AbstractDataNode*node)const;
