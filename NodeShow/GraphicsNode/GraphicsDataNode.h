@@ -5,6 +5,7 @@
 #include <QWidget>
 #include "DualPortWidget.h"
 #include "Interpreter/DataModel/AbstractDataNode.h"
+#pragma execution_character_set("utf-8")
 
 namespace Ui {
 class GraphicsDataNode;
@@ -40,6 +41,9 @@ public:
 public:
 	virtual QVariant getNodeData()const override;
     virtual void setNodeData(const QVariant&newData) override;
+
+private slots:
+    void on_comboBox_currentIndexChanged(const QString &arg1);
 
 };
 

@@ -4,6 +4,7 @@
 #include <QWidget>
 #include "OutputPortWidget.h"
 #include "Interpreter/DataModel/AbstractNode.h"
+#pragma execution_character_set("utf-8")
 
 namespace Ui {
 class GraphicsStartNode;

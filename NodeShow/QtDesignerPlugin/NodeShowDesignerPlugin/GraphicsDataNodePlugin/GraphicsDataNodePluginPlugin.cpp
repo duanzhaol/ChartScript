@@ -51,7 +51,7 @@ QString GraphicsDataNodePluginPlugin::toolTip() const
 
 QString GraphicsDataNodePluginPlugin::whatsThis() const
 {
-    return QLatin1String("放数据节点，端口ui插件的组");
+    return QLatin1String("数据节点插件");
 }
 
 bool GraphicsDataNodePluginPlugin::isContainer() const

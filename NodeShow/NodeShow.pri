@@ -2,6 +2,7 @@ RESOURCES += \
     $$PWD/resource.qrc
 
 FORMS += \
+	$$PWD/GraphicsNode/GraphicsDataArrayNode.ui \
 	$$PWD/GraphicsNode/GraphicsDataNode.ui \
 	$$PWD/GraphicsNode/GraphicsStartNode.ui \
 	$$PWD/GraphicsNode/Port.ui
@@ -9,6 +10,7 @@ FORMS += \
 HEADERS += \
 	$$PWD/ConnectLine/ConnectLineItem.h \
 	$$PWD/GraphicsNode/DualPortWidget.h \
+	$$PWD/GraphicsNode/GraphicsDataArrayNode.h \
 	$$PWD/GraphicsNode/GraphicsDataNode.h \
 	$$PWD/GraphicsNode/GraphicsStartNode.h \
 	$$PWD/GraphicsNode/InputPortWidget.h \
@@ -23,6 +25,7 @@ HEADERS += \
 SOURCES += \
 	$$PWD/ConnectLine/ConnectLineItem.cpp \
 	$$PWD/GraphicsNode/DualPortWidget.cpp \
+	$$PWD/GraphicsNode/GraphicsDataArrayNode.cpp \
 	$$PWD/GraphicsNode/GraphicsDataNode.cpp \
 	$$PWD/GraphicsNode/GraphicsStartNode.cpp \
 	$$PWD/GraphicsNode/InputPortWidget.cpp \
