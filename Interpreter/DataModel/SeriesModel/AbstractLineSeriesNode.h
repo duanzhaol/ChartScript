@@ -2,7 +2,7 @@
 #define ABSTRACTLINESERIESNODE_H
 
 #include "AbstractSeriesNode.h"
-#include "../GraphicsNodeInterface/GraphicsXYNodeInterface.h"
+#include "../../GraphicsNodeInterface/GraphicsXYNodeInterface.h"
 #include <QtCharts/QLineSeries>
 
 class AbstractLineSeriesNode:

@@ -1,10 +1,11 @@
 ﻿#include "AbstractLineSeriesNode.h"
+#include <QList>
 
 AbstractLineSeriesNode::AbstractLineSeriesNode()
 {
 
 }
-#include <QList>
+
 
 void AbstractLineSeriesNode::verifyConnectable(AbstractNode *node)
 {

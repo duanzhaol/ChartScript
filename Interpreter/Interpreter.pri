@@ -2,9 +2,9 @@ SOURCES += \
 	$$PWD/DataModel/AbstractArrayNode.cpp \
 	$$PWD/DataModel/AbstractChartNode.cpp \
 	$$PWD/DataModel/AbstractDataNode.cpp \
-	$$PWD/DataModel/AbstractLineSeriesNode.cpp \
+	$$PWD/DataModel/SeriesModel/AbstractLineSeriesNode.cpp \
 	$$PWD/DataModel/AbstractNode.cpp \
-	$$PWD/DataModel/AbstractSeriesNode.cpp \
+	$$PWD/DataModel/SeriesModel/AbstractSeriesNode.cpp \
 	$$PWD/DataModel/StartNode.cpp \
 	$$PWD/Exception/ImplicitTypeConversion.cpp \
 	$$PWD/Exception/InterpreterException.cpp \
@@ -17,9 +17,9 @@ HEADERS += \
 	$$PWD/DataModel/AbstractArrayNode.h \
 	$$PWD/DataModel/AbstractChartNode.h \
 	$$PWD/DataModel/AbstractDataNode.h \
-	$$PWD/DataModel/AbstractLineSeriesNode.h \
+	$$PWD/DataModel/SeriesModel/AbstractLineSeriesNode.h \
 	$$PWD/DataModel/AbstractNode.h \
-	$$PWD/DataModel/AbstractSeriesNode.h \
+	$$PWD/DataModel/SeriesModel/AbstractSeriesNode.h \
 	$$PWD/DataModel/StartNode.h \
 	$$PWD/Exception/ImplicitTypeConversion.h \
 	$$PWD/Exception/InterpreterErrorException.h \
