@@ -3,21 +3,29 @@
 
 #include "AbstractNode.h"
 #include "../GraphicsNodeInterface/GraphicsTwoDimensionStatisticalChartInterface.h"
+#include "../GraphicsShowInterface/GraphicsShowInterface.h"
+#include <QChart>
+#include <QtCharts>
 
 class AbstractTwoDimensionStatisticalChartNode:
 		public AbstractNode,
-		public GraphicsTwoDimensionStatisticalChartInterface
+		public GraphicsTwoDimensionStatisticalChartInterface,
+		public GraphicsShowInterface
 {
+	QtCharts::QChart* chart;
+	QtCharts::QAbstractSeries* getSeries();
 public:
 	AbstractTwoDimensionStatisticalChartNode();
 
+	// GraphicsShowInterface interface
+public:
+	virtual QString getName() const override;
+	virtual QtCharts::QChart *getChart() const override;
 
 	// AbstractNode interface
-protected:
-	virtual void verifyConnectable(AbstractNode *node) override;
-
 public:
-	virtual void process(AbstractNode*nextNode) override;
+	virtual void verifyConnectable(AbstractNode *node) override;
+	virtual void process(AbstractNode *nextNode) override;
 };
 
 #endif // ABSTRACTTWODIMENSIONSTATISTICALCHARTNODE_H

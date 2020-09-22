@@ -1,11 +1,17 @@
 ﻿#ifndef GRAPHICSTWODIMENSIONSTATISTICALCHARTINTERFACE_H
 #define GRAPHICSTWODIMENSIONSTATISTICALCHARTINTERFACE_H
 
-#include "../DataModel/AbstractNode.h"
+#include "../DataModel/AbstractDataNode.h"
+
+enum class StatisticalChartType:char{
+	LineChart
+};
 
 class GraphicsTwoDimensionStatisticalChartInterface{
-	virtual AbstractNode*getXNode() = 0;
-	virtual AbstractNode*getYNode() = 0;
+public:
+	virtual AbstractDataNode*getXNode() = 0;
+	virtual AbstractDataNode*getYNode() = 0;
+	virtual StatisticalChartType getChartType() = 0;
 };
 
 #endif // GRAPHICSTWODIMENSIONSTATISTICALCHARTINTERFACE_H

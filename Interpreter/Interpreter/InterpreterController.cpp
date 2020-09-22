@@ -29,7 +29,7 @@ void InterpreterController::interprete()
 
 void InterpreterController::addConnect(AbstractNode *outputNode, AbstractNode *inputNode)
 {
-	outputNode->verifyConnectable(inputNode);
+	inputNode->verifyConnectable(outputNode);
 	this->graph[outputNode->getNodeName()].insert(inputNode);
 }
 

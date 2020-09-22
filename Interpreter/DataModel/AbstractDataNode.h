@@ -25,8 +25,9 @@ public:
 	// AbstractNode interface
 public:
 	virtual void verifyConnectable(AbstractNode *node) override;
-private:
+protected:
 	void processTypeCasting(AbstractDataNode*node)const;
+	bool isConvertible (QVariant::Type type1,QVariant::Type type2)const;
 };
 
 #endif // ABSTRACTDATANODE_H

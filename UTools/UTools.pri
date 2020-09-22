@@ -1,4 +1,5 @@
 HEADERS += \
+	$$PWD/Array.h \
 	$$PWD/GraphicsScene.h \
 	$$PWD/GraphicsSelectBoxProxyItem.h \
 	$$PWD/UniqueNamer.h

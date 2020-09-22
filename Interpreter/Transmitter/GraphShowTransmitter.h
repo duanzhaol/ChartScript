@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QChart>
+#include "../GraphicsShowInterface/GraphicsShowInterface.h"
 
 class GraphShowTransmitter:public QObject
 {
@@ -12,7 +13,7 @@ class GraphShowTransmitter:public QObject
 	static GraphShowTransmitter instancce;
 public:
 signals:
-	void sendChart(QtCharts::QChart*chart);
+	void sendChart(GraphicsShowInterface*chart);
 
 public slots:
 

@@ -33,7 +33,18 @@ void AbstractDataNode::processTypeCasting(AbstractDataNode *node) const
 	QVariant outputData = this->getNodeData(),
 			inputData = node->getNodeData();
 
-	if(!outputData.canConvert(inputData.type())){
+
+	if(!outputData.canConvert(inputData.type())||!isConvertible(inputData.type(),outputData.type())){
 		throw TypeUnconvertible(outputData.type(),inputData.type());
 	}
+
+
+}
+
+bool AbstractDataNode::isConvertible(QVariant::Type type1, QVariant::Type type2)const
+{
+	return
+			(type1 == QVariant::String && type2 == QVariant::String)
+			||
+			(type2 != QVariant::String && type2 != QVariant::String);
 }
