@@ -38,7 +38,17 @@ QtCharts::QAbstractSeries *AbstractAreaSeries::getSeries() const
 
 CodeText AbstractAreaSeries::dataTexting() const
 {
-	return QString("");
+	return QString(R"(
+				   \tUpperX=%1
+				   \tUpperY=%2
+				   \tLowerX=%3
+				   \tLowerY=%4
+				   )")
+			.arg(this->getUpperXData()->dataTexting())
+			.arg(this->getUpperYData()->dataTexting())
+			.arg(this->getBottomXData()->dataTexting())
+			.arg(this->getBottomYData()->dataTexting())
+			;
 }
 
 CodeText AbstractAreaSeries::getModelType() const
