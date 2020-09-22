@@ -1,10 +1,10 @@
 SOURCES += \
 	$$PWD/DataModel/AbstractArrayNode.cpp \
+	$$PWD/DataModel/AbstractChartNode.cpp \
 	$$PWD/DataModel/AbstractDataNode.cpp \
 	$$PWD/DataModel/AbstractLineSeriesNode.cpp \
 	$$PWD/DataModel/AbstractNode.cpp \
 	$$PWD/DataModel/AbstractSeriesNode.cpp \
-	$$PWD/DataModel/AbstractTwoDimensionStatisticalChartNode.cpp \
 	$$PWD/DataModel/StartNode.cpp \
 	$$PWD/Exception/ImplicitTypeConversion.cpp \
 	$$PWD/Exception/InterpreterException.cpp \
@@ -15,11 +15,11 @@ SOURCES += \
 
 HEADERS += \
 	$$PWD/DataModel/AbstractArrayNode.h \
+	$$PWD/DataModel/AbstractChartNode.h \
 	$$PWD/DataModel/AbstractDataNode.h \
 	$$PWD/DataModel/AbstractLineSeriesNode.h \
 	$$PWD/DataModel/AbstractNode.h \
 	$$PWD/DataModel/AbstractSeriesNode.h \
-	$$PWD/DataModel/AbstractTwoDimensionStatisticalChartNode.h \
 	$$PWD/DataModel/StartNode.h \
 	$$PWD/Exception/ImplicitTypeConversion.h \
 	$$PWD/Exception/InterpreterErrorException.h \
@@ -28,6 +28,7 @@ HEADERS += \
 	$$PWD/Exception/NodeNameConflictException.h \
 	$$PWD/Exception/TypeUnconvertible.h \
 	$$PWD/GraphicsNodeInterface/GraphicsArrayNodeInterface.h \
+	$$PWD/GraphicsNodeInterface/GraphicsChartNodeInterface.h \
 	$$PWD/GraphicsNodeInterface/GraphicsDataNodeInterface.h \
 	$$PWD/GraphicsNodeInterface/GraphicsNodeInterface.h \
 	$$PWD/GraphicsNodeInterface/GraphicsTwoDimensionStatisticalChartInterface.h \

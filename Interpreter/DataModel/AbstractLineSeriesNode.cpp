@@ -14,11 +14,15 @@ void AbstractLineSeriesNode::verifyConnectable(AbstractNode *node)
 void AbstractLineSeriesNode::process(AbstractNode *nextNode)
 {
 	AbstractSeriesNode::process(nextNode);
-	QVariant
-			x = this->getXDataNode()->getNodeData(),
-			y = this->getYDataNode()->getNodeData();
+	QVariantList
+			x = this->getXDataNode()->getNodeData().toList(),
+			y = this->getYDataNode()->getNodeData().toList();
 
+	int size = qMin(x.size(),y.size());
 
+	for(int index = 0;index < size; ++size){
+		this->series->append(x[index].toDouble(),y[index].toDouble());
+	}
 
 }
 
