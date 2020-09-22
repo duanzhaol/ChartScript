@@ -12,13 +12,11 @@ AbstractDataNode::~AbstractDataNode()
 }
 
 
-void AbstractDataNode::process()
+void AbstractDataNode::process(AbstractNode* nextNode)
 {
-	AbstractNode::process();
-	for(AbstractNode*node:this->nextNodes){
-		if(dynamic_cast<AbstractDataNode*>(node) != nullptr){
-			dynamic_cast<AbstractDataNode*>(node)->setNodeData(this->getNodeData());
-		}
+	AbstractNode::process(nextNode);
+	if(dynamic_cast<AbstractDataNode*>(nextNode) != nullptr){
+		dynamic_cast<AbstractDataNode*>(nextNode)->setNodeData(this->getNodeData());
 	}
 }
 
@@ -35,7 +33,30 @@ void AbstractDataNode::processTypeCasting(AbstractDataNode *node) const
 	QVariant outputData = this->getNodeData(),
 			inputData = node->getNodeData();
 
-	if(!outputData.canConvert(inputData.type())){
+
+	if(!outputData.canConvert(inputData.type())||!isConvertible(inputData.type(),outputData.type())){
 		throw TypeUnconvertible(outputData.type(),inputData.type());
 	}
+
+
+}
+
+bool AbstractDataNode::isConvertible(QVariant::Type type1, QVariant::Type type2)const
+{
+	return
+			(type1 == QVariant::String && type2 == QVariant::String)
+			||
+			(type2 != QVariant::String && type2 != QVariant::String);
+}
+
+CodeText AbstractDataNode::dataTexting() const
+{
+	return QString("%1 : %2")
+			.arg(this->getNodeData().typeName())
+			.arg(this->getNodeData().toString());
+}
+
+CodeText AbstractDataNode::getModelType() const
+{
+	return QStringLiteral("Data");
 }

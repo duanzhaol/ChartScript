@@ -2,6 +2,7 @@
 #define ABSTRACTNODE_H
 #include <QHash>
 #include <QMultiHash>
+#include "../Interpreter/ModelCodingInterface.h"
 #include "../GraphicsNodeInterface/GraphicsNodeInterface.h"
 
 /**
@@ -10,29 +11,32 @@
 
 using NodeName = QString;
 
-class AbstractNode:public GraphicsNodeInterface{
-protected:
-	/** storge inputNodes` pointers which connected by this node*/
-	QHash<NodeName,AbstractNode*> nextNodes;
+class AbstractNode:
+		public GraphicsNodeInterface,
+		public ModelCodingInterface
+{
+public:
 	/** @brief throw corresponding exception if this node can not connect to given node.
 	 * @throw InterpreterException
 	*/
 	virtual void verifyConnectable(AbstractNode*node);
 
-public:
 	AbstractNode();
 	/** start interpret from this(make this to root node) */
-	virtual void process();
+	virtual void process(AbstractNode*nextNode);
 	virtual ~AbstractNode();
-	/** add node after call @see virtual void verifyConnectable(AbstractNode*node).
-	 *  call this function to connect from this(as output) to node(as input).
-	*/
-	void addNextNodes(AbstractNode*node);
-	/** call this function to dis connect from this (as output) to node(as input).
-	 *  nothing will happen if this has not been connected with node before.
-	*/
-	void removeNextNode(AbstractNode*node);
 
+	/**
+	 * @brief testNodeNameIfDuplicate
+	 * @warning call this function before you modify node name at everywhere and everytime to
+	 * ensure that every node have unique node name,or previous node which have same name
+	 * as this node will be covered.
+	 */
+	void testNodeNameIfDuplicate(const NodeName&nodeName)const;
+
+	// ModelCodingInterface interface
+public:
+	virtual CodeText getModelName() const override;
 };
 
 #endif // ABSTRACTNODE_H

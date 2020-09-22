@@ -2,15 +2,16 @@
 #define GRAPHICSSTARTNODE_H
 
 #include <QWidget>
+#include <Interpreter/DataModel/StartNode.h>
 #include "OutputPortWidget.h"
-#include "Interpreter/DataModel/AbstractNode.h"
+
 #pragma execution_character_set("utf-8")
 
 namespace Ui {
 class GraphicsStartNode;
 }
 
-class GraphicsStartNode : public OutputPortWidget,public AbstractNode
+class GraphicsStartNode : public OutputPortWidget,public StartNode
 {
     Q_OBJECT
 

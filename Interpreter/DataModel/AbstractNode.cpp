@@ -1,6 +1,7 @@
 ﻿#include "AbstractNode.h"
 #include <QDebug>
-
+#include "../Interpreter/InterpreterController.h"
+#include "../Exception/NodeNameConflictException.h"
 
 
 
@@ -15,11 +16,9 @@ AbstractNode::AbstractNode()
 
 }
 
-void AbstractNode::process()
+void AbstractNode::process(AbstractNode* nextNode)
 {
-	for(AbstractNode*node:nextNodes){
-		node->process();
-	}
+	Q_UNUSED(nextNode);
 }
 
 AbstractNode::~AbstractNode()
@@ -27,15 +26,16 @@ AbstractNode::~AbstractNode()
 
 }
 
-void AbstractNode::addNextNodes(AbstractNode *node)
-{
-	this->verifyConnectable(node);
-	this->nextNodes.insert(node->getNodeName(),node);
-}
 
-void AbstractNode::removeNextNode(AbstractNode *node)
+void AbstractNode::testNodeNameIfDuplicate(const NodeName &nodeName) const
 {
-	this->nextNodes.remove(node->getNodeName());
+	if(InterpreterController::getGlobalInstance()->hasNodeName(nodeName)){
+		throw NodeNameConflictException(nodeName);
+	}
 }
 
 
+CodeText AbstractNode::getModelName() const
+{
+	return this->getNodeName();
+}

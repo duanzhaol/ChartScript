@@ -13,6 +13,7 @@
 #include "QRegExpValidator"
 #include "QValidator"
 #include "QRegExp"
+#include "../../UTools/UniqueNamer.h"
 
 
 GraphicsDataNode::GraphicsDataNode(QWidget *parent) :
@@ -23,7 +24,7 @@ GraphicsDataNode::GraphicsDataNode(QWidget *parent) :
   ui->setupUi(this);
   ui->comboBox->setView(new QListView());
 
-  /*设置qcombox文字居中显示，放一个lineedit进去（设置lineedit文字居中）*/
+  /*设置qcombox文字居中显示，放一个lineedit进去 哈哈（设置lineedit文字居中）*/
   QLineEdit *lineEdit = new QLineEdit;
   lineEdit->setReadOnly(true);
   lineEdit->setAlignment(Qt::AlignCenter);
@@ -52,6 +53,7 @@ GraphicsDataNode::GraphicsDataNode(QWidget *parent) :
 
 
 
+  ui->dataNodeName->setText(UniqueNamerPool::getNamer(NamerSeed::GraphShow).getUniqueName());
 
 }
 

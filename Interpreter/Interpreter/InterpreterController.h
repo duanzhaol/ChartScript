@@ -2,6 +2,8 @@
 #define INTERPRETERCONTROLLER_H
 
 #include "../DataModel/StartNode.h"
+#include <QHash>
+#include <QSet>
 
 /**
  * @brief The InterpreterController class
@@ -16,6 +18,8 @@ class InterpreterController{
 	AbstractNode* startNode = nullptr;
 	static InterpreterController*globalController;
 	InterpreterController();
+	QHash<QString,QSet<AbstractNode*>> graph;
+	void dfsInterprete(AbstractNode*startNode);
 public:
 	/** the unique start node of this process */
 	InterpreterController(StartNode*startNode);
@@ -38,6 +42,7 @@ public:
 	 */
 	static InterpreterController* getGlobalInstance();
 	void setStartNode(AbstractNode*start);
+	bool hasNodeName(const QString&nodeName)const;
 };
 
 #endif // INTERPRETERCONTROLLER_H

@@ -5,6 +5,16 @@ InterpreterController::InterpreterController()
 
 }
 
+void InterpreterController::dfsInterprete(AbstractNode *startNode)
+{
+	for(auto&nextNode:this->graph[startNode->getNodeName()]){
+		startNode->process(nextNode);
+		this->dfsInterprete(nextNode);
+	}
+}
+
+
+
 InterpreterController::InterpreterController(StartNode*startNode):
 	startNode(startNode)
 {
@@ -13,18 +23,19 @@ InterpreterController::InterpreterController(StartNode*startNode):
 
 void InterpreterController::interprete()
 {
-	this->startNode->process();
+	this->dfsInterprete(this->startNode);
 }
 
 
 void InterpreterController::addConnect(AbstractNode *outputNode, AbstractNode *inputNode)
 {
-	outputNode->addNextNodes(inputNode);
+	inputNode->verifyConnectable(outputNode);
+	this->graph[outputNode->getNodeName()].insert(inputNode);
 }
 
 void InterpreterController::removeConnect(AbstractNode *outputNode, AbstractNode *inputNode)
 {
-	outputNode->removeNextNode(inputNode);
+	this->graph[outputNode->getNodeName()].remove(inputNode);
 }
 
 InterpreterController *InterpreterController::getGlobalInstance()
@@ -35,6 +46,11 @@ InterpreterController *InterpreterController::getGlobalInstance()
 void InterpreterController::setStartNode(AbstractNode *start)
 {
 	this->startNode = start;
+}
+
+bool InterpreterController::hasNodeName(const QString &nodeName) const
+{
+	return this->graph.contains(nodeName);
 }
 
 InterpreterController* InterpreterController::globalController = new InterpreterController;
