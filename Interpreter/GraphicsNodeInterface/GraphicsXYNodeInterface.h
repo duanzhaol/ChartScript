@@ -1,12 +1,13 @@
 ﻿#ifndef GRAPHICSXYNODEINTERFACE_H
 #define GRAPHICSXYNODEINTERFACE_H
 #include "../DataModel/AbstractDataNode.h"
+#include <QList>
 
 class GraphicsXYNodeInterface
 {
 public:
-	virtual AbstractDataNode*getXDataNode() = 0;
-	virtual AbstractDataNode* getYDataNode() = 0;
+	virtual QList<qreal>& getXData() = 0;
+	virtual QList<qreal>& getYData() = 0;
 
 };
 

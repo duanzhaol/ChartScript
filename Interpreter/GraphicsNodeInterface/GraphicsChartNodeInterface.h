@@ -1,7 +1,7 @@
 ﻿#ifndef GRAPHICSCHARTNODEINTERFACE_H
 #define GRAPHICSCHARTNODEINTERFACE_H
 
-#include "../DataModel/AbstractSeriesNode.h"
+#include "../DataModel/SeriesModel/AbstractSeriesNode.h"
 
 class GraphicsChartNodeInterface{
 public:

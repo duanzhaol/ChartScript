@@ -1,18 +1,17 @@
-﻿#ifndef ABSTRACTLINESERIESNODE_H
-#define ABSTRACTLINESERIESNODE_H
+﻿#ifndef ABSTRACTSCATTERSERIESNODE_H
+#define ABSTRACTSCATTERSERIESNODE_H
 
 #include "AbstractSeriesNode.h"
 #include "../../GraphicsNodeInterface/GraphicsXYNodeInterface.h"
-#include <QtCharts/QLineSeries>
+#include <QtCharts/QScatterSeries>
 
-class AbstractLineSeriesNode:
+class AbstractScatterSeriesNode:
 		public AbstractSeriesNode,
 		public GraphicsXYNodeInterface
 {
-
-	QtCharts::QLineSeries*series = new QtCharts::QLineSeries;
+	QtCharts::QScatterSeries*series = new QtCharts::QScatterSeries;
 public:
-	AbstractLineSeriesNode();
+	AbstractScatterSeriesNode();
 
 	// AbstractNode interface
 public:
@@ -23,4 +22,4 @@ public:
 	virtual QtCharts::QAbstractSeries *getSeries() const override;
 };
 
-#endif // ABSTRACTLINESERIESNODE_H
+#endif // ABSTRACTSCATTERSERIESNODE_H

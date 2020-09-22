@@ -1,14 +1,12 @@
-﻿#include "AbstractLineSeriesNode.h"
-#include <QList>
+﻿#include "AbstractScatterSeriesNode.h"
 
-AbstractLineSeriesNode::AbstractLineSeriesNode()
+AbstractScatterSeriesNode::AbstractScatterSeriesNode()
 {
 
 }
 
 
-
-void AbstractLineSeriesNode::process(AbstractNode *nextNode)
+void AbstractScatterSeriesNode::process(AbstractNode *nextNode)
 {
 	AbstractSeriesNode::process(nextNode);
 	auto
@@ -20,10 +18,9 @@ void AbstractLineSeriesNode::process(AbstractNode *nextNode)
 	for(int index = 0;index < size; ++size){
 		this->series->append(x[index],y[index]);
 	}
-
 }
 
-QtCharts::QAbstractSeries *AbstractLineSeriesNode::getSeries() const
+QtCharts::QAbstractSeries *AbstractScatterSeriesNode::getSeries() const
 {
 	return this->series;
 }
