@@ -7,7 +7,7 @@ GraphShowTransmitter::GraphShowTransmitter()
 
 GraphShowTransmitter &GraphShowTransmitter::getInstance()
 {
-	return this->instancce;
+	return instancce;
 }
 
 GraphShowTransmitter GraphShowTransmitter::instancce;

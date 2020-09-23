@@ -1,4 +1,5 @@
 ﻿#include "AbstractChartNode.h"
+#include "../Transmitter/GraphShowTransmitter.h"
 
 AbstractChartNode::AbstractChartNode()
 {
@@ -23,5 +24,7 @@ void AbstractChartNode::process(AbstractNode *nextNode)
 		series->process(nextNode);
 		this->chart->addSeries(series->getSeries());
 	}
+
+	emit GraphShowTransmitter::getInstance().sendChart(this);
 
 }

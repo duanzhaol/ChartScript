@@ -9,9 +9,9 @@ class GraphShowTransmitter:public QObject
 {
 	Q_OBJECT
 	GraphShowTransmitter();
-	GraphShowTransmitter&getInstance();
 	static GraphShowTransmitter instancce;
 public:
+	static GraphShowTransmitter&getInstance();
 signals:
 	void sendChart(GraphicsShowInterface*chart);
 
