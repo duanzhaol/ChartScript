@@ -1,5 +1,5 @@
 ﻿#include "ModelTypeInterpreter.h"
-#include "SpaceClosureInterpreter.h"
+#include "ClosureInterpreter.h"
 
 ModelTypeInterpreter::ModelTypeInterpreter()
 {

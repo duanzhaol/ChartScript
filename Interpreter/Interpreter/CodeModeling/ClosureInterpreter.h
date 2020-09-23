@@ -7,11 +7,11 @@
  * @brief The SpaceClosureInterpreter class
  */
 
-class SpaceClosureInterpreter
+class ClosureInterpreter
 {
-	SpaceClosureInterpreter() = default;
+	ClosureInterpreter() = default;
 public:
-	static int interprete(CodeText&code);
+	static int interprete(CodeText&code,const QChar&closureChar = ' ');
 };
 
 #endif // SPACECLOSUREINTERPRETER_H

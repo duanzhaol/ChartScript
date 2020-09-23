@@ -94,3 +94,13 @@ QString DataInterpreter::stringInterprete(CodeText &code)
 	throw InterpreterErrorException("invalid string type data");
 
 }
+
+QVariant DataInterpreter::interprete(CodeText &code, const QVariant::Type dataType)
+{
+	switch (dataType) {
+	case QVariant::Type::Int :return QVariant(DataInterpreter::intInterprete(code));
+	case QVariant::Type::Double: return QVariant(DataInterpreter::doubleInterprete(code));
+	case QVariant::Type::String: return QVariant(DataInterpreter::stringInterprete(code));
+	default: return QVariant(QVariant::Type::Invalid);
+	}
+}

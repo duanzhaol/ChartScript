@@ -14,12 +14,12 @@ SOURCES += \
 	$$PWD/Exception/InterpreterException.cpp \
 	$$PWD/Exception/NodeNameConflictException.cpp \
 	$$PWD/Exception/TypeUnconvertible.cpp \
+	$$PWD/Interpreter/CodeModeling/ClosureInterpreter.cpp \
 	$$PWD/Interpreter/CodeModeling/DataInterpreter.cpp \
 	$$PWD/Interpreter/CodeModeling/DataTypeInterpreter.cpp \
 	$$PWD/Interpreter/CodeModeling/InitCodeLineInterpreter.cpp \
 	$$PWD/Interpreter/CodeModeling/ModelNameInterpreter.cpp \
 	$$PWD/Interpreter/CodeModeling/ModelTypeInterpreter.cpp \
-	$$PWD/Interpreter/CodeModeling/SpaceClosureInterpreter.cpp \
 	$$PWD/Interpreter/InterpreterController.cpp \
 	$$PWD/Interpreter/ModelCodingInterpreter.cpp \
 	$$PWD/Transmitter/GraphShowTransmitter.cpp
@@ -49,12 +49,12 @@ HEADERS += \
 	$$PWD/GraphicsNodeInterface/GraphicsPieNodeInterface.h \
 	$$PWD/GraphicsNodeInterface/GraphicsXYNodeInterface.h \
 	$$PWD/GraphicsShowInterface/GraphicsShowInterface.h \
+	$$PWD/Interpreter/CodeModeling/ClosureInterpreter.h \
 	$$PWD/Interpreter/CodeModeling/DataInterpreter.h \
 	$$PWD/Interpreter/CodeModeling/DataTypeInterpreter.h \
 	$$PWD/Interpreter/CodeModeling/InitCodeLineInterpreter.h \
 	$$PWD/Interpreter/CodeModeling/ModelNameInterpreter.h \
 	$$PWD/Interpreter/CodeModeling/ModelTypeInterpreter.h \
-	$$PWD/Interpreter/CodeModeling/SpaceClosureInterpreter.h \
 	$$PWD/Interpreter/InterpreterController.h \
 	$$PWD/Interpreter/ModelCodingInterface.h \
 	$$PWD/Interpreter/ModelCodingInterpreter.h \
