@@ -46,7 +46,7 @@ bool AbstractDataNode::isConvertible(QVariant::Type type1, QVariant::Type type2)
 	return
 			(type1 == QVariant::String && type2 == QVariant::String)
 			||
-			(type2 != QVariant::String && type2 != QVariant::String);
+			(type1 != QVariant::String && type2 != QVariant::String);
 }
 
 CodeText AbstractDataNode::dataTexting() const
