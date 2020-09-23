@@ -15,8 +15,4 @@ public:
 
 
 
-InterpreterErrorException::InterpreterErrorException(const QString &message):
-	InterpreterException (message)
-{
 
-}

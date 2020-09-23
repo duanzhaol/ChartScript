@@ -10,6 +10,7 @@ SOURCES += \
 	$$PWD/DataModel/SeriesModel/AbstractSeriesNode.cpp \
 	$$PWD/DataModel/StartNode.cpp \
 	$$PWD/Exception/ImplicitTypeConversion.cpp \
+	$$PWD/Exception/InterpreterErrorException.cpp \
 	$$PWD/Exception/InterpreterException.cpp \
 	$$PWD/Exception/NodeNameConflictException.cpp \
 	$$PWD/Exception/TypeUnconvertible.cpp \

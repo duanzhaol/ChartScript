@@ -45,27 +45,6 @@ CodeText AbstractArrayNode::getModelTypeName() const
 	return QStringLiteral("Array");
 }
 
-
-QVariant::Type AbstractArrayNode::getElementType() const
-{
-}
-
-NodeName AbstractArrayNode::getNodeName() const
-{
-}
-
-void AbstractArrayNode::setNodeName(const NodeName &newNodeName)
-{
-}
-
-QVariant AbstractArrayNode::getNodeData() const
-{
-}
-
-void AbstractArrayNode::setNodeData(const QVariant &newData)
-{
-}
-
 ModelType AbstractArrayNode::getDataModelType() const
 {
 	return ModelType::Array;

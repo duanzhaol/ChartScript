@@ -44,5 +44,6 @@ AbstractNode *InitCodeLineInterpreter::interprete(CodeText &code)
 		}
 	}
 	}
+	return nullptr;
 
 }

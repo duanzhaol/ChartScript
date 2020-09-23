@@ -42,7 +42,7 @@ CodeText AbstractNode::getModelName() const
 
 ModelType AbstractNode::nameToType(const QString &typeName)
 {
-#define RETURN_TYPE(NAME) if(typeName == QStringLiteral(#NAME))return DataModelType::NAME
+#define RETURN_TYPE(NAME) if(typeName == QStringLiteral(#NAME))return ModelType::NAME
 	RETURN_TYPE(Start);
 	RETURN_TYPE(Data);
 	RETURN_TYPE(Array);
@@ -56,7 +56,7 @@ ModelType AbstractNode::nameToType(const QString &typeName)
 
 QString AbstractNode::typeToName(const ModelType type)
 {
-#define RETURN_NAME(TYPE) if(type == DataModelType::TYPE)return QStringLiteral(#TYPE);
+#define RETURN_NAME(TYPE) if(type == ModelType::TYPE)return QStringLiteral(#TYPE);
 	RETURN_NAME(Start);
 	RETURN_NAME(Data);
 	RETURN_NAME(Array);
