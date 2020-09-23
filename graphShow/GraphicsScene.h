@@ -11,6 +11,7 @@
  */
 class GraphicsScene: public QGraphicsScene
 {
+    Q_OBJECT
 public:
     /**
      * @brief 构造函数

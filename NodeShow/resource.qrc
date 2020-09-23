@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/img">
+        <file>img/xia.png</file>
+        <file>img/ha.jpg</file>
+        <file>img/beijing.jpg</file>
+        <file>img/startNode.png</file>
+        <file>img/startNode-hover.png</file>
+        <file>img/startNode-press.png</file>
+    </qresource>
+</RCC>

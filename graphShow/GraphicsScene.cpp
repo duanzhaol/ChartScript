@@ -1,7 +1,7 @@
 ﻿#include "GraphicsScene.h"
 #include<QDebug>
 #include <QGraphicsSceneMouseEvent>
-GraphicsScene::GraphicsScene(QObject *parent)
+GraphicsScene::GraphicsScene(QObject *parent):QGraphicsScene(parent)
 {
     clearFocus();
 }

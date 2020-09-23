@@ -7,7 +7,7 @@ SOURCES += \
 	graphShow/GraphicsScene.cpp \
 	graphShow/chartattribute.cpp \
 	graphShow/main.cpp \
-	graphShow/multimimedata.cpp \
+
 
 HEADERS += \
 	$$PWD/mywindow.h \
@@ -16,8 +16,7 @@ HEADERS += \
 	$$PWD/widget/sceneDialogTheme.h \
 	graphShow/ChartAttribute.h \
 	graphShow/ChartItem.h \
-	graphShow/GraphicsScene.h \
-	graphShow/multimimedata.h
+        graphShow/GraphicsScene.h
 
 FORMS += \
 	$$PWD/mywindow.ui \
