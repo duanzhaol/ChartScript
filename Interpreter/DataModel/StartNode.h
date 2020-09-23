@@ -16,6 +16,10 @@ public:
 	// AbstractNode interface
 public:
 	virtual ModelType getDataModelType() const override;
+
+	// ModelCodingInterface interface
+public:
+	virtual CodeText getModelName() const override;
 };
 
 #endif // STARTNODE_H

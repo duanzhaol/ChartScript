@@ -41,7 +41,8 @@ public:
 
 	// GraphicsArrayNodeInterface interface
 public:
-	virtual QVariant::Type getElementType() const override;
+    virtual QVariant::Type getElementType() const override;
+    virtual void setElementType(QVariant::Type type) override;
 };
 
 

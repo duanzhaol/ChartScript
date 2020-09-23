@@ -56,5 +56,12 @@ InputPort *GraphicsDataArrayNode::getInputPort()
 
 QVariant::Type GraphicsDataArrayNode::getElementType() const
 {
+	//to do
 	return QVariant::Type::String;
+}
+
+
+void GraphicsDataArrayNode::setElementType(QVariant::Type type)
+{
+	//todo
 }

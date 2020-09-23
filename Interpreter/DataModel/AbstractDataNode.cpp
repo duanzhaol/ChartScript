@@ -51,9 +51,20 @@ bool AbstractDataNode::isConvertible(QVariant::Type type1, QVariant::Type type2)
 
 CodeText AbstractDataNode::dataTexting() const
 {
-	return QString("%1 : %2")
-			.arg(this->getNodeData().typeName())
-			.arg(this->getNodeData().toString());
+	const QVariant& nodeData = this->getNodeData();
+
+	if(nodeData.type() == QVariant::Type::String){
+		return QString("%1 \"%2\"")
+				.arg(nodeData.typeName())
+				.arg(nodeData.toString());
+	}
+	else{
+		return QString("%1 %2")
+				.arg(nodeData.typeName())
+				.arg(nodeData.toString());
+	}
+
+
 }
 
 CodeText AbstractDataNode::getModelTypeName() const

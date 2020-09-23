@@ -4,8 +4,8 @@
 
 void ModelCodingInterpreter::initNodes(AbstractNode *start)
 {
-	this->nodes.insert(start);
 	for(auto nextNode:controller->graph[start->getNodeName()]){
+		this->nodes.insert(nextNode);
 		initNodes(nextNode);
 	}
 }

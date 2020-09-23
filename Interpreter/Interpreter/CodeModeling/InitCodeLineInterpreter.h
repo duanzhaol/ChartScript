@@ -2,12 +2,13 @@
 #define CODELINEINTERPRETER_H
 
 #include "../../DataModel/AbstractNode.h"
+#include "../../NodeShow/GraphicsNode/PortWidget.h"
 
 class InitCodeLineInterpreter
 {
 	InitCodeLineInterpreter();
 public:
-	AbstractNode*interprete(CodeText&code);
+	static AbstractNode*interprete(CodeText&code);
 };
 
 #endif // CODELINEINTERPRETER_H

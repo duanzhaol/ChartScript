@@ -30,6 +30,8 @@ auto getStart(){
 	proxy->setOutputPortWidget(new GraphicsStartNode);
 	return proxy;
 }
+
+
 int main(int argc,char*argv[]){
 	QApplication app(argc,argv);
 
