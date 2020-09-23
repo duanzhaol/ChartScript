@@ -21,6 +21,7 @@ class InterpreterController{
 	QHash<QString,QSet<AbstractNode*>> graph;
 	void dfsInterprete(AbstractNode*startNode);
 public:
+	friend class ModelCodingInterpreter;
 	/** the unique start node of this process */
 	InterpreterController(StartNode*startNode);
 	/** call this function to start a compile process*/

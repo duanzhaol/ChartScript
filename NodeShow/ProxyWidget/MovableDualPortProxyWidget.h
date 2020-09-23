@@ -12,6 +12,10 @@ public:
 	void setInputPortWidget(InputPortWidget*node) = delete;
     void setOutputPortWidget(OutputPortWidget*node) = delete;
 	void setDualPortWidget(DualPortWidget*node);
+
+	InputPortWidget* getInputPortWidget() const  = delete;
+	OutputPortWidget* getOutputPortWidget() const  = delete;
+
 };
 
 

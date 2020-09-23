@@ -3,14 +3,14 @@
 
 #include "DualPortWidget.h"
 #include <QWidget>
-#include <Interpreter/DataModel/AbstractDataNode.h>
+#include <Interpreter/DataModel/AbstractArrayNode.h>
 
 
 namespace Ui {
 class GraphicsDataArrayNode;
 }
 
-class GraphicsDataArrayNode : public DualPortWidget,public AbstractDataNode
+class GraphicsDataArrayNode : public DualPortWidget,public AbstractArrayNode
 {
     Q_OBJECT
 
@@ -38,6 +38,12 @@ public:
     // InputPortWidget interface
 public:
     virtual InputPort *getInputPort() override;
+
+	// GraphicsArrayNodeInterface interface
+public:
+	virtual QVariant::Type getElementType() const override;
 };
+
+
 
 #endif // GRAPHICSDATAARRAYNODE_H

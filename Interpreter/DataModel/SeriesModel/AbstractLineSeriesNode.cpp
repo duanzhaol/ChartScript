@@ -40,7 +40,13 @@ CodeText AbstractLineSeriesNode::dataTexting() const
 			.arg(this->getYData()->dataTexting());
 }
 
-CodeText AbstractLineSeriesNode::getModelType() const
+CodeText AbstractLineSeriesNode::getModelTypeName() const
 {
 	return QStringLiteral("LineSeries");
+}
+
+
+ModelType AbstractLineSeriesNode::getDataModelType() const
+{
+	return ModelType::LineSeries;
 }

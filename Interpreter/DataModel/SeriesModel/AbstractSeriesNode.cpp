@@ -1,6 +1,8 @@
-#include "AbstractSeriesNode.h"
+﻿#include "AbstractSeriesNode.h"
 
 AbstractSeriesNode::AbstractSeriesNode()
 {
 
 }
+
+

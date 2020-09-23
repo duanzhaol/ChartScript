@@ -9,7 +9,7 @@ class ModelCodingInterface{
 public:
 	virtual CodeText getModelName() const = 0;
 	virtual CodeText dataTexting()const = 0;
-	virtual CodeText getModelType()const = 0;
+	virtual CodeText getModelTypeName()const = 0;
 };
 
 #endif // MODELCODINGINTERFACE_H

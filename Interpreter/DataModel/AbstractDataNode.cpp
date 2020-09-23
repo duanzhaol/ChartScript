@@ -56,7 +56,12 @@ CodeText AbstractDataNode::dataTexting() const
 			.arg(this->getNodeData().toString());
 }
 
-CodeText AbstractDataNode::getModelType() const
+CodeText AbstractDataNode::getModelTypeName() const
 {
 	return QStringLiteral("Data");
+}
+
+ModelType AbstractDataNode::getDataModelType() const
+{
+	return ModelType::Data;
 }

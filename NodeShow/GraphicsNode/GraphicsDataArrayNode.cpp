@@ -35,6 +35,7 @@ void GraphicsDataArrayNode::setNodeName(const NodeName &newNodeName)
 
 QVariant GraphicsDataArrayNode::getNodeData() const
 {
+	return QStringList()<<"233"<<"344";
     return QVariant::fromValue(ui->dataArrayNodeData->text());
 }
 
@@ -51,4 +52,9 @@ OutputPort *GraphicsDataArrayNode::getOutputPort()
 InputPort *GraphicsDataArrayNode::getInputPort()
 {
     return ui->inputPort;
+}
+
+QVariant::Type GraphicsDataArrayNode::getElementType() const
+{
+	return QVariant::Type::String;
 }

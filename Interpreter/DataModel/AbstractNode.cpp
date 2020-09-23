@@ -37,5 +37,39 @@ void AbstractNode::testNodeNameIfDuplicate(const NodeName &nodeName) const
 
 CodeText AbstractNode::getModelName() const
 {
-	return this->getNodeName();
+	return "\"" + this->getNodeName() + "\"";
 }
+
+ModelType AbstractNode::nameToType(const QString &typeName)
+{
+#define RETURN_TYPE(NAME) if(typeName == QStringLiteral(#NAME))return DataModelType::NAME
+	RETURN_TYPE(Start);
+	RETURN_TYPE(Data);
+	RETURN_TYPE(Array);
+	RETURN_TYPE(PieSeries);
+	RETURN_TYPE(AreaSeries);
+	RETURN_TYPE(LineSeries);
+	RETURN_TYPE(ScatterSeries);
+	return ModelType::Invalid;
+#undef RETURN_TYPE
+}
+
+QString AbstractNode::typeToName(const ModelType type)
+{
+#define RETURN_NAME(TYPE) if(type == DataModelType::TYPE)return QStringLiteral(#TYPE);
+	RETURN_NAME(Start);
+	RETURN_NAME(Data);
+	RETURN_NAME(Array);
+	RETURN_NAME(PieSeries);
+	RETURN_NAME(AreaSeries);
+	RETURN_NAME(LineSeries);
+	RETURN_NAME(ScatterSeries);
+	return QStringLiteral("Invalid");
+#undef RETURN_NAME
+}
+
+
+
+
+
+

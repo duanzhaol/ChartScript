@@ -9,6 +9,7 @@ class AbstractSeriesNode:public AbstractNode
 public:
 	AbstractSeriesNode();
 	virtual QtCharts::QAbstractSeries*getSeries()const = 0;
+
 };
 
 #endif // ABSTRACTSERIESNODE_H
