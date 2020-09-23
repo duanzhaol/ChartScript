@@ -10,6 +10,7 @@
 #include "Interpreter/Interpreter/InterpreterController.h"
 #include "Interpreter/Interpreter/ModelCodingInterpreter.h"
 #include "GraphicsDataArrayNode.h"
+#include "Interpreter/Interpreter/CodeModeling/CodeModelingInterpreter.h"
 
 auto getProxy1(){
 	auto node = new GraphicsDataNode;
@@ -67,6 +68,24 @@ int main(int argc,char*argv[]){
 		ModelCodingInterpreter *coding = new ModelCodingInterpreter(InterpreterController::getGlobalInstance());
 
 		qDebug().noquote()<<coding->coding();
+
+		CodeText code(R"(Init:{
+Data "Digit Node2" QString "起飞"
+Array " 数列节点" QString ["233","344"]
+Data "Digit Node1" QString "起飞"
+}
+Connection:{
+[*] -> " 数列节点"
+"Digit Node1" -> "Digit Node2"
+[*] -> "Digit Node1"
+})");
+
+		auto result = CodeModelingInterpreter::interprete(code);
+
+		for(auto&ele:result.allNodes){
+			qDebug().noquote()<<ele->getModelTypeName()<<" "<<ele->getNodeName()<<endl;
+		}
+
 	} catch (InterpreterException&e) {
 		qDebug()<<e.getWhy()<<endl;
 	}

@@ -8,6 +8,7 @@
 #include "../../NodeShow/GraphicsNode/GraphicsDataNode.h"
 #include "../../NodeShow/GraphicsNode/GraphicsStartNode.h"
 #include "../../NodeShow/GraphicsNode/GraphicsDataArrayNode.h"
+#include <QDebug>
 
 InitCodeLineInterpreter::InitCodeLineInterpreter()
 {
@@ -21,7 +22,6 @@ AbstractNode *InitCodeLineInterpreter::interprete(CodeText &code)
 	ClosureInterpreter::interprete(code);
 	QString modelName = ModelNameInterpreter::interprete(code);
 	ClosureInterpreter::interprete(code);
-
 	switch (modelType) {
 	case ModelType::Data:{
 		QVariant modelData(DataTypeInterpreter::interprete(code));

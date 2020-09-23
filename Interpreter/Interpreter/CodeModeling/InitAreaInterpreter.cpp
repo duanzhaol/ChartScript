@@ -2,6 +2,7 @@
 #include "InitCodeLineInterpreter.h"
 #include "ClosureInterpreter.h"
 #include <QSet>
+#include <QDebug>
 
 InitAreaInterpreter::InitAreaInterpreter()
 {

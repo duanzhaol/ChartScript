@@ -1,4 +1,5 @@
 ﻿#include "CodeModelingInterpreter.h"
+#include <QDebug>
 
 CodeModelingInterpreter::CodeModelingInterpreter()
 {

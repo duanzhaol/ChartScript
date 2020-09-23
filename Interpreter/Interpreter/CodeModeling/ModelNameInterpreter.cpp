@@ -1,5 +1,6 @@
 ﻿#include "ModelNameInterpreter.h"
 #include "../../Exception/InterpreterErrorException.h"
+#include <QDebug>
 
 ModelNameInterpreter::ModelNameInterpreter()
 {
@@ -16,11 +17,13 @@ CodeText ModelNameInterpreter::interprete(CodeText &code)
 
 	for(int index = 0;index<code.size();++index){
 		if(code[index] == "\""){
-			nodeName = code.left(index - 1);
-			code.remove(0,index);
+			nodeName = code.left(index);
+			code.remove(0,index + 1);
 			return nodeName;
 		}
 	}
+
+
 
 	throw InterpreterErrorException("model name without close double quotation");
 

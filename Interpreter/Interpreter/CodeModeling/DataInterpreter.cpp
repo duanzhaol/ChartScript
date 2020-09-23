@@ -1,6 +1,7 @@
 ﻿#include "DataInterpreter.h"
 
 #include <Interpreter/Exception/InterpreterErrorException.h>
+#include <QDebug>
 
 DataInterpreter::DataInterpreter()
 {
@@ -21,8 +22,8 @@ int DataInterpreter::intInterprete(CodeText &code)
 
 	for(int index = 0;index < code.size();++index){
 		if(!code[index].isDigit()){
-			numberText = code.left(index - 1);
-			code.remove(0,index);
+			numberText = code.left(index);
+			code.remove(0,index + 1);
 			break;
 		}
 	}
@@ -53,8 +54,8 @@ double DataInterpreter::doubleInterprete(CodeText &code)
 
 	for(int index = 0;index < code.size();++index){
 		if(!code[index].isDigit()){
-			numberText = code.left(index - 1);
-			code.remove(0,index);
+			numberText = code.left(index);
+			code.remove(0,index + 1);
 			break;
 		}
 	}
@@ -85,8 +86,8 @@ QString DataInterpreter::stringInterprete(CodeText &code)
 
 	for(int index = 0;index<code.size();++index){
 		if(code[index] == "\""){
-			stringData = code.left(index - 1);
-			code.remove(0,index);
+			stringData = code.left(index);
+			code.remove(0,index + 1);
 			return stringData;
 		}
 	}

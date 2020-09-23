@@ -4,6 +4,7 @@
 #include "ConnectionLineInterpreter.h"
 
 #include "../../NodeShow/GraphicsNode/GraphicsStartNode.h"
+#include <QDebug>
 
 ConnectionAreaInterpreter::ConnectionAreaInterpreter()
 {
@@ -30,6 +31,7 @@ InterpreterController *ConnectionAreaInterpreter::interprete(
 		ClosureInterpreter::interprete(code,' ','\n');
 		auto  connection = ConnectionLineInterpreter::interprete(code,nodes,startNode);
 		controller->addConnect(connection.first,connection.second);
+		ClosureInterpreter::interprete(code,' ','\n');
 	}
 
 	return controller;

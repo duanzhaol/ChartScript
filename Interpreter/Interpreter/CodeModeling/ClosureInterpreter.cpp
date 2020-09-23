@@ -10,7 +10,7 @@ int ClosureInterpreter::interprete(CodeText &code, const QChar &closureChar)
 			return index;
 		}
 		else{
-			code.right(code.size()-1);
+			code.remove(0,1);
 		}
 	}
 	return 0;
@@ -23,7 +23,7 @@ int ClosureInterpreter::interprete(CodeText &code, const QChar &closureChar1, co
 			return index;
 		}
 		else{
-			code.right(code.size()-1);
+			code.remove(0,1);
 		}
 	}
 	return 0;

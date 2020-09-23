@@ -15,6 +15,7 @@ QVariant ArrayInterpreter::interprete(CodeText &code, const QVariant::Type eleme
 	}
 
 	QList<QVariant> nodeData;
+	code.remove(0,1);
 
 	forever{
 		nodeData.append(DataInterpreter::interprete(code,elementType));
@@ -26,6 +27,7 @@ QVariant ArrayInterpreter::interprete(CodeText &code, const QVariant::Type eleme
 			continue;
 		}
 		else if(code.front() == "]"){
+			code.remove(0,1);
 			break;
 		}
 		else{
