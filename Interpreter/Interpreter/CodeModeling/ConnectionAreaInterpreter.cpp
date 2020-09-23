@@ -4,6 +4,7 @@
 #include "ConnectionLineInterpreter.h"
 
 #include "../../NodeShow/GraphicsNode/GraphicsStartNode.h"
+#include "../../NodeShow/ConnectLine/ConnectLineItem.h"
 #include <QDebug>
 
 ConnectionAreaInterpreter::ConnectionAreaInterpreter()
@@ -11,7 +12,7 @@ ConnectionAreaInterpreter::ConnectionAreaInterpreter()
 
 }
 
-InterpreterController *ConnectionAreaInterpreter::interprete(
+QPair<InterpreterController *, QHash<AbstractNode *, QList<AbstractNode *> > > ConnectionAreaInterpreter::interprete(
 		CodeText &code,
 		QHash<CodeText, AbstractNode *>&nodes)
 {
@@ -27,13 +28,16 @@ InterpreterController *ConnectionAreaInterpreter::interprete(
 
 	InterpreterController*controller = new InterpreterController(startNode);
 
+	QHash<AbstractNode*,QList<AbstractNode*>> relations;
+
 	while(code.front() != '}'){
 		ClosureInterpreter::interprete(code,' ','\n');
 		auto  connection = ConnectionLineInterpreter::interprete(code,nodes,startNode);
 		controller->addConnect(connection.first,connection.second);
+		relations[connection.first].append(connection.second);
 		ClosureInterpreter::interprete(code,' ','\n');
 	}
 
-	return controller;
+	return QPair<InterpreterController *,QHash<AbstractNode*,QList<AbstractNode*>>>{controller,relations};
 
 }

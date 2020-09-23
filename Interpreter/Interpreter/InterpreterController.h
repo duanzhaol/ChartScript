@@ -44,6 +44,8 @@ public:
 	static InterpreterController* getGlobalInstance();
 	void setStartNode(AbstractNode*start);
 	bool hasNodeName(const QString&nodeName)const;
+	AbstractNode*getStartNode();
+	static void setGlobal(InterpreterController*controller);
 };
 
 #endif // INTERPRETERCONTROLLER_H

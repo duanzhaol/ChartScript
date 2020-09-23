@@ -12,10 +12,10 @@ ConnectLineItem::ConnectLineItem(MovableInputPortProxyWidget *inputNode,
 	  outputNode(outputNode)
 {
 
-    InterpreterController::getGlobalInstance()->addConnect(
+	InterpreterController::getGlobalInstance()->addConnect(
 		dynamic_cast<AbstractNode*>(outputNode->getOutputPortWidget()),
 		dynamic_cast<AbstractNode*>(inputNode->getInputPortWidget())
-        );
+		);
 }
 
 QRectF ConnectLineItem::boundingRect() const

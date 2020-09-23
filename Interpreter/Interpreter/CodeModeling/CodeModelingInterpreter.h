@@ -4,10 +4,15 @@
 #include "../../DataModel/AbstractNode.h"
 #include "InitAreaInterpreter.h"
 #include "ConnectionAreaInterpreter.h"
+#include "../../NodeShow/GraphicsNode/PortWidget.h"
 
 struct CodeModelingResult{
+	//! get all Data model nodes
 	QList<AbstractNode*> allNodes;
+	//! get a related Interpreter controller @see InterpreterController
 	InterpreterController*controller;
+	//! get connections of nodes.
+	QHash<AbstractNode*,QList<AbstractNode*>> relationships;
 };
 
 class CodeModelingInterpreter

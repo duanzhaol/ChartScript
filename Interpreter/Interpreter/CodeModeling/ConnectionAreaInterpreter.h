@@ -4,12 +4,15 @@
 #include "../../DataModel/AbstractNode.h"
 #include "../InterpreterController.h"
 #include <QPair>
+#include "../../NodeShow/GraphicsNode/PortWidget.h"
+
 
 class ConnectionAreaInterpreter
 {
 	ConnectionAreaInterpreter();
 public:
-	static InterpreterController* interprete(CodeText&code,QHash<CodeText, AbstractNode *>&nodes);
+	static QPair<InterpreterController*,QHash<AbstractNode*,QList<AbstractNode*>> > interprete(CodeText&code,
+											 QHash<CodeText, AbstractNode *>&nodes);
 };
 
 #endif // CONNECTIONAREAINTERPRETER_H

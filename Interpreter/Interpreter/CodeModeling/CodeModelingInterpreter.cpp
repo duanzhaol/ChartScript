@@ -15,8 +15,14 @@ CodeModelingResult CodeModelingInterpreter::interprete(CodeText &code)
 	QPair<QHash<CodeText, AbstractNode *>, QList<AbstractNode *> > initResult =
 			InitAreaInterpreter::interpreter(code);
 
+	QList<PortWidget*> portWidgets;
+
+	QPair<InterpreterController*,QHash<AbstractNode*,QList<AbstractNode*>>>
+			connectionResult = ConnectionAreaInterpreter::interprete(code,initResult.first);
+
 	return CodeModelingResult{
 		initResult.second,
-		ConnectionAreaInterpreter::interprete(code,initResult.first)
+		connectionResult.first,
+		connectionResult.second
 	};
 }

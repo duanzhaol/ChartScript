@@ -45,10 +45,10 @@ int main(int argc,char*argv[]){
 		auto p3=getProxy2();
 		auto s = getStart();
 
-		scene->addItem(p1);
-		scene->addItem(p2);
-		scene->addItem(p3);
-		scene->addItem(s);
+		//scene->addItem(p1);
+		//scene->addItem(p2);
+		//scene->addItem(p3);
+		//scene->addItem(s);
 
 		auto line = new ConnectLineItem(p2,p1);
 		auto line2 = new ConnectLineItem(p1,s);
@@ -57,8 +57,8 @@ int main(int argc,char*argv[]){
 		InterpreterController::getGlobalInstance()->setStartNode(
 					dynamic_cast<AbstractNode*>(s->getOutputPortWidget()));
 
-		scene->addItem(line);
-		scene->addItem(line2);
+		//scene->addItem(line);
+		//scene->addItem(line2);
 
 		view->setStyleSheet(R"(QGraphicsView{ background-image:url(:/img/img/beijing.jpg);})");//设置scene背景
 		view->showMaximized();
@@ -82,9 +82,19 @@ Connection:{
 
 		auto result = CodeModelingInterpreter::interprete(code);
 
+		QHash<AbstractNode*,MovableDualPortProxyWidget*> ps;
+
 		for(auto&ele:result.allNodes){
 			qDebug().noquote()<<ele->getModelTypeName()<<" "<<ele->getNodeName()<<endl;
+			auto p = new MovableDualPortProxyWidget;
+			p->setDualPortWidget(dynamic_cast<DualPortWidget*>(ele));
+			scene->addItem(p);
 		}
+		auto p = new MovableOutputPortProxyWidget;
+		p->setOutputPortWidget(dynamic_cast<OutputPortWidget*>(result.controller->getStartNode()));
+		scene->addItem(p);
+		InterpreterController::setGlobal(result.controller);
+
 
 	} catch (InterpreterException&e) {
 		qDebug()<<e.getWhy()<<endl;
