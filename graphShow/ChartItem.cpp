@@ -132,6 +132,8 @@ void ChartItem::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 //            newPlace.setWidth(event->pos().x());//设置宽和高
 //            newPlace.setHeight(event->pos().y());
 //            qDebug() << "moved" << newPlace;
+            //qDebug()<<newPlace;
+            //newPlace=mapRectToItem(this,newPlace);
             setGeometry(newPlace);//改变大小
         }
         else
@@ -339,6 +341,7 @@ QRectF ChartItem::getNewPlace(int type, QPointF LT, QPointF RB)
     default:
         break;
     }
+    qDebug()<<re;
     return re;
 }
 

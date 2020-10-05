@@ -1,4 +1,9 @@
 SOURCES += \
+    $$PWD/ListWidget/ListWidget.cpp \
+    $$PWD/ListWidget/ListWidgetItem.cpp \
+    $$PWD/item/GraphicsRectItem.cpp \
+    $$PWD/item/Select.cpp \
+    $$PWD/item/SelectInterface.cpp \
     $$PWD/mywindow.cpp \
     $$PWD/qchartviewfactory.cpp \
     $$PWD/widget/SceneDialogTitle.cpp \
@@ -10,6 +15,11 @@ SOURCES += \
 
 
 HEADERS += \
+    $$PWD/ListWidget/ListWidget.h \
+    $$PWD/ListWidget/ListWidgetItem.h \
+    $$PWD/item/GraphicsRectItem.h \
+    $$PWD/item/Select.h \
+    $$PWD/item/SelectInterface.h \
 	$$PWD/mywindow.h \
 	$$PWD/qchartviewfactory.h \
 	$$PWD/widget/SceneDialogTitle.h \

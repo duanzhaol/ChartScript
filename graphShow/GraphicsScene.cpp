@@ -98,3 +98,9 @@ void GraphicsScene::ThemeChanged(int type)
         }
     }
 }
+
+void GraphicsScene::recieveChart(ChartItem *item)
+{
+    qDebug()<<"123123";
+    addItem(item);
+}

@@ -3,6 +3,9 @@
 
 #include <QWidget>
 #include"GraphicsScene.h"
+#include"ListWidget/ListWidgetItem.h"
+#include"ListWidget/ListWidget.h"
+#include"item/GraphicsRectItem.h"
 namespace Ui {
 class myWindow;
 }
@@ -36,8 +39,13 @@ private slots:
      */
     void on_pushButton_title_clicked();
 
+    void sendChart_Transmitter(QListWidgetItem*item);
+    void initialListWidget();
+
 private:
     Ui::myWindow *ui;
+signals:
+    void sendChart(ChartItem* item);
 
 };
 

@@ -16,6 +16,7 @@
 #include <QChartView>
 #include"qchartviewfactory.h"
 #include"mywindow.h"
+#include"item/GraphicsRectItem.h"
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -41,7 +42,7 @@ int main(int argc, char *argv[])
     chart->setFlag(QGraphicsItem::ItemIsSelectable,true);
     chart->acceptDrops();
 
-    ChartItem *chart2 =  new ChartItem();
+    QtCharts::QChart *chart2 =  new ChartItem();
     chart2->createDefaultAxes();
     //圆饼图元素
     auto pie2 = new ::QtCharts::QPieSeries;
@@ -57,10 +58,13 @@ int main(int argc, char *argv[])
     chart2->setFlag(QGraphicsItem::ItemIsMovable,true);
     chart2->setFlag(QGraphicsItem::ItemIsSelectable,true);
     chart2->acceptDrops();
+
+    ChartItem* chart3=dynamic_cast<ChartItem*>(chart2);
     //chart2->setTheme(QtCharts::QChart::ChartThemeBlueCerulean);
     GraphicsScene *sc = new GraphicsScene();
-    sc->addItem(chart);
-    sc->addItem(chart2);
+    //sc->addItem(chart3);
+    //sc->addItem(chart);
+   // sc->addItem(chart2);
 //    QGraphicsView *view=new QGraphicsView(sc);
 //    view->show();
 //    view->setDragMode(QGraphicsView::RubberBandDrag);//重要
@@ -68,6 +72,12 @@ int main(int argc, char *argv[])
     //QChartViewFactory *factory=new QChartViewFactory();//声明一个view工厂
     //QtCharts::QChartView* view =factory->createView(sc,myWindows);
     //myWindows->show();
+
+    //QGraphicsRectItem *rect=new QGraphicsRectItem(0,0,100,100);
+    GraphicsRectItem *rect=new GraphicsRectItem(0,0,100,100);
+
+    sc->addItem(rect);
+
     myWindows->setScene(sc);
     myWindows->show();
     return a.exec();

@@ -2,7 +2,7 @@
 #define GRAPHICSSCENE_H
 #include<QGraphicsScene>
 #include "ChartItem.h"
-
+#include <QListWidgetItem>
 /**
  * @brief
  * 自定义的场景类，继承自QGraphicsScene
@@ -59,6 +59,7 @@ public slots:
      * @param 目标主题的索引
      */
     void ThemeChanged(int type);
+    void recieveChart(ChartItem *item);
 };
 
 #endif // GRAPHICSSCENE_H
