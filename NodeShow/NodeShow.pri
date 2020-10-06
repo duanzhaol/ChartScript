@@ -43,3 +43,4 @@ INCLUDEPATH += \
 	$$PWD/ProxyWidget
 	$$PWD/../../Interpreter
 
+
