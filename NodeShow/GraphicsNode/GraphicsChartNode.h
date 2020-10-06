@@ -49,10 +49,6 @@ public:
 private slots:
     void on_addSeriesButton_clicked();
 
-    // ModelCodingInterface interface
-public:
-    virtual CodeText dataTexting() const override;
-    virtual CodeText getModelType() const override;
 };
 
 #endif // GRAPHICSCHARTNODE_H

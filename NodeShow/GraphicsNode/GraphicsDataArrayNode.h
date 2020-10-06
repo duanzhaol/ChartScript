@@ -42,11 +42,14 @@ public:
 public:
     virtual InputPort *getInputPort() override;
 
+
     // GraphicsArrayNodeInterface interface
 public:
     virtual QVariant::Type getElementType() const override;
-
+    virtual void setElementType(QVariant::Type type) override;
 
 };
+
+
 
 #endif // GRAPHICSDATAARRAYNODE_H

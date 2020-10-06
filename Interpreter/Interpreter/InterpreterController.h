@@ -21,6 +21,7 @@ class InterpreterController{
 	QHash<QString,QSet<AbstractNode*>> graph;
 	void dfsInterprete(AbstractNode*startNode);
 public:
+	friend class ModelCodingInterpreter;
 	/** the unique start node of this process */
 	InterpreterController(StartNode*startNode);
 	/** call this function to start a compile process*/
@@ -43,6 +44,8 @@ public:
 	static InterpreterController* getGlobalInstance();
 	void setStartNode(AbstractNode*start);
 	bool hasNodeName(const QString&nodeName)const;
+	AbstractNode*getStartNode();
+	static void setGlobal(InterpreterController*controller);
 };
 
 #endif // INTERPRETERCONTROLLER_H

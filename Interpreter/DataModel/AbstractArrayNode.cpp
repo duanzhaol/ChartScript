@@ -31,15 +31,26 @@ CodeText AbstractArrayNode::dataTexting() const
 	else {
 		QString code = QString("%1 [").arg(QVariant::typeToName(this->getElementType()));
 		for(auto&element:nodeData){
-			code += element.toString() + ",";
+			if(element.type() == QVariant::String){
+				code += "\"" + element.toString() + "\",";
+			}
+			else{
+				code += element.toString() + ",";
+			}
 		}
+		code.chop(1);
 		return code + "]";
 	}
 
 }
 
 
-CodeText AbstractArrayNode::getModelType() const
+CodeText AbstractArrayNode::getModelTypeName() const
 {
 	return QStringLiteral("Array");
+}
+
+ModelType AbstractArrayNode::getDataModelType() const
+{
+	return ModelType::Array;
 }

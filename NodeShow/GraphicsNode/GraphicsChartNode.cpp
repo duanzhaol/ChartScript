@@ -147,13 +147,3 @@ void GraphicsChartNode::on_addSeriesButton_clicked()
         insertScatterSeries();
     }
 }
-
-CodeText GraphicsChartNode::dataTexting() const
-{
-    return "占位";
-}
-
-CodeText GraphicsChartNode::getModelType() const
-{
-    return "占位";
-}

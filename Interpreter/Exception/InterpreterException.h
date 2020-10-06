@@ -11,11 +11,13 @@
 
 class InterpreterException:public std::exception
 {
+	QString message;
 public:
 	InterpreterException();
+	InterpreterException(QString message);
 
 	/** return the reson of  current exception*/
-	virtual QString getWhy()const = 0;
+	virtual QString getWhy()const;
 
 	// exception interface
 private:

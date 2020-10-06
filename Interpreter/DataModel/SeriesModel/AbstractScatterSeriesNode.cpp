@@ -36,7 +36,13 @@ CodeText AbstractScatterSeriesNode::dataTexting() const
 			.arg(this->getYData()->dataTexting());
 }
 
-CodeText AbstractScatterSeriesNode::getModelType() const
+CodeText AbstractScatterSeriesNode::getModelTypeName() const
 {
 	return QStringLiteral("ScatterSeries");
+}
+
+
+ModelType AbstractScatterSeriesNode::getDataModelType() const
+{
+	return ModelType::ScatterSeries;
 }

@@ -18,7 +18,19 @@ CodeText StartNode::dataTexting() const
 
 
 
-CodeText StartNode::getModelType() const
+CodeText StartNode::getModelTypeName() const
 {
-	return QStringLiteral("Start");
+	return "Start";
+}
+
+
+ModelType StartNode::getDataModelType() const
+{
+	return ModelType::Start;
+}
+
+
+CodeText StartNode::getModelName() const
+{
+	return "[*]";
 }

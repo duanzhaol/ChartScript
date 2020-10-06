@@ -38,6 +38,7 @@ void GraphicsDataArrayNode::setNodeName(const NodeName &newNodeName)
 
 QVariant GraphicsDataArrayNode::getNodeData() const
 {
+	return QStringList()<<"233"<<"344";
     return QVariant::fromValue(ui->dataArrayNodeData->text());
 }
 
@@ -84,10 +85,8 @@ QVariant::Type GraphicsDataArrayNode::getElementType() const
 }
 
 
-
-
-
-
-
-
+void GraphicsDataArrayNode::setElementType(QVariant::Type type)
+{
+    //todo 设置模型类型，设置个字符串名字就行
+}
 

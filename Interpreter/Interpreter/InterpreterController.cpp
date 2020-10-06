@@ -53,4 +53,14 @@ bool InterpreterController::hasNodeName(const QString &nodeName) const
 	return this->graph.contains(nodeName);
 }
 
+AbstractNode *InterpreterController::getStartNode()
+{
+	return this->startNode;
+}
+
+void InterpreterController::setGlobal(InterpreterController *controller)
+{
+	InterpreterController::globalController = controller;
+}
+
 InterpreterController* InterpreterController::globalController = new InterpreterController;

@@ -51,7 +51,13 @@ CodeText AbstractAreaSeries::dataTexting() const
 			;
 }
 
-CodeText AbstractAreaSeries::getModelType() const
+CodeText AbstractAreaSeries::getModelTypeName() const
 {
 	return QStringLiteral("AreaSeries");
+}
+
+
+ModelType AbstractAreaSeries::getDataModelType() const
+{
+	return ModelType::AreaSeries;
 }

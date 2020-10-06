@@ -46,17 +46,33 @@ bool AbstractDataNode::isConvertible(QVariant::Type type1, QVariant::Type type2)
 	return
 			(type1 == QVariant::String && type2 == QVariant::String)
 			||
-			(type2 != QVariant::String && type2 != QVariant::String);
+			(type1 != QVariant::String && type2 != QVariant::String);
 }
 
 CodeText AbstractDataNode::dataTexting() const
 {
-	return QString("%1 : %2")
-			.arg(this->getNodeData().typeName())
-			.arg(this->getNodeData().toString());
+	const QVariant& nodeData = this->getNodeData();
+
+	if(nodeData.type() == QVariant::Type::String){
+		return QString("%1 \"%2\"")
+				.arg(nodeData.typeName())
+				.arg(nodeData.toString());
+	}
+	else{
+		return QString("%1 %2")
+				.arg(nodeData.typeName())
+				.arg(nodeData.toString());
+	}
+
+
 }
 
-CodeText AbstractDataNode::getModelType() const
+CodeText AbstractDataNode::getModelTypeName() const
 {
 	return QStringLiteral("Data");
+}
+
+ModelType AbstractDataNode::getDataModelType() const
+{
+	return ModelType::Data;
 }

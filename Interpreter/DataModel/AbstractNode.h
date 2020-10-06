@@ -11,6 +11,10 @@
 
 using NodeName = QString;
 
+enum class ModelType:char{
+	Invalid,Start,Data,Array,Chart,AreaSeries,LineSeries,PieSeries,ScatterSeries
+};
+
 class AbstractNode:
 		public GraphicsNodeInterface,
 		public ModelCodingInterface
@@ -37,6 +41,12 @@ public:
 	// ModelCodingInterface interface
 public:
 	virtual CodeText getModelName() const override;
+
+	virtual ModelType getDataModelType() const = 0;
+
+	static ModelType nameToType(const QString&typeName);
+	static QString typeToName(const ModelType type);
+
 };
 
 #endif // ABSTRACTNODE_H

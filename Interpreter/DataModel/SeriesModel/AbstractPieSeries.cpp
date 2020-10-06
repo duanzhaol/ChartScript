@@ -36,7 +36,13 @@ CodeText AbstractPieSeries::dataTexting() const
 			.arg(this->getData()->dataTexting());
 }
 
-CodeText AbstractPieSeries::getModelType() const
+CodeText AbstractPieSeries::getModelTypeName() const
 {
 	return QStringLiteral("PieSeries");
+}
+
+
+ModelType AbstractPieSeries::getDataModelType() const
+{
+	return ModelType::PieSeries;
 }

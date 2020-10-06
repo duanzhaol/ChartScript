@@ -77,19 +77,19 @@ int main(int argc,char*argv[]){
     auto scene = new QGraphicsScene;
     view->setScene(scene);
 
-//    auto m_scene = new QGraphicsScene;
-//    auto zhuView = new ZhuGraphicsView();
-//    zhuView->setScene(m_scene);
+    //    auto m_scene = new QGraphicsScene;
+    //    auto zhuView = new ZhuGraphicsView();
+    //    zhuView->setScene(m_scene);
 
 
-//    QGraphicsRectItem *item=new QGraphicsRectItem;
+    //    QGraphicsRectItem *item=new QGraphicsRectItem;
 
-//    item->setPos(0,0);
-//    item->setBrush(QBrush(Qt::red));
-//    item->setRect(0,0,100,100);
-//    m_scene->addItem(item);
-//    zhuView->setSceneRect(-100,-100,100,100);
-//    zhuView->setScene(m_scene);
+    //    item->setPos(0,0);
+    //    item->setBrush(QBrush(Qt::red));
+    //    item->setRect(0,0,100,100);
+    //    m_scene->addItem(item);
+    //    zhuView->setSceneRect(-100,-100,100,100);
+    //    zhuView->setScene(m_scene);
 
 
 
