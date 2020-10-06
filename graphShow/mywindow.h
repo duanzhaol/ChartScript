@@ -42,10 +42,13 @@ private slots:
     void sendChart_Transmitter(QListWidgetItem*item);
     void initialListWidget();
 
+    void on_pushButton_shadow_clicked();
+
 private:
     Ui::myWindow *ui;
 signals:
     void sendChart(ChartItem* item);
+    void selectAll();
 
 };
 

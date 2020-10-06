@@ -1,6 +1,7 @@
 ﻿#include "GraphicsScene.h"
 #include<QDebug>
 #include <QGraphicsSceneMouseEvent>
+#include "item/GraphicsEllipseItem.h"
 GraphicsScene::GraphicsScene(QObject *parent):QGraphicsScene(parent)
 {
     clearFocus();
@@ -49,18 +50,18 @@ void GraphicsScene::keyPressEvent(QKeyEvent *event)
 void GraphicsScene::deleteSelect()
 {
     foreach(QGraphicsItem *item,selectedItems()){
-        ChartItem *myItem=dynamic_cast<ChartItem*>(item);
+       // ChartItem *myItem=dynamic_cast<ChartItem*>(item);
 //        selectItems.append(myItem);
 //        qDebug()<<selectItems;
-        removeItem(myItem);
+        removeItem(item);
     }
 }
 
 void GraphicsScene::selectAll()
 {
     foreach(QGraphicsItem *item,items()){
-        ChartItem *myItem=dynamic_cast<ChartItem*>(item);
-        myItem->setSelected(true);
+        //ChartItem *myItem=dynamic_cast<ChartItem*>(item);
+        item->setSelected(true);
     }
 }
 
@@ -103,4 +104,19 @@ void GraphicsScene::recieveChart(ChartItem *item)
 {
     qDebug()<<"123123";
     addItem(item);
+}
+
+void GraphicsScene::recieveGraphics(QListWidgetItem *item)
+{
+
+    if(item->text()=="rect"){
+        qDebug()<<item->text();
+        GraphicsRectItem *rect=new GraphicsRectItem(0,0,100,100);
+        addItem(rect);
+    }else if(item->text()=="ellipse"){
+        qDebug()<<item->text();
+
+        GraphicsEllipseItem *ellipse=new GraphicsEllipseItem(0,0,100,100);
+        addItem(ellipse);
+    }
 }

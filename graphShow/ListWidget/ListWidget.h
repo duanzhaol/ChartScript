@@ -4,6 +4,7 @@
 #include"ListWidgetItem.h"
 #include<QMouseEvent>
 #include"graphShow/ChartItem.h"
+#include"../../Interpreter/GraphicsShowInterface/GraphicsShowInterface.h"
 class ListWidget: public QListWidget
 {
     Q_OBJECT
@@ -16,6 +17,8 @@ public:
     bool removeItemAll(int index);
 private:
     QVector<ChartItem*> chartItemList;
+public slots:
+    void reciveChart(GraphicsShowInterface*chart);
 
 
 };

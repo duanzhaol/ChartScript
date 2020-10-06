@@ -74,9 +74,9 @@ int main(int argc, char *argv[])
     //myWindows->show();
 
     //QGraphicsRectItem *rect=new QGraphicsRectItem(0,0,100,100);
-    GraphicsRectItem *rect=new GraphicsRectItem(0,0,100,100);
+//    GraphicsRectItem *rect=new GraphicsRectItem(0,0,100,100);
 
-    sc->addItem(rect);
+//    sc->addItem(rect);
 
     myWindows->setScene(sc);
     myWindows->show();

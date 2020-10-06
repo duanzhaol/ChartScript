@@ -1,6 +1,7 @@
 SOURCES += \
     $$PWD/ListWidget/ListWidget.cpp \
     $$PWD/ListWidget/ListWidgetItem.cpp \
+    $$PWD/item/GraphicsEllipseItem.cpp \
     $$PWD/item/GraphicsRectItem.cpp \
     $$PWD/item/Select.cpp \
     $$PWD/item/SelectInterface.cpp \
@@ -17,6 +18,7 @@ SOURCES += \
 HEADERS += \
     $$PWD/ListWidget/ListWidget.h \
     $$PWD/ListWidget/ListWidgetItem.h \
+    $$PWD/item/GraphicsEllipseItem.h \
     $$PWD/item/GraphicsRectItem.h \
     $$PWD/item/Select.h \
     $$PWD/item/SelectInterface.h \
@@ -35,3 +37,6 @@ FORMS += \
 	graphShow/chartattribute.ui
 
 DISTFILES +=
+
+RESOURCES += \
+    $$PWD/resource.qrc

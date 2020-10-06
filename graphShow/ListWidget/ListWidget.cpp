@@ -1,6 +1,7 @@
 ﻿#include "ListWidget.h"
 #include<QDebug>
-
+#include <QChartView>
+#include <ctime>
 ListWidget::ListWidget(QWidget *parent)
 {
     setMouseTracking(true);
@@ -49,6 +50,30 @@ bool ListWidget::removeItemAll(int index)
     }else{
         return false;
     }
+}
+
+void ListWidget::reciveChart(GraphicsShowInterface *chart)
+{
+    QString chartName=chart->getName();
+    ChartItem* myChart=dynamic_cast<ChartItem*>(chart->getChart());
+
+    qsrand(time(NULL));
+    int n = qrand() % 99999;//存储的随机数
+
+    QtCharts::QChartView *chartView = new QtCharts::QChartView(myChart);
+    chartView->setRenderHint(QPainter::Antialiasing);  //消除边缘
+    chartView->setChart(myChart);
+    QPixmap p = QPixmap::grabWidget(chartView);
+    QImage image=p.toImage();
+    QString url="C:/Users/duan/Documents/QTProgram/ChartScript/graphShow/image/chartPicture/";//前缀
+    url=url+QString(n)+".png";
+    image.save(url);
+
+    ListWidgetItem *item=new ListWidgetItem(this);
+    item->setText(chartName);
+    item->setIcon(QIcon(url));
+    item->setSizeHint(QSize(100,120));
+    this->addItemAll(myChart,item);
 }
 
 

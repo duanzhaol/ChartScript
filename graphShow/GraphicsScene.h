@@ -3,6 +3,8 @@
 #include<QGraphicsScene>
 #include "ChartItem.h"
 #include <QListWidgetItem>
+#include"item/GraphicsRectItem.h"
+#include"item/GraphicsEllipseItem.h"
 /**
  * @brief
  * 自定义的场景类，继承自QGraphicsScene
@@ -20,6 +22,7 @@ public:
     explicit GraphicsScene(QObject *parent = 0);
 
 protected:
+
     /**
      * @brief
      * 鼠标点击事件（未被item接收到或点击了空白区域的在这里处理)
@@ -60,6 +63,7 @@ public slots:
      */
     void ThemeChanged(int type);
     void recieveChart(ChartItem *item);
+    void recieveGraphics(QListWidgetItem *item);
 };
 
 #endif // GRAPHICSSCENE_H

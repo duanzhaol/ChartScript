@@ -5,6 +5,7 @@
 #include<QDebug>
 #include <QStringListModel>
 #include <QPieSeries>
+
 myWindow::myWindow(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::myWindow)
@@ -19,7 +20,8 @@ void myWindow::setScene(GraphicsScene *myScene)
     ui->graphicsView->setScene(myScene);
     connect(ui->listWidget1,&ListWidget::itemDoubleClicked,this,&myWindow::sendChart_Transmitter);
     connect(this,&myWindow::sendChart,dynamic_cast<GraphicsScene*>(ui->graphicsView->scene()),&GraphicsScene::recieveChart);
-
+    connect(ui->listWidget2,&QListWidget::itemDoubleClicked,dynamic_cast<GraphicsScene*>(ui->graphicsView->scene()),&GraphicsScene::recieveGraphics);
+    connect(this,&myWindow::selectAll,dynamic_cast<GraphicsScene*>(ui->graphicsView->scene()),&GraphicsScene::selectAll);
 }
 
 myWindow::~myWindow()
@@ -98,19 +100,40 @@ void myWindow::initialListWidget()
 
     ListWidgetItem *item1=new ListWidgetItem(ui->listWidget1);
     item1->setText("aaa");
-    item1->setIcon(QIcon("C:/Users/duan/Desktop/640.jpg"));
+    item1->setIcon(QIcon("C:/Users/duan/Desktop/2.png"));
     item1->setSizeHint(QSize(100,120));
     ListWidgetItem *item2=new ListWidgetItem(ui->listWidget1);
     item2->setText("bbb");
     item2->setIcon(QIcon("C:/Users/duan/Desktop/2.png"));
     item2->setSizeHint(QSize(100,120));
 
+    ListWidgetItem *item3=new ListWidgetItem(ui->listWidget2);
+    item3->setText("rect");
+    item3->setIcon(QIcon("C:/Users/duan/Documents/QTProgram/ChartScript/graphShow/image/rect.png"));
+    item3->setSizeHint(QSize(100,120));
+
+    ListWidgetItem *item4=new ListWidgetItem(ui->listWidget2);
+    item4->setText("ellipse");
+    item4->setIcon(QIcon("C:/Users/duan/Documents/QTProgram/ChartScript/graphShow/image/ellipse.png"));
+    item4->setSizeHint(QSize(100,120));
+
     ui->listWidget1->addItemAll(chart,item1);
     ui->listWidget1->addItemAll(chart,item2);
+    ui->listWidget2->addItem(item3);
+    ui->listWidget2->addItem(item4);
     ui->listWidget1->show();
     ui->listWidget2->show();
+
 }
 
 
 
 
+/**
+ * @brief myWindow::on_pushButton_shadow_clicked
+ * 点击了选择全部按钮
+ */
+void myWindow::on_pushButton_shadow_clicked()
+{
+    emit selectAll();
+}
