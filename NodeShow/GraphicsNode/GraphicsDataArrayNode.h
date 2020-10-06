@@ -2,8 +2,12 @@
 #define GRAPHICSDATAARRAYNODE_H
 
 #include "DualPortWidget.h"
+#include <QComboBox>
 #include <QWidget>
 #include <Interpreter/DataModel/AbstractArrayNode.h>
+
+#include <Interpreter/DataModel/AbstractDataNode.h>
+
 
 
 namespace Ui {
@@ -17,6 +21,7 @@ class GraphicsDataArrayNode : public DualPortWidget,public AbstractArrayNode
 public:
     explicit GraphicsDataArrayNode(QWidget *parent = nullptr);
     ~GraphicsDataArrayNode();
+    QComboBox* getCombobox();
 
 private:
     Ui::GraphicsDataArrayNode *ui;
@@ -39,11 +44,14 @@ public:
 public:
     virtual InputPort *getInputPort() override;
 
+
 	// GraphicsArrayNodeInterface interface
 public:
     virtual QVariant::Type getElementType() const override;
-    virtual void setElementType(QVariant::Type type) override;
+	virtual void setElementType(QVariant::Type type) override;
 };
+
+
 
 
 

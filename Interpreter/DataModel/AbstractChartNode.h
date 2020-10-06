@@ -7,7 +7,7 @@
 
 class AbstractChartNode:
 		public AbstractNode,
-		public GraphicsShowInterface,
+        public GraphicsShowInterface,
 		public GraphicsChartNodeInterface
 {
 	QtCharts::QChart*chart = new QtCharts::QChart;

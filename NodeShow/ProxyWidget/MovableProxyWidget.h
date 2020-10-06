@@ -17,6 +17,8 @@ protected:
 private:
 	QPointF coordinateDifference;
 
+
+
 };
 
 

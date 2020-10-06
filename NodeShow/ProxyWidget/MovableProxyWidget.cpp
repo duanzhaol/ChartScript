@@ -4,6 +4,8 @@
 #include <QWidget>
 #include <QDebug>
 #include <QApplication>
+#include "../GraphicsNode/PortWidget.h"
+#include <QGraphicsScene>
 
 MovableProxyWidget::MovableProxyWidget(){
 
@@ -38,6 +40,15 @@ void MovableProxyWidget::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 
 void MovableProxyWidget::setWidget(QWidget *widget)
 {
-	QGraphicsProxyWidget::setWidget(widget);
+
+    QGraphicsProxyWidget::setWidget(widget);
+    prepareGeometryChange();
+    this->setMinimumSize(0,0);
+    this->setMaximumSize(100000,100000);
+    this->resize(widget->width(),widget->height());
+    update(this->geometry());
+    this->widget()->resize(widget->width(),widget->height());
 }
+
+
 

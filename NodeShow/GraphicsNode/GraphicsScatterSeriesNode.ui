@@ -1,21 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <author/>
- <comment/>
- <exportmacro/>
  <class>GraphicsScatterSeriesNode</class>
  <widget class="QWidget" name="GraphicsScatterSeriesNode">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>730</width>
+    <height>150</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgba(121, 121, 121,0);</string>
+  </property>
+  <widget class="QLabel" name="ScatterSeriesName">
+   <property name="geometry">
+    <rect>
+     <x>663</x>
+     <y>12</y>
+     <width>30</width>
+     <height>125</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>30</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>40</width>
+     <height>125</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <family>Arial Rounded MT Bold</family>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:2px solid rgb(255, 255, 255) ;
+border-radius:5px;
+background-color: rgba(221, 221, 221, 0);
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>散点图序列</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>731</width>
+     <height>151</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:2px solid rgb(255, 255, 255);
+border-radius:5px;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="Port" name="outputPort" native="true">
+   <property name="geometry">
+    <rect>
+     <x>710</x>
+     <y>70</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>16</width>
+     <height>16</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>16</width>
+     <height>16</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="Port" name="inputPort" native="true">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>70</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>16</width>
+     <height>16</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>16</width>
+     <height>16</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="GraphicsDataArrayNode" name="XDataArray" native="true">
+   <property name="geometry">
+    <rect>
+     <x>64</x>
+     <y>15</y>
+     <width>280</width>
+     <height>120</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>280</width>
+     <height>120</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>280</width>
+     <height>120</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgba(255, 255, 255, 0);
+
+border:0px </string>
+   </property>
+  </widget>
+  <widget class="GraphicsDataArrayNode" name="YDataArray" native="true">
+   <property name="geometry">
+    <rect>
+     <x>350</x>
+     <y>15</y>
+     <width>280</width>
+     <height>120</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>280</width>
+     <height>120</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>280</width>
+     <height>120</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgba(255, 255, 255, 0);
+
+border:0px </string>
+   </property>
+  </widget>
+  <zorder>label</zorder>
+  <zorder>ScatterSeriesName</zorder>
  </widget>
- <pixmapfunction/>
+ <customwidgets>
+  <customwidget>
+   <class>Port</class>
+   <extends>QWidget</extends>
+   <header>port.h</header>
+  </customwidget>
+  <customwidget>
+   <class>GraphicsDataArrayNode</class>
+   <extends>QWidget</extends>
+   <header>graphicsdataarraynode.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
  <connections/>
 </ui>

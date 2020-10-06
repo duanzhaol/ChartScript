@@ -10,8 +10,6 @@ GraphicsDataArrayNode::GraphicsDataArrayNode(QWidget *parent) :
     ui->setupUi(this);
     ui->comboBox->setView(new QListView());
 
-
-
     /*两个单独lineedit文字居中*/
     ui->dataArrayNodeName->setAlignment( Qt::AlignHCenter); //数据节点的名字居中显示
     ui->dataArrayNodeData->setAlignment( Qt::AlignHCenter); //数据节点的数据居中显示
@@ -21,6 +19,11 @@ GraphicsDataArrayNode::GraphicsDataArrayNode(QWidget *parent) :
 GraphicsDataArrayNode::~GraphicsDataArrayNode()
 {
     delete ui;
+}
+
+QComboBox* GraphicsDataArrayNode::getCombobox()
+{
+    return ui->comboBox;
 }
 
 NodeName GraphicsDataArrayNode::getNodeName() const
@@ -35,7 +38,6 @@ void GraphicsDataArrayNode::setNodeName(const NodeName &newNodeName)
 
 QVariant GraphicsDataArrayNode::getNodeData() const
 {
-	return QStringList()<<"233"<<"344";
     return QVariant::fromValue(ui->dataArrayNodeData->text());
 }
 
@@ -56,12 +58,31 @@ InputPort *GraphicsDataArrayNode::getInputPort()
 
 QVariant::Type GraphicsDataArrayNode::getElementType() const
 {
-	//to do
-	return QVariant::Type::String;
-}
+	/**
+	 * 获取combobox当前的text
+	 * 朱千奥 0923
+	 *
+	 */
 
+	QString comboxText = ui->comboBox->currentText();
+
+	if(comboxText=="int"){
+		return QVariant::Type::Int;
+	}
+	else if(comboxText=="String"){
+		return QVariant::Type::String;
+	}
+	else if(comboxText=="float"){
+		return QVariant::Type::Double;//无float类型
+	}
+	else if(comboxText=="double"){
+		return QVariant::Type::Double;
+	}
+	else if(comboxText=="long long"){
+		return QVariant::Type::LongLong;
+	}
+}
 
 void GraphicsDataArrayNode::setElementType(QVariant::Type type)
 {
-	//todo
 }

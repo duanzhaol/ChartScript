@@ -4,10 +4,10 @@
 #include <QWidget>
 
 class PortWidget:public QWidget{
+    Q_OBJECT
 public:
 	PortWidget(QWidget *parent = nullptr, Qt::WindowFlags f = Qt::WindowFlags());
 
-	// QWidget interface
 protected:
 	virtual void mousePressEvent(QMouseEvent *event) override;
 };
