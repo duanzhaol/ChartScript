@@ -21,7 +21,7 @@ public:
 
 	// exception interface
 private:
-	virtual const char *what() const override;
+    virtual const char *what() const noexcept override;
 };
 
 #endif // INTERPRETEREXCEPTION_H

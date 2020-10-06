@@ -16,7 +16,7 @@ QString InterpreterException::getWhy() const
 	return message;
 }
 
-const char *InterpreterException::what() const
+const char *InterpreterException::what() const noexcept
 {
 	return std::exception::what();
 }

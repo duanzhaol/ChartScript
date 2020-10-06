@@ -6,7 +6,7 @@
 #include <QGraphicsItem>
 #include "DualPortWidget.h"
 #include "MovableOutputPortProxyWidget.h"
-
+#include<QtMath>
 
 
 class ConnectLineItem:public QGraphicsPolygonItem
