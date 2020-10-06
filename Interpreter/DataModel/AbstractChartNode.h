@@ -22,6 +22,21 @@ public:
 	// AbstractNode interface
 public:
 	virtual void process(AbstractNode *nextNode) override;
+
+	// ModelCodingInterface interface
+public:
+	virtual CodeText dataTexting() const override;
+	virtual CodeText getModelTypeName() const override;
+
+	// AbstractNode interface
+public:
+	virtual ModelType getDataModelType() const override;
 };
+
+
+
+
+
+
 
 #endif // ABSTRACTCHARTNODE_H
