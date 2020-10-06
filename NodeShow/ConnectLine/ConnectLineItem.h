@@ -6,13 +6,15 @@
 #include <QGraphicsItem>
 #include "DualPortWidget.h"
 #include "MovableOutputPortProxyWidget.h"
-
+#include "Interpreter/Exception/ImplicitTypeConversion.h"
+#include "Interpreter/Exception/TypeUnconvertible.h"
 
 
 class ConnectLineItem:public QGraphicsPolygonItem
 {
 
 public:
+
 
   explicit ConnectLineItem(MovableInputPortProxyWidget*inputPort,MovableOutputPortProxyWidget*outputPort);
 

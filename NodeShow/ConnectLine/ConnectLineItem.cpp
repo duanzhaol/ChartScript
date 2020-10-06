@@ -11,11 +11,20 @@ ConnectLineItem::ConnectLineItem(MovableInputPortProxyWidget *inputNode,
 	:inputNode(inputNode),
 	  outputNode(outputNode)
 {
+    /*到时候把连线放到构造函数外面，先判断再连，button点击事件*/
 
-    InterpreterController::getGlobalInstance()->addConnect(
-		dynamic_cast<AbstractNode*>(outputNode->getOutputPortWidget()),
-		dynamic_cast<AbstractNode*>(inputNode->getInputPortWidget())
-        );
+    try {
+        InterpreterController::getGlobalInstance()->addConnect(
+            dynamic_cast<AbstractNode*>(outputNode->getOutputPortWidget()),
+            dynamic_cast<AbstractNode*>(inputNode->getInputPortWidget())
+            );
+    } catch (ImplicitTypeConversion &e) {
+        qDebug()<<e.getWhy();
+
+    } catch(TypeUnconvertible &e){
+        qDebug()<<e.getWhy();//加个警告框就行
+    }
+
 }
 
 QRectF ConnectLineItem::boundingRect() const

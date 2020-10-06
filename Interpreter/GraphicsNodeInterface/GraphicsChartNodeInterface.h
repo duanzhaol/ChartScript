@@ -9,3 +9,4 @@ public:
 };
 
 #endif // GRAPHICSCHARTNODEINTERFACE_H
+

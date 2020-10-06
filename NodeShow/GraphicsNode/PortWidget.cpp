@@ -9,6 +9,7 @@ PortWidget::PortWidget(QWidget *parent, Qt::WindowFlags f):
 
 }
 
+
 void PortWidget::mousePressEvent(QMouseEvent *event)
 {
 	QWidget::mousePressEvent(event);

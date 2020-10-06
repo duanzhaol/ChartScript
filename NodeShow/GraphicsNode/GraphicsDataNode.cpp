@@ -35,6 +35,7 @@ GraphicsDataNode::GraphicsDataNode(QWidget *parent) :
   ui->dataNodeData->setAlignment( Qt::AlignHCenter); //数据节点的数据居中显示
 
 
+
   /*
   QWidget::setWindowFlags(Qt::FramelessWindowHint);//设置窗口无边框
   //设置关于窗体为圆角：构造一个QBitmap类对象，再用QPainter类对象在bmp上绘制一个半径为20像素的圆角矩形
