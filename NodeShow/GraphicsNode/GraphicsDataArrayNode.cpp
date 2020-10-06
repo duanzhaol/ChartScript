@@ -38,7 +38,6 @@ void GraphicsDataArrayNode::setNodeName(const NodeName &newNodeName)
 
 QVariant GraphicsDataArrayNode::getNodeData() const
 {
-	return QStringList()<<"233"<<"344";
     return QVariant::fromValue(ui->dataArrayNodeData->text());
 }
 
@@ -59,6 +58,7 @@ InputPort *GraphicsDataArrayNode::getInputPort()
 
 QVariant::Type GraphicsDataArrayNode::getElementType() const
 {
+
     /**
      * 获取combobox当前的text
      * 朱千奥 0923
@@ -89,4 +89,3 @@ void GraphicsDataArrayNode::setElementType(QVariant::Type type)
 {
     //todo 设置模型类型，设置个字符串名字就行
 }
-

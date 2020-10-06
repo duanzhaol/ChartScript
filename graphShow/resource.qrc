@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/img">
+        <file>image/ellipse.png</file>
+        <file>image/rect.png</file>
+    </qresource>
+</RCC>

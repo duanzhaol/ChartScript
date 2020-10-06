@@ -6,6 +6,9 @@
 #include <QWidget>
 #include <Interpreter/DataModel/AbstractArrayNode.h>
 #include <Interpreter/DataModel/AbstractDataNode.h>
+#include <Interpreter/DataModel/AbstractDataNode.h>
+
+
 
 
 namespace Ui {
@@ -42,12 +45,10 @@ public:
 public:
     virtual InputPort *getInputPort() override;
 
-
-    // GraphicsArrayNodeInterface interface
+	// GraphicsArrayNodeInterface interface
 public:
     virtual QVariant::Type getElementType() const override;
-    virtual void setElementType(QVariant::Type type) override;
-
+	virtual void setElementType(QVariant::Type type) override;
 };
 
 

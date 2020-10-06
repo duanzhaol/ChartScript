@@ -28,3 +28,18 @@ void AbstractChartNode::process(AbstractNode *nextNode)
 	emit GraphShowTransmitter::getInstance().sendChart(this);
 
 }
+
+CodeText AbstractChartNode::dataTexting() const
+{
+	return "undefined";
+}
+
+CodeText AbstractChartNode::getModelTypeName() const
+{
+	return "Chart";
+}
+
+ModelType AbstractChartNode::getDataModelType() const
+{
+	return ModelType::Chart;
+}
