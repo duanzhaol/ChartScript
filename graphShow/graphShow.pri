@@ -13,7 +13,6 @@ SOURCES += \
 	graphShow/ChartItem.cpp \
 	graphShow/GraphicsScene.cpp \
 	graphShow/chartattribute.cpp \
-	graphShow/main.cpp \
 
 
 HEADERS += \

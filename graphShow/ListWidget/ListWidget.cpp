@@ -2,6 +2,7 @@
 #include<QDebug>
 #include <QChartView>
 #include <ctime>
+#include<QPieSeries>
 ListWidget::ListWidget(QWidget *parent)
 {
     setMouseTracking(true);
@@ -52,28 +53,32 @@ bool ListWidget::removeItemAll(int index)
     }
 }
 
-void ListWidget::reciveChart(GraphicsShowInterface *chart)
+void ListWidget::reciveChart(GraphicsShowInterface *chartInterface)
 {
-    QString chartName=chart->getName();
-    ChartItem* myChart=dynamic_cast<ChartItem*>(chart->getChart());
+	QString chartName=chartInterface->getName();
+	ChartItem* chart=dynamic_cast<ChartItem*>(chartInterface->getChart());
 
-    qsrand(time(NULL));
+
+
+	qsrand(time(NULL));
     int n = qrand() % 99999;//存储的随机数
 
-    QtCharts::QChartView *chartView = new QtCharts::QChartView(myChart);
+	QtCharts::QChartView *chartView = new QtCharts::QChartView(chart);
     chartView->setRenderHint(QPainter::Antialiasing);  //消除边缘
-    chartView->setChart(myChart);
-    QPixmap p = QPixmap::grabWidget(chartView);
-    QImage image=p.toImage();
-    QString url="C:/Users/duan/Documents/QTProgram/ChartScript/graphShow/image/chartPicture/";//前缀
-    url=url+QString(n)+".png";
-    image.save(url);
+	chartView->setChart(chart);
+	//QPixmap p = QPixmap::grabWidget(chartView);
+	QPixmap p = chartView->grab();
+
+//    QImage image=p.toImage();
+//	QString url=":/img/image/";//前缀
+//    url=url+QString(n)+".png";
+//    image.save(url);
 
     ListWidgetItem *item=new ListWidgetItem(this);
-    item->setText(chartName);
-    item->setIcon(QIcon(url));
+	item->setText("chartName");
+	item->setIcon(QIcon(p));
     item->setSizeHint(QSize(100,120));
-    this->addItemAll(myChart,item);
+	this->addItemAll(chart,item);
 }
 
 

@@ -41,7 +41,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
 
-SOURCES +=
+SOURCES += main.cpp
 
 FORMS +=
 
