@@ -36,9 +36,16 @@ void GraphicsDataArrayNode::setNodeName(const NodeName &newNodeName)
     ui->dataArrayNodeName->setText(newNodeName);
 }
 
+/**
+ * @brief GraphicsDataArrayNode::getNodeData
+ * @return nodeData：有类型有值的QVariant
+ */
+
 QVariant GraphicsDataArrayNode::getNodeData() const
 {
-    return QVariant::fromValue(ui->dataArrayNodeData->text());
+    QVariant nodeData(getElementType());
+    nodeData.setValue(ui->dataArrayNodeData->text().toInt());
+    return nodeData;
 }
 
 void GraphicsDataArrayNode::setNodeData(const QVariant &newData)
@@ -64,7 +71,6 @@ QVariant::Type GraphicsDataArrayNode::getElementType() const
      * 朱千奥 0923
      *
      */
-
     QString comboxText = ui->comboBox->currentText();
 
     if(comboxText=="int"){
@@ -85,7 +91,28 @@ QVariant::Type GraphicsDataArrayNode::getElementType() const
 }
 
 
+/**
+ * @brief GraphicsDataArrayNode::setElementType
+ * @param type
+ * @note  设置模型类型，设置个字符串名字就行 10/7
+ */
 void GraphicsDataArrayNode::setElementType(QVariant::Type type)
 {
-    //todo 设置模型类型，设置个字符串名字就行
+    if(type==QVariant::Type::Int)
+    {
+        ui->comboBox->currentText()="int";
+    }
+    else if(type==QVariant::Type::LongLong)
+    {
+        ui->comboBox->currentText()="long long";
+    }
+    else if(type==QVariant::Type::Double)
+    {
+        ui->comboBox->currentText()="double";
+    }
+    else if(type==QVariant::Type::String)
+    {
+        ui->comboBox->currentText()="String";
+    }
+
 }
