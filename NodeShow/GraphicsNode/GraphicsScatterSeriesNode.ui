@@ -181,6 +181,10 @@ border:0px </string>
    </property>
   </widget>
   <zorder>label</zorder>
+  <zorder>outputPort</zorder>
+  <zorder>inputPort</zorder>
+  <zorder>XDataArray</zorder>
+  <zorder>YDataArray</zorder>
   <zorder>ScatterSeriesName</zorder>
  </widget>
  <customwidgets>

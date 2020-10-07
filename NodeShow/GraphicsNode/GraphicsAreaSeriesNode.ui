@@ -241,6 +241,11 @@ border:0px </string>
    </property>
   </widget>
   <zorder>label</zorder>
+  <zorder>bottomXArray</zorder>
+  <zorder>bottomYArray</zorder>
+  <zorder>outputPort</zorder>
+  <zorder>upperYArray</zorder>
+  <zorder>upperXArray</zorder>
   <zorder>AreaSeriesName</zorder>
   <zorder>inputPort</zorder>
  </widget>

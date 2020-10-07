@@ -29,7 +29,7 @@ HEADERS += \
 	$$PWD/GraphicsNode/Port.h \
 	$$PWD/GraphicsNode/PortWidget.h \
 	$$PWD/GraphicsNode/ResizeTest.h \
-	$$PWD/GraphicsNode/ZhuGraphicsView.h \
+	$$PWD/GraphicsNode/ScalingGraphicsView.h \
 	$$PWD/ProxyWidget/MovableDualPortProxyWidget.h \
 	$$PWD/ProxyWidget/MovableInputPortProxyWidget.h \
 	$$PWD/ProxyWidget/MovableOutputPortProxyWidget.h \
@@ -51,7 +51,7 @@ SOURCES += \
 	$$PWD/GraphicsNode/Port.cpp \
 	$$PWD/GraphicsNode/PortWidget.cpp \
 	$$PWD/GraphicsNode/ResizeTest.cpp \
-	$$PWD/GraphicsNode/ZhuGraphicsView.cpp \
+	$$PWD/GraphicsNode/ScalingGraphicsView.cpp \
 	$$PWD/ProxyWidget/MovableDualPortProxyWidget.cpp \
 	$$PWD/ProxyWidget/MovableInputPortProxyWidget.cpp \
 	$$PWD/ProxyWidget/MovableOutputPortProxyWidget.cpp \
