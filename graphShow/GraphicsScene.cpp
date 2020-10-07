@@ -14,6 +14,7 @@ void GraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
 
     if(!event->isAccepted()){
         if (event->button() == Qt::LeftButton){
+            qDebug()<<"aaaaaaaaaaaa";
              if(event->modifiers()==Qt::ControlModifier){//按ctrl多选
                  qDebug()<<"ctrl选中";
                  foreach(QGraphicsItem *item,items(event->scenePos())){
@@ -28,6 +29,15 @@ void GraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
         }else if (event->button() == Qt::RightButton){
              qDebug() <<"右键点击空白位置";
         }
+    }else if(selectedItems().count()>1){
+        qDebug()<<"sbsbsbsbsbsb";
+        //hartItem *selected=dynamic_cast<ChartItem*>(selectedItems().last());
+        //selectedItems().clear();
+       // selected->setSelected(true);
+        foreach(QGraphicsItem *item,selectedItems()){
+           item->setSelected(false);
+        }
+        //selected->setSelected(true);
     }
 }
 

@@ -107,7 +107,7 @@ void ChartItem::mousePressEvent(QGraphicsSceneMouseEvent *event)
             //setGeometry(geometry().adjusted(30,5,0,0));
 
             qDebug() <<"左键点击选中了一个chart！";
-            QGraphicsItem::mousePressEvent(event);
+            //QGraphicsItem::mousePressEvent(event);
             event->accept();
         }
     }else if(event->button() == Qt::RightButton){
@@ -347,7 +347,6 @@ QRectF ChartItem::getNewPlace(int type, QPointF LT, QPointF RB)
 
 void ChartItem::SLOT_openAttributeWidget()
 {
-
     ChartAttribute *ca = new ChartAttribute();
     ca->show();
     attr = ca->getUi();
@@ -358,7 +357,6 @@ void ChartItem::SLOT_openAttributeWidget()
     //this->
     this->connect(attr->confirmAttr,&QPushButton::clicked,
             this,&ChartItem::setAttr);
-
 }
 
 void ChartItem::setCircleColor(QColor color)
