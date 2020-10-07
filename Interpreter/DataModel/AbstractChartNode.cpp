@@ -12,7 +12,7 @@ QString AbstractChartNode::getName() const
 	return this->getNodeName();
 }
 
-QtCharts::QChart *AbstractChartNode::getChart() const
+Chart *AbstractChartNode::getChart() const
 {
 	return this->chart;
 }

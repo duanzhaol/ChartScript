@@ -5,19 +5,22 @@
 #include "AbstractNode.h"
 #include "../GraphicsNodeInterface/GraphicsChartNodeInterface.h"
 
+
+
+
 class AbstractChartNode:
 		public AbstractNode,
         public GraphicsShowInterface,
 		public GraphicsChartNodeInterface
 {
-	QtCharts::QChart*chart = new QtCharts::QChart;
+	Chart*chart = new Chart;
 public:
 	AbstractChartNode();
 
 	// GraphicsShowInterface interface
 public:
 	virtual QString getName() const override;
-	virtual QtCharts::QChart *getChart() const override;
+	virtual Chart *getChart() const override;
 
 	// AbstractNode interface
 public:
