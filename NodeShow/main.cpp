@@ -15,7 +15,6 @@
 #include "GraphicsStartNode.h"
 #include "Interpreter/Interpreter/InterpreterController.h"
 #include "GraphicsAreaSeriesNode.h"
-#include <QSpLashScreen>
 #include <QDateTime>
 #include <QSplashScreen>
 
