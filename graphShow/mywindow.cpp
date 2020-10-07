@@ -22,6 +22,8 @@ void myWindow::setScene(GraphicsScene *myScene)
     connect(this,&myWindow::sendChart,dynamic_cast<GraphicsScene*>(ui->graphicsView->scene()),&GraphicsScene::recieveChart);
     connect(ui->listWidget2,&QListWidget::itemDoubleClicked,dynamic_cast<GraphicsScene*>(ui->graphicsView->scene()),&GraphicsScene::recieveGraphics);
     connect(this,&myWindow::selectAll,dynamic_cast<GraphicsScene*>(ui->graphicsView->scene()),&GraphicsScene::selectAll);
+    connect(this,&myWindow::toTop,dynamic_cast<GraphicsScene*>(ui->graphicsView->scene()),&GraphicsScene::toTop);
+
 }
 
 myWindow::~myWindow()
@@ -137,3 +139,10 @@ void myWindow::on_pushButton_shadow_clicked()
 {
     emit selectAll();
 }
+
+void myWindow::on_pushButton_top_clicked()
+{
+    emit toTop();
+}
+
+

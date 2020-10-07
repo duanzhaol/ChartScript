@@ -64,6 +64,8 @@ public slots:
     void ThemeChanged(int type);
     void recieveChart(ChartItem *item);
     void recieveGraphics(QListWidgetItem *item);
+    void toTop();
+
 };
 
 #endif // GRAPHICSSCENE_H

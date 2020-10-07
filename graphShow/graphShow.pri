@@ -1,4 +1,5 @@
 SOURCES += \
+    $$PWD/GraphicsView.cpp \
     $$PWD/ListWidget/ListWidget.cpp \
     $$PWD/ListWidget/ListWidgetItem.cpp \
     $$PWD/item/GraphicsEllipseItem.cpp \
@@ -16,6 +17,7 @@ SOURCES += \
 
 
 HEADERS += \
+    $$PWD/GraphicsView.h \
     $$PWD/ListWidget/ListWidget.h \
     $$PWD/ListWidget/ListWidgetItem.h \
     $$PWD/item/GraphicsEllipseItem.h \
