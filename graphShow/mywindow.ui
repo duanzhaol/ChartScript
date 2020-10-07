@@ -79,16 +79,16 @@
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButton">
+          <widget class="QPushButton" name="pushButton_top">
            <property name="text">
-            <string>PushButton</string>
+            <string>置于顶层</string>
            </property>
           </widget>
          </item>
         </layout>
        </item>
        <item>
-        <widget class="QGraphicsView" name="graphicsView">
+        <widget class="GraphicsView" name="graphicsView">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
            <horstretch>0</horstretch>
@@ -123,6 +123,11 @@
    <class>ListWidget</class>
    <extends>QListWidget</extends>
    <header>GraphShow/ListWidget/ListWidget.h</header>
+  </customwidget>
+  <customwidget>
+   <class>GraphicsView</class>
+   <extends>QGraphicsView</extends>
+   <header>GraphShow/GraphicsView.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

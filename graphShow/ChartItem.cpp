@@ -108,7 +108,7 @@ void ChartItem::mousePressEvent(QGraphicsSceneMouseEvent *event)
 
             qDebug() <<"左键点击选中了一个chart！";
             //QGraphicsItem::mousePressEvent(event);
-            event->accept();
+            event->ignore();
         }
     }else if(event->button() == Qt::RightButton){
         //显示属性窗口
