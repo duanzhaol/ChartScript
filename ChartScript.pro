@@ -4,13 +4,24 @@
 #
 #-------------------------------------------------
 
-QT       += core gui charts
+
+QT       += core gui charts widgets
+
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = ChartScript
 TEMPLATE = app
 
+<<<<<<< HEAD
+=======
+
+include(graphShow/graphShow.pri)
+include(UTools/UTools.pri)
+include(NodeShow/NodeShow.pri)
+include(Interpreter/Interpreter.pri)
+
+>>>>>>> 23f0df81514cbcf1ef102b835bd04eb8538c2500
 
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which has been marked as deprecated (the exact warnings
@@ -29,4 +40,13 @@ CONFIG += c++1z
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+
+HEADERS += \ \
+	InitInterface/InitInterface.h
+
+SOURCES += main.cpp
+
+FORMS +=
+
 
