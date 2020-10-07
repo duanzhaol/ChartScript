@@ -6,5 +6,8 @@
         <file>img/startNode.png</file>
         <file>img/startNode-hover.png</file>
         <file>img/startNode-press.png</file>
+        <file>img/Chart-banner.png</file>
+        <file>img/ChartScript-banner.png</file>
+        <file>img/ChartScript-banner-small.png</file>
     </qresource>
 </RCC>

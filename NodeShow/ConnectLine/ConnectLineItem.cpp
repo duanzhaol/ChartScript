@@ -24,6 +24,7 @@ ConnectLineItem::ConnectLineItem(MovableInputPortProxyWidget *inputNode,
     } catch(TypeUnconvertible &e){
         qDebug()<<e.getWhy();//加个警告框就行
     }
+
 }
 
 QRectF ConnectLineItem::boundingRect() const

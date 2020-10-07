@@ -39,5 +39,4 @@ FORMS += \
 
 DISTFILES +=
 
-RESOURCES += \
-    $$PWD/resource.qrc
+RESOURCES +=

@@ -58,31 +58,34 @@ InputPort *GraphicsDataArrayNode::getInputPort()
 
 QVariant::Type GraphicsDataArrayNode::getElementType() const
 {
-	/**
-	 * 获取combobox当前的text
-	 * 朱千奥 0923
-	 *
-	 */
 
-	QString comboxText = ui->comboBox->currentText();
+    /**
+     * 获取combobox当前的text
+     * 朱千奥 0923
+     *
+     */
 
-	if(comboxText=="int"){
-		return QVariant::Type::Int;
-	}
-	else if(comboxText=="String"){
-		return QVariant::Type::String;
-	}
-	else if(comboxText=="float"){
-		return QVariant::Type::Double;//无float类型
-	}
-	else if(comboxText=="double"){
-		return QVariant::Type::Double;
-	}
-	else if(comboxText=="long long"){
-		return QVariant::Type::LongLong;
-	}
+    QString comboxText = ui->comboBox->currentText();
+
+    if(comboxText=="int"){
+        return QVariant::Type::Int;
+    }
+    else if(comboxText=="String"){
+        return QVariant::Type::String;
+    }
+    else if(comboxText=="float"){
+        return QVariant::Type::Double;//无float类型
+    }
+    else if(comboxText=="double"){
+        return QVariant::Type::Double;
+    }
+    else if(comboxText=="long long"){
+        return QVariant::Type::LongLong;
+    }
 }
+
 
 void GraphicsDataArrayNode::setElementType(QVariant::Type type)
 {
+    //todo 设置模型类型，设置个字符串名字就行
 }

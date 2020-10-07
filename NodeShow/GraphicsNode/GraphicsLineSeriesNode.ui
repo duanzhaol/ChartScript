@@ -181,6 +181,10 @@ border:0px </string>
    </property>
   </widget>
   <zorder>label</zorder>
+  <zorder>outputPort</zorder>
+  <zorder>XDataArray</zorder>
+  <zorder>YDataArray</zorder>
+  <zorder>inputPort</zorder>
   <zorder>lineSeriesName</zorder>
  </widget>
  <customwidgets>

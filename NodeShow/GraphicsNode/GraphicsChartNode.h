@@ -49,7 +49,6 @@ public:
 private slots:
     void on_addSeriesButton_clicked();
 
-
 };
 
 #endif // GRAPHICSCHARTNODE_H
