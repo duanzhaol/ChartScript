@@ -17,6 +17,9 @@ Chart *AbstractChartNode::getChart() const
 	return this->chart;
 }
 
+#include <QLineSeries>
+#include <QDebug>
+
 void AbstractChartNode::process(AbstractNode *nextNode)
 {
 	auto seriesList = this->getAllSeries();

@@ -2,6 +2,7 @@
 #include "ui_GraphicsDataArrayNode.h"
 
 #include <QListView>
+#include <QDebug>
 
 GraphicsDataArrayNode::GraphicsDataArrayNode(QWidget *parent) :
       PortWidget(parent),
@@ -43,12 +44,14 @@ QVariant GraphicsDataArrayNode::getNodeData() const
 
 void GraphicsDataArrayNode::setNodeData(const QVariant &newData)
 {
+
     ui->dataArrayNodeData->setText(newData.toString());
 }
 
 OutputPort *GraphicsDataArrayNode::getOutputPort()
 {
     return ui->outputPort;
+
 }
 
 InputPort *GraphicsDataArrayNode::getInputPort()
@@ -89,3 +92,12 @@ void GraphicsDataArrayNode::setElementType(QVariant::Type type)
 {
     //todo 设置模型类型，设置个字符串名字就行
 }
+
+class ArrayInterface{
+	//! 获取一列数据
+	virtual QVariantList getArrayData() = 0;
+	//! 获取数据类型
+	virtual QVariant::Type getArrayType() = 0;
+	//! 获取列的名字
+	virtual QString getArrayName() = 0;
+};

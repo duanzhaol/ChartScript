@@ -3,10 +3,12 @@
 #include <QChartView>
 #include <ctime>
 #include<QPieSeries>
+#include "../../Interpreter/Transmitter/GraphShowTransmitter.h"
 ListWidget::ListWidget(QWidget *parent)
 {
     setMouseTracking(true);
-
+	connect(&GraphShowTransmitter::getInstance(),&GraphShowTransmitter::sendChart,
+			this,&ListWidget::reciveChart);
 }
 
 ChartItem *ListWidget::getChart(int index)
@@ -57,7 +59,7 @@ void ListWidget::reciveChart(GraphicsShowInterface *chartInterface)
 {
 	QString chartName=chartInterface->getName();
 	ChartItem* chart=dynamic_cast<ChartItem*>(chartInterface->getChart());
-
+	chart->createDefaultAxes();
 
 
 	qsrand(time(NULL));

@@ -7,6 +7,7 @@ InterpreterController::InterpreterController()
 
 void InterpreterController::dfsInterprete(AbstractNode *startNode)
 {
+	startNode->process(nullptr);
 	for(auto&nextNode:this->graph[startNode->getNodeName()]){
 		startNode->process(nextNode);
 		this->dfsInterprete(nextNode);
