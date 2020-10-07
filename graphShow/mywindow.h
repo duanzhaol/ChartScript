@@ -44,11 +44,15 @@ private slots:
 
     void on_pushButton_shadow_clicked();
 
+    void on_pushButton_top_clicked();
+
+
 private:
     Ui::myWindow *ui;
 signals:
     void sendChart(ChartItem* item);
     void selectAll();
+    void toTop();
 
 };
 

@@ -19,10 +19,10 @@ class GraphicsChartNode : public DualPortWidget,public AbstractChartNode
 public:
     explicit GraphicsChartNode(QWidget *parent = nullptr);
     ~GraphicsChartNode();
-    QHBoxLayout *GraphicsChartNode::insertAreaSeries();
-    QHBoxLayout *GraphicsChartNode::insertLineSeries();
-    QHBoxLayout *GraphicsChartNode::insertPieSeries();
-    QHBoxLayout *GraphicsChartNode::insertScatterSeries();
+    QHBoxLayout *insertAreaSeries();
+    QHBoxLayout *insertLineSeries();
+    QHBoxLayout *insertPieSeries();
+    QHBoxLayout *insertScatterSeries();
 
 private:
     Ui::GraphicsChartNode *ui;

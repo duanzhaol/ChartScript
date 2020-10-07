@@ -1,5 +1,6 @@
 ﻿#include "AbstractLineSeriesNode.h"
 #include <QList>
+#include <QDebug>
 
 AbstractLineSeriesNode::AbstractLineSeriesNode()
 {
@@ -16,8 +17,7 @@ void AbstractLineSeriesNode::process(AbstractNode *nextNode)
 			y = this->getYData()->getNodeData().toList();
 
 	int size = qMin(x.size(),y.size());
-
-	for(int index = 0;index < size; ++size){
+	for(int index = 0;index < size; ++index){
 		this->series->append(x[index].toDouble(),y[index].toDouble());
 	}
 

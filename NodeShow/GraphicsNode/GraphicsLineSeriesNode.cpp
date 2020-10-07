@@ -8,6 +8,7 @@ GraphicsLineSeriesNode::GraphicsLineSeriesNode(QWidget *parent) :
     ui->setupUi(this);
 
 
+
 //    /*标题lineedit文字居中*/
 //    ui->lineSeriesName->setAlignment( Qt::AlignHCenter);
 }

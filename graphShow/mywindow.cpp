@@ -22,6 +22,8 @@ void myWindow::setScene(GraphicsScene *myScene)
     connect(this,&myWindow::sendChart,dynamic_cast<GraphicsScene*>(ui->graphicsView->scene()),&GraphicsScene::recieveChart);
     connect(ui->listWidget2,&QListWidget::itemDoubleClicked,dynamic_cast<GraphicsScene*>(ui->graphicsView->scene()),&GraphicsScene::recieveGraphics);
     connect(this,&myWindow::selectAll,dynamic_cast<GraphicsScene*>(ui->graphicsView->scene()),&GraphicsScene::selectAll);
+    connect(this,&myWindow::toTop,dynamic_cast<GraphicsScene*>(ui->graphicsView->scene()),&GraphicsScene::toTop);
+
 }
 
 myWindow::~myWindow()
@@ -98,27 +100,19 @@ void myWindow::initialListWidget()
     chart->setFlag(QGraphicsItem::ItemIsSelectable,true);
     chart->acceptDrops();
 
-    ListWidgetItem *item1=new ListWidgetItem(ui->listWidget1);
-    item1->setText("aaa");
-    item1->setIcon(QIcon("C:/Users/duan/Desktop/2.png"));
-    item1->setSizeHint(QSize(100,120));
-    ListWidgetItem *item2=new ListWidgetItem(ui->listWidget1);
-    item2->setText("bbb");
-    item2->setIcon(QIcon("C:/Users/duan/Desktop/2.png"));
-    item2->setSizeHint(QSize(100,120));
 
     ListWidgetItem *item3=new ListWidgetItem(ui->listWidget2);
     item3->setText("rect");
-    item3->setIcon(QIcon("C:/Users/duan/Documents/QTProgram/ChartScript/graphShow/image/rect.png"));
+	item3->setIcon(QIcon(":/img/image/rect.png"));
     item3->setSizeHint(QSize(100,120));
 
     ListWidgetItem *item4=new ListWidgetItem(ui->listWidget2);
     item4->setText("ellipse");
-    item4->setIcon(QIcon("C:/Users/duan/Documents/QTProgram/ChartScript/graphShow/image/ellipse.png"));
+	item4->setIcon(QIcon(":/img/image/ellipse.png"));
     item4->setSizeHint(QSize(100,120));
 
-    ui->listWidget1->addItemAll(chart,item1);
-    ui->listWidget1->addItemAll(chart,item2);
+   // ui->listWidget1->addItemAll(chart,item1);
+	//ui->listWidget1->addItemAll(chart,item2);
     ui->listWidget2->addItem(item3);
     ui->listWidget2->addItem(item4);
     ui->listWidget1->show();
@@ -137,3 +131,10 @@ void myWindow::on_pushButton_shadow_clicked()
 {
     emit selectAll();
 }
+
+void myWindow::on_pushButton_top_clicked()
+{
+    emit toTop();
+}
+
+

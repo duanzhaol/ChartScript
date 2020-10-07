@@ -18,7 +18,7 @@ public:
 private:
     QVector<ChartItem*> chartItemList;
 public slots:
-    void reciveChart(GraphicsShowInterface*chart);
+	void reciveChart(GraphicsShowInterface*chartInterface);
 
 
 };

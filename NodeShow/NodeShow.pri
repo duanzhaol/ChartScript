@@ -10,6 +10,7 @@ FORMS += \
 	$$PWD/GraphicsNode/GraphicsPieSeriesNode.ui \
 	$$PWD/GraphicsNode/GraphicsScatterSeriesNode.ui \
 	$$PWD/GraphicsNode/GraphicsStartNode.ui \
+	$$PWD/GraphicsNode/NodeShowWindow.ui \
 	$$PWD/GraphicsNode/Port.ui \
 	$$PWD/GraphicsNode/ResizeTest.ui
 
@@ -25,11 +26,13 @@ HEADERS += \
 	$$PWD/GraphicsNode/GraphicsScatterSeriesNode.h \
 	$$PWD/GraphicsNode/GraphicsStartNode.h \
 	$$PWD/GraphicsNode/InputPortWidget.h \
+	$$PWD/GraphicsNode/NodeShowWindow.h \
 	$$PWD/GraphicsNode/OutputPortWidget.h \
 	$$PWD/GraphicsNode/Port.h \
 	$$PWD/GraphicsNode/PortWidget.h \
 	$$PWD/GraphicsNode/ResizeTest.h \
 	$$PWD/GraphicsNode/ScalingGraphicsView.h \
+	$$PWD/NodeShowInitializer.h \
 	$$PWD/ProxyWidget/MovableDualPortProxyWidget.h \
 	$$PWD/ProxyWidget/MovableInputPortProxyWidget.h \
 	$$PWD/ProxyWidget/MovableOutputPortProxyWidget.h \
@@ -47,16 +50,17 @@ SOURCES += \
 	$$PWD/GraphicsNode/GraphicsScatterSeriesNode.cpp \
 	$$PWD/GraphicsNode/GraphicsStartNode.cpp \
 	$$PWD/GraphicsNode/InputPortWidget.cpp \
+	$$PWD/GraphicsNode/NodeShowWindow.cpp \
 	$$PWD/GraphicsNode/OutputPortWidget.cpp \
 	$$PWD/GraphicsNode/Port.cpp \
 	$$PWD/GraphicsNode/PortWidget.cpp \
 	$$PWD/GraphicsNode/ResizeTest.cpp \
 	$$PWD/GraphicsNode/ScalingGraphicsView.cpp \
+	$$PWD/NodeShowInitializer.cpp \
 	$$PWD/ProxyWidget/MovableDualPortProxyWidget.cpp \
 	$$PWD/ProxyWidget/MovableInputPortProxyWidget.cpp \
 	$$PWD/ProxyWidget/MovableOutputPortProxyWidget.cpp \
 	$$PWD/ProxyWidget/MovableProxyWidget.cpp \
-	$$PWD/main.cpp
 
 INCLUDEPATH += \
 	$$PWD/ConnectLine \
