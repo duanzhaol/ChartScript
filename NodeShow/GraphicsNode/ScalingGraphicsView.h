@@ -14,6 +14,7 @@ class ScalingGraphicsView:public QGraphicsView
 public:
     explicit ScalingGraphicsView(QWidget *parent = 0);
     ~ScalingGraphicsView();
+    int b;
 
 protected:
     void wheelEvent(QWheelEvent *event) Q_DECL_OVERRIDE;

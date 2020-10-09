@@ -1,4 +1,4 @@
-#include "Port.h"
+﻿#include "Port.h"
 #include "ui_Port.h"
 
 Port::Port(QWidget *parent) :
@@ -12,3 +12,4 @@ Port::~Port()
 {
     delete ui;
 }
+

@@ -3,6 +3,7 @@
 
 #include "DualPortWidget.h"
 #include <QComboBox>
+#include <QPushButton>
 #include <QWidget>
 #include <Interpreter/DataModel/AbstractArrayNode.h>
 #include <Interpreter/DataModel/AbstractDataNode.h>
@@ -49,6 +50,10 @@ public:
 public:
     virtual QVariant::Type getElementType() const override;
 	virtual void setElementType(QVariant::Type type) override;
+
+private slots:
+    void on_inputPort_clicked();
+    void on_outputPort_clicked();
 };
 
 

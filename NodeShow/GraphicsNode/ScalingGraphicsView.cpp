@@ -19,14 +19,16 @@ ScalingGraphicsView::ScalingGraphicsView(QWidget *parent): QGraphicsView(parent)
     scale_m = 1;//图形原始比例
     setStyleSheet("padding: 0px; border: 0px;");//无边框
     setMouseTracking(true);//跟踪鼠标位置
-//    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);//隐藏水平条
-//    setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);//隐藏竖条
+    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);//隐藏水平条
+    setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);//隐藏竖条
     setTransformationAnchor(QGraphicsView::AnchorUnderMouse);
     setResizeAnchor(QGraphicsView::AnchorUnderMouse);
+    qDebug()<<"ScalingGraphicsView";
 
 }
 void ScalingGraphicsView::wheelEvent ( QWheelEvent * event )
 {
+    qDebug()<<"wheelEvent";
     if (event->modifiers() == Qt::CTRL)
     {//按住ctrl键 可以放大缩小
         if((event->delta() > 0)&&(scale_m >= 20))//最大放大到原始图像的50倍

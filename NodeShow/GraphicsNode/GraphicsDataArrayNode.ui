@@ -122,16 +122,6 @@ background:rgb(94,167,255);
     <string>out</string>
    </property>
   </widget>
-  <widget class="Port" name="inputPort" native="true">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>50</y>
-     <width>16</width>
-     <height>16</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QLabel" name="nodeBackground">
    <property name="geometry">
     <rect>
@@ -211,16 +201,6 @@ border-radius:50%;
     <string>in</string>
    </property>
   </widget>
-  <widget class="Port" name="outputPort" native="true">
-   <property name="geometry">
-    <rect>
-     <x>260</x>
-     <y>50</y>
-     <width>16</width>
-     <height>16</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QLineEdit" name="dataArrayNodeName">
    <property name="geometry">
     <rect>
@@ -267,23 +247,114 @@ border-radius:5px;</string>
     <string>Array</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="outputPort">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>50</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>16777215</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+							 border: 1px solid #333333;
+							 padding: 4px;
+							 border-radius:8px;
+
+							 background-color: rgb(255, 255, 255);
+						 }
+
+						 QPushButton:hover {
+							 background-color: rgb(52, 167, 255);
+							 border-color: #444444;
+						 }
+
+						 QPushButton:pressed {
+							 background-color: rgb(46, 39, 239);
+							 border-color: #333333;
+							 color: yellow;
+						 }
+
+						 QPushButton:disabled {
+							 color: #333333;
+						 }</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="inputPort">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>50</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>16777215</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+							 border: 1px solid #333333;
+							 padding: 4px;
+							 border-radius:8px;
+
+							 background-color: rgb(255, 255, 255);
+						 }
+
+						 QPushButton:hover {
+							 background-color: rgb(52, 167, 255);
+							 border-color: #444444;
+						 }
+
+						 QPushButton:pressed {
+							 background-color: rgb(46, 39, 239);
+							 border-color: #333333;
+							 color: yellow;
+						 }
+
+						 QPushButton:disabled {
+							 color: #333333;
+						 }</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
   <zorder>nodeBackground</zorder>
   <zorder>comboBox</zorder>
   <zorder>label</zorder>
-  <zorder>inputPort</zorder>
   <zorder>dataArrayNodeData</zorder>
   <zorder>label_2</zorder>
-  <zorder>outputPort</zorder>
   <zorder>dataArrayNodeName</zorder>
   <zorder>label_3</zorder>
+  <zorder>outputPort</zorder>
+  <zorder>inputPort</zorder>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>Port</class>
-   <extends>QWidget</extends>
-   <header>port.h</header>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>

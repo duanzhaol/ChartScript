@@ -91,6 +91,8 @@ QVariant::Type GraphicsDataArrayNode::getElementType() const
     else if(comboxText=="long long"){
         return QVariant::Type::LongLong;
     }
+
+    return QVariant::Type::Invalid;
 }
 
 
@@ -128,3 +130,15 @@ class ArrayInterface{
 	//! 获取列的名字
 	virtual QString getArrayName() = 0;
 };
+
+void GraphicsDataArrayNode::on_inputPort_clicked()
+{
+    //emit PortClicked(ui->inputPort,"inputPort");
+    emit PortClicked(this,PortType::InputPort);
+}
+
+void GraphicsDataArrayNode::on_outputPort_clicked()
+{
+    emit PortClicked(this,PortType::OutputPort);
+    //emit PortClicked(ui->outputPort,"outputPort");
+}

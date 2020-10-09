@@ -1,5 +1,7 @@
-#ifndef NODESHOWWINDOW_H
+﻿#ifndef NODESHOWWINDOW_H
 #define NODESHOWWINDOW_H
+
+#include "ConnectController.h"
 
 #include <QMainWindow>
 
@@ -14,6 +16,7 @@ class NodeShowWindow : public QMainWindow
 public:
     explicit NodeShowWindow(QWidget *parent = nullptr);
     ~NodeShowWindow();
+
 
 private:
     Ui::NodeShowWindow *ui;
