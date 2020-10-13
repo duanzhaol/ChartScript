@@ -3,6 +3,14 @@
 
 #include <QListView>
 #include <QDebug>
+#include <QMessageBox>
+
+#include <Interpreter/Interpreter/InterpreterController.h>
+
+#include <Interpreter/Exception/NodeNameConflictException.h>
+
+#include <UTools/UniqueNamer.h>
+#pragma execution_character_set("utf-8")
 
 GraphicsDataArrayNode::GraphicsDataArrayNode(QWidget *parent) :
       PortWidget(parent),
@@ -125,7 +133,7 @@ void GraphicsDataArrayNode::setElementType(QVariant::Type type)
 class ArrayInterface{
 	//! 获取一列数据
 	virtual QVariantList getArrayData() = 0;
-	//! 获取数据类型
+    //! 获取数据类型
 	virtual QVariant::Type getArrayType() = 0;
 	//! 获取列的名字
 	virtual QString getArrayName() = 0;
@@ -142,3 +150,38 @@ void GraphicsDataArrayNode::on_outputPort_clicked()
     emit PortClicked(this,PortType::OutputPort);
     //emit PortClicked(ui->outputPort,"outputPort");
 }
+
+
+
+
+/**
+ * @brief GraphicsDataArrayNode::on_dataArrayNodeName_editingFinished
+ * 选择原因：当按返回或者回车键时，或者行编辑失去焦点时，发出此信号。
+ *
+ */
+void GraphicsDataArrayNode::on_dataArrayNodeName_editingFinished()
+{
+    try {
+        this->testNodeNameIfDuplicate(ui->dataArrayNodeName->text());
+    } catch (NodeNameConflictException e) {
+        qDebug()<<e.getWhy();
+
+        //messageBox
+        QMessageBox::information(NULL, "结点命名重复", "请重新命名！");
+        setNodeName(UniqueNamerPool::getNamer(NamerSeed::GraphShow).getUniqueName());
+    }
+}
+
+//void GraphicsDataArrayNode::on_dataArrayNodeName_textChanged(const QString &arg1)
+//{
+//    try {
+
+//        this->testNodeNameIfDuplicate(arg1);
+//    } catch (NodeNameConflictException e) {
+//        qDebug()<<e.getWhy();
+
+//        //messageBox
+//        QMessageBox::information(NULL, "结点命名重复", "请重新命名！");
+//        setNodeName(UniqueNamerPool::getNamer(NamerSeed::GraphShow).getUniqueName());
+//    }
+//}
