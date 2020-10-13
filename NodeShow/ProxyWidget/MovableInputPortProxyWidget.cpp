@@ -14,7 +14,7 @@ MovableInputPortProxyWidget::MovableInputPortProxyWidget()
 
 void MovableInputPortProxyWidget::setInputPortWidget(InputPortWidget *node)
 {
-    QGraphicsProxyWidget::setWidget(node);
+    MovableProxyWidget::setWidget(node);
 }
 
 InputPortWidget *MovableInputPortProxyWidget::getInputPortWidget()

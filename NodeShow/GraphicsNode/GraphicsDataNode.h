@@ -14,7 +14,8 @@ class GraphicsDataNode;
 using InputPort = QWidget;
 using OutputPort = QWidget;
 
-class GraphicsDataNode : public DualPortWidget,public AbstractDataNode{
+class GraphicsDataNode : public DualPortWidget,public AbstractDataNode,public PortWidget
+{
 	Q_OBJECT
 
 public:

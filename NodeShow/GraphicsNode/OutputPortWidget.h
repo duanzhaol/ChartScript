@@ -5,14 +5,17 @@
 
 #include <QPushButton>
 #include <QGraphicsItem>
+#include <QGraphicsProxyWidget>
 
 using OutputPort = QWidget;
 
-class OutputPortWidget:virtual public PortWidget{
+class OutputPortWidget{
 public:
 
 	OutputPortWidget();
 
+    virtual QPointF getOutputPortCoordinate(QGraphicsItem* item)=0;
 	virtual OutputPort* getOutputPort() = 0;
+
 };
 #endif // OUTPUTPORTINTERFACE_H

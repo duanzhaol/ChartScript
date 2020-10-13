@@ -11,7 +11,7 @@ namespace Ui {
 class GraphicsAreaSeriesNode;
 }
 
-class GraphicsAreaSeriesNode : public DualPortWidget,public AbstractAreaSeries
+class GraphicsAreaSeriesNode : public DualPortWidget,public AbstractAreaSeries,public PortWidget
 {
     Q_OBJECT
 

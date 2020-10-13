@@ -28,7 +28,7 @@ ScalingGraphicsView::ScalingGraphicsView(QWidget *parent): QGraphicsView(parent)
 }
 void ScalingGraphicsView::wheelEvent ( QWheelEvent * event )
 {
-    qDebug()<<"wheelEvent";
+    //qDebug()<<"wheelEvent";
     if (event->modifiers() == Qt::CTRL)
     {//按住ctrl键 可以放大缩小
         if((event->delta() > 0)&&(scale_m >= 20))//最大放大到原始图像的50倍

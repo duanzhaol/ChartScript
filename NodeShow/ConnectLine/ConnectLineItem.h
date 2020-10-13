@@ -17,7 +17,7 @@ class ConnectLineItem:public QGraphicsPolygonItem
 public:
 
 
-  explicit ConnectLineItem(MovableInputPortProxyWidget*inputPort,MovableOutputPortProxyWidget*outputPort);
+  explicit ConnectLineItem(InputPortWidget*inputPort,OutputPortWidget*outputPort);
 
   // QGraphicsItem interface
 public:
@@ -26,8 +26,8 @@ public:
   QPainterPath shape() const override;
 
 private:
-  MovableInputPortProxyWidget*inputNode;
-  MovableOutputPortProxyWidget*outputNode;
+  InputPortWidget*inputNode;
+  OutputPortWidget*outputNode;
   QPolygonF mArrow;
 
 

@@ -6,8 +6,8 @@
 #include <QPainter>
 
 
-ConnectLineItem::ConnectLineItem(MovableInputPortProxyWidget *inputNode,
-								 MovableOutputPortProxyWidget *outputNode)
+ConnectLineItem::ConnectLineItem(InputPortWidget *inputNode,
+                                 OutputPortWidget *outputNode)
 	:inputNode(inputNode),
 	  outputNode(outputNode)
 {
@@ -15,8 +15,8 @@ ConnectLineItem::ConnectLineItem(MovableInputPortProxyWidget *inputNode,
 
     try {
         InterpreterController::getGlobalInstance()->addConnect(
-            dynamic_cast<AbstractNode*>(outputNode->getOutputPortWidget()),
-            dynamic_cast<AbstractNode*>(inputNode->getInputPortWidget())
+            dynamic_cast<AbstractNode*>(outputNode),
+            dynamic_cast<AbstractNode*>(inputNode)
             );
     } catch (ImplicitTypeConversion &e) {
         qDebug()<<e.getWhy();
@@ -24,7 +24,7 @@ ConnectLineItem::ConnectLineItem(MovableInputPortProxyWidget *inputNode,
     } catch(TypeUnconvertible &e){
         qDebug()<<e.getWhy();//加个警告框就行
     }
-
+    qDebug()<<"lineCreated";
 }
 
 QRectF ConnectLineItem::boundingRect() const
@@ -52,8 +52,10 @@ void ConnectLineItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *o
 
 	//  painter->setPen(QPen(Qt::blue,5));
 
-    QPointF right = inputNode->getInputPortCoordinate(this);
-    QPointF left = outputNode->getOutputPortCoordinate(this);
+    QPointF right = dynamic_cast<MovableInputPortProxyWidget*>(inputNode->getProxywidget())->getInputPortCoordinate(this);
+    QPointF left = dynamic_cast<MovableOutputPortProxyWidget*>(outputNode->getProxywidget())->getOutputPortCoordinate(this);
+
+    qDebug()<<right<<left;
 
 	//  painter->drawLine(left,right);
 

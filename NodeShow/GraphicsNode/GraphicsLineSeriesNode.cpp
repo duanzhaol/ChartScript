@@ -1,5 +1,6 @@
 ﻿#include "GraphicsLineSeriesNode.h"
 #include "ui_GraphicsLineSeriesNode.h"
+#include <QDebug>
 
 GraphicsLineSeriesNode::GraphicsLineSeriesNode(QWidget *parent) :
       DualPortWidget(),
@@ -7,6 +8,11 @@ GraphicsLineSeriesNode::GraphicsLineSeriesNode(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    ui->XDataArray->setParent(this);
+    ui->YDataArray->setParent(this);
+
+//    qDebug()<<ui->XDataArray->mapToGlobal(this->pos());
+//    qDebug()<<ui->YDataArray->mapToGlobal(this->pos());
 
 
 //    /*标题lineedit文字居中*/

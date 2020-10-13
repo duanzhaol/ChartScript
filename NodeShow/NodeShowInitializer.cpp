@@ -22,10 +22,8 @@ NodeShowInitializer *NodeShowInitializer::getInstance()
 void NodeShowInitializer::init()
 {
 
-    NodeShowWindow* nsw=new NodeShowWindow();
-
-
-    nsw->show();
+    NodeShowWindow::createWindow();
+    NodeShowWindow::getInstance()->show();
 //    splash.finish();
 
 }

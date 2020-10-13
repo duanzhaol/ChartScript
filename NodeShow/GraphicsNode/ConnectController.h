@@ -11,9 +11,15 @@ class ConnectController:public QObject
 public:
 
     static ConnectController* getInstance();
+    void connectLineWuhu(InputPortWidget* input,OutputPortWidget* output);
+    QList<ConnectLineItem*> LineList;
+    void ConnectController::drawLine();
+
+    InputPortWidget* input=nullptr;
+    OutputPortWidget* output=nullptr;
 
 public slots:
-    void ConnectLine(PortWidget,PortWidget::PortType);
+    void ConnectLine(PortWidget*,PortWidget::PortType);
 
 private:
     GraphicsDataArrayNode* arrayNode;

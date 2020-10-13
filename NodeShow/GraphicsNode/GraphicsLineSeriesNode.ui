@@ -104,7 +104,7 @@ border-radius:5px;</string>
     </size>
    </property>
   </widget>
-  <widget class="GraphicsDataArrayNode" name="XDataArray" native="true">
+  <widget class="GraphicsDataArrayNode" name="YDataArray" native="true">
    <property name="geometry">
     <rect>
      <x>350</x>
@@ -131,7 +131,7 @@ border-radius:5px;</string>
 border:0px </string>
    </property>
   </widget>
-  <widget class="GraphicsDataArrayNode" name="YDataArray" native="true">
+  <widget class="GraphicsDataArrayNode" name="XDataArray" native="true">
    <property name="geometry">
     <rect>
      <x>64</x>
@@ -182,8 +182,8 @@ border:0px </string>
   </widget>
   <zorder>label</zorder>
   <zorder>outputPort</zorder>
-  <zorder>XDataArray</zorder>
   <zorder>YDataArray</zorder>
+  <zorder>XDataArray</zorder>
   <zorder>inputPort</zorder>
   <zorder>lineSeriesName</zorder>
  </widget>
@@ -196,7 +196,7 @@ border:0px </string>
   <customwidget>
    <class>GraphicsDataArrayNode</class>
    <extends>QWidget</extends>
-   <header>graphicsdataarraynode.h</header>
+   <header location="global">graphicsdataarraynode.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

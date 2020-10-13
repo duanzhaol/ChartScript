@@ -12,7 +12,7 @@ MovableOutputPortProxyWidget::MovableOutputPortProxyWidget()
 
 void MovableOutputPortProxyWidget::setOutputPortWidget(OutputPortWidget *node)
 {
-	QGraphicsProxyWidget::setWidget(node);
+    MovableProxyWidget::setWidget(node);
 }
 
 OutputPortWidget *MovableOutputPortProxyWidget::getOutputPortWidget()

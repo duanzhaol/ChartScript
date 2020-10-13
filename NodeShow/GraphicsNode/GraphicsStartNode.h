@@ -11,7 +11,7 @@ namespace Ui {
 class GraphicsStartNode;
 }
 
-class GraphicsStartNode : public OutputPortWidget,public StartNode
+class GraphicsStartNode : public OutputPortWidget,public StartNode,public PortWidget
 {
     Q_OBJECT
 

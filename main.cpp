@@ -14,7 +14,7 @@ void LoadImage(){
     //    splash.showMessage("程序正在加载......", Qt::AlignTop|Qt::AlignRight, Qt::red);
     QDateTime time = QDateTime::currentDateTime();
     QDateTime currentTime = QDateTime::currentDateTime();   //记录当前时间
-    while (time.secsTo(currentTime) <= 3)                   //5为需要延时的秒数
+    while (time.secsTo(currentTime) <= 3)                   //3为需要延时的秒数
     {
         currentTime = QDateTime::currentDateTime();
     };
@@ -24,7 +24,7 @@ void LoadImage(){
 int main(int argc,char*argv[]){
 	QApplication app(argc,argv);
 
-    LoadImage();
+//    LoadImage();
 
 //	GraphShowInitializer::getInstance()->init();
 	NodeShowInitializer::getInstance()->init();

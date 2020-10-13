@@ -16,6 +16,7 @@ FORMS += \
 
 HEADERS += \
 	$$PWD/ConnectLine/ConnectLineItem.h \
+	$$PWD/GraphicsNode/AbstractGraphicsNoneProxyNode.h \
 	$$PWD/GraphicsNode/ConnectController.h \
 	$$PWD/GraphicsNode/DualPortWidget.h \
 	$$PWD/GraphicsNode/GraphicsAreaSeriesNode.h \
@@ -41,6 +42,7 @@ HEADERS += \
 
 SOURCES += \
 	$$PWD/ConnectLine/ConnectLineItem.cpp \
+	$$PWD/GraphicsNode/AbstractGraphicsNoneProxyNode.cpp \
 	$$PWD/GraphicsNode/ConnectController.cpp \
 	$$PWD/GraphicsNode/DualPortWidget.cpp \
 	$$PWD/GraphicsNode/GraphicsAreaSeriesNode.cpp \

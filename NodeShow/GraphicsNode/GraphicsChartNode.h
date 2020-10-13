@@ -12,7 +12,7 @@ namespace Ui {
 class GraphicsChartNode;
 }
 
-class GraphicsChartNode : public DualPortWidget,public AbstractChartNode
+class GraphicsChartNode : public DualPortWidget,public AbstractChartNode,public PortWidget
 {
     Q_OBJECT
 

@@ -1,7 +1,6 @@
 ﻿#include "ConnectController.h"
 #include "NodeShowWindow.h"
 #include "ui_NodeShowWindow.h"
-
 #include "GraphicsAreaSeriesNode.h"
 #include "GraphicsChartNode.h"
 #include "GraphicsDataArrayNode.h"
@@ -13,6 +12,7 @@
 #include <ConnectLineItem.h>
 #include <MovableDualPortProxyWidget.h>
 #include <Interpreter/Interpreter/InterpreterController.h>
+#include <QDebug>
 
 
 auto getProxy1(){
@@ -72,13 +72,18 @@ auto getStart(){
 
 
 
+NodeShowWindow *NodeShowWindow::getInstance()
+{
+        return instance;
+}
+
 NodeShowWindow::NodeShowWindow(QWidget *parent) :
       QMainWindow(parent),
       ui(new Ui::NodeShowWindow)
 {
     ui->setupUi(this);
 
-    auto scene = new QGraphicsScene;
+
 
 
 
@@ -122,7 +127,7 @@ NodeShowWindow::NodeShowWindow(QWidget *parent) :
     //	auto line6 = new ConnectLineItem(g3,g2);
     //	auto line7 = new ConnectLineItem(g4,g3);
 
-    auto line8 = new ConnectLineItem(c,s);
+    //auto line8 = new ConnectLineItem(c,s);
 
 
     InterpreterController::getGlobalInstance()->setStartNode(
@@ -137,7 +142,7 @@ NodeShowWindow::NodeShowWindow(QWidget *parent) :
     //	scene->addItem(line6);
     //	scene->addItem(line7);
 
-    scene->addItem(line8);
+    //  scene->addItem(line8);
 
 
 
@@ -151,4 +156,11 @@ NodeShowWindow::~NodeShowWindow()
 {
     delete ui;
 }
+
+void NodeShowWindow::createWindow()
+{
+    NodeShowWindow::instance=new NodeShowWindow();
+}
+
+NodeShowWindow* NodeShowWindow::instance=nullptr;
 
