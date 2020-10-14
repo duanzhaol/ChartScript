@@ -1,5 +1,6 @@
 ﻿#include "InterpreterController.h"
 #include <QDebug>
+#include "../Exception/NodeNameConflictException.h"
 InterpreterController::InterpreterController()
 {
 
@@ -49,10 +50,20 @@ void InterpreterController::setStartNode(AbstractNode *start)
 	this->startNode = start;
 }
 
-bool InterpreterController::hasNodeName(const QString &nodeName) const
+bool InterpreterController::hasNodeName(const NodeName &nodeName) const
 {
-	return this->graph.contains(nodeName);
+	return this->nodes.contains(nodeName);
 }
+
+void InterpreterController::addNode(AbstractNode *newNode)
+{
+	if(nodes.contains(newNode->getNodeName())){
+		throw NodeNameConflictException(newNode->getNodeName());
+	}
+	this->nodes.insert(newNode->getNodeName(),newNode);
+}
+
+
 
 AbstractNode *InterpreterController::getStartNode()
 {

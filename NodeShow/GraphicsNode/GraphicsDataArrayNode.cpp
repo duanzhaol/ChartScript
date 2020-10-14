@@ -161,15 +161,17 @@ void GraphicsDataArrayNode::on_outputPort_clicked()
  */
 void GraphicsDataArrayNode::on_dataArrayNodeName_editingFinished()
 {
+	qDebug()<<ui->dataArrayNodeName->text();
     try {
         this->testNodeNameIfDuplicate(ui->dataArrayNodeName->text());
-    } catch (NodeNameConflictException e) {
+	} catch (NodeNameConflictException &e) {
         qDebug()<<e.getWhy();
 
         //messageBox
         QMessageBox::information(NULL, "结点命名重复", "请重新命名！");
         setNodeName(UniqueNamerPool::getNamer(NamerSeed::GraphShow).getUniqueName());
     }
+	setNodeName(ui->dataArrayNodeName->text());
 }
 
 //void GraphicsDataArrayNode::on_dataArrayNodeName_textChanged(const QString &arg1)

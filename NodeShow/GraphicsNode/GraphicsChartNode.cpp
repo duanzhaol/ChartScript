@@ -9,7 +9,7 @@
 
 GraphicsChartNode::GraphicsChartNode(QWidget *parent) :
       DualPortWidget(),
-      ui(new Ui::GraphicsChartNode)
+	  ui(new Ui::GraphicsChartNode)
 {
     ui->setupUi(this);
 

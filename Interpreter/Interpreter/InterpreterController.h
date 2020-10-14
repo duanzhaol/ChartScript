@@ -4,6 +4,7 @@
 #include "../DataModel/StartNode.h"
 #include <QHash>
 #include <QSet>
+#include <functional>
 
 /**
  * @brief The InterpreterController class
@@ -19,6 +20,7 @@ class InterpreterController{
 	static InterpreterController*globalController;
 	InterpreterController();
 	QHash<QString,QSet<AbstractNode*>> graph;
+	QHash<NodeName,AbstractNode*> nodes;
 	void dfsInterprete(AbstractNode*startNode);
 public:
 	friend class ModelCodingInterpreter;
@@ -43,7 +45,8 @@ public:
 	 */
 	static InterpreterController* getGlobalInstance();
 	void setStartNode(AbstractNode*start);
-	bool hasNodeName(const QString&nodeName)const;
+	bool hasNodeName(const NodeName&nodeName)const;
+	void addNode(AbstractNode*newNode);
 	AbstractNode*getStartNode();
 	static void setGlobal(InterpreterController*controller);
 };

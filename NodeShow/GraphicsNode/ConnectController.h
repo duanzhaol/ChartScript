@@ -13,7 +13,7 @@ public:
     static ConnectController* getInstance();
 
 public slots:
-    void ConnectLine(PortWidget,PortWidget::PortType);
+	void ConnectLine(PortWidget*,PortWidget::PortType);
 
 private:
     GraphicsDataArrayNode* arrayNode;

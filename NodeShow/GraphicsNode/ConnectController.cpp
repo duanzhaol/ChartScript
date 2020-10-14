@@ -11,7 +11,7 @@ ConnectController::ConnectController()
 
 }
 
-void ConnectController::ConnectLine(PortWidget, PortWidget::PortType)
+void ConnectController::ConnectLine(PortWidget*, PortWidget::PortType)
 {
     qDebug()<<"wuhuqifei";
     //    qDebug()<<twoList.length();
