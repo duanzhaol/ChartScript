@@ -9,7 +9,7 @@ namespace Ui {
 class GraphicsLineSeriesNode;
 }
 
-class GraphicsLineSeriesNode : public DualPortWidget,public AbstractLineSeriesNode
+class GraphicsLineSeriesNode : public DualPortWidget,public AbstractLineSeriesNode,public PortWidget
 {
     Q_OBJECT
 

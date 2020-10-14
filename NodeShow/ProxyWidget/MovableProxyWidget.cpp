@@ -40,7 +40,7 @@ void MovableProxyWidget::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 
 void MovableProxyWidget::setWidget(QWidget *widget)
 {
-
+    qDebug()<<"MovableProxyWidget::setWidget";
     QGraphicsProxyWidget::setWidget(widget);
     prepareGeometryChange();
     this->setMinimumSize(0,0);
@@ -48,6 +48,11 @@ void MovableProxyWidget::setWidget(QWidget *widget)
     this->resize(widget->width(),widget->height());
     update(this->geometry());
     this->widget()->resize(widget->width(),widget->height());
+
+    auto portwidget=dynamic_cast<PortWidget*>(widget);
+    if(portwidget!=nullptr){
+        portwidget->setProxywidget(this);
+    }
 }
 
 

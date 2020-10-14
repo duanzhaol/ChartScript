@@ -10,7 +10,7 @@ namespace Ui {
 class GraphicsScatterSeriesNode;
 }
 
-class GraphicsScatterSeriesNode : public DualPortWidget,public AbstractScatterSeriesNode
+class GraphicsScatterSeriesNode : public DualPortWidget,public AbstractScatterSeriesNode,public PortWidget
 {
     Q_OBJECT
 

@@ -13,7 +13,7 @@ PortWidget::PortWidget(QWidget *parent, Qt::WindowFlags f):
 void PortWidget::mousePressEvent(QMouseEvent *event)
 {
 	QWidget::mousePressEvent(event);
-	event->accept();
+    event->accept();
 }
 
 void PortWidget::connectToLineController()
@@ -22,3 +22,16 @@ void PortWidget::connectToLineController()
 			ConnectController::getInstance(),&ConnectController::ConnectLine);//代替SINGAL和SLOT，会提示是否匹配，不需要参数
 
 }
+
+MovableProxyWidget *PortWidget::getProxywidget() const
+{
+    Q_ASSERT(proxywidget!=nullptr);
+    return proxywidget;
+}
+
+void PortWidget::setProxywidget(MovableProxyWidget *value)
+{
+    proxywidget = value;
+}
+
+

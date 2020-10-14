@@ -5,6 +5,8 @@
 #include "GraphicsScatterSeriesNode.h"
 #include "ui_GraphicsChartNode.h"
 #include <QDebug>
+#include <NodeShowWindow.h>
+
 #pragma execution_character_set("utf-8")
 
 GraphicsChartNode::GraphicsChartNode(QWidget *parent) :
@@ -12,6 +14,8 @@ GraphicsChartNode::GraphicsChartNode(QWidget *parent) :
 	  ui(new Ui::GraphicsChartNode)
 {
     ui->setupUi(this);
+
+
 
     /*设置qcombox文字居中显示，放一个lineedit进去 哈哈（设置lineedit文字居中）*/
     QLineEdit *lineEdit = new QLineEdit;
@@ -46,6 +50,9 @@ QHBoxLayout *GraphicsChartNode::GraphicsChartNode::insertLineSeries()
     QHBoxLayout  *Series = new QHBoxLayout();
 
     GraphicsLineSeriesNode *node1=new GraphicsLineSeriesNode();
+    node1->setParent(this);
+    qDebug()<<node1->mapToGlobal(node1->pos());
+    qDebug()<<node1->mapToGlobal(dynamic_cast<GraphicsDataArrayNode*>(node1->getXData())->pos());
 
     seriesList.append(static_cast<AbstractSeriesNode*>(node1)); //添加到序列list里用于罗获取到图结点的所有序列
 

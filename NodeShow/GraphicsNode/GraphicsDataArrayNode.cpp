@@ -10,6 +10,8 @@
 #include <Interpreter/Exception/NodeNameConflictException.h>
 
 #include <UTools/UniqueNamer.h>
+#include <NodeShowWindow.h>
+
 #pragma execution_character_set("utf-8")
 
 GraphicsDataArrayNode::GraphicsDataArrayNode(QWidget *parent) :
@@ -19,9 +21,15 @@ GraphicsDataArrayNode::GraphicsDataArrayNode(QWidget *parent) :
     ui->setupUi(this);
     ui->comboBox->setView(new QListView());
 
+
+//    qDebug()<<this->mapTo(NodeShowWindow::getInstance(),this->pos());
+
     /*两个单独lineedit文字居中*/
     ui->dataArrayNodeName->setAlignment( Qt::AlignHCenter); //数据节点的名字居中显示
     ui->dataArrayNodeData->setAlignment( Qt::AlignHCenter); //数据节点的数据居中显示
+
+    ui->inputPort->setParent(this);
+    ui->outputPort->setParent(this);
 
 }
 

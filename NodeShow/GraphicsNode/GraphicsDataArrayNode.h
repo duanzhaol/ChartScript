@@ -16,7 +16,7 @@ namespace Ui {
 class GraphicsDataArrayNode;
 }
 
-class GraphicsDataArrayNode : public DualPortWidget,public AbstractArrayNode
+class GraphicsDataArrayNode : public DualPortWidget,public AbstractArrayNode,public PortWidget
 {
     Q_OBJECT
 
