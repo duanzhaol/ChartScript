@@ -9,35 +9,37 @@
 
 #pragma execution_character_set("utf-8")
 
-GraphicsChartNode::GraphicsChartNode(QWidget *parent) :
-      DualPortWidget(),
-	  ui(new Ui::GraphicsChartNode)
+GraphicsChartNode::GraphicsChartNode(Proxy *proxy, QWidget *parent) :
+	AbstractGraphicsTopDualoutNode (proxy),
+	ui(new Ui::GraphicsChartNode)
 {
     ui->setupUi(this);
-
-
 
     /*设置qcombox文字居中显示，放一个lineedit进去 哈哈（设置lineedit文字居中）*/
     QLineEdit *lineEdit = new QLineEdit;
     lineEdit->setReadOnly(true);
     lineEdit->setAlignment(Qt::AlignCenter);
     ui->comboBox->setLineEdit(lineEdit);
+
+	proxy->setWidget(this);
 }
 
 QHBoxLayout *GraphicsChartNode::insertAreaSeries()
 {
-    QHBoxLayout  *Series = new QHBoxLayout();
+	QHBoxLayout  *Series = new QHBoxLayout();
 
-    GraphicsAreaSeriesNode *node1=new GraphicsAreaSeriesNode();
+	GraphicsAreaSeriesNode *node1=new GraphicsAreaSeriesNode();
 
-    seriesList.append(static_cast<AbstractSeriesNode*>(node1)); //添加到序列list里用于罗获取到图结点的所有序列
+	node1->setTopProxy(this->getProxy());
 
-    node1->setFixedSize(730,290);
+	seriesList.append(static_cast<AbstractSeriesNode*>(node1)); //添加到序列list里用于罗获取到图结点的所有序列
+
+	node1->setFixedSize(730,290);
 
     //twoNodes->addSpacerItem(new QSpacerItem(20,130));
-    Series->addWidget(node1);
+	Series->addWidget(node1);
 
-    ui->verticalLayout->addLayout(Series);
+	ui->verticalLayout->addLayout(Series);
 
     //qDebug()<<seriesList;
 
@@ -50,9 +52,10 @@ QHBoxLayout *GraphicsChartNode::GraphicsChartNode::insertLineSeries()
     QHBoxLayout  *Series = new QHBoxLayout();
 
     GraphicsLineSeriesNode *node1=new GraphicsLineSeriesNode();
-    node1->setParent(this);
-    qDebug()<<node1->mapToGlobal(node1->pos());
-    qDebug()<<node1->mapToGlobal(dynamic_cast<GraphicsDataArrayNode*>(node1->getXData())->pos());
+
+	node1->setTopProxy(this->getProxy());
+
+	node1->setParent(this);
 
     seriesList.append(static_cast<AbstractSeriesNode*>(node1)); //添加到序列list里用于罗获取到图结点的所有序列
 
@@ -61,7 +64,7 @@ QHBoxLayout *GraphicsChartNode::GraphicsChartNode::insertLineSeries()
     //twoNodes->addSpacerItem(new QSpacerItem(20,130));
     Series->addWidget(node1);
 
-    ui->verticalLayout->addLayout(Series);
+	ui->verticalLayout->addLayout(Series);
     return Series;
 }
 
@@ -70,6 +73,8 @@ QHBoxLayout *GraphicsChartNode::GraphicsChartNode::insertPieSeries()
     QHBoxLayout  *Series = new QHBoxLayout();
 
     GraphicsPieSeriesNode *node1=new GraphicsPieSeriesNode();
+
+	node1->setTopProxy(this->getProxy());
 
     seriesList.append(static_cast<AbstractSeriesNode*>(node1)); //添加到序列list里用于罗获取到图结点的所有序列
 
@@ -86,7 +91,9 @@ QHBoxLayout *GraphicsChartNode::GraphicsChartNode::insertScatterSeries()
 {
     QHBoxLayout  *Series = new QHBoxLayout();
 
-    GraphicsScatterSeriesNode *node1=new GraphicsScatterSeriesNode();
+	GraphicsScatterSeriesNode *node1=new GraphicsScatterSeriesNode();
+
+	node1->setTopProxy(this->getProxy());
 
     seriesList.append(static_cast<AbstractSeriesNode*>(node1)); //添加到序列list里用于罗获取到图结点的所有序列
 

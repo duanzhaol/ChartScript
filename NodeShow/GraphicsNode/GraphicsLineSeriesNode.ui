@@ -196,7 +196,7 @@ border:0px </string>
   <customwidget>
    <class>GraphicsDataArrayNode</class>
    <extends>QWidget</extends>
-   <header location="global">graphicsdataarraynode.h</header>
+   <header>graphicsdataarraynode.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

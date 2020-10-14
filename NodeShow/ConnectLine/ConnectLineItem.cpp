@@ -6,8 +6,8 @@
 #include <QPainter>
 
 
-ConnectLineItem::ConnectLineItem(InputPortWidget *inputNode,
-                                 OutputPortWidget *outputNode)
+ConnectLineItem::ConnectLineItem(Inputable *inputNode,
+                                 Outputable *outputNode)
 	:inputNode(inputNode),
 	  outputNode(outputNode)
 {
@@ -52,12 +52,12 @@ void ConnectLineItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *o
 
 	//  painter->setPen(QPen(Qt::blue,5));
 
-    QPointF right = dynamic_cast<MovableInputPortProxyWidget*>(inputNode->getProxywidget())->getInputPortCoordinate(this);
-    QPointF left = dynamic_cast<MovableOutputPortProxyWidget*>(outputNode->getProxywidget())->getOutputPortCoordinate(this);
 
-    qDebug()<<right<<left;
 
-	//  painter->drawLine(left,right);
+	QPointF left = outputNode->getOutputPortCoordinate(this);
+	QPointF right = inputNode->getInputPortCoordinate(this);
+
+	//qDebug()<<left<<right;
 
 	mArrow.clear();
 	double par = 12;//箭头部分三角形的腰长

@@ -13,7 +13,7 @@ CodeModelingResult CodeModelingInterpreter::interprete(CodeText &code)
 	QPair<QHash<CodeText, AbstractNode *>, QList<AbstractNode *> > initResult =
 			InitAreaInterpreter::interpreter(code);
 
-	QList<PortWidget*> portWidgets;
+	QList<AbstractGraphicsNode*> portWidgets;
 
 	QPair<InterpreterController*,QHash<AbstractNode*,QList<AbstractNode*>>>
 			connectionResult = ConnectionAreaInterpreter::interprete(code,initResult.first);

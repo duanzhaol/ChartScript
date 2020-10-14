@@ -10,10 +10,9 @@
 #include "GraphicsStartNode.h"
 #include "ScalingGraphicsView.h"
 #include <ConnectLineItem.h>
-#include <MovableDualPortProxyWidget.h>
 #include <Interpreter/Interpreter/InterpreterController.h>
 #include <QDebug>
-
+/*
 
 auto getProxy1(){
     auto node = new GraphicsDataNode;
@@ -56,18 +55,13 @@ auto getProxy6(){
     proxy->setDualPortWidget(node);
     return proxy;
 }
-
+*/
 auto getChart(){
-    auto node = new GraphicsChartNode;
-    auto proxy = new MovableDualPortProxyWidget;
-    proxy->setDualPortWidget(node);
-    return proxy;
+	return  new GraphicsChartNode(new MovableProxyWidget);
 }
 
 auto getStart(){
-    auto proxy = new MovableOutputPortProxyWidget;
-    proxy->setOutputPortWidget(new GraphicsStartNode);
-    return proxy;
+   return  new GraphicsStartNode(new MovableProxyWidget);
 }
 
 
@@ -114,9 +108,9 @@ NodeShowWindow::NodeShowWindow(QWidget *parent) :
     //	scene->addItem(g3);
     //	scene->addItem(g4);
 
-    scene->addItem(s);
+	scene->addItem(s->getProxy());
 
-    scene->addItem(c);
+	scene->addItem(c->getProxy());
 
     /*生成节点间的连接线*/
     //	auto line =  new ConnectLineItem(p2,p1);
@@ -131,7 +125,7 @@ NodeShowWindow::NodeShowWindow(QWidget *parent) :
 
 
     InterpreterController::getGlobalInstance()->setStartNode(
-        dynamic_cast<AbstractNode*>(s->getOutputPortWidget()));
+		dynamic_cast<AbstractNode*>(s));
 
     /*把连接线添加到场景中*/
     //	scene->addItem(line);

@@ -1,7 +1,8 @@
 ﻿#ifndef GRAPHICSSCATTERSERIESNODE_H
 #define GRAPHICSSCATTERSERIESNODE_H
 
-#include "DualPortWidget.h"
+#include "AbstractGraphicsInnerDualputNode.h"
+#include "Dualputable.h"
 #include <QWidget>
 #include <Interpreter/DataModel/SeriesModel/AbstractScatterSeriesNode.h>
 #include <QComboBox>
@@ -10,7 +11,9 @@ namespace Ui {
 class GraphicsScatterSeriesNode;
 }
 
-class GraphicsScatterSeriesNode : public DualPortWidget,public AbstractScatterSeriesNode,public PortWidget
+class GraphicsScatterSeriesNode :
+		public AbstractGraphicsInnerDualputNode,
+		public AbstractScatterSeriesNode
 {
     Q_OBJECT
 

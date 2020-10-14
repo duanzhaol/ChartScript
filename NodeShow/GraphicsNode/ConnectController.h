@@ -3,7 +3,7 @@
 #include <ConnectLineItem.h>
 #include <QObject>
 #include <GraphicsDataArrayNode.h>
-#include <PortWidget.h>
+#include <AbstractGraphicsNode.h>
 
 class ConnectController:public QObject
 {
@@ -11,15 +11,15 @@ class ConnectController:public QObject
 public:
 
     static ConnectController* getInstance();
-    void connectLineWuhu(InputPortWidget* input,OutputPortWidget* output);
+    void connectLineWuhu(Inputable* input,Outputable* output);
     QList<ConnectLineItem*> LineList;
-    void ConnectController::drawLine();
+	void drawLine();
 
-    InputPortWidget* input=nullptr;
-    OutputPortWidget* output=nullptr;
+    Inputable* input=nullptr;
+    Outputable* output=nullptr;
 
 public slots:
-	void ConnectLine(PortWidget*,PortWidget::PortType);
+	void ConnectLine(AbstractGraphicsNode*,AbstractGraphicsNode::PortType);
 
 
 private:

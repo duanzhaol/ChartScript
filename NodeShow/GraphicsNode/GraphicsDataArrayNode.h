@@ -1,14 +1,14 @@
 ﻿#ifndef GRAPHICSDATAARRAYNODE_H
 #define GRAPHICSDATAARRAYNODE_H
 
-#include "DualPortWidget.h"
+#include "Dualputable.h"
 #include <QComboBox>
 #include <QPushButton>
 #include <QWidget>
 #include <Interpreter/DataModel/AbstractArrayNode.h>
 #include <Interpreter/DataModel/AbstractDataNode.h>
 #include <Interpreter/DataModel/AbstractDataNode.h>
-
+#include "AbstractGraphicsInnerDualputNode.h"
 
 
 
@@ -16,7 +16,7 @@ namespace Ui {
 class GraphicsDataArrayNode;
 }
 
-class GraphicsDataArrayNode : public DualPortWidget,public AbstractArrayNode,public PortWidget
+class GraphicsDataArrayNode : public AbstractGraphicsInnerDualputNode, public AbstractArrayNode
 {
     Q_OBJECT
 
@@ -38,11 +38,11 @@ public:
     virtual QVariant getNodeData() const override;
     virtual void setNodeData(const QVariant &newData) override;
 
-    // OutputPortWidget interface
+	// Outputable interface
 public:
     virtual OutputPort *getOutputPort() override;
 
-    // InputPortWidget interface
+	// Inputable interface
 public:
     virtual InputPort *getInputPort() override;
 

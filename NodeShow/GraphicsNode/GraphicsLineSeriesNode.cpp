@@ -3,7 +3,6 @@
 #include <QDebug>
 
 GraphicsLineSeriesNode::GraphicsLineSeriesNode(QWidget *parent) :
-      DualPortWidget(),
       ui(new Ui::GraphicsLineSeriesNode)
 {
     ui->setupUi(this);
@@ -54,4 +53,12 @@ OutputPort *GraphicsLineSeriesNode::getOutputPort()
 InputPort *GraphicsLineSeriesNode::getInputPort()
 {
     return ui->inputPort;
+}
+
+
+void GraphicsLineSeriesNode::setTopProxy(Proxy *value)
+{
+	AbstractGraphicsInnerDualputNode::setTopProxy(value);
+	ui->XDataArray->setTopProxy(value);
+	ui->YDataArray->setTopProxy(value);
 }

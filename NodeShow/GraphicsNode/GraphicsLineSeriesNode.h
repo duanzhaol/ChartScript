@@ -1,7 +1,8 @@
 ﻿#ifndef GRAPHICSLINESERIESNODE_H
 #define GRAPHICSLINESERIESNODE_H
 
-#include "DualPortWidget.h"
+#include "AbstractGraphicsInnerDualputNode.h"
+#include "Dualputable.h"
 #include <QWidget>
 #include <Interpreter/DataModel/SeriesModel/AbstractLineSeriesNode.h>
 
@@ -9,7 +10,9 @@ namespace Ui {
 class GraphicsLineSeriesNode;
 }
 
-class GraphicsLineSeriesNode : public DualPortWidget,public AbstractLineSeriesNode,public PortWidget
+class GraphicsLineSeriesNode :
+		public AbstractGraphicsInnerDualputNode,
+		public AbstractLineSeriesNode
 {
     Q_OBJECT
 
@@ -37,6 +40,10 @@ public:
     // InputPortWidget interface
 public:
     virtual InputPort *getInputPort() override;
+
+	// AbstractGraphicsInnerNode interface
+public:
+	virtual void setTopProxy(Proxy *value) override;
 };
 
 #endif // GRAPHICSLINESERIESNODE_H

@@ -3,7 +3,6 @@
 
 
 GraphicsPieSeriesNode::GraphicsPieSeriesNode(QWidget *parent) :
-      DualPortWidget(),
       ui(new Ui::GraphicsPieSeriesNode)
 {
     ui->setupUi(this);

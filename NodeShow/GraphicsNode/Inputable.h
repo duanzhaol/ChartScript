@@ -4,14 +4,18 @@
 #include <QPushButton>
 #include <QGraphicsItem>
 #include <QGraphicsProxyWidget>
-#include "PortWidget.h"
+#include "AbstractGraphicsNode.h"
+
+/**
+ * @interface
+ */
 
 using InputPort = QWidget;
 
-class InputPortWidget{
+class Inputable{
 public:
 
-	InputPortWidget();
+	Inputable();
 
     virtual QPointF getInputPortCoordinate(QGraphicsItem* item)=0;
 	virtual InputPort* getInputPort() = 0;

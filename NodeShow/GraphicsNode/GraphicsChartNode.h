@@ -1,23 +1,26 @@
 ﻿#ifndef GRAPHICSCHARTNODE_H
 #define GRAPHICSCHARTNODE_H
 
-#include "DualPortWidget.h"
+#include "Dualputable.h"
 #include <QWidget>
 #include <Interpreter/DataModel/AbstractChartNode.h>
 #include <QLineEdit>
 #include <qboxlayout.h>
+#include "AbstractGraphicsTopDualoutNode.h"
 #pragma execution_character_set("utf-8")
 
 namespace Ui {
 class GraphicsChartNode;
 }
 
-class GraphicsChartNode : public DualPortWidget,public AbstractChartNode,public PortWidget
+class GraphicsChartNode :
+		public AbstractGraphicsTopDualoutNode,
+		public AbstractChartNode
 {
     Q_OBJECT
 
 public:
-    explicit GraphicsChartNode(QWidget *parent = nullptr);
+	explicit GraphicsChartNode(Proxy*proxy,QWidget *parent = nullptr);
     ~GraphicsChartNode();
     QHBoxLayout *insertAreaSeries();
     QHBoxLayout *insertLineSeries();

@@ -1,7 +1,8 @@
 ﻿#ifndef GraphicsPieSeriesNode_H
 #define GraphicsPieSeriesNode_H
 
-#include "DualPortWidget.h"
+#include "AbstractGraphicsInnerDualputNode.h"
+#include "Dualputable.h"
 #include <QWidget>
 #include <Interpreter/DataModel/SeriesModel/AbstractPieSeries.h>
 #pragma execution_character_set("utf-8")
@@ -10,7 +11,9 @@ namespace Ui {
 class GraphicsPieSeriesNode;
 }
 
-class GraphicsPieSeriesNode : public DualPortWidget,public AbstractPieSeries,public PortWidget
+class GraphicsPieSeriesNode :
+		public AbstractGraphicsInnerDualputNode,
+		public AbstractPieSeries
 {
     Q_OBJECT
 

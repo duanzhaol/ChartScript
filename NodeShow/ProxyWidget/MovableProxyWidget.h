@@ -13,11 +13,10 @@ public:
 protected:
 	virtual void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
 	virtual void mouseMoveEvent(QGraphicsSceneMouseEvent *event) override;
+public:
 	void setWidget(QWidget*widget);
 private:
 	QPointF coordinateDifference;
-
-
 
 };
 

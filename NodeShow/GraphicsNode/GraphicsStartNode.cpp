@@ -5,12 +5,15 @@
 #include <QDebug>
 #include <QMouseEvent>
 
-GraphicsStartNode::GraphicsStartNode(QWidget *parent) :
-	PortWidget(parent),
-      ui(new Ui::GraphicsStartNode)
+GraphicsStartNode::GraphicsStartNode(Proxy *proxy, QWidget *parent):
+	AbstractGraphicsTopNode (proxy),
+	ui(new Ui::GraphicsStartNode)
 {
     ui->setupUi(this);
+
+	proxy->setWidget(this);
 }
+
 
 GraphicsStartNode::~GraphicsStartNode()
 {
@@ -34,12 +37,18 @@ void GraphicsStartNode::setNodeName(const NodeName &newNodeName)
 }
 
 
-
-void GraphicsStartNode::mousePressEvent(QMouseEvent *event)
+QPointF GraphicsStartNode::getOutputPortCoordinate(QGraphicsItem *item)
 {
-	OutputPortWidget::mousePressEvent(event);
-	qDebug()<<"S"<<endl;
-	InterpreterController::getGlobalInstance()->interprete();
-	event->accept();
+	OutputPort *outputPort = this->getOutputPort();
+	return this->getProxy()->mapToItem(
+				item,
+				outputPort->pos()+QPointF(outputPort->width()/2.,outputPort->height()/2.)
+				);
 }
+
+void GraphicsStartNode::start()
+{
+	InterpreterController::getGlobalInstance()->interprete();
+}
+
 

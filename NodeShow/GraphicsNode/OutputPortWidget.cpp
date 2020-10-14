@@ -1,7 +1,7 @@
-﻿#include "OutputPortWidget.h"
+﻿#include "Outputable.h"
 
 
-OutputPortWidget::OutputPortWidget()
+Outputable::Outputable()
 {
 
 }

@@ -1,13 +1,13 @@
 ﻿#include "GraphicsAreaSeriesNode.h"
 #include "ui_GraphicsAreaSeriesNode.h"
 
-#include <MovableDualPortProxyWidget.h>
 #include <QBitmap>
 #include <QPainter>
 #include <GraphicsDataArrayNode.h>
 #include<QDebug>
 
-GraphicsAreaSeriesNode::GraphicsAreaSeriesNode(QWidget *parent) :DualPortWidget(),ui(new Ui::GraphicsAreaSeriesNode)
+GraphicsAreaSeriesNode::GraphicsAreaSeriesNode(QWidget *parent) :
+	ui(new Ui::GraphicsAreaSeriesNode)
 {
     ui->setupUi(this);
 
@@ -27,7 +27,7 @@ GraphicsAreaSeriesNode::~GraphicsAreaSeriesNode()
 {
     delete ui;
 }
-#include <QDebug>
+
 QHBoxLayout *GraphicsAreaSeriesNode::insertTwoNodes()
 {
 
@@ -36,7 +36,9 @@ QHBoxLayout *GraphicsAreaSeriesNode::insertTwoNodes()
     QHBoxLayout  *twoNodes = new QHBoxLayout();
 
     GraphicsDataArrayNode *node1=new GraphicsDataArrayNode();
+	node1->setTopProxy(this->getTopProxy());
     GraphicsDataArrayNode *node2=new GraphicsDataArrayNode();
+	node2->setTopProxy(this->getTopProxy());
 //    node1->setFixedSize(280,150);
 //    node2->setFixedSize(280,150);
 

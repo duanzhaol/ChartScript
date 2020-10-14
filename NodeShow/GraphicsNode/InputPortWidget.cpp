@@ -1,7 +1,7 @@
-﻿#include "InputPortWidget.h"
+﻿#include "Inputable.h"
 #include "QDebug"
 
-InputPortWidget::InputPortWidget()
+Inputable::Inputable()
 {
 
 }

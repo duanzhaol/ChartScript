@@ -2,7 +2,6 @@
 #include "ui_GraphicsScatterSeriesNode.h"
 
 GraphicsScatterSeriesNode::GraphicsScatterSeriesNode(QWidget *parent) :
-      DualPortWidget(),
       ui(new Ui::GraphicsScatterSeriesNode)
 {
     ui->setupUi(this);

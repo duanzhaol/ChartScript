@@ -3,8 +3,9 @@
 
 #include <QPushButton>
 #include <QWidget>
-#include "DualPortWidget.h"
+#include "Dualputable.h"
 #include "Interpreter/DataModel/AbstractDataNode.h"
+#include "AbstractGraphicsInnerDualputNode.h"
 #pragma execution_character_set("utf-8")
 
 namespace Ui {
@@ -14,7 +15,9 @@ class GraphicsDataNode;
 using InputPort = QWidget;
 using OutputPort = QWidget;
 
-class GraphicsDataNode : public DualPortWidget,public AbstractDataNode,public PortWidget
+class GraphicsDataNode :
+		public AbstractGraphicsInnerDualputNode,
+		public AbstractDataNode
 {
 	Q_OBJECT
 

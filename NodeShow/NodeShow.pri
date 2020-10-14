@@ -16,9 +16,13 @@ FORMS += \
 
 HEADERS += \
 	$$PWD/ConnectLine/ConnectLineItem.h \
-	$$PWD/GraphicsNode/AbstractGraphicsNoneProxyNode.h \
+	$$PWD/GraphicsNode/AbstractGraphicsInnerDualputNode.h \
+	$$PWD/GraphicsNode/AbstractGraphicsInnerNode.h \
+	$$PWD/GraphicsNode/AbstractGraphicsNode.h \
+	$$PWD/GraphicsNode/AbstractGraphicsTopDualoutNode.h \
+	$$PWD/GraphicsNode/AbstractGraphicsTopNode.h \
 	$$PWD/GraphicsNode/ConnectController.h \
-	$$PWD/GraphicsNode/DualPortWidget.h \
+	$$PWD/GraphicsNode/Dualputable.h \
 	$$PWD/GraphicsNode/GraphicsAreaSeriesNode.h \
 	$$PWD/GraphicsNode/GraphicsChartNode.h \
 	$$PWD/GraphicsNode/GraphicsDataArrayNode.h \
@@ -27,22 +31,22 @@ HEADERS += \
 	$$PWD/GraphicsNode/GraphicsPieSeriesNode.h \
 	$$PWD/GraphicsNode/GraphicsScatterSeriesNode.h \
 	$$PWD/GraphicsNode/GraphicsStartNode.h \
-	$$PWD/GraphicsNode/InputPortWidget.h \
+	$$PWD/GraphicsNode/Inputable.h \
 	$$PWD/GraphicsNode/NodeShowWindow.h \
-	$$PWD/GraphicsNode/OutputPortWidget.h \
+	$$PWD/GraphicsNode/Outputable.h \
 	$$PWD/GraphicsNode/Port.h \
-	$$PWD/GraphicsNode/PortWidget.h \
 	$$PWD/GraphicsNode/ResizeTest.h \
 	$$PWD/GraphicsNode/ScalingGraphicsView.h \
 	$$PWD/NodeShowInitializer.h \
-	$$PWD/ProxyWidget/MovableDualPortProxyWidget.h \
-	$$PWD/ProxyWidget/MovableInputPortProxyWidget.h \
-	$$PWD/ProxyWidget/MovableOutputPortProxyWidget.h \
 	$$PWD/ProxyWidget/MovableProxyWidget.h
 
 SOURCES += \
 	$$PWD/ConnectLine/ConnectLineItem.cpp \
-	$$PWD/GraphicsNode/AbstractGraphicsNoneProxyNode.cpp \
+	$$PWD/GraphicsNode/AbstractGraphicsInnerDualputNode.cpp \
+	$$PWD/GraphicsNode/AbstractGraphicsInnerNode.cpp \
+	$$PWD/GraphicsNode/AbstractGraphicsNode.cpp \
+	$$PWD/GraphicsNode/AbstractGraphicsTopDualoutNode.cpp \
+	$$PWD/GraphicsNode/AbstractGraphicsTopNode.cpp \
 	$$PWD/GraphicsNode/ConnectController.cpp \
 	$$PWD/GraphicsNode/DualPortWidget.cpp \
 	$$PWD/GraphicsNode/GraphicsAreaSeriesNode.cpp \
@@ -57,13 +61,9 @@ SOURCES += \
 	$$PWD/GraphicsNode/NodeShowWindow.cpp \
 	$$PWD/GraphicsNode/OutputPortWidget.cpp \
 	$$PWD/GraphicsNode/Port.cpp \
-	$$PWD/GraphicsNode/PortWidget.cpp \
 	$$PWD/GraphicsNode/ResizeTest.cpp \
 	$$PWD/GraphicsNode/ScalingGraphicsView.cpp \
 	$$PWD/NodeShowInitializer.cpp \
-	$$PWD/ProxyWidget/MovableDualPortProxyWidget.cpp \
-	$$PWD/ProxyWidget/MovableInputPortProxyWidget.cpp \
-	$$PWD/ProxyWidget/MovableOutputPortProxyWidget.cpp \
 	$$PWD/ProxyWidget/MovableProxyWidget.cpp \
 
 INCLUDEPATH += \

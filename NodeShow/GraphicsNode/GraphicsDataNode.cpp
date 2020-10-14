@@ -17,7 +17,6 @@
 
 
 GraphicsDataNode::GraphicsDataNode(QWidget *parent) :
-	PortWidget(parent),
 	ui(new Ui::GraphicsDataNode)
 {
 
@@ -33,6 +32,10 @@ GraphicsDataNode::GraphicsDataNode(QWidget *parent) :
   /*两个单独lineedit文字居中*/
   ui->dataNodeName->setAlignment( Qt::AlignHCenter); //数据节点的名字居中显示
   ui->dataNodeData->setAlignment( Qt::AlignHCenter); //数据节点的数据居中显示
+
+
+  ui->inputPort->setParent(this);
+  ui->outputPort->setParent(this);
 
 
 

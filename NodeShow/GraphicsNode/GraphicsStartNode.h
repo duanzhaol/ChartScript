@@ -3,7 +3,8 @@
 
 #include <QWidget>
 #include <Interpreter/DataModel/StartNode.h>
-#include "OutputPortWidget.h"
+#include "Outputable.h"
+#include "AbstractGraphicsTopNode.h"
 
 #pragma execution_character_set("utf-8")
 
@@ -11,12 +12,15 @@ namespace Ui {
 class GraphicsStartNode;
 }
 
-class GraphicsStartNode : public OutputPortWidget,public StartNode,public PortWidget
+class GraphicsStartNode :
+		public AbstractGraphicsTopNode,
+		public Outputable,
+		public StartNode
 {
     Q_OBJECT
 
 public:
-    explicit GraphicsStartNode(QWidget *parent = nullptr);
+	explicit GraphicsStartNode(Proxy*proxy,QWidget *parent = nullptr);
     ~GraphicsStartNode();
 
 private:
@@ -31,11 +35,13 @@ public:
 	virtual NodeName getNodeName()const override;
 	virtual void setNodeName(const NodeName &newNodeName) override;
 
-	// QWidget interface
+
+	// Outputable interface
 public:
-	virtual void mousePressEvent(QMouseEvent *event) override;
+	virtual QPointF getOutputPortCoordinate(QGraphicsItem *item) override;
 
-
+public slots:
+	void start();
 };
 
 

@@ -4,7 +4,7 @@
 #include "../../DataModel/AbstractNode.h"
 #include "../InterpreterController.h"
 #include <QPair>
-#include "../../NodeShow/GraphicsNode/PortWidget.h"
+#include "../../NodeShow/GraphicsNode/AbstractGraphicsNode.h"
 
 
 class ConnectionAreaInterpreter

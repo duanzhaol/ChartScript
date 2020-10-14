@@ -15,7 +15,6 @@
 #pragma execution_character_set("utf-8")
 
 GraphicsDataArrayNode::GraphicsDataArrayNode(QWidget *parent) :
-      PortWidget(parent),
       ui(new Ui::GraphicsDataArrayNode)
 {
     ui->setupUi(this);
@@ -30,6 +29,7 @@ GraphicsDataArrayNode::GraphicsDataArrayNode(QWidget *parent) :
 
     ui->inputPort->setParent(this);
     ui->outputPort->setParent(this);
+
 
 }
 
@@ -67,14 +67,12 @@ QVariant GraphicsDataArrayNode::getNodeData() const
 
 void GraphicsDataArrayNode::setNodeData(const QVariant &newData)
 {
-
     ui->dataArrayNodeData->setText(newData.toString());
 }
 
 OutputPort *GraphicsDataArrayNode::getOutputPort()
 {
     return ui->outputPort;
-
 }
 
 InputPort *GraphicsDataArrayNode::getInputPort()
@@ -176,7 +174,7 @@ void GraphicsDataArrayNode::on_dataArrayNodeName_editingFinished()
         qDebug()<<e.getWhy();
 
         //messageBox
-        QMessageBox::information(NULL, "结点命名重复", "请重新命名！");
+		QMessageBox::information(nullptr, "结点命名重复", "请重新命名！");
         setNodeName(UniqueNamerPool::getNamer(NamerSeed::GraphShow).getUniqueName());
     }
 	setNodeName(ui->dataArrayNodeName->text());

@@ -45,10 +45,10 @@ AbstractNode *InitCodeLineInterpreter::interprete(CodeText &code)
 		return static_cast<AbstractNode*>(node);
 	}
 	case ModelType::Chart:{
-
+		return nullptr;
 	}
 	case ModelType::Start:{
-		GraphicsStartNode*node = new GraphicsStartNode;
+		GraphicsStartNode*node = new GraphicsStartNode(new MovableProxyWidget);
 		node->setNodeName(modelName);
 		return static_cast<AbstractNode*>(node);
 	}

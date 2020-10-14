@@ -24,7 +24,7 @@ QPair<InterpreterController *, QHash<AbstractNode *, QList<AbstractNode *> > > C
 
 	code.remove(0,13);
 
-	StartNode*startNode = new GraphicsStartNode;
+	StartNode*startNode = new GraphicsStartNode(new MovableProxyWidget);
 
 	InterpreterController*controller = new InterpreterController(startNode);
 

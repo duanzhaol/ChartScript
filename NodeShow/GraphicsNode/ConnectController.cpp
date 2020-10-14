@@ -7,7 +7,7 @@ ConnectController *ConnectController::getInstance()
     return instance;
 }
 
-void ConnectController::connectLineWuhu(InputPortWidget *input, OutputPortWidget *output)
+void ConnectController::connectLineWuhu(Inputable *input, Outputable *output)
 {
     ConnectLineItem *line =new ConnectLineItem(input,output);
     LineList.append(line);
@@ -38,19 +38,19 @@ ConnectController::ConnectController()
 }
 
 
-void ConnectController::ConnectLine(PortWidget* port, PortWidget::PortType type)
+void ConnectController::ConnectLine(AbstractGraphicsNode* port, AbstractGraphicsNode::PortType type)
 {
     qDebug()<<"wuhuqifei";
 
-    if(type==PortWidget::PortType::InputPort)
+    if(type==AbstractGraphicsNode::PortType::InputPort)
     {
-        input=dynamic_cast<InputPortWidget*>(port);
+        input=dynamic_cast<Inputable*>(port);
         qDebug()<<"inputPortSetted";
 
     }
-    else if(type==PortWidget::PortType::OutputPort)
+    else if(type==AbstractGraphicsNode::PortType::OutputPort)
     {
-        output=dynamic_cast<OutputPortWidget*>(port);
+        output=dynamic_cast<Outputable*>(port);
         qDebug()<<"outputPortSetted";
     }
 

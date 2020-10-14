@@ -4,7 +4,7 @@
 #include "../../DataModel/AbstractNode.h"
 #include "InitAreaInterpreter.h"
 #include "ConnectionAreaInterpreter.h"
-#include "../../NodeShow/GraphicsNode/PortWidget.h"
+#include "../../NodeShow/GraphicsNode/AbstractGraphicsNode.h"
 
 struct CodeModelingResult{
 	//! get all Data model nodes

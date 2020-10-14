@@ -4,8 +4,9 @@
 #include <QWidget>
 #include <QDebug>
 #include <QApplication>
-#include "../GraphicsNode/PortWidget.h"
+#include "../GraphicsNode/AbstractGraphicsNode.h"
 #include <QGraphicsScene>
+#include "AbstractGraphicsTopNode.h"
 
 MovableProxyWidget::MovableProxyWidget(){
 
@@ -17,12 +18,6 @@ void MovableProxyWidget::mousePressEvent(QGraphicsSceneMouseEvent *event)
   QPointF y = mapToScene(event->pos());
   QPointF x = scenePos();
   this->coordinateDifference = y - x;
-  qDebug()<<"???";
-  auto start = dynamic_cast<GraphicsStartNode*>(widget());
-  if(start!= nullptr){
-	  start->mousePressEvent(new QMouseEvent(event->type(),event->pos(),
-											 event->button(),event->buttons(),event->modifiers()));
-  }
 }
 
 void MovableProxyWidget::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
@@ -40,7 +35,6 @@ void MovableProxyWidget::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 
 void MovableProxyWidget::setWidget(QWidget *widget)
 {
-    qDebug()<<"MovableProxyWidget::setWidget";
     QGraphicsProxyWidget::setWidget(widget);
     prepareGeometryChange();
     this->setMinimumSize(0,0);
@@ -49,10 +43,6 @@ void MovableProxyWidget::setWidget(QWidget *widget)
     update(this->geometry());
     this->widget()->resize(widget->width(),widget->height());
 
-    auto portwidget=dynamic_cast<PortWidget*>(widget);
-    if(portwidget!=nullptr){
-        portwidget->setProxywidget(this);
-    }
 }
 
 

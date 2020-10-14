@@ -1,21 +1,22 @@
 ﻿#ifndef GRAPHICSAREASERIESNODE_H
 #define GRAPHICSAREASERIESNODE_H
 
-#include "DualPortWidget.h"
+#include "Dualputable.h"
 #include <QWidget>
 #include <Interpreter/DataModel/SeriesModel/AbstractAreaSeries.h>
 #include <GraphicsDataArrayNode.h>
 #include <QLayout>
+#include "AbstractGraphicsInnerDualputNode.h"
 
 namespace Ui {
 class GraphicsAreaSeriesNode;
 }
 
-class GraphicsAreaSeriesNode : public DualPortWidget,public AbstractAreaSeries,public PortWidget
+class GraphicsAreaSeriesNode :
+		public AbstractGraphicsInnerDualputNode,
+		public AbstractAreaSeries
 {
     Q_OBJECT
-
-
 
 public:
     explicit GraphicsAreaSeriesNode(QWidget *parent = nullptr);

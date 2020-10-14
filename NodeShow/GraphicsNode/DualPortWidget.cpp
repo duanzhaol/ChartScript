@@ -1,6 +1,6 @@
-﻿#include "DualPortWidget.h"
+﻿#include "Dualputable.h"
 
-DualPortWidget::DualPortWidget()
+Dualputable::Dualputable()
 {
 
 }
