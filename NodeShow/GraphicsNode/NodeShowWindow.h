@@ -4,6 +4,7 @@
 #include "ConnectController.h"
 
 #include <QGraphicsScene>
+#include <QListWidgetItem>
 #include <QMainWindow>
 
 namespace Ui {
@@ -12,21 +13,25 @@ class NodeShowWindow;
 
 class NodeShowWindow : public QMainWindow
 {
-    Q_OBJECT
-    static NodeShowWindow* instance;
+	Q_OBJECT
+
+	static NodeShowWindow*instance;
 
 public:
-    static NodeShowWindow* getInstance();
+	explicit NodeShowWindow(QWidget *parent = nullptr);
+	~NodeShowWindow();
 
-    explicit NodeShowWindow(QWidget *parent = nullptr);
-    ~NodeShowWindow();
-    void drawLine();
-    QGraphicsScene* scene = new QGraphicsScene();
-    static void createWindow();
+	static void createWindow();
+	static NodeShowWindow*getInstance();
+
+	QGraphicsScene*scene = new QGraphicsScene;
+
+private slots:
+	void on_listWidget_itemDoubleClicked(QListWidgetItem *item);
 
 private:
-    Ui::NodeShowWindow *ui;
-
+	Ui::NodeShowWindow *ui;
+	void init();
 };
 
 #endif // NODESHOWWINDOW_H

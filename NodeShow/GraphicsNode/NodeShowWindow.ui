@@ -16,14 +16,14 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout_2">
     <item>
-     <layout class="QVBoxLayout" name="verticalLayout" stretch="1,32">
+     <layout class="QVBoxLayout" name="verticalLayout" stretch="1,10">
       <item>
        <widget class="QGraphicsView" name="graphicsView_3"/>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,8">
+       <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,10">
         <item>
-         <widget class="QGraphicsView" name="graphicsView_2"/>
+         <widget class="QListWidget" name="listWidget"/>
         </item>
         <item>
          <widget class="ScalingGraphicsView" name="graphicsView"/>
