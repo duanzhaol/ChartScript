@@ -4,7 +4,7 @@
 #include <QWidget>
 #include <QDebug>
 #include <QApplication>
-#include "../GraphicsNode/AbstractGraphicsNode.h"
+#include "../GraphicsNode/GraphicsNode/AbstractGraphicsNode.h"
 #include <QGraphicsScene>
 #include "AbstractGraphicsTopNode.h"
 

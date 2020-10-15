@@ -1,10 +1,10 @@
 ﻿#ifndef GRAPHICSAREASERIESNODE_H
 #define GRAPHICSAREASERIESNODE_H
 
-#include "Dualputable.h"
+#include "../Dualputable.h"
 #include <QWidget>
 #include <Interpreter/DataModel/SeriesModel/AbstractAreaSeries.h>
-#include <GraphicsDataArrayNode.h>
+#include "GraphicsDataArrayNode.h"
 #include <QLayout>
 #include "AbstractGraphicsInnerDualputNode.h"
 

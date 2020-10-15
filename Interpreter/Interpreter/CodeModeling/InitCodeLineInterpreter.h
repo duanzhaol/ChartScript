@@ -2,7 +2,7 @@
 #define CODELINEINTERPRETER_H
 
 #include "../../DataModel/AbstractNode.h"
-#include "../../NodeShow/GraphicsNode/AbstractGraphicsNode.h"
+#include "NodeShow/GraphicsNode/GraphicsNode/AbstractGraphicsNode.h"
 
 class InitCodeLineInterpreter
 {

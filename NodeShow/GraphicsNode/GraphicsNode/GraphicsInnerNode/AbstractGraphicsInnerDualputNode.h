@@ -2,7 +2,7 @@
 #define ABSTRACTGRAPHICSINNERDUALPUTNODE_H
 
 #include "AbstractGraphicsInnerNode.h"
-#include "Dualputable.h"
+#include "../Dualputable.h"
 
 class AbstractGraphicsInnerDualputNode:
 		public AbstractGraphicsInnerNode,

@@ -1,8 +1,8 @@
 ﻿#ifndef ABSTRACTGRAPHICSINNERNODE_H
 #define ABSTRACTGRAPHICSINNERNODE_H
 
-#include "Dualputable.h"
-#include "AbstractGraphicsNode.h"
+#include "../Dualputable.h"
+#include "../AbstractGraphicsNode.h"
 
 #include "MovableProxyWidget.h"
 

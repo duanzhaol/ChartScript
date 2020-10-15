@@ -5,9 +5,9 @@
 #include"ClosureInterpreter.h"
 #include "DataTypeInterpreter.h"
 #include "ArrayInterpreter.h"
-#include "../../NodeShow/GraphicsNode/GraphicsDataNode.h"
-#include "../../NodeShow/GraphicsNode/GraphicsStartNode.h"
-#include "../../NodeShow/GraphicsNode/GraphicsDataArrayNode.h"
+#include "../../NodeShow/GraphicsNode/GraphicsNode/GraphicsInnerNode/GraphicsDataNode.h"
+#include "../../NodeShow/GraphicsNode/GraphicsNode/GraphicsTopNode/GraphicsStartNode.h"
+#include "../../NodeShow/GraphicsNode/GraphicsNode/GraphicsInnerNode/GraphicsDataArrayNode.h"
 #include <QDebug>
 
 InitCodeLineInterpreter::InitCodeLineInterpreter()

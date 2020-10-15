@@ -3,7 +3,7 @@
 
 #include <QPushButton>
 #include <QWidget>
-#include "Dualputable.h"
+#include "../Dualputable.h"
 #include "Interpreter/DataModel/AbstractDataNode.h"
 #include "AbstractGraphicsInnerDualputNode.h"
 #pragma execution_character_set("utf-8")

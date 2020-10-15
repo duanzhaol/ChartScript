@@ -2,7 +2,7 @@
 #define ABSTRACTGRAPHICSTOPNODE_H
 
 #include "MovableProxyWidget.h"
-#include "AbstractGraphicsNode.h"
+#include "../AbstractGraphicsNode.h"
 
 using Proxy = MovableProxyWidget;
 

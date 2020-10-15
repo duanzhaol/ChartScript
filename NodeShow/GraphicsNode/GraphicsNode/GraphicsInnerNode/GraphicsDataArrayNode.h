@@ -1,7 +1,7 @@
 ﻿#ifndef GRAPHICSDATAARRAYNODE_H
 #define GRAPHICSDATAARRAYNODE_H
 
-#include "Dualputable.h"
+#include "../Dualputable.h"
 #include <QComboBox>
 #include <QPushButton>
 #include <QWidget>

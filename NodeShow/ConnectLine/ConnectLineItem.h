@@ -3,10 +3,10 @@
 
 #include <QGraphicsPolygonItem>
 #include <QGraphicsItem>
-#include "Dualputable.h"
 #include<QtMath>
 #include "Interpreter/Exception/ImplicitTypeConversion.h"
 #include "Interpreter/Exception/TypeUnconvertible.h"
+#include "GraphicsNode/Dualputable.h"
 
 
 class ConnectLineItem:public QGraphicsPolygonItem

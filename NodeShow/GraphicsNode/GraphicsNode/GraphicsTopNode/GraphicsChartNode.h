@@ -1,7 +1,7 @@
 ﻿#ifndef GRAPHICSCHARTNODE_H
 #define GRAPHICSCHARTNODE_H
 
-#include "Dualputable.h"
+#include "../Dualputable.h"
 #include <QWidget>
 #include <Interpreter/DataModel/AbstractChartNode.h>
 #include <QLineEdit>
@@ -19,13 +19,12 @@ class GraphicsChartNode :
 {
     Q_OBJECT
 
+	template<class GraphicsSeries>
+	void insertSeries(const QSize&&nodeSize);
+
 public:
 	explicit GraphicsChartNode(Proxy*proxy,QWidget *parent = nullptr);
     ~GraphicsChartNode();
-    QHBoxLayout *insertAreaSeries();
-    QHBoxLayout *insertLineSeries();
-    QHBoxLayout *insertPieSeries();
-    QHBoxLayout *insertScatterSeries();
 
 private:
     Ui::GraphicsChartNode *ui;
@@ -53,5 +52,34 @@ private slots:
     void on_addSeriesButton_clicked();
 
 };
+
+#define START_TEMPLATE
+
+#ifdef START_TEMPLATE
+#include "ui_GraphicsChartNode.h"
+#include <type_traits>
+
+template<class GraphicsSeries>
+void GraphicsChartNode::insertSeries(const QSize&&nodeSize)
+{
+	QHBoxLayout  *series = new QHBoxLayout();
+
+	GraphicsSeries *node1=new GraphicsSeries(this);
+
+	node1->setTopProxy(this->getProxy());
+
+	seriesList.append(static_cast<AbstractSeriesNode*>(node1)); //添加到序列list里用于罗获取到图结点的所有序列
+
+	node1->setFixedSize(nodeSize);
+
+	//twoNodes->addSpacerItem(new QSpacerItem(20,130));
+	series->addWidget(node1);
+
+	this->ui->verticalLayout->addLayout(series);
+}
+
+#endif
+
+#undef START_TEMPLATE
 
 #endif // GRAPHICSCHARTNODE_H

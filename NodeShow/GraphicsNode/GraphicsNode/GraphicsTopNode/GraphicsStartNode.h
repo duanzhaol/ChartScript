@@ -3,7 +3,7 @@
 
 #include <QWidget>
 #include <Interpreter/DataModel/StartNode.h>
-#include "Outputable.h"
+#include "../Outputable.h"
 #include "AbstractGraphicsTopNode.h"
 
 #pragma execution_character_set("utf-8")

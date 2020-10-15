@@ -39,11 +39,9 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 
-HEADERS += \ \
-	InitInterface/InitInterface.h
+HEADERS += \
+	InitInterface/InitInterface.h \
 
 SOURCES += main.cpp
-
-FORMS +=
 
 

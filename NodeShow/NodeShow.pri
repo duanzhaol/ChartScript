@@ -2,38 +2,38 @@ RESOURCES += \
     $$PWD/resource.qrc
 
 FORMS += \
-	$$PWD/GraphicsNode/GraphicsAreaSeriesNode.ui \
-	$$PWD/GraphicsNode/GraphicsChartNode.ui \
-	$$PWD/GraphicsNode/GraphicsDataArrayNode.ui \
-	$$PWD/GraphicsNode/GraphicsDataNode.ui \
-	$$PWD/GraphicsNode/GraphicsLineSeriesNode.ui \
-	$$PWD/GraphicsNode/GraphicsPieSeriesNode.ui \
-	$$PWD/GraphicsNode/GraphicsScatterSeriesNode.ui \
-	$$PWD/GraphicsNode/GraphicsStartNode.ui \
+	$$PWD/GraphicsNode/GraphicsNode/GraphicsInnerNode/GraphicsAreaSeriesNode.ui \
+	$$PWD/GraphicsNode/GraphicsNode/GraphicsInnerNode/GraphicsDataArrayNode.ui \
+	$$PWD/GraphicsNode/GraphicsNode/GraphicsInnerNode/GraphicsDataNode.ui \
+	$$PWD/GraphicsNode/GraphicsNode/GraphicsInnerNode/GraphicsLineSeriesNode.ui \
+	$$PWD/GraphicsNode/GraphicsNode/GraphicsInnerNode/GraphicsPieSeriesNode.ui \
+	$$PWD/GraphicsNode/GraphicsNode/GraphicsInnerNode/GraphicsScatterSeriesNode.ui \
+	$$PWD/GraphicsNode/GraphicsNode/GraphicsTopNode/GraphicsChartNode.ui \
+	$$PWD/GraphicsNode/GraphicsNode/GraphicsTopNode/GraphicsStartNode.ui \
 	$$PWD/GraphicsNode/NodeShowWindow.ui \
 	$$PWD/GraphicsNode/Port.ui \
 	$$PWD/GraphicsNode/ResizeTest.ui
 
 HEADERS += \
 	$$PWD/ConnectLine/ConnectLineItem.h \
-	$$PWD/GraphicsNode/AbstractGraphicsInnerDualputNode.h \
-	$$PWD/GraphicsNode/AbstractGraphicsInnerNode.h \
-	$$PWD/GraphicsNode/AbstractGraphicsNode.h \
-	$$PWD/GraphicsNode/AbstractGraphicsTopDualoutNode.h \
-	$$PWD/GraphicsNode/AbstractGraphicsTopNode.h \
 	$$PWD/GraphicsNode/ConnectController.h \
-	$$PWD/GraphicsNode/Dualputable.h \
-	$$PWD/GraphicsNode/GraphicsAreaSeriesNode.h \
-	$$PWD/GraphicsNode/GraphicsChartNode.h \
-	$$PWD/GraphicsNode/GraphicsDataArrayNode.h \
-	$$PWD/GraphicsNode/GraphicsDataNode.h \
-	$$PWD/GraphicsNode/GraphicsLineSeriesNode.h \
-	$$PWD/GraphicsNode/GraphicsPieSeriesNode.h \
-	$$PWD/GraphicsNode/GraphicsScatterSeriesNode.h \
-	$$PWD/GraphicsNode/GraphicsStartNode.h \
-	$$PWD/GraphicsNode/Inputable.h \
+	$$PWD/GraphicsNode/GraphicsNode/AbstractGraphicsNode.h \
+	$$PWD/GraphicsNode/GraphicsNode/Dualputable.h \
+	$$PWD/GraphicsNode/GraphicsNode/GraphicsInnerNode/AbstractGraphicsInnerDualputNode.h \
+	$$PWD/GraphicsNode/GraphicsNode/GraphicsInnerNode/AbstractGraphicsInnerNode.h \
+	$$PWD/GraphicsNode/GraphicsNode/GraphicsInnerNode/GraphicsAreaSeriesNode.h \
+	$$PWD/GraphicsNode/GraphicsNode/GraphicsInnerNode/GraphicsDataArrayNode.h \
+	$$PWD/GraphicsNode/GraphicsNode/GraphicsInnerNode/GraphicsDataNode.h \
+	$$PWD/GraphicsNode/GraphicsNode/GraphicsInnerNode/GraphicsLineSeriesNode.h \
+	$$PWD/GraphicsNode/GraphicsNode/GraphicsInnerNode/GraphicsPieSeriesNode.h \
+	$$PWD/GraphicsNode/GraphicsNode/GraphicsInnerNode/GraphicsScatterSeriesNode.h \
+	$$PWD/GraphicsNode/GraphicsNode/GraphicsTopNode/AbstractGraphicsTopDualoutNode.h \
+	$$PWD/GraphicsNode/GraphicsNode/GraphicsTopNode/AbstractGraphicsTopNode.h \
+	$$PWD/GraphicsNode/GraphicsNode/GraphicsTopNode/GraphicsChartNode.h \
+	$$PWD/GraphicsNode/GraphicsNode/GraphicsTopNode/GraphicsStartNode.h \
+	$$PWD/GraphicsNode/GraphicsNode/Inputable.h \
+	$$PWD/GraphicsNode/GraphicsNode/Outputable.h \
 	$$PWD/GraphicsNode/NodeShowWindow.h \
-	$$PWD/GraphicsNode/Outputable.h \
 	$$PWD/GraphicsNode/Port.h \
 	$$PWD/GraphicsNode/ResizeTest.h \
 	$$PWD/GraphicsNode/ScalingGraphicsView.h \
@@ -42,34 +42,38 @@ HEADERS += \
 
 SOURCES += \
 	$$PWD/ConnectLine/ConnectLineItem.cpp \
-	$$PWD/GraphicsNode/AbstractGraphicsInnerDualputNode.cpp \
-	$$PWD/GraphicsNode/AbstractGraphicsInnerNode.cpp \
-	$$PWD/GraphicsNode/AbstractGraphicsNode.cpp \
-	$$PWD/GraphicsNode/AbstractGraphicsTopDualoutNode.cpp \
-	$$PWD/GraphicsNode/AbstractGraphicsTopNode.cpp \
 	$$PWD/GraphicsNode/ConnectController.cpp \
-	$$PWD/GraphicsNode/DualPortWidget.cpp \
-	$$PWD/GraphicsNode/GraphicsAreaSeriesNode.cpp \
-	$$PWD/GraphicsNode/GraphicsChartNode.cpp \
-	$$PWD/GraphicsNode/GraphicsDataArrayNode.cpp \
-	$$PWD/GraphicsNode/GraphicsDataNode.cpp \
-	$$PWD/GraphicsNode/GraphicsLineSeriesNode.cpp \
-	$$PWD/GraphicsNode/GraphicsPieSeriesNode.cpp \
-	$$PWD/GraphicsNode/GraphicsScatterSeriesNode.cpp \
-	$$PWD/GraphicsNode/GraphicsStartNode.cpp \
-	$$PWD/GraphicsNode/InputPortWidget.cpp \
+	$$PWD/GraphicsNode/GraphicsNode/AbstractGraphicsNode.cpp \
+	$$PWD/GraphicsNode/GraphicsNode/DualPortWidget.cpp \
+	$$PWD/GraphicsNode/GraphicsNode/GraphicsInnerNode/AbstractGraphicsInnerDualputNode.cpp \
+	$$PWD/GraphicsNode/GraphicsNode/GraphicsInnerNode/AbstractGraphicsInnerNode.cpp \
+	$$PWD/GraphicsNode/GraphicsNode/GraphicsInnerNode/GraphicsAreaSeriesNode.cpp \
+	$$PWD/GraphicsNode/GraphicsNode/GraphicsInnerNode/GraphicsDataArrayNode.cpp \
+	$$PWD/GraphicsNode/GraphicsNode/GraphicsInnerNode/GraphicsDataNode.cpp \
+	$$PWD/GraphicsNode/GraphicsNode/GraphicsInnerNode/GraphicsLineSeriesNode.cpp \
+	$$PWD/GraphicsNode/GraphicsNode/GraphicsInnerNode/GraphicsPieSeriesNode.cpp \
+	$$PWD/GraphicsNode/GraphicsNode/GraphicsInnerNode/GraphicsScatterSeriesNode.cpp \
+	$$PWD/GraphicsNode/GraphicsNode/GraphicsTopNode/AbstractGraphicsTopDualoutNode.cpp \
+	$$PWD/GraphicsNode/GraphicsNode/GraphicsTopNode/AbstractGraphicsTopNode.cpp \
+	$$PWD/GraphicsNode/GraphicsNode/GraphicsTopNode/GraphicsChartNode.cpp \
+	$$PWD/GraphicsNode/GraphicsNode/GraphicsTopNode/GraphicsStartNode.cpp \
+	$$PWD/GraphicsNode/GraphicsNode/InputPortWidget.cpp \
+	$$PWD/GraphicsNode/GraphicsNode/OutputPortWidget.cpp \
 	$$PWD/GraphicsNode/NodeShowWindow.cpp \
-	$$PWD/GraphicsNode/OutputPortWidget.cpp \
 	$$PWD/GraphicsNode/Port.cpp \
 	$$PWD/GraphicsNode/ResizeTest.cpp \
 	$$PWD/GraphicsNode/ScalingGraphicsView.cpp \
 	$$PWD/NodeShowInitializer.cpp \
-	$$PWD/ProxyWidget/MovableProxyWidget.cpp \
+	$$PWD/ProxyWidget/MovableProxyWidget.cpp
 
 INCLUDEPATH += \
 	$$PWD/ConnectLine \
 	$$PWD/GraphicsNode \
 	$$PWD/ProxyWidget \
-	$$PWD/../../Interpreter
+	$$PWD/../../Interpreter \
+	$$PWD/GraphicsNode \
+	$$PWD/GraphicsNode/GraphicsNode/GraphicsInnerNode \
+	$$PWD/GraphicsNode/GraphicsNOde/GraphicsTopNode
 
-
+DEPENDPATH += \
+	$$PWD/GraphicsNode/GraphicsNode/GraphicsInnerNode

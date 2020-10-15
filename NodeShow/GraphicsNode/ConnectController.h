@@ -3,7 +3,6 @@
 #include <ConnectLineItem.h>
 #include <QObject>
 #include <GraphicsDataArrayNode.h>
-#include <AbstractGraphicsNode.h>
 
 class ConnectController:public QObject
 {

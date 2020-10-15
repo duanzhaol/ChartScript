@@ -1,27 +1,28 @@
-﻿#ifndef GRAPHICSLINESERIESNODE_H
-#define GRAPHICSLINESERIESNODE_H
+﻿#ifndef GRAPHICSSCATTERSERIESNODE_H
+#define GRAPHICSSCATTERSERIESNODE_H
 
 #include "AbstractGraphicsInnerDualputNode.h"
-#include "Dualputable.h"
+#include "../Dualputable.h"
 #include <QWidget>
-#include <Interpreter/DataModel/SeriesModel/AbstractLineSeriesNode.h>
+#include <Interpreter/DataModel/SeriesModel/AbstractScatterSeriesNode.h>
+#include <QComboBox>
 
 namespace Ui {
-class GraphicsLineSeriesNode;
+class GraphicsScatterSeriesNode;
 }
 
-class GraphicsLineSeriesNode :
+class GraphicsScatterSeriesNode :
 		public AbstractGraphicsInnerDualputNode,
-		public AbstractLineSeriesNode
+		public AbstractScatterSeriesNode
 {
     Q_OBJECT
 
 public:
-    explicit GraphicsLineSeriesNode(QWidget *parent = nullptr);
-    ~GraphicsLineSeriesNode();
+    explicit GraphicsScatterSeriesNode(QWidget *parent = nullptr);
+    ~GraphicsScatterSeriesNode();
 
 private:
-    Ui::GraphicsLineSeriesNode *ui;
+    Ui::GraphicsScatterSeriesNode *ui;
 
     // GraphicsNodeInterface interface
 public:
@@ -40,10 +41,6 @@ public:
     // InputPortWidget interface
 public:
     virtual InputPort *getInputPort() override;
-
-	// AbstractGraphicsInnerNode interface
-public:
-	virtual void setTopProxy(Proxy *value) override;
 };
 
-#endif // GRAPHICSLINESERIESNODE_H
+#endif // GRAPHICSSCATTERSERIESNODE_H

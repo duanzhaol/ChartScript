@@ -2,7 +2,7 @@
 #define GraphicsPieSeriesNode_H
 
 #include "AbstractGraphicsInnerDualputNode.h"
-#include "Dualputable.h"
+#include "../Dualputable.h"
 #include <QWidget>
 #include <Interpreter/DataModel/SeriesModel/AbstractPieSeries.h>
 #pragma execution_character_set("utf-8")

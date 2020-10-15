@@ -2,7 +2,7 @@
 #define ABSTRACTGRAPHICSTOPDUALOUTNODE_H
 
 #include "AbstractGraphicsTopNode.h"
-#include "Dualputable.h"
+#include "../Dualputable.h"
 
 class AbstractGraphicsTopDualoutNode:
 		public AbstractGraphicsTopNode,
