@@ -1,0 +1,21 @@
+<RCC>
+    <qresource prefix="/img">
+        <file>img/xia.png</file>
+        <file>img/ha.jpg</file>
+        <file>img/beijing.jpg</file>
+        <file>img/startNode.png</file>
+        <file>img/startNode-hover.png</file>
+        <file>img/startNode-press.png</file>
+        <file>img/Chart-banner.png</file>
+        <file>img/ChartScript-banner.png</file>
+        <file>img/ChartScript-banner-small.png</file>
+    </qresource>
+    <qresource prefix="/img/node">
+        <file>img/node/areaSeries.png</file>
+        <file>img/node/arrayNode.png</file>
+        <file>img/node/chartNode.png</file>
+        <file>img/node/lineSeriesNode.png</file>
+        <file>img/node/pieSeries.png</file>
+        <file>img/node/scatterSeries.png</file>
+    </qresource>
+</RCC>
