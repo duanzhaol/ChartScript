@@ -23,6 +23,10 @@ auto getStart(){
 	return new GraphicsStartNode(new MovableProxyWidget);
 }
 
+//auto getArrayNode(){
+
+//}
+
 
 
 NodeShowWindow::NodeShowWindow(QWidget *parent) :
@@ -128,30 +132,30 @@ void NodeShowWindow::init()
 	item1->setIcon(QIcon(":/img/img/startNode.png"));
 	item1->setSizeHint(QSize(140,130));
 
-	QListWidgetItem *item2=new QListWidgetItem(ui->listWidget);
-	item2->setText("数列结点");
-	item2->setIcon(QIcon(":/img/node/img/node/arrayNode.png"));
-	item2->setSizeHint(QSize(140,130));
+    QListWidgetItem *item2=new QListWidgetItem(ui->listWidget);
+    item2->setText("数列结点(占位，添加函数改变了)");
+    item2->setIcon(QIcon(":/img/node/img/node/arrayNode.png"));
+    item2->setSizeHint(QSize(140,130));
 
-	QListWidgetItem *item3=new QListWidgetItem(ui->listWidget);
-	item3->setText("线图序列");
-	item3->setIcon(QIcon(":/img/node/img/node/lineSeriesNode.png"));
-	item3->setSizeHint(QSize(140,130));
+//	QListWidgetItem *item3=new QListWidgetItem(ui->listWidget);
+//	item3->setText("线图序列");
+//	item3->setIcon(QIcon(":/img/node/img/node/lineSeriesNode.png"));
+//	item3->setSizeHint(QSize(140,130));
 
-	QListWidgetItem *item4=new QListWidgetItem(ui->listWidget);
-	item4->setText("区域图序列");
-	item4->setIcon(QIcon(":/img/node/img/node/areaSeries.png"));
-	item4->setSizeHint(QSize(140,130));
+//	QListWidgetItem *item4=new QListWidgetItem(ui->listWidget);
+//	item4->setText("区域图序列");
+//	item4->setIcon(QIcon(":/img/node/img/node/areaSeries.png"));
+//	item4->setSizeHint(QSize(140,130));
 
-	QListWidgetItem *item5=new QListWidgetItem(ui->listWidget);
-	item5->setText("饼图序列");
-	item5->setIcon(QIcon(":/img/node/img/node/pieSeries.png"));
-	item5->setSizeHint(QSize(140,130));
+//	QListWidgetItem *item5=new QListWidgetItem(ui->listWidget);
+//	item5->setText("饼图序列");
+//	item5->setIcon(QIcon(":/img/node/img/node/pieSeries.png"));
+//	item5->setSizeHint(QSize(140,130));
 
-	QListWidgetItem *item6=new QListWidgetItem(ui->listWidget);
-	item6->setText("散点图序列");
-	item6->setIcon(QIcon(":/img/node/img/node/scatterSeries.png"));
-	item6->setSizeHint(QSize(140,130));
+//	QListWidgetItem *item6=new QListWidgetItem(ui->listWidget);
+//	item6->setText("散点图序列");
+//	item6->setIcon(QIcon(":/img/node/img/node/scatterSeries.png"));
+//	item6->setSizeHint(QSize(140,130));
 
 	QListWidgetItem *item7=new QListWidgetItem(ui->listWidget);
 	item7->setText("统计图结点");
@@ -172,14 +176,15 @@ void NodeShowWindow::on_listWidget_itemDoubleClicked(QListWidgetItem *item)
 		scene->addItem(start->getProxy());
 
 	}
-//	else if(item->text()=="数列结点"){
-//		qDebug()<<item->text();
-//		//GraphicsRectItem *rect=new GraphicsRectItem(0,0,100,100);
-//		//addItem(rect);
-//		auto array= getProxy2();
-//		scene->addItem(array);
+//    else if(item->text()=="数列结点"){
+//        qDebug()<<item->text();
+//        //GraphicsRectItem *rect=new GraphicsRectItem(0,0,100,100);
+//        //addItem(rect);
+//        auto array= getProxy2();
+//        scene->addItem(array);
 
-//	}else if(item->text()=="线图序列"){
+//    }
+//    else if(item->text()=="线图序列"){
 //		qDebug()<<item->text();
 //	   // GraphicsEllipseItem *ellipse=new GraphicsEllipseItem(0,0,100,100);
 //		//addItem(ellipse);
