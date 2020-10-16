@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>GraphicsDataArrayNode</class>
+ <widget class="QWidget" name="GraphicsDataArrayNode">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>280</width>
+    <height>120</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>280</width>
+    <height>120</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>280</width>
+    <height>120</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">
+
+background: rgba(73, 255, 109,0);
+    color: #BBBBBB;
+    font-family: &quot;Segoe UI&quot;;</string>
+  </property>
+  <widget class="QComboBox" name="comboBox">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>50</y>
+     <width>131</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI</family>
+     <pointsize>9</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+QComboBox {border-radius:10px;background:rgb(97, 97, 97);color:#ffffff;
+padding-left:15px;
+}  
+
+QComboBox QAbstractItemView {background:rgb(189, 189, 189);color:#ffffff;} 
+ 
+
+QComboBox::drop-down{
+width: 15px;
+border-left: 1px solid #ffffff; 
+}    
+
+QComboBox::down-arrow {image: url(:/img/img/xia.png);height:30px;width:15px;}   
+
+QListView::item{padding-left:15px;background:rgb(152, 152, 152);color:#ffffff;}  
+
+QListView::item:selected{ 
+color:#DCDCDC;
+background:rgb(94,167,255);
+}   
+
+QListView::item:hover{ 
+color:#DCDCDC;
+background:rgb(94,167,255);
+}</string>
+   </property>
+   <item>
+    <property name="text">
+     <string>String</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>long long</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>float</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>double</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>int</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>50</y>
+     <width>31</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI</family>
+     <pointsize>8</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>out</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="nodeBackground">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>280</width>
+     <height>120</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>280</width>
+     <height>120</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>10000</width>
+     <height>10000</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+
+background: #222222;
+    color: #BBBBBB;
+    font-family: &quot;Segoe UI&quot;;
+border-radius:50%;
+</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="dataArrayNodeData">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>90</y>
+     <width>201</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI</family>
+     <pointsize>9</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:1px solid rgba(255, 255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string>起飞</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>50</y>
+     <width>31</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI</family>
+     <pointsize>8</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>in</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="dataArrayNodeName">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>10</y>
+     <width>211</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI</family>
+     <pointsize>9</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:2px solid rgb(111, 111, 111);
+border-radius:5px;</string>
+   </property>
+   <property name="text">
+    <string> 数列节点</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>50</y>
+     <width>51</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI</family>
+     <pointsize>12</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Array</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="outputPort">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>50</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>16777215</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+							 border: 1px solid #333333;
+							 padding: 4px;
+							 border-radius:8px;
+
+							 background-color: rgb(255, 255, 255);
+						 }
+
+						 QPushButton:hover {
+							 background-color: rgb(52, 167, 255);
+							 border-color: #444444;
+						 }
+
+						 QPushButton:pressed {
+							 background-color: rgb(46, 39, 239);
+							 border-color: #333333;
+							 color: yellow;
+						 }
+
+						 QPushButton:disabled {
+							 color: #333333;
+						 }</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="inputPort">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>50</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>16777215</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+							 border: 1px solid #333333;
+							 padding: 4px;
+							 border-radius:8px;
+
+							 background-color: rgb(255, 255, 255);
+						 }
+
+						 QPushButton:hover {
+							 background-color: rgb(52, 167, 255);
+							 border-color: #444444;
+						 }
+
+						 QPushButton:pressed {
+							 background-color: rgb(46, 39, 239);
+							 border-color: #333333;
+							 color: yellow;
+						 }
+
+						 QPushButton:disabled {
+							 color: #333333;
+						 }</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <zorder>nodeBackground</zorder>
+  <zorder>comboBox</zorder>
+  <zorder>label</zorder>
+  <zorder>dataArrayNodeData</zorder>
+  <zorder>label_2</zorder>
+  <zorder>dataArrayNodeName</zorder>
+  <zorder>label_3</zorder>
+  <zorder>outputPort</zorder>
+  <zorder>inputPort</zorder>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
