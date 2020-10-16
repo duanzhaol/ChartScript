@@ -14,6 +14,11 @@ GraphicsAreaSeriesNode::GraphicsAreaSeriesNode(QWidget *parent) :
     twoNodesNum=0;
     nodeheight=0;
 
+	ui->upperXArray->setParent(this);
+	ui->upperYArray->setParent(this);
+	ui->bottomXArray->setParent(this);
+	ui->bottomYArray->setParent(this);
+
 //    /*标题lineedit文字居中*/
 //    ui->AreaSeriesName->setAlignment( Qt::AlignHCenter); //数据节点的名字居中显示
 
@@ -97,4 +102,14 @@ OutputPort *GraphicsAreaSeriesNode::getOutputPort()
 InputPort *GraphicsAreaSeriesNode::getInputPort()
 {
     return ui->inputPort;
+}
+
+
+void GraphicsAreaSeriesNode::setTopProxy(Proxy *value)
+{
+	AbstractGraphicsInnerDualputNode::setTopProxy(value);
+	ui->upperXArray->setTopProxy(value);
+	ui->upperYArray->setTopProxy(value);
+	ui->bottomXArray->setTopProxy(value);
+	ui->bottomYArray->setTopProxy(value);
 }

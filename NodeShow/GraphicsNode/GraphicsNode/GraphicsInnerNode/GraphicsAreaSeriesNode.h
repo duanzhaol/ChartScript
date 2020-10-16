@@ -48,6 +48,10 @@ public:
 public:
     virtual InputPort *getInputPort() override;
 
+
+	// AbstractGraphicsInnerNode interface
+public:
+	virtual void setTopProxy(Proxy *value) override;
 };
 
 #endif // GRAPHICSAREASERIESNODE_H

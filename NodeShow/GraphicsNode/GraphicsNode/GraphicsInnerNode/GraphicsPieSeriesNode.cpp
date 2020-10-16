@@ -26,6 +26,9 @@ GraphicsPieSeriesNode::GraphicsPieSeriesNode(QWidget *parent) :
 //    /*标题lineedit文字居中*/
 //    ui->PieSeriesName->setAlignment( Qt::AlignHCenter);
 
+	ui->LabelArray->setParent(this);
+	ui->NumberArray->setParent(this);
+
 }
 
 GraphicsPieSeriesNode::~GraphicsPieSeriesNode()
@@ -62,4 +65,12 @@ OutputPort *GraphicsPieSeriesNode::getOutputPort()
 InputPort *GraphicsPieSeriesNode::getInputPort()
 {
     return ui->inputPort;
+}
+
+
+void GraphicsPieSeriesNode::setTopProxy(Proxy *value)
+{
+	AbstractGraphicsInnerDualputNode::setTopProxy(value);
+	ui->NumberArray->setTopProxy(value);
+	ui->LabelArray->setTopProxy(value);
 }

@@ -8,6 +8,8 @@ GraphicsScatterSeriesNode::GraphicsScatterSeriesNode(QWidget *parent) :
 
 //    /*标题lineedit文字居中*/
 //    ui->ScatterSeriesName->setAlignment( Qt::AlignHCenter);
+	ui->XDataArray->setParent(this);
+	ui->YDataArray->setParent(this);
 }
 
 GraphicsScatterSeriesNode::~GraphicsScatterSeriesNode()
@@ -43,4 +45,12 @@ OutputPort *GraphicsScatterSeriesNode::getOutputPort()
 InputPort *GraphicsScatterSeriesNode::getInputPort()
 {
     return ui->inputPort;
+}
+
+
+void GraphicsScatterSeriesNode::setTopProxy(Proxy *value)
+{
+	AbstractGraphicsInnerDualputNode::setTopProxy(value);
+	ui->XDataArray->setTopProxy(value);
+	ui->YDataArray->setTopProxy(value);
 }

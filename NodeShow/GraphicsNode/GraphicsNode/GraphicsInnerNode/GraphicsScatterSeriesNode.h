@@ -41,6 +41,10 @@ public:
     // InputPortWidget interface
 public:
     virtual InputPort *getInputPort() override;
+
+	// AbstractGraphicsInnerNode interface
+public:
+	virtual void setTopProxy(Proxy *value) override;
 };
 
 #endif // GRAPHICSSCATTERSERIESNODE_H
