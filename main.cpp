@@ -2,9 +2,7 @@
 #include <QDebug>
 #include <QDateTime>
 #include <QSplashScreen>
-#include "graphShow/GraphShowInitializer.h"
-#include "NodeShow/NodeShowInitializer.h"
-
+#include "MainWindow/MainWindowInitializer.h"
 
 void LoadImage(){
     /*程序进入前的开场动画效果*/
@@ -26,8 +24,7 @@ int main(int argc,char*argv[]){
 
 //    LoadImage();
 
-//	GraphShowInitializer::getInstance()->init();
-	NodeShowInitializer::getInstance()->init();
+	MainWindowInitializer::getInstance()->init();
 
 	app.exec();
 }

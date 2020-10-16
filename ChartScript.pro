@@ -18,6 +18,7 @@ include(graphShow/graphShow.pri)
 include(UTools/UTools.pri)
 include(NodeShow/NodeShow.pri)
 include(Interpreter/Interpreter.pri)
+include(MainWindow/MainWindow.pri)
 
 
 # The following define makes your compiler emit warnings if you use
@@ -39,9 +40,10 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 
-HEADERS += \
-	InitInterface/InitInterface.h \
+HEADERS += \ \
+	InitInterface/AbstractInitializer.h
 
-SOURCES += main.cpp
+SOURCES += main.cpp \
+	InitInterface/AbstractInitializer.cpp
 
 

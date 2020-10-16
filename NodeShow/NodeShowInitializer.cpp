@@ -3,9 +3,6 @@
 #include <ConnectController.h>
 #include <NodeShowWindow.h>
 
-
-
-
 NodeShowInitializer::NodeShowInitializer()
 {
 
@@ -24,9 +21,15 @@ void NodeShowInitializer::init()
 
 
 	NodeShowWindow::createWindow();
-	NodeShowWindow::getInstance()->show();
+	this->widget = NodeShowWindow::getInstance();
 //    splash.finish();
 
 }
 
 NodeShowInitializer* NodeShowInitializer::instance = new NodeShowInitializer;
+
+
+QString NodeShowInitializer::getWindowName() const
+{
+	return QStringLiteral("Visual Programe");
+}

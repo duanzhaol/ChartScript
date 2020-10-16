@@ -1,9 +1,9 @@
 ﻿#ifndef GRAPHSHOWINITIALIZER_H
 #define GRAPHSHOWINITIALIZER_H
 
-#include "../../InitInterface/InitInterface.h"
+#include "../../InitInterface/AbstractInitializer.h"
 
-class GraphShowInitializer:public InitInterface
+class GraphShowInitializer:public AbstractInitializer
 {
 	GraphShowInitializer();
 	static GraphShowInitializer *instance;
@@ -12,7 +12,11 @@ public:
 	// InitInterface interface
 public:
 	virtual void init() override;
-	static InitInterface* getInstance();
+	static AbstractInitializer* getInstance();
+
+	// AbstractInitializer interface
+public:
+	virtual QString getWindowName() const override;
 };
 
 
