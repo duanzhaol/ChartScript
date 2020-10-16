@@ -8,3 +8,6 @@ HEADERS += \
 SOURCES += \
 	$$PWD/MainWindow.cpp \
 	$$PWD/MainWindowInitializer.cpp
+
+RESOURCES += \
+	$$PWD/MainWindow.qrc

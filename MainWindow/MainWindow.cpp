@@ -8,6 +8,8 @@ MainWindow::MainWindow(QWidget *parent) :
 	ui(new Ui::MainWindow)
 {
 	ui->setupUi(this);
+	this->setWindowTitle("Chart Script");
+	this->setWindowIcon(QIcon(R"(:/image/img/windowIcon)"));
 }
 
 MainWindow::~MainWindow()
