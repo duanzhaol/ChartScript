@@ -29,6 +29,8 @@ GraphicsDataArrayNode::GraphicsDataArrayNode(QWidget *parent) :
 
     ui->inputPort->setParent(this);
     ui->outputPort->setParent(this);
+	this->initName();
+
 
 
 }

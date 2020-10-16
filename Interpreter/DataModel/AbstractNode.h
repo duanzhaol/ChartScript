@@ -19,6 +19,10 @@ class AbstractNode:
 		public GraphicsNodeInterface,
 		public ModelCodingInterface
 {
+protected:
+
+	void initName();
+
 public:
 	/** @brief throw corresponding exception if this node can not connect to given node.
 	 * @throw InterpreterException

@@ -9,6 +9,8 @@ GraphicsLineSeriesNode::GraphicsLineSeriesNode(QWidget *parent) :
 
     ui->XDataArray->setParent(this);
     ui->YDataArray->setParent(this);
+	this->initName();
+
 
 //    qDebug()<<ui->XDataArray->mapToGlobal(this->pos());
 //    qDebug()<<ui->YDataArray->mapToGlobal(this->pos());

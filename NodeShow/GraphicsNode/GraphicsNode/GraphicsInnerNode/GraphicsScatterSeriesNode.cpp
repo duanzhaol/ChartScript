@@ -10,6 +10,8 @@ GraphicsScatterSeriesNode::GraphicsScatterSeriesNode(QWidget *parent) :
 //    ui->ScatterSeriesName->setAlignment( Qt::AlignHCenter);
 	ui->XDataArray->setParent(this);
 	ui->YDataArray->setParent(this);
+	this->initName();
+
 }
 
 GraphicsScatterSeriesNode::~GraphicsScatterSeriesNode()

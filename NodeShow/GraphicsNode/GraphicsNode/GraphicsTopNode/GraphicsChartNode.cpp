@@ -22,6 +22,8 @@ GraphicsChartNode::GraphicsChartNode(Proxy *proxy, QWidget *parent) :
     ui->comboBox->setLineEdit(lineEdit);
 
 	proxy->setWidget(this);
+
+	this->initName();
 }
 
 

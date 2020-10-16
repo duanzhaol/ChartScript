@@ -14,7 +14,7 @@ QString UniqueNamer::getUniqueName()
 
 UniqueNamerPool::UniqueNamerPool()
 {
-	this->pool.insert(NamerSeed::GraphShow,UniqueNamer("Digit Node","",0));
+	this->pool.insert(NamerSeed::GraphShow,UniqueNamer("Node","",0));
 }
 
 

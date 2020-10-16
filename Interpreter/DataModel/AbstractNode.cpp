@@ -2,8 +2,14 @@
 #include <QDebug>
 #include "../Interpreter/InterpreterController.h"
 #include "../Exception/NodeNameConflictException.h"
+#include "UTools/UniqueNamer.h"
 
 
+
+void AbstractNode::initName()
+{
+	this->setNodeName(UniqueNamerPool::getNamer(NamerSeed::GraphShow).getUniqueName());
+}
 
 void AbstractNode::verifyConnectable(AbstractNode *node)
 {

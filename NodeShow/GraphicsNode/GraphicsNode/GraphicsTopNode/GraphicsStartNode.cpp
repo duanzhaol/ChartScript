@@ -12,6 +12,8 @@ GraphicsStartNode::GraphicsStartNode(Proxy *proxy, QWidget *parent):
     ui->setupUi(this);
 
 	proxy->setWidget(this);
+	this->initName();
+
 }
 
 

@@ -18,6 +18,8 @@ GraphicsAreaSeriesNode::GraphicsAreaSeriesNode(QWidget *parent) :
 	ui->upperYArray->setParent(this);
 	ui->bottomXArray->setParent(this);
 	ui->bottomYArray->setParent(this);
+	this->initName();
+
 
 //    /*标题lineedit文字居中*/
 //    ui->AreaSeriesName->setAlignment( Qt::AlignHCenter); //数据节点的名字居中显示
