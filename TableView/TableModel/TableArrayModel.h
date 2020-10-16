@@ -4,6 +4,11 @@
 #include <QStandardItem>
 #include "../GraphicsShowInterface/TableArrayInterface.h"
 
+/**
+ * @brief The TableArrayModel class
+ * This just a example,not final implement.
+ */
+
 class TableArrayModel:public TableArrayInterface
 {
 	QList<QStandardItem*> arrayData;
