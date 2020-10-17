@@ -20,7 +20,7 @@ QPointF AbstractGraphicsInnerDualputNode::getOutputPortCoordinate(QGraphicsItem 
 	return this->getTopProxy()->mapToItem(item,outputPort->mapTo(
 											  this->getTopProxy()->widget(),
 											  QPoint(outputPort->width()/2,
-																		outputPort->height()/2)));
+													 outputPort->height()/2)));
 }
 
 
@@ -33,6 +33,6 @@ QPointF AbstractGraphicsInnerDualputNode::getInputPortCoordinate(QGraphicsItem *
 	return this->getTopProxy()->mapToItem(item,inputPort->mapTo(
 											  this->getTopProxy()->widget(),
 											  QPoint(inputPort->width()/2,
-																	  inputPort->height()/2)));
+													 inputPort->height()/2)));
 }
 

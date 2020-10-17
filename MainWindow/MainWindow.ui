@@ -29,7 +29,9 @@
    <item row="0" column="0">
     <widget class="QTabWidget" name="tabWidget">
      <property name="styleSheet">
-      <string notr="true">QTabBar::tab{ min-height: 60px; min-width:60px;}</string>
+      <string notr="true">QTabBar::tab{ min-height: 60px; min-width:60px;}
+
+</string>
      </property>
      <property name="tabPosition">
       <enum>QTabWidget::West</enum>
