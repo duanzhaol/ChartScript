@@ -28,6 +28,11 @@ public:
      */
     Ui::ChartAttribute* getUi();
 
+	QString getSelectColor()const;
+	QString getZoomColor()const;
+
+signals:
+	void confirm();
 
 private:
     Ui::ChartAttribute *ui;
