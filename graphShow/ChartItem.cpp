@@ -89,7 +89,7 @@ void ChartItem::setAttr()
 
 void ChartItem::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
-    qDebug()<<event;
+	qDebug()<<event;
     if(event->button() == Qt::LeftButton){
         int type=IsInResizeArea(event->pos());
         if(type!=0){
@@ -347,7 +347,7 @@ QRectF ChartItem::getNewPlace(int type, QPointF LT, QPointF RB)
 
 void ChartItem::SLOT_openAttributeWidget()
 {
-    ChartAttribute *ca = new ChartAttribute();
+	ChartAttribute *ca = new ChartAttribute();
     ca->show();
     attr = ca->getUi();
     QString tt = attr->comboBox_ZoomColor->currentText();

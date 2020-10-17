@@ -10,7 +10,7 @@ SceneDialogTheme::SceneDialogTheme(QWidget *parent) :
     strList<<"Light"<<"BlueCerulean"<<"Dark"<<"BrownSand"
           <<"BlueNcs"<<"HighContrast"<<"BlueIcy"<<"Qt";
     ui->comboBox->addItems(strList);
-    ui->label->setText("主题");
+	ui->label->setText(QStringLiteral("主题"));
 }
 
 SceneDialogTheme::~SceneDialogTheme()

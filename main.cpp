@@ -2,6 +2,8 @@
 #include <QDebug>
 #include <QDateTime>
 #include <QSplashScreen>
+#include <QTextCodec>
+#include <QStyleFactory>
 #include "MainWindow/MainWindowInitializer.h"
 
 void LoadImage(){

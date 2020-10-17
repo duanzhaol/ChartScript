@@ -11,7 +11,7 @@ ChartAttribute::ChartAttribute(QWidget *parent) :
     strList<<"white"<<"black"<<"red"<<"green"<<"blue"<<"cyan"<<"magenta"<<"yellow"<<"gray"<<"transparent";
     ui->comboBox_ZoomColor->addItems(strList);
     ui->comboBox_SelectColor->addItems(strList);
-    this->setWindowTitle("属性设置");//设置左上角标题
+	this->setWindowTitle(QStringLiteral("属性设置"));//设置左上角标题
 }
 
 ChartAttribute::~ChartAttribute()
