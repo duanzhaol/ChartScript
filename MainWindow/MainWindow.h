@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QWidget>
+#include <QObject>
 #include "../InitInterface/AbstractInitializer.h"
 
 namespace Ui {

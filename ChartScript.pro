@@ -18,6 +18,7 @@ include(graphShow/graphShow.pri)
 include(UTools/UTools.pri)
 include(NodeShow/NodeShow.pri)
 include(Interpreter/Interpreter.pri)
+include(TableView/TableView.pri)
 include(MainWindow/MainWindow.pri)
 
 
@@ -40,10 +41,13 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 
-HEADERS += \ \
+HEADERS += \
 	InitInterface/AbstractInitializer.h
 
 SOURCES += main.cpp \
 	InitInterface/AbstractInitializer.cpp
+
+FORMS +=
+
 
 
