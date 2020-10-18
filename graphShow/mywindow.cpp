@@ -111,6 +111,9 @@ void myWindow::initialListWidget()
 	item4->setIcon(QIcon(":/img/image/ellipse.png"));
     item4->setSizeHint(QSize(100,120));
 
+	ListWidgetItem *item5 = new ListWidgetItem(ui->listWidget2);
+	item5->setText("text");
+
    // ui->listWidget1->addItemAll(chart,item1);
 	//ui->listWidget1->addItemAll(chart,item2);
     ui->listWidget2->addItem(item3);

@@ -2,19 +2,18 @@
 #define GRAPHICSSHAPEDEFINE_H
 
 #include "AbstractGraphicsItem.h"
-#include <QObject>
 
 #define GRAPHICS_SHAPDE_DEFINE_H(GraphicsType) \
 class GraphicsType :public QObject,public AbstractGraphicsItem<Q##GraphicsType> \
 { \
 	Q_OBJECT \
 public: \
-	GraphicsType(qreal x, qreal y, qreal width, qreal height, QGraphicsItem *parent = nullptr);\
-private slots: \
+	GraphicsType(qreal x, qreal y, qreal width, qreal height, QGraphicsItem *parent = nullptr); \
+private slots : \
 	void setAttr(); \
 protected: \
 	virtual void SLOT_openAttributeWidget() override; \
-};
+}; \
 
 
 
@@ -34,7 +33,7 @@ void GraphicsType ::SLOT_openAttributeWidget() \
 	AbstractGraphicsItem::SLOT_openAttributeWidget(); \
 	this->connect(attr,&ChartAttribute::confirm, \
 				  this,& GraphicsType ::setAttr); \
-} \
+}
 
 
 #endif // GRAPHICSSHAPEDEFINE_H

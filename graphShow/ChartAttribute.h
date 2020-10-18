@@ -1,6 +1,5 @@
 ﻿#ifndef CHARTATTRIBUTE_H
 #define CHARTATTRIBUTE_H
-#include "ChartItem.h"
 
 #include <QDialog>
 namespace Ui {

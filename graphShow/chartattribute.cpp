@@ -13,6 +13,7 @@ ChartAttribute::ChartAttribute(QWidget *parent) :
     ui->comboBox_SelectColor->addItems(strList);
 	this->setWindowTitle(QStringLiteral("属性设置"));//设置左上角标题
 	connect(ui->confirmAttr,&QPushButton::clicked,this,&ChartAttribute::confirm);
+	connect(ui->confirmAttr,&QPushButton::clicked,this,&ChartAttribute::deleteLater);
 }
 
 ChartAttribute::~ChartAttribute()

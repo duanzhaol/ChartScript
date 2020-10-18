@@ -2,6 +2,7 @@
 #include<QDebug>
 #include <QGraphicsSceneMouseEvent>
 #include "item/GraphicsEllipseItem.h"
+#include "item/GraphicsTextItem.h"
 GraphicsScene::GraphicsScene(QObject *parent):QGraphicsScene(parent)
 {
     clearFocus();
@@ -130,6 +131,12 @@ void GraphicsScene::recieveGraphics(QListWidgetItem *item)
         GraphicsEllipseItem *ellipse=new GraphicsEllipseItem(0,0,100,100);
         addItem(ellipse);
     }
+	else if(item->text()=="text"){
+		qDebug()<<item->text();
+
+		GraphicsTextItem*text = new GraphicsTextItem;
+		addItem(text);
+	}
 }
 
 void GraphicsScene::toTop()

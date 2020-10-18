@@ -8,7 +8,8 @@
 #include <QStyleOptionGraphicsItem>
 #include "../ChartAttribute.h"
 #include <QGraphicsEllipseItem>
-
+#include <QAbstractGraphicsShapeItem>
+#include <QChart>
 
 
 
@@ -24,6 +25,8 @@ public:
 	 */
 	AbstractGraphicsItem(qreal x, qreal y, qreal width, qreal height, QGraphicsItem *parent = nullptr);
 
+	AbstractGraphicsItem(QGraphicsItem*parent);
+
 protected:
 
 	/**
@@ -31,6 +34,9 @@ protected:
 	* @bug 会报错，信号发不过来，因此属性窗口无法产生实质性的改变
 	*/
 	virtual void SLOT_openAttributeWidget();
+
+	//! 设置图形位置
+	virtual void setCoordinate(const QRectF&pos) = 0;
 
 
 	/**
@@ -198,6 +204,20 @@ AbstractGraphicsItem<GraphicsItem>::AbstractGraphicsItem
 }
 
 template<class GraphicsItem>
+AbstractGraphicsItem<GraphicsItem>::AbstractGraphicsItem(QGraphicsItem *parent):
+	GraphicsItem (parent)
+{
+	setFlags(QGraphicsItem::ItemIsSelectable|
+			 QGraphicsItem::ItemIsMovable|
+			 QGraphicsItem::ItemSendsGeometryChanges|
+			 QGraphicsItem::ItemIsFocusable);//设定选型
+
+	setAcceptHoverEvents(true);//接受hover事件
+	m_bIsResizing=0;
+	creatCircle();
+}
+
+template<class GraphicsItem>
 void AbstractGraphicsItem<GraphicsItem>::SLOT_openAttributeWidget()
 {
 	attr = new ChartAttribute();
@@ -236,18 +256,17 @@ void AbstractGraphicsItem<GraphicsItem>::mousePressEvent(QGraphicsSceneMouseEven
 	}
 }
 
+
+
 template<class GraphicsItem>
 void AbstractGraphicsItem<GraphicsItem>::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 {
 	if (m_bIsResizing)
 	{
 		QRectF newPlace=getNewPlace(m_bIsResizing,pos(),event->pos());
-		qDebug()<<"ldfrect"<<newPlace;
 		setPos(newPlace.x(),newPlace.y());
 		newPlace=mapFromScene(newPlace).boundingRect();
-		qDebug()<<"rect"<<newPlace;
-		qDebug()<<"bounding"<<boundingRect();
-		setRect(newPlace);//改变大小
+		setCoordinate(newPlace);//改变大小
 	}
 	else
 	{
@@ -339,29 +358,19 @@ void AbstractGraphicsItem<GraphicsItem>::creatCircle()
 template <class GraphicsItem>
 void AbstractGraphicsItem<GraphicsItem>::setCircleVisible(bool vis)
 {
-	if(vis){
-		if(circle11->isVisible())
-			return;
-		circle11->setVisible(true);
-		circle12->setVisible(true);
-		circle13->setVisible(true);
-		circle21->setVisible(true);
-		circle23->setVisible(true);
-		circle31->setVisible(true);
-		circle32->setVisible(true);
-		circle33->setVisible(true);
-	}else{
-		if(!circle11->isVisible())
-			return;
-		circle11->setVisible(false);
-		circle12->setVisible(false);
-		circle13->setVisible(false);
-		circle21->setVisible(false);
-		circle23->setVisible(false);
-		circle31->setVisible(false);
-		circle32->setVisible(false);
-		circle33->setVisible(false);
+	if(circle11->isVisible() == vis){
+		return;
 	}
+
+	circle11->setVisible(vis);
+	circle12->setVisible(vis);
+	circle13->setVisible(vis);
+	circle21->setVisible(vis);
+	circle23->setVisible(vis);
+	circle31->setVisible(vis);
+	circle32->setVisible(vis);
+	circle33->setVisible(vis);
+
 }
 
 template <class GraphicsItem>
@@ -467,7 +476,7 @@ void AbstractGraphicsItem<GraphicsItem>::setCircleColor(QColor color)
 template <class GraphicsItem>
 QRectF AbstractGraphicsItem<GraphicsItem>::boundingRect() const
 {
-	return GraphicsItem::rect();
+	return GraphicsItem::boundingRect();
 }
 
 template <class GraphicsItem>
@@ -503,7 +512,10 @@ void AbstractGraphicsItem<GraphicsItem>::paint
 		double radius=5;//小圆圈的半径
 		setCircleVisible(true);
 		setCirclePos();
-		painter->drawRect(boundingRect().adjusted(0,0,0,0));
+		QRectF br = boundingRect();
+		br.setTopLeft(br.topLeft()+QPointF(5,5));
+		br.setBottomRight(br.bottomRight()-QPointF(5,5));
+		//painter->drawRect(br);
 		painter->setPen(Qt::red);
 		painter->setRenderHint(QPainter::Antialiasing, false);  // 重点
 	}else{
