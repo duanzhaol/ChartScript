@@ -12,6 +12,7 @@ GraphicsView::GraphicsView(QWidget *parent): QGraphicsView(parent)
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);//隐藏竖条
     setTransformationAnchor(QGraphicsView::AnchorUnderMouse);
     setResizeAnchor(QGraphicsView::AnchorUnderMouse);
+	setViewportUpdateMode(ViewportUpdateMode::FullViewportUpdate);
 }
 
 void GraphicsView::wheelEvent(QWheelEvent *event)

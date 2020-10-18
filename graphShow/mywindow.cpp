@@ -37,7 +37,7 @@ myWindow::~myWindow()
  */
 void myWindow::on_pushButton_theme_clicked()
 {
-    SceneDialogTheme *sceneDialogTheme=new SceneDialogTheme();
+	SceneDialogTheme *sceneDialogTheme=new SceneDialogTheme(this);
     sceneDialogTheme->show();
     connect(sceneDialogTheme,&SceneDialogTheme::ThemeChange,dynamic_cast<GraphicsScene*>(ui->graphicsView->scene()),&GraphicsScene::ThemeChanged);
 }
@@ -47,7 +47,7 @@ void myWindow::on_pushButton_theme_clicked()
  */
 void myWindow::on_pushButton_title_clicked()
 {
-    SceneDialogTitle *sceneDialogTitle=new SceneDialogTitle();
+	SceneDialogTitle *sceneDialogTitle=new SceneDialogTitle(this);
     sceneDialogTitle->show();
 }
 /**
@@ -110,6 +110,9 @@ void myWindow::initialListWidget()
     item4->setText("ellipse");
 	item4->setIcon(QIcon(":/img/image/ellipse.png"));
     item4->setSizeHint(QSize(100,120));
+
+	ListWidgetItem *item5 = new ListWidgetItem(ui->listWidget2);
+	item5->setText("text");
 
    // ui->listWidget1->addItemAll(chart,item1);
 	//ui->listWidget1->addItemAll(chart,item2);

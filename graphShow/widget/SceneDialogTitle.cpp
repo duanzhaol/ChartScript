@@ -6,7 +6,7 @@ SceneDialogTitle::SceneDialogTitle(QWidget *parent) :
     ui(new Ui::SceneDialogTitle)
 {
     ui->setupUi(this);
-    ui->label->setText("主题");
+	ui->label->setText(QStringLiteral("主题"));
 }
 
 SceneDialogTitle::~SceneDialogTitle()

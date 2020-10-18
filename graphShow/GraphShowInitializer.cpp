@@ -11,12 +11,18 @@ void GraphShowInitializer::init()
 	myWindow *myWindows=new myWindow();
 	GraphicsScene *sc = new GraphicsScene();
 	myWindows->setScene(sc);
-	myWindows->show();
+	this->widget = myWindows;
 }
 
-InitInterface* GraphShowInitializer::getInstance()
+AbstractInitializer* GraphShowInitializer::getInstance()
 {
 	return instance;
 }
 
 GraphShowInitializer *GraphShowInitializer::instance = new GraphShowInitializer;
+
+
+QString GraphShowInitializer::getWindowName() const
+{
+	return QStringLiteral("Chart Design");
+}

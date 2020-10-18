@@ -115,3 +115,4 @@ void GraphicsAreaSeriesNode::setTopProxy(Proxy *value)
 	ui->bottomXArray->setTopProxy(value);
 	ui->bottomYArray->setTopProxy(value);
 }
+

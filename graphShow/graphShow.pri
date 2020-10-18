@@ -3,8 +3,10 @@ SOURCES += \
     $$PWD/GraphicsView.cpp \
     $$PWD/ListWidget/ListWidget.cpp \
     $$PWD/ListWidget/ListWidgetItem.cpp \
+	$$PWD/item/AbstractGraphicsItem.cpp \
     $$PWD/item/GraphicsEllipseItem.cpp \
     $$PWD/item/GraphicsRectItem.cpp \
+	$$PWD/item/GraphicsTextItem.cpp \
     $$PWD/item/Select.cpp \
     $$PWD/item/SelectInterface.cpp \
     $$PWD/mywindow.cpp \
@@ -21,8 +23,11 @@ HEADERS += \
     $$PWD/GraphicsView.h \
     $$PWD/ListWidget/ListWidget.h \
     $$PWD/ListWidget/ListWidgetItem.h \
+	$$PWD/item/AbstractGraphicsItem.h \
     $$PWD/item/GraphicsEllipseItem.h \
     $$PWD/item/GraphicsRectItem.h \
+	$$PWD/item/GraphicsShapeDefine.h \
+	$$PWD/item/GraphicsTextItem.h \
     $$PWD/item/Select.h \
     $$PWD/item/SelectInterface.h \
 	$$PWD/mywindow.h \
@@ -41,4 +46,5 @@ FORMS += \
 
 DISTFILES +=
 
-RESOURCES +=
+RESOURCES += \
+	$$PWD/resource.qrc

@@ -1,6 +1,5 @@
 ﻿#ifndef CHARTATTRIBUTE_H
 #define CHARTATTRIBUTE_H
-#include "ChartItem.h"
 
 #include <QDialog>
 namespace Ui {
@@ -28,6 +27,11 @@ public:
      */
     Ui::ChartAttribute* getUi();
 
+	QString getSelectColor()const;
+	QString getZoomColor()const;
+
+signals:
+	void confirm();
 
 private:
     Ui::ChartAttribute *ui;
