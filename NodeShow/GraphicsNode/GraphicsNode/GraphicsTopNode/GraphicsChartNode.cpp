@@ -15,6 +15,8 @@ GraphicsChartNode::GraphicsChartNode(Proxy *proxy, QWidget *parent) :
 {
     ui->setupUi(this);
 
+    ui->chartNodeName->setAlignment( Qt::AlignHCenter); //数据节点的名字居中显示
+
     /*设置qcombox文字居中显示，放一个lineedit进去 哈哈（设置lineedit文字居中）*/
     QLineEdit *lineEdit = new QLineEdit;
     lineEdit->setReadOnly(true);

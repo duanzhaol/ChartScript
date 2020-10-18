@@ -16,6 +16,8 @@ public:
 
     Inputable* input=nullptr;
     Outputable* output=nullptr;
+    AbstractGraphicsNode* inputOrigin=nullptr;
+    AbstractGraphicsNode* outputOrigin=nullptr;
 
 public slots:
 	void ConnectLine(AbstractGraphicsNode*,AbstractGraphicsNode::PortType);

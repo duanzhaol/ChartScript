@@ -18,6 +18,7 @@ HEADERS += \
 	$$PWD/ConnectLine/ConnectLineItem.h \
 	$$PWD/GraphicsNode/ConnectController.h \
 	$$PWD/GraphicsNode/GraphicsNode/AbstractGraphicsNode.h \
+	$$PWD/GraphicsNode/GraphicsNode/ArrayInterface.h \
 	$$PWD/GraphicsNode/GraphicsNode/Dualputable.h \
 	$$PWD/GraphicsNode/GraphicsNode/GraphicsInnerNode/AbstractGraphicsInnerDualputNode.h \
 	$$PWD/GraphicsNode/GraphicsNode/GraphicsInnerNode/AbstractGraphicsInnerNode.h \
@@ -33,6 +34,7 @@ HEADERS += \
 	$$PWD/GraphicsNode/GraphicsNode/GraphicsTopNode/GraphicsStartNode.h \
 	$$PWD/GraphicsNode/GraphicsNode/Inputable.h \
 	$$PWD/GraphicsNode/GraphicsNode/Outputable.h \
+	$$PWD/GraphicsNode/NodeListWidget.h \
 	$$PWD/GraphicsNode/NodeShowWindow.h \
 	$$PWD/GraphicsNode/Port.h \
 	$$PWD/GraphicsNode/ResizeTest.h \
@@ -59,6 +61,7 @@ SOURCES += \
 	$$PWD/GraphicsNode/GraphicsNode/GraphicsTopNode/GraphicsStartNode.cpp \
 	$$PWD/GraphicsNode/GraphicsNode/InputPortWidget.cpp \
 	$$PWD/GraphicsNode/GraphicsNode/OutputPortWidget.cpp \
+	$$PWD/GraphicsNode/NodeListWidget.cpp \
 	$$PWD/GraphicsNode/NodeShowWindow.cpp \
 	$$PWD/GraphicsNode/Port.cpp \
 	$$PWD/GraphicsNode/ResizeTest.cpp \

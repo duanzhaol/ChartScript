@@ -19,10 +19,10 @@
   <widget class="QLabel" name="lineSeriesName">
    <property name="geometry">
     <rect>
-     <x>663</x>
-     <y>30</y>
-     <width>30</width>
-     <height>92</height>
+     <x>630</x>
+     <y>0</y>
+     <width>101</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="minimumSize">
@@ -33,14 +33,14 @@
    </property>
    <property name="maximumSize">
     <size>
-     <width>40</width>
+     <width>160</width>
      <height>120</height>
     </size>
    </property>
    <property name="font">
     <font>
      <family>Arial Rounded MT Bold</family>
-     <pointsize>14</pointsize>
+     <pointsize>10</pointsize>
     </font>
    </property>
    <property name="layoutDirection">
@@ -50,13 +50,13 @@
     <bool>false</bool>
    </property>
    <property name="styleSheet">
-    <string notr="true">border:2px solid rgb(255, 255, 255) ;
+    <string notr="true">border:1px solid rgb(255, 255, 255) ;
 border-radius:5px;
 background-color: rgba(221, 221, 221, 0);
 color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
-    <string>线图序列</string>
+    <string>序列名</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -85,7 +85,7 @@ border-radius:5px;</string>
   <widget class="Port" name="outputPort" native="true">
    <property name="geometry">
     <rect>
-     <x>710</x>
+     <x>700</x>
      <y>70</y>
      <width>16</width>
      <height>16</height>
@@ -180,12 +180,62 @@ border:0px </string>
     </size>
    </property>
   </widget>
+  <widget class="QLabel" name="lineSeriesType">
+   <property name="geometry">
+    <rect>
+     <x>630</x>
+     <y>110</y>
+     <width>101</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>30</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>160</width>
+     <height>120</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <family>Arial Rounded MT Bold</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:1px solid rgb(255, 255, 255) ;
+border-radius:5px;
+background-color: rgba(221, 221, 221, 0);
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>线图序列</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+  </widget>
   <zorder>label</zorder>
   <zorder>outputPort</zorder>
   <zorder>YDataArray</zorder>
   <zorder>XDataArray</zorder>
   <zorder>inputPort</zorder>
   <zorder>lineSeriesName</zorder>
+  <zorder>lineSeriesType</zorder>
  </widget>
  <customwidgets>
   <customwidget>

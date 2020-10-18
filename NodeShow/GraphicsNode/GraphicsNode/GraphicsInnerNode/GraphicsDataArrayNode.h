@@ -24,6 +24,7 @@ public:
     explicit GraphicsDataArrayNode(QWidget *parent = nullptr);
     ~GraphicsDataArrayNode();
     QComboBox* getCombobox();
+    QList<QVariant> dataArray;
 
 private:
     Ui::GraphicsDataArrayNode *ui;

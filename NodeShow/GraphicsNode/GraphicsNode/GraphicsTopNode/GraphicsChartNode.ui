@@ -80,17 +80,11 @@ background-color: rgb(121, 121, 121);
           </spacer>
          </item>
          <item>
-          <widget class="QLabel" name="chartNodeName">
+          <widget class="QLineEdit" name="chartNodeName">
            <property name="minimumSize">
             <size>
-             <width>160</width>
+             <width>0</width>
              <height>40</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>300</width>
-             <height>120</height>
             </size>
            </property>
            <property name="font">
@@ -99,26 +93,14 @@ background-color: rgb(121, 121, 121);
              <pointsize>14</pointsize>
             </font>
            </property>
-           <property name="layoutDirection">
-            <enum>Qt::LeftToRight</enum>
-           </property>
-           <property name="autoFillBackground">
-            <bool>false</bool>
-           </property>
            <property name="styleSheet">
-            <string notr="true">border:2px solid rgb(255, 255, 255) ;
+            <string notr="true">border:1px solid rgb(255, 255, 255) ;
 border-radius:5px;
 background-color: rgba(221, 221, 221, 0);
 color: rgb(255, 255, 255);</string>
            </property>
            <property name="text">
             <string>统计图结点</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-           <property name="wordWrap">
-            <bool>true</bool>
            </property>
           </widget>
          </item>

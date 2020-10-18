@@ -1,6 +1,8 @@
 ﻿#include "ConnectController.h"
 #include "NodeShowWindow.h"
 #include <QDebug>
+#include <QMessageBox>
+#pragma execution_character_set("utf-8")
 
 ConnectController *ConnectController::getInstance()
 {
@@ -18,9 +20,13 @@ void ConnectController::connectLineWuhu(Inputable *input, Outputable *output)
 void ConnectController::drawLine()
 {
 
+    qDebug()<<input;
+    qDebug()<<output;
     qDebug()<<"linelist";
     input =nullptr;
     output=nullptr;
+    inputOrigin=nullptr;
+    outputOrigin=nullptr;
 
     if(LineList.length()!=0){
         foreach(auto item,LineList)
@@ -47,19 +53,30 @@ void ConnectController::ConnectLine(AbstractGraphicsNode* port, AbstractGraphics
 
     if(type==AbstractGraphicsNode::PortType::InputPort)
     {
+        inputOrigin= port;
         input=dynamic_cast<Inputable*>(port);
         qDebug()<<"inputPortSetted";
 
     }
     else if(type==AbstractGraphicsNode::PortType::OutputPort)
     {
+        outputOrigin= port;
         output=dynamic_cast<Outputable*>(port);
         qDebug()<<"outputPortSetted";
     }
 
-    qDebug()<<"readytoConnect";
+    if(inputOrigin==outputOrigin){
+        QMessageBox::information(NULL, "提示", "不能自己连自己哦！");
 
-    if(input!=nullptr&&output!=nullptr)
+        input =nullptr;
+        output=nullptr;
+        inputOrigin=nullptr;
+        outputOrigin=nullptr;
+
+        return;
+    }
+
+    if(input!=nullptr&&output!=nullptr&&inputOrigin!=nullptr&&outputOrigin!=nullptr)
     {
 
         qDebug()<<"readytoConnect";
