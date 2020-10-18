@@ -3,12 +3,15 @@
 
 #include "AbstractGraphicsItem.h"
 #include <QGraphicsTextItem>
+#include "../AttributeDialog/TextItemDialog.h"
 
 
 
 class GraphicsTextItem:public AbstractGraphicsItem<QGraphicsTextItem>
 {
 	Q_OBJECT
+
+	TextItemDialog*dialog = nullptr;
 public:
 	GraphicsTextItem(QGraphicsItem *parent = nullptr);
 private slots :

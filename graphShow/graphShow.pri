@@ -1,4 +1,6 @@
 SOURCES += \
+	$$PWD/AttributeDialog/TextEdit.cpp \
+	$$PWD/AttributeDialog/TextItemDialog.cpp \
 	$$PWD/GraphShowInitializer.cpp \
     $$PWD/GraphicsView.cpp \
     $$PWD/ListWidget/ListWidget.cpp \
@@ -19,6 +21,8 @@ SOURCES += \
 
 
 HEADERS += \
+	$$PWD/AttributeDialog/TextEdit.h \
+	$$PWD/AttributeDialog/TextItemDialog.h \
 	$$PWD/GraphShowInitializer.h \
     $$PWD/GraphicsView.h \
     $$PWD/ListWidget/ListWidget.h \
@@ -39,6 +43,7 @@ HEADERS += \
         graphShow/GraphicsScene.h
 
 FORMS += \
+	$$PWD/AttributeDialog/TextItemDialog.ui \
 	$$PWD/mywindow.ui \
 	$$PWD/widget/SceneDialogTitle.ui \
 	$$PWD/widget/scenedialogtheme.ui \
