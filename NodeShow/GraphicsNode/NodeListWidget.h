@@ -3,24 +3,33 @@
 
 #include <QListWidget>
 #include <../ChartScript/NodeShow/GraphicsNode/GraphicsNode/GraphicsInnerNode/GraphicsDataArrayNode.h>
-#include <../ArrayInterface.h>
+#include <TableView/GraphicsShowInterface/TableArrayInterface.h>
 
 class NodeListWidget:public QListWidget
 {
     Q_OBJECT
 public:
     NodeListWidget();
-    QList<GraphicsDataArrayNode*> arrayNodeList;
+    QHash<int,GraphicsDataArrayNode*> arrayNodeList;
 
     void addArrayNode(GraphicsDataArrayNode * node);
     GraphicsDataArrayNode *getArrayNode(int index);
     bool addItemAll(GraphicsDataArrayNode * node, QListWidgetItem *item);
+    static NodeListWidget* getInstance();
+
+    int Nodeindex=0;
 
 public slots:
-    void reciveArray(ArrayInterface *arrayInterface);
+    void reciveArray(TableArrayInterface *arrayInterface);
+
+private:
+    static NodeListWidget* instance;
 };
 
-#endif // NODELISTWIDGET_H
+
+
+
+#endif // CONNECTCONTROLLER_H
 
 
 //class ListWidget: public QListWidget

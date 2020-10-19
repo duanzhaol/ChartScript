@@ -14,14 +14,34 @@
 
 #pragma execution_character_set("utf-8")
 
+/**
+ * @bug ui里的信息数据更新不及时
+ */
+
+TableArrayInterface *GraphicsDataArrayNode::getTableArrayInterface() const
+{
+    Q_ASSERT(tableArrayInterface != nullptr);
+    return tableArrayInterface;
+}
+
+void GraphicsDataArrayNode::setTableArrayInterface(TableArrayInterface *value)
+{
+    tableArrayInterface = value;
+    Q_ASSERT(tableArrayInterface!=nullptr);
+
+    setNodeData(tableArrayInterface->getArrayData());
+    setNodeName(tableArrayInterface->getArrayName());
+    setElementType(tableArrayInterface->getArrayType());
+}
+
 GraphicsDataArrayNode::GraphicsDataArrayNode(QWidget *parent) :
-      ui(new Ui::GraphicsDataArrayNode)
+    ui(new Ui::GraphicsDataArrayNode)
 {
     ui->setupUi(this);
     ui->comboBox->setView(new QListView());
 
 
-//    qDebug()<<this->mapTo(NodeShowWindow::getInstance(),this->pos());
+    //    qDebug()<<this->mapTo(NodeShowWindow::getInstance(),this->pos());
 
     /*两个单独lineedit文字居中*/
     ui->dataArrayNodeName->setAlignment( Qt::AlignHCenter); //数据节点的名字居中显示
@@ -47,12 +67,13 @@ QComboBox* GraphicsDataArrayNode::getCombobox()
 
 NodeName GraphicsDataArrayNode::getNodeName() const
 {
-    return ui->dataArrayNodeName->text();
+    return tableArrayInterface->getArrayName();
 }
 
 void GraphicsDataArrayNode::setNodeName(const NodeName &newNodeName)
 {
     ui->dataArrayNodeName->setText(newNodeName);
+    tableArrayInterface->setArrayName(newNodeName);
 }
 
 /**
@@ -62,14 +83,15 @@ void GraphicsDataArrayNode::setNodeName(const NodeName &newNodeName)
 
 QVariant GraphicsDataArrayNode::getNodeData() const
 {
-    QVariant nodeData(getElementType());
-    nodeData.setValue(ui->dataArrayNodeData->text().toInt());
-    return nodeData;
+    QVariant list(QVariant::Type::List);
+    list.setValue(tableArrayInterface->getArrayData());
+    return list;
 }
 
 void GraphicsDataArrayNode::setNodeData(const QVariant &newData)
 {
     ui->dataArrayNodeData->setText(newData.toString());
+    tableArrayInterface->setArrayData(newData.toList());
 }
 
 OutputPort *GraphicsDataArrayNode::getOutputPort()
@@ -84,31 +106,7 @@ InputPort *GraphicsDataArrayNode::getInputPort()
 
 QVariant::Type GraphicsDataArrayNode::getElementType() const
 {
-
-    /**
-     * 获取combobox当前的text
-     * 朱千奥 0923
-     *
-     */
-    QString comboxText = ui->comboBox->currentText();
-
-    if(comboxText=="int"){
-        return QVariant::Type::Int;
-    }
-    else if(comboxText=="String"){
-        return QVariant::Type::String;
-    }
-    else if(comboxText=="float"){
-        return QVariant::Type::Double;//无float类型
-    }
-    else if(comboxText=="double"){
-        return QVariant::Type::Double;
-    }
-    else if(comboxText=="long long"){
-        return QVariant::Type::LongLong;
-    }
-
-    return QVariant::Type::Invalid;
+    return tableArrayInterface->getArrayType();
 }
 
 
@@ -119,6 +117,7 @@ QVariant::Type GraphicsDataArrayNode::getElementType() const
  */
 void GraphicsDataArrayNode::setElementType(QVariant::Type type)
 {
+    tableArrayInterface->setArrayType(type);
     if(type==QVariant::Type::Int)
     {
         ui->comboBox->currentText()="int";

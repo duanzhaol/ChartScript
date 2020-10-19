@@ -2,6 +2,7 @@
 #define TABLEARRAYINTERFACE_H
 
 #include <QVariant>
+#include <QObject>
 
 class TableArrayInterface{
 public:
@@ -13,7 +14,7 @@ public:
 	virtual QVariant::Type getArrayType() = 0;
 	virtual void setArrayType(const QVariant::Type newType) = 0;
 	virtual void setArrayName(const QString &newArrayName) = 0;
-	virtual void setArrayData(const QVariantList&newData) = 0;
+    virtual void setArrayData(const QVariantList&newData) = 0;
 };
 
 #endif // TABLEARRAYINTERFACE_H

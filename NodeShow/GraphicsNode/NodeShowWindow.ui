@@ -14,45 +14,170 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QHBoxLayout" name="horizontalLayout_2">
+   <layout class="QVBoxLayout" name="verticalLayout" stretch="1,20">
     <item>
-     <layout class="QVBoxLayout" name="verticalLayout" stretch="1,10">
+     <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="12,2,1,10">
       <item>
-       <widget class="QGraphicsView" name="graphicsView_3"/>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>538</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,10">
+       <widget class="QLabel" name="mouseTypeState">
+        <property name="font">
+         <font>
+          <family>Agency FB</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>当前状态：移动</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
         <item>
-         <widget class="QTabWidget" name="tabWidget">
-          <property name="currentIndex">
-           <number>1</number>
+         <widget class="QPushButton" name="MoveButton">
+          <property name="minimumSize">
+           <size>
+            <width>80</width>
+            <height>35</height>
+           </size>
           </property>
-          <widget class="QWidget" name="tab_3">
-           <attribute name="title">
-            <string>空结点</string>
-           </attribute>
-           <widget class="QListWidget" name="listWidget">
-            <property name="geometry">
-             <rect>
-              <x>0</x>
-              <y>0</y>
-              <width>161</width>
-              <height>911</height>
-             </rect>
-            </property>
-           </widget>
-          </widget>
-          <widget class="QWidget" name="tab_4">
-           <attribute name="title">
-            <string>表格结点</string>
-           </attribute>
-          </widget>
+          <property name="font">
+           <font>
+            <family>Agency FB</family>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">border:2px solid rgb(255, 255, 255) ;
+border-radius:5px;
+background-color: rgba(221, 221, 221, 0);
+color: rgb(255, 255, 255);</string>
+          </property>
+          <property name="text">
+           <string>Move</string>
+          </property>
          </widget>
         </item>
         <item>
-         <widget class="ScalingGraphicsView" name="graphicsView"/>
+         <widget class="QPushButton" name="ConnectButton">
+          <property name="minimumSize">
+           <size>
+            <width>80</width>
+            <height>35</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Agency FB</family>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">border:2px solid rgb(255, 255, 255) ;
+border-radius:5px;
+background-color: rgba(221, 221, 221, 0);
+color: rgb(255, 255, 255);</string>
+          </property>
+          <property name="text">
+           <string>Connect</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="DeleteButton">
+          <property name="minimumSize">
+           <size>
+            <width>80</width>
+            <height>35</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Agency FB</family>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">border:2px solid rgb(255, 255, 255) ;
+border-radius:5px;
+background-color: rgba(221, 221, 221, 0);
+color: rgb(255, 255, 255);</string>
+          </property>
+          <property name="text">
+           <string>Delete</string>
+          </property>
+         </widget>
         </item>
        </layout>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,10">
+      <item>
+       <widget class="QTabWidget" name="tabWidget">
+        <property name="currentIndex">
+         <number>1</number>
+        </property>
+        <widget class="QWidget" name="tab_3">
+         <attribute name="title">
+          <string>空结点</string>
+         </attribute>
+         <widget class="QListWidget" name="listWidget">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>161</width>
+            <height>911</height>
+           </rect>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="tab_4">
+         <attribute name="title">
+          <string>表格结点</string>
+         </attribute>
+         <widget class="QListWidget" name="listWidget_2">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>10</y>
+            <width>161</width>
+            <height>661</height>
+           </rect>
+          </property>
+         </widget>
+        </widget>
+       </widget>
+      </item>
+      <item>
+       <widget class="ScalingGraphicsView" name="graphicsView"/>
       </item>
      </layout>
     </item>

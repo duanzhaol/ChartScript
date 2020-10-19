@@ -35,6 +35,7 @@ HEADERS += \
 	$$PWD/GraphicsNode/GraphicsNode/Inputable.h \
 	$$PWD/GraphicsNode/GraphicsNode/Outputable.h \
 	$$PWD/GraphicsNode/NodeListWidget.h \
+	$$PWD/GraphicsNode/NodeListWidgetItem.h \
 	$$PWD/GraphicsNode/NodeShowWindow.h \
 	$$PWD/GraphicsNode/Port.h \
 	$$PWD/GraphicsNode/ResizeTest.h \
@@ -62,6 +63,7 @@ SOURCES += \
 	$$PWD/GraphicsNode/GraphicsNode/InputPortWidget.cpp \
 	$$PWD/GraphicsNode/GraphicsNode/OutputPortWidget.cpp \
 	$$PWD/GraphicsNode/NodeListWidget.cpp \
+	$$PWD/GraphicsNode/NodeListWidgetItem.cpp \
 	$$PWD/GraphicsNode/NodeShowWindow.cpp \
 	$$PWD/GraphicsNode/Port.cpp \
 	$$PWD/GraphicsNode/ResizeTest.cpp \

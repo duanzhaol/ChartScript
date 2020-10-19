@@ -9,6 +9,7 @@
 #include <Interpreter/DataModel/AbstractDataNode.h>
 #include <Interpreter/DataModel/AbstractDataNode.h>
 #include "AbstractGraphicsInnerDualputNode.h"
+#include "../../TableView/GraphicsShowInterface/TableArrayInterface.h"
 
 
 
@@ -19,6 +20,8 @@ class GraphicsDataArrayNode;
 class GraphicsDataArrayNode : public AbstractGraphicsInnerDualputNode, public AbstractArrayNode
 {
     Q_OBJECT
+
+    TableArrayInterface*tableArrayInterface = nullptr;
 
 public:
     explicit GraphicsDataArrayNode(QWidget *parent = nullptr);
@@ -51,6 +54,9 @@ public:
 public:
     virtual QVariant::Type getElementType() const override;
 	virtual void setElementType(QVariant::Type type) override;
+
+    TableArrayInterface *getTableArrayInterface() const;
+    void setTableArrayInterface(TableArrayInterface *value);
 
 private slots:
     void on_inputPort_clicked();

@@ -1,4 +1,5 @@
 ﻿#include "NodeListWidget.h"
+#include "NodeListWidgetItem.h"
 #include <QDebug>
 
 
@@ -10,16 +11,21 @@ NodeListWidget::NodeListWidget()
 
 void NodeListWidget::addArrayNode(GraphicsDataArrayNode * node)
 {
-    arrayNodeList.append(node);
+    arrayNodeList.insert(Nodeindex,node);
+
 }
 
 GraphicsDataArrayNode *NodeListWidget::getArrayNode(int index)
 {
-    qDebug()<<"当前长度:"<<arrayNodeList.length()<<"  "<<count();
 
-    if(index<arrayNodeList.length()){
-        return arrayNodeList[index];
-    }else{
+    qDebug()<<"当前长度:"<<arrayNodeList<<"  "<<count();
+
+    QHash<int, GraphicsDataArrayNode*>::iterator i = arrayNodeList.find(index);
+    if (i != arrayNodeList.end()) {
+        qDebug()<< i.value() << Qt::endl;
+        return i.value();
+    }
+    else{
         return nullptr;
     }
 }
@@ -30,7 +36,10 @@ bool NodeListWidget::addItemAll(GraphicsDataArrayNode * node, QListWidgetItem *i
     if(node!=nullptr&&item!=nullptr){
         addArrayNode(node);
         addItem(item);
-        qDebug()<<"当前长度:"<<arrayNodeList.length()<<"  "<<count();
+        qDebug()<<"当前长度:"<<arrayNodeList<<"  "<<count();
+
+        Nodeindex++;
+
         return true;
     }else{
         return false;
@@ -38,10 +47,16 @@ bool NodeListWidget::addItemAll(GraphicsDataArrayNode * node, QListWidgetItem *i
 
 }
 
-void NodeListWidget::reciveArray(ArrayInterface *arrayInterface)
+NodeListWidget *NodeListWidget::getInstance()
+{
+    return instance;
+}
+
+void NodeListWidget::reciveArray(TableArrayInterface *arrayInterface)
 {
     QString arrayName=arrayInterface->getArrayName();
-    QVariantList * variantList= arrayInterface->getArrayData();
+    QVariantList  variantList= arrayInterface->getArrayData();
+
 
 //    ChartItem* chart=dynamic_cast<ChartItem*>(chartInterface->getChart());
 //    chart->createDefaultAxes();
@@ -51,9 +66,9 @@ void NodeListWidget::reciveArray(ArrayInterface *arrayInterface)
 //    int n = qrand() % 99999;//存储的随机数
 
 
-    QtCharts::QChartView *chartView = new QtCharts::QChartView(chart);
-    chartView->setRenderHint(QPainter::Antialiasing);  //消除边缘
-    chartView->setChart(chart);
+//    QtCharts::QChartView *chartView = new QtCharts::QChartView(chart);
+//    chartView->setRenderHint(QPainter::Antialiasing);  //消除边缘
+//    chartView->setChart(chart);
 
 //    //QPixmap p = QPixmap::grabWidget(chartView);
 //    QPixmap p = chartView->grab();
@@ -63,11 +78,19 @@ void NodeListWidget::reciveArray(ArrayInterface *arrayInterface)
 //    //    url=url+QString(n)+".png";
 //    //    image.save(url);
 
-    QListWidgetItem *item=new QListWidgetItem(this);
-    item->setText("chartName");
-    item->setIcon(QIcon(p));
+
+    GraphicsDataArrayNode * node=new GraphicsDataArrayNode();
+    node->setTableArrayInterface(arrayInterface);
+
+
+    NodeListWidgetItem *item=new NodeListWidgetItem(this);
+    item->setItemIndex(Nodeindex);
+    item->setText(arrayInterface->getArrayName());
+//    item->setIcon(QIcon(p));
     item->setSizeHint(QSize(100,120));
-    this->addItemAll(chart,item);
+
+
+    this->addItemAll(node,item);
 }
 
 
@@ -173,4 +196,4 @@ void NodeListWidget::reciveArray(ArrayInterface *arrayInterface)
 //    this->addItemAll(chart,item);
 //}
 
-
+NodeListWidget* NodeListWidget::instance=new NodeListWidget();

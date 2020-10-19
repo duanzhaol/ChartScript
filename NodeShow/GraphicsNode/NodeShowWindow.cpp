@@ -1,7 +1,6 @@
 ﻿#include "ConnectController.h"
 #include "NodeShowWindow.h"
 #include "ui_NodeShowWindow.h"
-
 #include "GraphicsAreaSeriesNode.h"
 #include "GraphicsChartNode.h"
 #include "GraphicsDataArrayNode.h"
@@ -14,6 +13,8 @@
 #include <Interpreter/Interpreter/InterpreterController.h>
 #include <QDebug>
 #pragma execution_character_set("utf-8")
+
+
 
 auto getChart(){
 	return new GraphicsChartNode(new MovableProxyWidget);
@@ -35,6 +36,10 @@ NodeShowWindow::NodeShowWindow(QWidget *parent) :
 {
 	ui->setupUi(this);
 
+//    ui->tabWidget->addTab(NodeListWidget::getInstance(),"表格结点");
+
+
+//    connect(NodeListWidget::getInstance(),&NodeListWidget::itemDoubleClicked,this,SLOT(on_listWidget_2_itemDoubleClicked(NodeListWidgetItem * item)));
 
 
 
@@ -221,5 +226,34 @@ void NodeShowWindow::on_listWidget_itemDoubleClicked(QListWidgetItem *item)
 	}
 
 }
+
+void NodeShowWindow::on_listWidget_2_itemDoubleClicked(NodeListWidgetItem *item)
+{
+    int index=item->getItemIndex();
+    qDebug()<<NodeListWidget::getInstance()->Nodeindex;
+    qDebug()<<index;
+    auto chart=getChart();
+    scene->addItem(chart->getProxy());
+}
+
+
+void NodeShowWindow::on_MoveButton_clicked()
+{
+    mouseType=NodeShowMouseType::Move;
+    ui->mouseTypeState->setText("当前状态：移动");
+}
+
+void NodeShowWindow::on_ConnectButton_clicked()
+{
+    mouseType=NodeShowMouseType::Connect;
+    ui->mouseTypeState->setText("当前状态：连线");
+}
+
+void NodeShowWindow::on_DeleteButton_clicked()
+{
+    mouseType=NodeShowMouseType::Delete;
+    ui->mouseTypeState->setText("当前状态：删除");
+}
+
 
 NodeShowWindow* NodeShowWindow::instance = nullptr;
