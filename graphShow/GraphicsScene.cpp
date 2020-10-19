@@ -82,6 +82,7 @@ void GraphicsScene::ThemeChanged(int type)
     foreach(QGraphicsItem *item,selectedItems()){
         qDebug()<<type;
         ChartItem *myItem=dynamic_cast<ChartItem*>(item);
+		if(myItem==nullptr)continue;
         switch (type) {
         case 0:
             myItem->setTheme(QtCharts::QChart::ChartThemeLight);
@@ -117,7 +118,7 @@ void GraphicsScene::recieveChart(ChartItem *item)
     qDebug()<<"123123";
     addItem(item);
 }
-
+#include <QtCharts/QLineSeries>
 void GraphicsScene::recieveGraphics(QListWidgetItem *item)
 {
 
@@ -125,6 +126,13 @@ void GraphicsScene::recieveGraphics(QListWidgetItem *item)
         qDebug()<<item->text();
         GraphicsRectItem *rect=new GraphicsRectItem(0,0,100,100);
         addItem(rect);
+		ChartItem*item = new ChartItem;
+		item->createDefaultAxes();
+		auto s = new QtCharts::QLineSeries;
+		s->append(1,1);
+		item->setScale(10);
+		s->append(2,2);
+		addItem(item);
     }else if(item->text()=="ellipse"){
         qDebug()<<item->text();
 

@@ -1,4 +1,5 @@
 ﻿#include "GraphicsTextItem.h"
+#include "../AttributeDialog/TextItemDialog.h"
 
 
 
@@ -11,14 +12,15 @@ GraphicsTextItem::GraphicsTextItem(QGraphicsItem *parent):
 
 void GraphicsTextItem::setAttr()
 {
-	AbstractGraphicsItem::setAttr();
+	this->setDocument(dialog->getDocument());
 }
 
 void GraphicsTextItem::SLOT_openAttributeWidget()
 {
-	AbstractGraphicsItem::SLOT_openAttributeWidget();
-	this->connect(attr,&ChartAttribute::confirm,
-				  this,& GraphicsTextItem ::setAttr);
+	dialog = new TextItemDialog;
+	dialog->setDocument(this->document());
+	dialog->show();
+	connect(dialog,&TextItemDialog::accepted,this,&GraphicsTextItem::setAttr);
 }
 
 
