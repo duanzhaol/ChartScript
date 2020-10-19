@@ -127,10 +127,11 @@ void GraphicsScene::recieveGraphics(QListWidgetItem *item)
         GraphicsRectItem *rect=new GraphicsRectItem(0,0,100,100);
         addItem(rect);
 		ChartItem*item = new ChartItem;
-		item->createDefaultAxes();
+		item->setGeometry(0,0,100,100);
 		auto s = new QtCharts::QLineSeries;
 		s->append(1,1);
 		s->append(2,2);
+		item->createDefaultAxes();
 		item->addSeries(s);
 		addItem(item);
     }else if(item->text()=="ellipse"){

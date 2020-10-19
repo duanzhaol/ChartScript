@@ -31,6 +31,7 @@ ChartItem::ChartItem(QGraphicsItem *parent):
 
 void ChartItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
+	//QtCharts::QChart::paintWindowFrame(painter,option,widget);
 	prepareGeometryChange();
 	QStyleOptionGraphicsItem op;
 	if (option->state & QStyle::State_Selected) {//如果被选中的话
@@ -45,6 +46,7 @@ void ChartItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
 	}else{
 		setCircleVisible(false);
 	}
+
 }
 
 
