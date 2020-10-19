@@ -1,4 +1,5 @@
 SOURCES += \
+	$$PWD/AttributeDialog/ShapeItemDialog.cpp \
 	$$PWD/AttributeDialog/TextEdit.cpp \
 	$$PWD/AttributeDialog/TextItemDialog.cpp \
 	$$PWD/GraphShowInitializer.cpp \
@@ -21,6 +22,7 @@ SOURCES += \
 
 
 HEADERS += \
+	$$PWD/AttributeDialog/ShapeItemDialog.h \
 	$$PWD/AttributeDialog/TextEdit.h \
 	$$PWD/AttributeDialog/TextItemDialog.h \
 	$$PWD/GraphShowInitializer.h \
@@ -43,6 +45,7 @@ HEADERS += \
         graphShow/GraphicsScene.h
 
 FORMS += \
+	$$PWD/AttributeDialog/ShapeItemDialog.ui \
 	$$PWD/AttributeDialog/TextItemDialog.ui \
 	$$PWD/mywindow.ui \
 	$$PWD/widget/SceneDialogTitle.ui \
@@ -52,4 +55,4 @@ FORMS += \
 DISTFILES +=
 
 RESOURCES += \
-	$$PWD/resource.qrc
+	$$PWD/GraphShow.qrc

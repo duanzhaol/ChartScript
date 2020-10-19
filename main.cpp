@@ -5,10 +5,13 @@
 #include <QTextCodec>
 #include <QStyleFactory>
 #include "MainWindow/MainWindowInitializer.h"
+#include <QtCharts/QChartView>
+#include "graphShow/ChartItem.h"
+#include <QLineSeries>
 
 void LoadImage(){
     /*程序进入前的开场动画效果*/
-    QPixmap lodingPix(":/img/img/ChartScript-banner-small.png");
+	QPixmap lodingPix(":/img/img/ChartScript-banner-small.png");
     QSplashScreen splash(lodingPix);
     splash.show();
     //    splash.showMessage("程序正在加载......", Qt::AlignTop|Qt::AlignRight, Qt::red);
@@ -21,12 +24,24 @@ void LoadImage(){
 
 }
 
+using namespace QtCharts;
 int main(int argc,char*argv[]){
 	QApplication app(argc,argv);
 
-//    LoadImage();
+	//LoadImage();
 
 	MainWindowInitializer::getInstance()->init();
+
+	QChart *c = new ChartItem;
+	QLineSeries *s = new QLineSeries;
+	s->append(1,11);
+	s->append(2,22);
+	c->addSeries(s);
+	c->createDefaultAxes();
+
+	QChartView *view = new QChartView;
+	view->setChart(c);
+	view->show();
 
 	app.exec();
 }

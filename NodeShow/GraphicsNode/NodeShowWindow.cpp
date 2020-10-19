@@ -142,7 +142,9 @@ void NodeShowWindow::init()
 
     QListWidgetItem *item2=new QListWidgetItem(ui->listWidget);
     item2->setText("数列结点(占位，添加函数改变了)");
-    item2->setIcon(QIcon(":/node/img/node/arrayNode.png"));
+    item2->setIcon(QIcon(":/img/img/node/arrayNode.png"));
+
+
     item2->setSizeHint(QSize(140,130));
 
 //	QListWidgetItem *item3=new QListWidgetItem(ui->listWidget);
@@ -167,7 +169,9 @@ void NodeShowWindow::init()
 
 	QListWidgetItem *item7=new QListWidgetItem(ui->listWidget);
 	item7->setText("统计图结点");
-    item7->setIcon(QIcon(""));
+
+	item7->setIcon(QIcon(":/img/img/node/chartNode.png"));
+
 	item7->setSizeHint(QSize(140,130));
 
 }

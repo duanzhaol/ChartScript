@@ -1,5 +1,5 @@
 <RCC>
-    <qresource prefix="/img">
+    <qresource prefix="/GraphShowImage">
         <file>image/ellipse.png</file>
         <file>image/rect.png</file>
         <file>image/editcopy.png</file>

@@ -103,12 +103,12 @@ void myWindow::initialListWidget()
 
     ListWidgetItem *item3=new ListWidgetItem(ui->listWidget2);
     item3->setText("rect");
-	item3->setIcon(QIcon(":/img/image/rect.png"));
+	item3->setIcon(QIcon(":/GraphShowImage/image/rect.png"));
     item3->setSizeHint(QSize(100,120));
 
     ListWidgetItem *item4=new ListWidgetItem(ui->listWidget2);
     item4->setText("ellipse");
-	item4->setIcon(QIcon(":/img/image/ellipse.png"));
+	item4->setIcon(QIcon(":/GraphShowImage/image/ellipse.png"));
     item4->setSizeHint(QSize(100,120));
 
 	ListWidgetItem *item5 = new ListWidgetItem(ui->listWidget2);

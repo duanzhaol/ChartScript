@@ -29,3 +29,10 @@ void GraphicsTextItem::setCoordinate(const QRectF &pos)
 	setPos(pos.topLeft());
 	setTextWidth(pos.width());
 }
+
+
+void GraphicsTextItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+{
+	AbstractGraphicsItem::paint(painter,option,widget);
+	QGraphicsTextItem::paint(painter,option,widget);
+}

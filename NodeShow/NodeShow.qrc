@@ -1,4 +1,4 @@
-<RCC>
+﻿<RCC>
     <qresource prefix="/img">
         <file>img/xia.png</file>
         <file>img/ha.jpg</file>
@@ -8,8 +8,6 @@
         <file>img/Chart-banner.png</file>
         <file>img/ChartScript-banner.png</file>
         <file>img/ChartScript-banner-small.png</file>
-    </qresource>
-    <qresource prefix="/node">
         <file>img/node/areaSeries.png</file>
         <file>img/node/arrayNode.png</file>
         <file>img/node/chartNode.png</file>

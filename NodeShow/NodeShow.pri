@@ -1,5 +1,5 @@
 RESOURCES += \
-    $$PWD/resource.qrc
+	$$PWD/NodeShow.qrc
 
 FORMS += \
 	$$PWD/GraphicsNode/GraphicsNode/GraphicsInnerNode/GraphicsAreaSeriesNode.ui \

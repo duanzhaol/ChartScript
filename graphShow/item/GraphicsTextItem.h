@@ -22,6 +22,10 @@ protected:
 	// AbstractGraphicsItem interface
 protected:
 	virtual void setCoordinate(const QRectF &pos) override;
+
+	// AbstractGraphicsItem interface
+protected:
+	virtual void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
 };
 
 
