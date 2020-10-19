@@ -4,26 +4,28 @@
 #include <QListWidget>
 #include <../ChartScript/NodeShow/GraphicsNode/GraphicsNode/GraphicsInnerNode/GraphicsDataArrayNode.h>
 #include <TableView/GraphicsShowInterface/TableArrayInterface.h>
+#include <GraphicsNode/GraphicsTopNode/GraphicsTopArrayNode.h>
 
 class NodeListWidget:public QListWidget
 {
     Q_OBJECT
 public:
-    NodeListWidget();
-    QHash<int,GraphicsDataArrayNode*> arrayNodeList;
+    NodeListWidget(QWidget* parent = nullptr);
 
-    void addArrayNode(GraphicsDataArrayNode * node);
-    GraphicsDataArrayNode *getArrayNode(int index);
-    bool addItemAll(GraphicsDataArrayNode * node, QListWidgetItem *item);
-    static NodeListWidget* getInstance();
+    QHash<int,GraphicsTopArrayNode*> arrayNodeList;
 
+    void addArrayNode(GraphicsTopArrayNode * node);
+    GraphicsTopArrayNode *getArrayNode(int index);
+    bool addItemAll(GraphicsTopArrayNode * node, QListWidgetItem *item);
+//    static NodeListWidget* getInstance();
+    static void createWidget();
     int Nodeindex=0;
 
 public slots:
     void reciveArray(TableArrayInterface *arrayInterface);
 
-private:
-    static NodeListWidget* instance;
+//private:
+//    static NodeListWidget* instance;
 };
 
 

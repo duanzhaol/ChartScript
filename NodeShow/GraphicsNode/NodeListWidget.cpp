@@ -3,24 +3,31 @@
 #include <QDebug>
 
 
-NodeListWidget::NodeListWidget()
-{
 
+
+
+NodeListWidget::NodeListWidget(QWidget *parent):
+QListWidget(parent)
+{
+    NodeListWidgetItem *item=new NodeListWidgetItem(this);
+    item->setItemIndex(Nodeindex);
+    item->setText("arrayInterface->getArrayName()");
+    //    item->setIcon(QIcon(p));
+    item->setSizeHint(QSize(100,120));
 }
 
-
-void NodeListWidget::addArrayNode(GraphicsDataArrayNode * node)
+void NodeListWidget::addArrayNode(GraphicsTopArrayNode * node)
 {
     arrayNodeList.insert(Nodeindex,node);
 
 }
 
-GraphicsDataArrayNode *NodeListWidget::getArrayNode(int index)
+GraphicsTopArrayNode *NodeListWidget::getArrayNode(int index)
 {
 
     qDebug()<<"当前长度:"<<arrayNodeList<<"  "<<count();
 
-    QHash<int, GraphicsDataArrayNode*>::iterator i = arrayNodeList.find(index);
+    QHash<int, GraphicsTopArrayNode*>::iterator i = arrayNodeList.find(index);
     if (i != arrayNodeList.end()) {
         qDebug()<< i.value() << Qt::endl;
         return i.value();
@@ -31,7 +38,7 @@ GraphicsDataArrayNode *NodeListWidget::getArrayNode(int index)
 }
 
 
-bool NodeListWidget::addItemAll(GraphicsDataArrayNode * node, QListWidgetItem *item)
+bool NodeListWidget::addItemAll(GraphicsTopArrayNode * node, QListWidgetItem *item)
 {
     if(node!=nullptr&&item!=nullptr){
         addArrayNode(node);
@@ -47,16 +54,18 @@ bool NodeListWidget::addItemAll(GraphicsDataArrayNode * node, QListWidgetItem *i
 
 }
 
-NodeListWidget *NodeListWidget::getInstance()
-{
-    return instance;
-}
+//NodeListWidget *NodeListWidget::getInstance()
+//{
+//    return instance;
+//}
+
+//void NodeListWidget::createWidget()
+//{
+//    instance = new NodeListWidget;
+//}
 
 void NodeListWidget::reciveArray(TableArrayInterface *arrayInterface)
 {
-    QString arrayName=arrayInterface->getArrayName();
-    QVariantList  variantList= arrayInterface->getArrayData();
-
 
 //    ChartItem* chart=dynamic_cast<ChartItem*>(chartInterface->getChart());
 //    chart->createDefaultAxes();
@@ -81,6 +90,7 @@ void NodeListWidget::reciveArray(TableArrayInterface *arrayInterface)
 
     GraphicsDataArrayNode * node=new GraphicsDataArrayNode();
     node->setTableArrayInterface(arrayInterface);
+    GraphicsTopArrayNode * topNode=new GraphicsTopArrayNode(node,new MovableProxyWidget);
 
 
     NodeListWidgetItem *item=new NodeListWidgetItem(this);
@@ -90,7 +100,7 @@ void NodeListWidget::reciveArray(TableArrayInterface *arrayInterface)
     item->setSizeHint(QSize(100,120));
 
 
-    this->addItemAll(node,item);
+    this->addItemAll(topNode,item);
 }
 
 
@@ -196,4 +206,4 @@ void NodeListWidget::reciveArray(TableArrayInterface *arrayInterface)
 //    this->addItemAll(chart,item);
 //}
 
-NodeListWidget* NodeListWidget::instance=new NodeListWidget();
+//NodeListWidget* NodeListWidget::instance = nullptr;

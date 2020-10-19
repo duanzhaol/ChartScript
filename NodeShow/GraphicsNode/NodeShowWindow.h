@@ -32,7 +32,7 @@ public:
 private slots:
 	void on_listWidget_itemDoubleClicked(QListWidgetItem *item);
 
-    void on_listWidget_2_itemDoubleClicked(NodeListWidgetItem *item);
+    void on_listWidget_2_itemDoubleClicked(QListWidgetItem *item);
 
     void on_MoveButton_clicked();
 
@@ -40,8 +40,10 @@ private slots:
 
     void on_DeleteButton_clicked();
 
-public slots:
-    void recieveNodeArrays(QListWidgetItem *item);
+//public slots:
+//    void recieveNodeArrays(QListWidgetItem *item);
+
+
 
 private:
 	Ui::NodeShowWindow *ui;
