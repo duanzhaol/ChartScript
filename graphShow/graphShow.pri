@@ -55,4 +55,4 @@ FORMS += \
 DISTFILES +=
 
 RESOURCES += \
-	$$PWD/resource.qrc
+	$$PWD/GraphShow.qrc

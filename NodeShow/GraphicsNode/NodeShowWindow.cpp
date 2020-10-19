@@ -129,7 +129,7 @@ void NodeShowWindow::init()
 
 	QListWidgetItem *item1=new QListWidgetItem(ui->listWidget);
 	item1->setText("开始结点");
-	item1->setIcon(QIcon("/img/img/startNode.png"));
+	item1->setIcon(QIcon(":/img/img/startNode.png"));
 	item1->setSizeHint(QSize(140,130));
 
     QListWidgetItem *item2=new QListWidgetItem(ui->listWidget);
@@ -159,7 +159,7 @@ void NodeShowWindow::init()
 
 	QListWidgetItem *item7=new QListWidgetItem(ui->listWidget);
 	item7->setText("统计图结点");
-	item7->setIcon(QIcon(":/img/node/img/node/chartNode.png"));
+	item7->setIcon(QIcon(":/img/img/node/chartNode.png"));
 	item7->setSizeHint(QSize(140,130));
 
 }

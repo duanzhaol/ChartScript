@@ -42,12 +42,10 @@ void GraphicsEllipseItem::paint(QPainter *painter, const QStyleOptionGraphicsIte
 	pen.setStyle(attribute.penStyle);
 	painter->setPen(pen);
 
-	if(attribute.brushStyle == Qt::BrushStyle::NoBrush){
-		painter->setBrush(attribute.brushColor);
-	}
-	else{
-		painter->setBrush(QBrush(attribute.penStyle));
-	}
+	QBrush brush;
+	brush.setColor(attribute.brushColor);
+	brush.setStyle(attribute.brushStyle);
+	painter->setBrush(brush);
 
 	painter->drawEllipse(boundingRect());
 
