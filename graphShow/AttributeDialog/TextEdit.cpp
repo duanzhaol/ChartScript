@@ -89,7 +89,7 @@
 #ifdef Q_OS_MAC
 const QString rsrcPath = ":/images/mac";
 #else
-const QString rsrcPath = ":/img/image";
+const QString rsrcPath = ":/GraphShowImage/image";
 #endif
 
 TextEdit::TextEdit(QWidget *parent)

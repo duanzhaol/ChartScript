@@ -33,7 +33,7 @@ protected:
 	* 打开属性窗口的槽函数
 	* @bug 会报错，信号发不过来，因此属性窗口无法产生实质性的改变
 	*/
-	virtual void SLOT_openAttributeWidget();
+	virtual void SLOT_openAttributeWidget() = 0;
 
 	//! 设置图形位置
 	virtual void setCoordinate(const QRectF&pos) = 0;
@@ -137,20 +137,7 @@ protected:
 	 */
 	QRectF getNewPlace(int type,QPointF LT,QPointF RB);
    /**
-	* @brief 属性窗口对象
-	*/
-   ChartAttribute *attr;
-   /**
 	* @brief 存储设定的选择框颜色
-	*/
-   QColor selectColor;
-   /**
-	* @brief 存储设定的缩放小圆圈颜色
-	*/
-   QColor zoomColor;
-   /**
-	* @brief 根据传入的颜色，设定所有小圆圈的颜色
-	* @param 改变的颜色
 	*/
    void setCircleColor(QColor color);
 
@@ -165,13 +152,6 @@ public:
 	*/
 	QRectF boundingRect() const;
 protected:
-	/**
-	 * @brief 属性窗口点击确定的槽函数
-	 * 会根据combox的选项，设定对应的属性
-	 * 选择框颜色的设定方式：改变私有属性selectColor,然后再paint种调用这个属性
-	 * 圆圈的颜色谁的设定方式:调用setCircleColor函数
-	 */
-	void setAttr();
 
 	/**
 	 * @brief
@@ -181,7 +161,7 @@ protected:
 	 * @param option 不懂
 	 * @param widget 不懂
 	 */
-	void paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
+	virtual void paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
 			   QWidget *widget);
 
 
@@ -215,14 +195,6 @@ AbstractGraphicsItem<GraphicsItem>::AbstractGraphicsItem(QGraphicsItem *parent):
 	setAcceptHoverEvents(true);//接受hover事件
 	m_bIsResizing=0;
 	creatCircle();
-}
-
-template<class GraphicsItem>
-void AbstractGraphicsItem<GraphicsItem>::SLOT_openAttributeWidget()
-{
-	attr = new ChartAttribute();
-	attr->show();
-
 }
 
 template<class GraphicsItem>
@@ -393,7 +365,7 @@ void AbstractGraphicsItem<GraphicsItem>::setCirclePos()
 template <class GraphicsItem>
 int AbstractGraphicsItem<GraphicsItem>::IsInResizeArea(const QPointF &pos)
 {
-	int radius=5;
+	int radius=10;
 	if(abs(pos.x()-boundingRect().width())<=radius){
 		if(abs(pos.y()-boundingRect().height())<=radius){
 			return 33;
@@ -479,45 +451,18 @@ QRectF AbstractGraphicsItem<GraphicsItem>::boundingRect() const
 	return GraphicsItem::boundingRect();
 }
 
-template <class GraphicsItem>
-void AbstractGraphicsItem<GraphicsItem>::setAttr()
-{
-	selectColor.setNamedColor(attr->getSelectColor());
-	zoomColor.setNamedColor(attr->getZoomColor());
-	setCircleColor(zoomColor);
-	qDebug()<<"SLECT"<<selectColor;
-	qDebug()<<"ZOOM"<<zoomColor;
-}
 
 template <class GraphicsItem>
 void AbstractGraphicsItem<GraphicsItem>::paint
 (QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
-	//QChart::paint(0,0,widget);
-
-	GraphicsItem::paint(painter,option,widget);
+	//GraphicsItem::paint(painter,option,widget);
 
 	prepareGeometryChange();
-	//qDebug("调用MyChartItem::paint");
 	QStyleOptionGraphicsItem op;
 	if (option->state & QStyle::State_Selected) {//如果被选中的话
-		//qDebug("画边框");
-		//qDebug()<<geometry();
-		painter->setRenderHint(QPainter::Antialiasing, true);
-		if(selectColor==nullptr){
-			painter->setPen(Qt::blue);//设置默认选择框颜色
-		}else{
-			painter->setPen(selectColor);//设置默认选择框颜色
-		}
-		double radius=5;//小圆圈的半径
 		setCircleVisible(true);
 		setCirclePos();
-		QRectF br = boundingRect();
-		br.setTopLeft(br.topLeft()+QPointF(5,5));
-		br.setBottomRight(br.bottomRight()-QPointF(5,5));
-		//painter->drawRect(br);
-		painter->setPen(Qt::red);
-		painter->setRenderHint(QPainter::Antialiasing, false);  // 重点
 	}else{
 		setCircleVisible(false);
 	}

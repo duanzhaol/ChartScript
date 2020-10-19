@@ -98,8 +98,8 @@ NodeShowWindow::NodeShowWindow(QWidget *parent) :
 
 	init();
 
-	ui->graphicsView->setStyleSheet(R"(QGraphicsView{ background-image:url(:/img/img/beijing.jpg);})");//设置scene背景
-	ui->graphicsView->showMaximized();//全屏窗口打开
+	ui->graphicsView->setStyleSheet(R"(QGraphicsView{ background-image:url(:/img/img/beijing.png);})");//设置scene背景
+
 	ui->graphicsView->setViewportUpdateMode(QGraphicsView::FullViewportUpdate);//流畅刷新
 
 }
@@ -129,12 +129,12 @@ void NodeShowWindow::init()
 
 	QListWidgetItem *item1=new QListWidgetItem(ui->listWidget);
 	item1->setText("开始结点");
-	item1->setIcon(QIcon(":/img/img/startNode.png"));
+	item1->setIcon(QIcon("/img/img/startNode.png"));
 	item1->setSizeHint(QSize(140,130));
 
     QListWidgetItem *item2=new QListWidgetItem(ui->listWidget);
     item2->setText("数列结点(占位，添加函数改变了)");
-    item2->setIcon(QIcon(":/img/node/img/node/arrayNode.png"));
+	item2->setIcon(QIcon(":/img/img/node/arrayNode.png"));
     item2->setSizeHint(QSize(140,130));
 
 //	QListWidgetItem *item3=new QListWidgetItem(ui->listWidget);

@@ -28,7 +28,7 @@
       <item>
        <widget class="QLabel" name="label_3">
         <property name="text">
-         <string>选择框颜色</string>
+         <string>线的颜色</string>
         </property>
        </widget>
       </item>

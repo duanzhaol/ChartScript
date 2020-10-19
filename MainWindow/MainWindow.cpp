@@ -19,5 +19,5 @@ MainWindow::~MainWindow()
 
 void MainWindow::addSubWindow(AbstractInitializer *windowInitializer)
 {
-	auto index = ui->tabWidget->addTab(windowInitializer->getWidget(),windowInitializer->getWindowName());
+	ui->tabWidget->addTab(windowInitializer->getWidget(),windowInitializer->getWindowName());
 }

@@ -8,7 +8,7 @@
 
 void LoadImage(){
     /*程序进入前的开场动画效果*/
-    QPixmap lodingPix(":/img/img/ChartScript-banner-small.png");
+	QPixmap lodingPix("NodeShow/:/img/img/ChartScript-banner-small.png");
     QSplashScreen splash(lodingPix);
     splash.show();
     //    splash.showMessage("程序正在加载......", Qt::AlignTop|Qt::AlignRight, Qt::red);
@@ -20,13 +20,14 @@ void LoadImage(){
     };
 
 }
-
+#include <QFile>
+#include <QDir>
 int main(int argc,char*argv[]){
 	QApplication app(argc,argv);
 
-//    LoadImage();
+	LoadImage();
 
-	MainWindowInitializer::getInstance()->init();
+	//MainWindowInitializer::getInstance()->init();
 
 	app.exec();
 }
