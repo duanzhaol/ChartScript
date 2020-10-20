@@ -10,6 +10,9 @@ public:
 	AbstractSeriesNode();
 	virtual QtCharts::QAbstractSeries*getSeries()const = 0;
 
+	// AbstractNode interface
+public:
+	virtual void process(AbstractNode *nextNode) override;
 };
 
 #endif // ABSTRACTSERIESNODE_H
