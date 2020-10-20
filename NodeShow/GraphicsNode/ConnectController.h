@@ -21,7 +21,7 @@ public:
 
 public slots:
     void ConnectLine(QPushButton*,AbstractGraphicsNode::PortType);
-
+    void clearPort();
 
 private:
     GraphicsDataArrayNode* arrayNode;

@@ -29,6 +29,9 @@ public:
     enum class NodeShowMouseType{Move,Connect,Delete};
     NodeShowMouseType mouseType=NodeShowMouseType::Move;
 
+signals:
+    void MouseTypechanged();
+
 private slots:
 	void on_listWidget_itemDoubleClicked(QListWidgetItem *item);
 
@@ -39,6 +42,7 @@ private slots:
     void on_ConnectButton_clicked();
 
     void on_DeleteButton_clicked();
+
 
 //public slots:
 //    void recieveNodeArrays(QListWidgetItem *item);

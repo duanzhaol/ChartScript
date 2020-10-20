@@ -7,28 +7,28 @@
 
 InputPort::InputPort(QWidget*parent):QPushButton(parent)
 {
-    this->setStyleSheet(R"(QPushButton {
-                             border: 1px solid #333333;
-                             padding: 4px;
-                             border-radius:8px;
+//    this->setStyleSheet(R"(QPushButton {
+//                             border: 1px solid #333333;
+//                             padding: 4px;
+//                             border-radius:8px;
 
-                             background-color: rgb(255, 255, 255);
-                         }
+//                             background-color: rgb(255, 255, 255);
+//                         }
 
-                         QPushButton:hover {
-                             background-color: rgb(52, 167, 255);
-                             border-color: #444444;
-                         }
+//                         QPushButton:hover {
+//                             background-color: rgb(52, 167, 255);
+//                             border-color: #444444;
+//                         }
 
-                         QPushButton:pressed {
-                             background-color: rgb(46, 39, 239);
-                             border-color: #333333;
-                             color: yellow;
-                         }
+//                         QPushButton:pressed {
+//                             background-color: rgb(46, 39, 239);
+//                             border-color: #333333;
+//                             color: yellow;
+//                         }
 
-                         QPushButton:disabled {
-                             color: #333333;
-                         })");
+//                         QPushButton:disabled {
+//                             color: #333333;
+//                         })");
 
     ConnectToController();
 

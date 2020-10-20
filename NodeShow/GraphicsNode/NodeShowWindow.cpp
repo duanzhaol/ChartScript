@@ -42,6 +42,8 @@ NodeShowWindow::NodeShowWindow(QWidget *parent) :
 {
 	ui->setupUi(this);
 
+    connect(this,&NodeShowWindow::MouseTypechanged,ConnectController::getInstance(),&ConnectController::clearPort);
+
 //    ui->tabWidget->addTab(NodeListWidget::getInstance(),"表格结点");
 
 
@@ -114,6 +116,7 @@ NodeShowWindow::NodeShowWindow(QWidget *parent) :
 	ui->graphicsView->showMaximized();//全屏窗口打开
 
 	ui->graphicsView->setViewportUpdateMode(QGraphicsView::FullViewportUpdate);//流畅刷新
+
 
 }
 
@@ -199,7 +202,6 @@ void NodeShowWindow::on_listWidget_itemDoubleClicked(QListWidgetItem *item)
         //addItem(rect);
         auto array= getArrayNode();
         scene->addItem(array->getProxy());
-
     }
 //    else if(item->text()=="线图序列"){
 //		qDebug()<<item->text();
@@ -245,6 +247,7 @@ void NodeShowWindow::on_MoveButton_clicked()
 {
     mouseType=NodeShowMouseType::Move;
     ui->mouseTypeState->setText("当前状态：移动");
+    emit MouseTypechanged();
 }
 
 void NodeShowWindow::on_ConnectButton_clicked()
@@ -257,6 +260,7 @@ void NodeShowWindow::on_DeleteButton_clicked()
 {
     mouseType=NodeShowMouseType::Delete;
     ui->mouseTypeState->setText("当前状态：删除");
+    emit MouseTypechanged();
 }
 
 
