@@ -7,7 +7,6 @@ GraphicsTextItem::GraphicsTextItem(int x, int y, QGraphicsItem *parent):
 	AbstractGraphicsItem(parent)
 {
 	setPlainText(QStringLiteral("请输入..."));
-	setPos(x,y);
 }
 
 void GraphicsTextItem::setAttr()

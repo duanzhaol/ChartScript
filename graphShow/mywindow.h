@@ -34,10 +34,6 @@ private slots:
      * @brief 点击主题按钮，弹出主题窗口
      */
     void on_pushButton_theme_clicked();
-    /**
-     * @brief 点击标题按钮，弹出标题窗口
-     */
-    void on_pushButton_title_clicked();
 
     void sendChart_Transmitter(QListWidgetItem*item);
     void initialListWidget();
@@ -46,6 +42,10 @@ private slots:
 
     void on_pushButton_top_clicked();
 
+	void setCursorCoor(const QPointF&);
+
+
+	void on_backgroundSet_clicked();
 
 private:
     Ui::myWindow *ui;

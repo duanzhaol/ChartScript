@@ -3,6 +3,7 @@
 #include <QGraphicsSceneMouseEvent>
 #include "item/ShapeItem/GraphicsEllipseItem.h"
 #include "item/GraphicsTextItem.h"
+#include "item/GraphicsImageItem.h"
 GraphicsScene::GraphicsScene(QObject *parent):QGraphicsScene(parent)
 {
     clearFocus();
@@ -45,9 +46,8 @@ void GraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
 
 void GraphicsScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 {
-    //qDebug() << "场景被移动";
-
     QGraphicsScene::mouseMoveEvent(event);
+	emit mouseMove(event->scenePos());
 }
 
 void GraphicsScene::keyPressEvent(QKeyEvent *event)
@@ -142,8 +142,12 @@ void GraphicsScene::recieveGraphics(QListWidgetItem *item)
     }
 	else if(item->text()==QStringLiteral("文本框")){
 		qDebug()<<item->text();
-
 		GraphicsTextItem*text = new GraphicsTextItem(0,0);
+		addItem(text);
+	}
+	else if(item->text()==QStringLiteral("图片")){
+		qDebug()<<item->text();
+		GraphicsImageItem*text = new GraphicsImageItem(0,0,100,100);
 		addItem(text);
 	}
 }

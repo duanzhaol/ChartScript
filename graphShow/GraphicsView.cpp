@@ -6,7 +6,7 @@ GraphicsView::GraphicsView(QWidget *parent): QGraphicsView(parent)
 {
     setDragMode(QGraphicsView::NoDrag);//(QGraphicsView::RubberBandDrag);//QGraphicsView::ScrollHandDrag
     scale_m = 1;//图形原始比例
-    setStyleSheet("padding: 0px; border: 0px;");//无边框
+	//setStyleSheet("padding: 0px; border: 0px;");//无边框
     setMouseTracking(true);//跟踪鼠标位置
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);//隐藏水平条
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);//隐藏竖条

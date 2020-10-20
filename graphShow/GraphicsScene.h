@@ -66,6 +66,9 @@ public slots:
     void recieveGraphics(QListWidgetItem *item);
     void toTop();
 
+signals:
+	void mouseMove(const QPointF&);
+
 };
 
 #endif // GRAPHICSSCENE_H

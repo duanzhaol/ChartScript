@@ -23,6 +23,7 @@
         <file>image/zoomout.png</file>
         <file>image/text.png</file>
         <file>image/textBox.png</file>
+        <file>image/addPixmap.png</file>
     </qresource>
     <qresource prefix="/"/>
 </RCC>

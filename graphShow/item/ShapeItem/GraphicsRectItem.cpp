@@ -14,3 +14,4 @@ void GraphicsRectItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *
 	AbstractGraphicsShapeItem::paint(painter,option,widget);
 	painter->drawRect(boundingRect());
 }
+

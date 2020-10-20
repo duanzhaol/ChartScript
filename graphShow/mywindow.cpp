@@ -5,6 +5,7 @@
 #include<QDebug>
 #include <QStringListModel>
 #include <QPieSeries>
+#include <QFileDialog>
 
 myWindow::myWindow(QWidget *parent) :
     QWidget(parent),
@@ -23,7 +24,7 @@ void myWindow::setScene(GraphicsScene *myScene)
     connect(ui->listWidget2,&QListWidget::itemDoubleClicked,dynamic_cast<GraphicsScene*>(ui->graphicsView->scene()),&GraphicsScene::recieveGraphics);
     connect(this,&myWindow::selectAll,dynamic_cast<GraphicsScene*>(ui->graphicsView->scene()),&GraphicsScene::selectAll);
     connect(this,&myWindow::toTop,dynamic_cast<GraphicsScene*>(ui->graphicsView->scene()),&GraphicsScene::toTop);
-
+	connect(myScene,&GraphicsScene::mouseMove,this,&myWindow::setCursorCoor);
 }
 
 myWindow::~myWindow()
@@ -41,15 +42,7 @@ void myWindow::on_pushButton_theme_clicked()
     sceneDialogTheme->show();
     connect(sceneDialogTheme,&SceneDialogTheme::ThemeChange,dynamic_cast<GraphicsScene*>(ui->graphicsView->scene()),&GraphicsScene::ThemeChanged);
 }
-/**
- * @brief myWindow::on_pushButton_title_clicked
- * 点击标题改变按钮的槽函数
- */
-void myWindow::on_pushButton_title_clicked()
-{
-	SceneDialogTitle *sceneDialogTitle=new SceneDialogTitle(this);
-    sceneDialogTitle->show();
-}
+
 /**
  * @brief myWindow::sendChart_Transmitter
  * 提取QListWidgetItem的索引对应的Chart，通过信号函数进行发送
@@ -116,11 +109,17 @@ void myWindow::initialListWidget()
 	item5->setIcon(QIcon(":/GraphShowImage/image/textBox.png"));
 	item5->setSizeHint(QSize(100,120));
 
+	ListWidgetItem *item6 = new ListWidgetItem(ui->listWidget2);
+	item6->setText(QStringLiteral("图片"));
+	item6->setIcon(QIcon(":/GraphShowImage/image/addPixmap.png"));
+	item6->setSizeHint(QSize(100,120));
+
    // ui->listWidget1->addItemAll(chart,item1);
 	//ui->listWidget1->addItemAll(chart,item2);
     ui->listWidget2->addItem(item3);
     ui->listWidget2->addItem(item4);
 	ui->listWidget2->addItem(item5);
+	ui->listWidget2->addItem(item6);
     ui->listWidget1->show();
     ui->listWidget2->show();
 
@@ -140,7 +139,24 @@ void myWindow::on_pushButton_shadow_clicked()
 
 void myWindow::on_pushButton_top_clicked()
 {
-    emit toTop();
+	emit toTop();
+}
+
+void myWindow::setCursorCoor(const QPointF &point)
+{
+	ui->cursorCoor->setText(QStringLiteral("鼠标:")+QString("%1,%2")
+							.arg(point.x())
+							.arg(point.y()));
 }
 
 
+
+void myWindow::on_backgroundSet_clicked()
+{
+	QString fileName = QFileDialog::getOpenFileName(this,
+													tr("打开图片"),
+													R"(C:\)",
+													tr("Image Files (*.png)"));
+	this->setStyleSheet(QString(R"(QGraphicsView{ background-image:url(%1);})")
+						.arg(fileName));
+}

@@ -6,14 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>847</width>
-    <height>567</height>
+    <width>839</width>
+    <height>568</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QHBoxLayout" name="horizontalLayout_2">
+  <layout class="QHBoxLayout" name="horizontalLayout_4">
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,3">
      <item>
@@ -65,9 +65,9 @@
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButton_title">
+          <widget class="QPushButton" name="backgroundSet">
            <property name="text">
-            <string>标题</string>
+            <string>设置背景图片</string>
            </property>
           </widget>
          </item>
@@ -96,10 +96,10 @@
           </sizepolicy>
          </property>
          <property name="verticalScrollBarPolicy">
-          <enum>Qt::ScrollBarAlwaysOff</enum>
+          <enum>Qt::ScrollBarAlwaysOn</enum>
          </property>
          <property name="horizontalScrollBarPolicy">
-          <enum>Qt::ScrollBarAlwaysOff</enum>
+          <enum>Qt::ScrollBarAlwaysOn</enum>
          </property>
          <property name="sizeAdjustPolicy">
           <enum>QAbstractScrollArea::AdjustToContents</enum>
@@ -109,6 +109,16 @@
          </property>
          <property name="viewportUpdateMode">
           <enum>QGraphicsView::FullViewportUpdate</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_2"/>
+       </item>
+       <item>
+        <widget class="QLabel" name="cursorCoor">
+         <property name="text">
+          <string/>
          </property>
         </widget>
        </item>

@@ -1,4 +1,5 @@
 SOURCES += \
+	$$PWD/AttributeDialog/PixmapItemDialog.cpp \
 	$$PWD/AttributeDialog/ShapeItemDialog.cpp \
 	$$PWD/AttributeDialog/TextEdit.cpp \
 	$$PWD/AttributeDialog/TextItemDialog.cpp \
@@ -7,6 +8,7 @@ SOURCES += \
     $$PWD/ListWidget/ListWidget.cpp \
     $$PWD/ListWidget/ListWidgetItem.cpp \
 	$$PWD/item/AbstractGraphicsItem.cpp \
+	$$PWD/item/GraphicsImageItem.cpp \
 	$$PWD/item/GraphicsTextItem.cpp \
     $$PWD/item/Select.cpp \
     $$PWD/item/SelectInterface.cpp \
@@ -23,6 +25,7 @@ SOURCES += \
 
 
 HEADERS += \
+	$$PWD/AttributeDialog/PixmapItemDialog.h \
 	$$PWD/AttributeDialog/ShapeItemDialog.h \
 	$$PWD/AttributeDialog/TextEdit.h \
 	$$PWD/AttributeDialog/TextItemDialog.h \
@@ -31,6 +34,7 @@ HEADERS += \
     $$PWD/ListWidget/ListWidget.h \
     $$PWD/ListWidget/ListWidgetItem.h \
 	$$PWD/item/AbstractGraphicsItem.h \
+	$$PWD/item/GraphicsImageItem.h \
 	$$PWD/item/GraphicsShapeDefine.h \
 	$$PWD/item/GraphicsTextItem.h \
     $$PWD/item/Select.h \
@@ -47,6 +51,7 @@ HEADERS += \
         graphShow/GraphicsScene.h
 
 FORMS += \
+	$$PWD/AttributeDialog/PixmapItemDialog.ui \
 	$$PWD/AttributeDialog/ShapeItemDialog.ui \
 	$$PWD/AttributeDialog/TextItemDialog.ui \
 	$$PWD/mywindow.ui \
