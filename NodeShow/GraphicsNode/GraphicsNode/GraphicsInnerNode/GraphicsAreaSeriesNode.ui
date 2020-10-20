@@ -22,77 +22,6 @@
   <property name="styleSheet">
    <string notr="true">background-color: rgba(121, 121, 121,0);</string>
   </property>
-  <widget class="QLabel" name="AreaSeriesName">
-   <property name="geometry">
-    <rect>
-     <x>660</x>
-     <y>70</y>
-     <width>30</width>
-     <height>151</height>
-    </rect>
-   </property>
-   <property name="minimumSize">
-    <size>
-     <width>30</width>
-     <height>0</height>
-    </size>
-   </property>
-   <property name="maximumSize">
-    <size>
-     <width>30</width>
-     <height>240</height>
-    </size>
-   </property>
-   <property name="font">
-    <font>
-     <family>Arial Rounded MT Bold</family>
-     <pointsize>14</pointsize>
-    </font>
-   </property>
-   <property name="layoutDirection">
-    <enum>Qt::LeftToRight</enum>
-   </property>
-   <property name="autoFillBackground">
-    <bool>false</bool>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">border:2px solid rgb(255, 255, 255) ;
-border-radius:5px;
-background-color: rgba(221, 221, 221, 0);
-color: rgb(255, 255, 255);</string>
-   </property>
-   <property name="text">
-    <string>区域图序列</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-   <property name="wordWrap">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="Port" name="inputPort" native="true">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>140</y>
-     <width>16</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="minimumSize">
-    <size>
-     <width>16</width>
-     <height>16</height>
-    </size>
-   </property>
-   <property name="maximumSize">
-    <size>
-     <width>16</width>
-     <height>16</height>
-    </size>
-   </property>
-  </widget>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
@@ -164,28 +93,6 @@ border:0px </string>
 border:0px </string>
    </property>
   </widget>
-  <widget class="Port" name="outputPort" native="true">
-   <property name="geometry">
-    <rect>
-     <x>710</x>
-     <y>140</y>
-     <width>16</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="minimumSize">
-    <size>
-     <width>16</width>
-     <height>16</height>
-    </size>
-   </property>
-   <property name="maximumSize">
-    <size>
-     <width>16</width>
-     <height>16</height>
-    </size>
-   </property>
-  </widget>
   <widget class="GraphicsDataArrayNode" name="upperYArray" native="true">
    <property name="geometry">
     <rect>
@@ -240,25 +147,218 @@ border:0px </string>
 border:0px </string>
    </property>
   </widget>
-  <zorder>label</zorder>
-  <zorder>bottomXArray</zorder>
-  <zorder>bottomYArray</zorder>
-  <zorder>outputPort</zorder>
-  <zorder>upperYArray</zorder>
-  <zorder>upperXArray</zorder>
-  <zorder>AreaSeriesName</zorder>
-  <zorder>inputPort</zorder>
+  <widget class="QLabel" name="AreaSeriesName">
+   <property name="geometry">
+    <rect>
+     <x>630</x>
+     <y>0</y>
+     <width>101</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>30</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>160</width>
+     <height>120</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <family>Arial Rounded MT Bold</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:1px solid rgb(255, 255, 255) ;
+border-radius:5px;
+background-color: rgba(221, 221, 221, 0);
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>序列名</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="AreaSeriesType">
+   <property name="geometry">
+    <rect>
+     <x>630</x>
+     <y>250</y>
+     <width>101</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>30</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>160</width>
+     <height>120</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <family>Arial Rounded MT Bold</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:1px solid rgb(255, 255, 255) ;
+border-radius:5px;
+background-color: rgba(221, 221, 221, 0);
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>区域图序列</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="InputPort" name="inputPort">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>130</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>16777215</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+							 border: 1px solid #333333;
+							 padding: 4px;
+							 border-radius:8px;
+
+							 background-color: rgb(255, 255, 255);
+						 }
+
+						 QPushButton:hover {
+							 background-color: rgb(52, 167, 255);
+							 border-color: #444444;
+						 }
+
+						 QPushButton:pressed {
+							 background-color: rgb(46, 39, 239);
+							 border-color: #333333;
+							 color: yellow;
+						 }
+
+						 QPushButton:disabled {
+							 color: #333333;
+						 }</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="OutputPort" name="outputPort">
+   <property name="geometry">
+    <rect>
+     <x>710</x>
+     <y>140</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>16777215</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+							 border: 1px solid #333333;
+							 padding: 4px;
+							 border-radius:8px;
+
+							 background-color: rgb(255, 255, 255);
+						 }
+
+						 QPushButton:hover {
+							 background-color: rgb(52, 167, 255);
+							 border-color: #444444;
+						 }
+
+						 QPushButton:pressed {
+							 background-color: rgb(46, 39, 239);
+							 border-color: #333333;
+							 color: yellow;
+						 }
+
+						 QPushButton:disabled {
+							 color: #333333;
+						 }</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
  </widget>
  <customwidgets>
   <customwidget>
-   <class>Port</class>
-   <extends>QWidget</extends>
-   <header>port.h</header>
+   <class>InputPort</class>
+   <extends>QPushButton</extends>
+   <header location="global">NodeShow/GraphicsNode/GraphicsNode/InputPort.h</header>
+  </customwidget>
+  <customwidget>
+   <class>OutputPort</class>
+   <extends>QPushButton</extends>
+   <header location="global">NodeShow/GraphicsNode/GraphicsNode/OutputPort.h</header>
   </customwidget>
   <customwidget>
    <class>GraphicsDataArrayNode</class>
    <extends>QWidget</extends>
-   <header>graphicsdataarraynode.h</header>
+   <header location="global">GraphicsDataArrayNode.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

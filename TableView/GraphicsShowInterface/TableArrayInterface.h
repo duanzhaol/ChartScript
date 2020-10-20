@@ -5,6 +5,7 @@
 #include <QTableWidget>
 #include <QTableWidgetItem>
 
+
 class TableArrayInterface{
 public:
 	//! All QVariant type should be same as getArrayType()

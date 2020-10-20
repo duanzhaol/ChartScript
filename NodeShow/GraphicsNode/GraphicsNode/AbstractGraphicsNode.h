@@ -3,6 +3,8 @@
 
 #include <QWidget>
 #include <MovableProxyWidget.h>
+#include <QPushButton>
+
 
 class AbstractGraphicsNode:public QWidget{
     Q_OBJECT
@@ -17,7 +19,7 @@ protected:
 
 
 signals:
-	void PortClicked(AbstractGraphicsNode*,PortType);
+    void PortClicked(QPushButton*,PortType);
 };
 
 

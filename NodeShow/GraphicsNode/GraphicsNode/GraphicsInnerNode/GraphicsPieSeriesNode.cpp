@@ -28,6 +28,10 @@ GraphicsPieSeriesNode::GraphicsPieSeriesNode(QWidget *parent) :
 
 	ui->LabelArray->setParent(this);
 	ui->NumberArray->setParent(this);
+
+    ui->inputPort->setParent(this);
+    ui->outputPort->setParent(this);
+
 	this->initName();
 
 

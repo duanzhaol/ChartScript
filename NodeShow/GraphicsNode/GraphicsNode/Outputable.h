@@ -2,6 +2,7 @@
 #define OUTPUTPORTINTERFACE_H
 
 #include "AbstractGraphicsNode.h"
+#include "OutputPort.h"
 
 #include <QPushButton>
 #include <QGraphicsItem>
@@ -11,7 +12,7 @@
  * @interface
  */
 
-using OutputPort = QWidget;
+//using OutputPort = QWidget;
 
 class Outputable{
 public:

@@ -15,6 +15,8 @@ GraphicsChartNode::GraphicsChartNode(Proxy *proxy, QWidget *parent) :
 {
     ui->setupUi(this);
 
+    ui->chartNodeName->setAlignment( Qt::AlignHCenter); //数据节点的名字居中显示
+
     /*设置qcombox文字居中显示，放一个lineedit进去 哈哈（设置lineedit文字居中）*/
     QLineEdit *lineEdit = new QLineEdit;
     lineEdit->setReadOnly(true);
@@ -23,6 +25,8 @@ GraphicsChartNode::GraphicsChartNode(Proxy *proxy, QWidget *parent) :
 
 	proxy->setWidget(this);
 
+    ui->inputPort->setParent(this);
+    ui->outputPort->setParent(this);
 	this->initName();
 }
 
@@ -66,7 +70,7 @@ void GraphicsChartNode::on_addSeriesButton_clicked()
 	chartType=ui->comboBox->currentText();
 
 	if(chartType=="LineSeries"){
-		this->insertSeries<GraphicsLineSeriesNode>(QSize(730,150));
+        this->insertSeries<GraphicsLineSeriesNode>(QSize(730,150));
     }
 	else if(chartType=="PieSeries"){
 		this->insertSeries<GraphicsPieSeriesNode>(QSize(730,150));

@@ -28,7 +28,7 @@
   <property name="styleSheet">
    <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
   </property>
-  <widget class="QPushButton" name="outputPort">
+  <widget class="OutputPort" name="outputPort">
    <property name="geometry">
     <rect>
      <x>0</x>
@@ -43,6 +43,7 @@
 	
 	background-color: rgba(255, 255, 255, 0);
 }
+
 QPushButton:hover{
 	background-image:url(:/img/img/startNode-hover.png);
 	
@@ -60,6 +61,13 @@ QPushButton:pressed{
    </property>
   </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>OutputPort</class>
+   <extends>QPushButton</extends>
+   <header location="global">NodeShow/GraphicsNode/GraphicsNode/OutputPort.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

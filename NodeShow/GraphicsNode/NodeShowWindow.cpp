@@ -1,7 +1,6 @@
 ﻿#include "ConnectController.h"
 #include "NodeShowWindow.h"
 #include "ui_NodeShowWindow.h"
-
 #include "GraphicsAreaSeriesNode.h"
 #include "GraphicsChartNode.h"
 #include "GraphicsDataArrayNode.h"
@@ -13,7 +12,11 @@
 #include <ConnectLineItem.h>
 #include <Interpreter/Interpreter/InterpreterController.h>
 #include <QDebug>
+#include <QPixmap>
+#include <GraphicsTopArrayNode.h>
 #pragma execution_character_set("utf-8")
+
+
 
 auto getChart(){
 	return new GraphicsChartNode(new MovableProxyWidget);
@@ -21,6 +24,10 @@ auto getChart(){
 
 auto getStart(){
 	return new GraphicsStartNode(new MovableProxyWidget);
+}
+
+auto getArrayNode(){
+    return nullptr;
 }
 
 //auto getArrayNode(){
@@ -35,6 +42,12 @@ NodeShowWindow::NodeShowWindow(QWidget *parent) :
 {
 	ui->setupUi(this);
 
+    connect(this,&NodeShowWindow::MouseTypechanged,ConnectController::getInstance(),&ConnectController::clearPort);
+
+//    ui->tabWidget->addTab(NodeListWidget::getInstance(),"表格结点");
+
+
+//    connect(ui->listWidget_2,&NodeListWidget::itemDoubleClicked,this,SLOT(on_listWidget_2_itemDoubleClicked(NodeListWidgetItem * item)));
 
 
 
@@ -66,7 +79,7 @@ NodeShowWindow::NodeShowWindow(QWidget *parent) :
 	//	scene->addItem(g3);
 	//	scene->addItem(g4);
 
-	scene->addItem(s->getProxy());
+    scene->addItem(s->getProxy());
 
 	scene->addItem(c->getProxy());
 
@@ -98,9 +111,12 @@ NodeShowWindow::NodeShowWindow(QWidget *parent) :
 
 	init();
 
-	ui->graphicsView->setStyleSheet(
-				R"(QGraphicsView{ background-image:url(:/img/img/beijing.png);})");//设置scene背景
+
+    ui->graphicsView->setStyleSheet(R"(QGraphicsView{ background-image:url(:/img/img/beijing.png);})");//设置scene背景
+	ui->graphicsView->showMaximized();//全屏窗口打开
+
 	ui->graphicsView->setViewportUpdateMode(QGraphicsView::FullViewportUpdate);//流畅刷新
+
 
 }
 
@@ -129,12 +145,14 @@ void NodeShowWindow::init()
 
 	QListWidgetItem *item1=new QListWidgetItem(ui->listWidget);
 	item1->setText("开始结点");
-	item1->setIcon(QIcon(":/img/img/startNode.png"));
+    item1->setIcon(QIcon(":/img/img/startNode.png"));
 	item1->setSizeHint(QSize(140,130));
 
     QListWidgetItem *item2=new QListWidgetItem(ui->listWidget);
-    item2->setText("数列结点(占位，添加函数改变了)");
-	item2->setIcon(QIcon(":/img/img/node/arrayNode.png"));
+    item2->setText("数列结点");
+    item2->setIcon(QIcon(":/img/img/node/arrayNode.png"));
+
+
     item2->setSizeHint(QSize(140,130));
 
 //	QListWidgetItem *item3=new QListWidgetItem(ui->listWidget);
@@ -159,7 +177,9 @@ void NodeShowWindow::init()
 
 	QListWidgetItem *item7=new QListWidgetItem(ui->listWidget);
 	item7->setText("统计图结点");
+
 	item7->setIcon(QIcon(":/img/img/node/chartNode.png"));
+
 	item7->setSizeHint(QSize(140,130));
 
 }
@@ -176,14 +196,13 @@ void NodeShowWindow::on_listWidget_itemDoubleClicked(QListWidgetItem *item)
 		scene->addItem(start->getProxy());
 
 	}
-//    else if(item->text()=="数列结点"){
-//        qDebug()<<item->text();
-//        //GraphicsRectItem *rect=new GraphicsRectItem(0,0,100,100);
-//        //addItem(rect);
-//        auto array= getProxy2();
-//        scene->addItem(array);
-
-//    }
+    else if(item->text()=="数列结点"){
+        qDebug()<<item->text();
+        //GraphicsRectItem *rect=new GraphicsRectItem(0,0,100,100);
+        //addItem(rect);
+        auto array= getArrayNode();
+       // scene->addItem(array->getProxy());
+    }
 //    else if(item->text()=="线图序列"){
 //		qDebug()<<item->text();
 //	   // GraphicsEllipseItem *ellipse=new GraphicsEllipseItem(0,0,100,100);
@@ -222,4 +241,41 @@ void NodeShowWindow::on_listWidget_itemDoubleClicked(QListWidgetItem *item)
 
 }
 
+
+
+void NodeShowWindow::on_MoveButton_clicked()
+{
+    mouseType=NodeShowMouseType::Move;
+    ui->mouseTypeState->setText("当前状态：移动");
+    emit MouseTypechanged();
+}
+
+void NodeShowWindow::on_ConnectButton_clicked()
+{
+    mouseType=NodeShowMouseType::Connect;
+    ui->mouseTypeState->setText("当前状态：连线");
+}
+
+void NodeShowWindow::on_DeleteButton_clicked()
+{
+    mouseType=NodeShowMouseType::Delete;
+    ui->mouseTypeState->setText("当前状态：删除");
+    emit MouseTypechanged();
+}
+
+
+void NodeShowWindow::on_listWidget_2_itemDoubleClicked(QListWidgetItem *item)
+{
+    auto nodeItem=dynamic_cast<NodeListWidgetItem*>(item);
+    int index=nodeItem->getItemIndex();
+    qDebug()<<ui->listWidget_2;
+    qDebug()<<nodeItem;
+    //    Q_ASSERT(arrayNode!=nullptr);
+    //    scene->addItem(arrayNode->getProxy());
+
+    qDebug()<<index;
+}
+
+
 NodeShowWindow* NodeShowWindow::instance = nullptr;
+

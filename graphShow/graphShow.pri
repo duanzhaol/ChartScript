@@ -1,4 +1,5 @@
 SOURCES += \
+	$$PWD/AttributeDialog/BackgroundDialog.cpp \
 	$$PWD/AttributeDialog/PixmapItemDialog.cpp \
 	$$PWD/AttributeDialog/ShapeItemDialog.cpp \
 	$$PWD/AttributeDialog/TextEdit.cpp \
@@ -26,6 +27,7 @@ SOURCES += \
 
 
 HEADERS += \
+	$$PWD/AttributeDialog/BackgroundDialog.h \
 	$$PWD/AttributeDialog/PixmapItemDialog.h \
 	$$PWD/AttributeDialog/ShapeItemDialog.h \
 	$$PWD/AttributeDialog/TextEdit.h \
@@ -53,6 +55,7 @@ HEADERS += \
         graphShow/GraphicsScene.h
 
 FORMS += \
+	$$PWD/AttributeDialog/BackgroundDialog.ui \
 	$$PWD/AttributeDialog/PixmapItemDialog.ui \
 	$$PWD/AttributeDialog/ShapeItemDialog.ui \
 	$$PWD/AttributeDialog/TextItemDialog.ui \

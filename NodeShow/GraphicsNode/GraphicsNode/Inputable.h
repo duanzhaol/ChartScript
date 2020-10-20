@@ -5,12 +5,13 @@
 #include <QGraphicsItem>
 #include <QGraphicsProxyWidget>
 #include "AbstractGraphicsNode.h"
+#include "InputPort.h"
 
 /**
  * @interface
  */
 
-using InputPort = QWidget;
+//using InputPort = QWidget;
 
 class Inputable{
 public:

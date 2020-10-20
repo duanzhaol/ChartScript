@@ -9,6 +9,7 @@
 #include <Interpreter/DataModel/AbstractDataNode.h>
 #include <Interpreter/DataModel/AbstractDataNode.h>
 #include "AbstractGraphicsInnerDualputNode.h"
+#include "../../TableView/GraphicsShowInterface/TableArrayInterface.h"
 
 
 
@@ -26,6 +27,7 @@ public:
     explicit GraphicsDataArrayNode(QWidget *parent = nullptr);
     ~GraphicsDataArrayNode();
     QComboBox* getCombobox();
+    QList<QVariant> dataArray;
 
 private:
     Ui::GraphicsDataArrayNode *ui;
@@ -52,6 +54,7 @@ public:
 public:
     virtual QVariant::Type getElementType() const override;
 	virtual void setElementType(QVariant::Type type) override;
+
 
 private slots:
     void on_inputPort_clicked();

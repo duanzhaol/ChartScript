@@ -1,6 +1,5 @@
 ﻿#include "GraphicsAreaSeriesNode.h"
 #include "ui_GraphicsAreaSeriesNode.h"
-
 #include <QBitmap>
 #include <QPainter>
 #include <GraphicsDataArrayNode.h>
@@ -19,6 +18,9 @@ GraphicsAreaSeriesNode::GraphicsAreaSeriesNode(QWidget *parent) :
 	ui->bottomXArray->setParent(this);
 	ui->bottomYArray->setParent(this);
 	this->initName();
+
+    ui->inputPort->setParent(this);
+    ui->outputPort->setParent(this);
 
 
 //    /*标题lineedit文字居中*/
