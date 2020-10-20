@@ -29,7 +29,7 @@ GraphicsTopArrayNode *NodeListWidget::getArrayNode(int index)
 
     QHash<int, GraphicsTopArrayNode*>::iterator i = arrayNodeList.find(index);
     if (i != arrayNodeList.end()) {
-        qDebug()<< i.value() << Qt::endl;
+        qDebug()<< i.value() << endl;
         return i.value();
     }
     else{

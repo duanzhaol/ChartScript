@@ -64,10 +64,10 @@ void ConnectLineItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *o
 	double slopy = atan2((right.y() - left.y()), (right.x() - left.x()));
 	double cosy = cos(slopy);
 	double siny = sin(slopy);
-	QPointF point1 = QPoint(right.x() + int(-par*cosy - (par / 2.0*siny)),
+    QPointF point1 = QPointF(right.x() + int(-par*cosy - (par / 2.0*siny)),
 							right.y() + int(-par*siny + (par / 2.0*cosy)));
 
-	QPointF point2 = QPoint(right.x() + int(-par*cosy + (par / 2.0*siny)),
+    QPointF point2 = QPointF(right.x() + int(-par*cosy + (par / 2.0*siny)),
 							right.y() - int(par / 2.0*cosy + par*siny));
 
 	QPointF points[3] = { right, point1, point2 };
@@ -78,11 +78,11 @@ void ConnectLineItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *o
 	int offsetX = int(par*siny / 3);
 	int offsetY = int(par*cosy / 3);
 
-	QPoint point3, point4;
-	point3 = QPoint(right.x() + int(-par*cosy - (par / 2.0*siny)) + offsetX,
+    QPointF point3, point4;
+    point3 = QPointF(right.x() + int(-par*cosy - (par / 2.0*siny)) + offsetX,
 					right.y() + int(-par*siny + (par / 2.0*cosy)) - offsetY);
 
-	point4 = QPoint(right.x() + int(-par*cosy + (par / 2.0*siny) - offsetX),
+    point4 = QPointF(right.x() + int(-par*cosy + (par / 2.0*siny) - offsetX),
 					right.y() - int(par / 2.0*cosy + par*siny) + offsetY);
 
 	mArrow<<right<<point1<<point3<<left<<point4<<point2;
@@ -93,3 +93,20 @@ void ConnectLineItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *o
 }
 
 
+
+
+void ConnectLineItem::mousePressEvent(QGraphicsSceneMouseEvent *event)
+{
+    qDebug()<<"aha";
+}
+
+
+void ConnectLineItem::keyPressEvent(QKeyEvent *event)
+{
+    if(event->key()==Qt::Key_Delete)
+    {
+        qDebug()<<"aaaa";
+    }
+
+
+}

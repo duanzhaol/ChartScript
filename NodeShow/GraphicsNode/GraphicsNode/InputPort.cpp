@@ -66,6 +66,8 @@ void InputPort::mouseReleaseEvent(QMouseEvent *event)
     QPushButton::mouseReleaseEvent(event);
     if(NodeShowWindow::getInstance()->mouseType==NodeShowWindow::NodeShowMouseType::Connect)
     {
+
         emit Inputclicked(this,AbstractGraphicsNode::PortType::InputPort);
+
     }
 }

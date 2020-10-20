@@ -30,6 +30,14 @@ private:
 
 
 
+
+  // QGraphicsItem interface
+protected:
+  virtual void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
+
+  // QGraphicsItem interface
+protected:
+  virtual void keyPressEvent(QKeyEvent *event) override;
 };
 
 #endif // CONNECTLINEITEM_H

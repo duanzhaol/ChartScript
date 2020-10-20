@@ -141,18 +141,6 @@ void GraphicsDataArrayNode::setElementType(QVariant::Type type)
 
 }
 
-void GraphicsDataArrayNode::on_inputPort_clicked()
-{
-    //emit PortClicked(ui->inputPort,"inputPort");
-    emit PortClicked(ui->inputPort,PortType::InputPort);
-}
-
-void GraphicsDataArrayNode::on_outputPort_clicked()
-{
-    emit PortClicked(ui->outputPort,PortType::OutputPort);
-    //emit PortClicked(ui->outputPort,"outputPort");
-}
-
 
 
 

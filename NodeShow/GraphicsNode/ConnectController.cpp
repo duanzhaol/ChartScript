@@ -20,9 +20,9 @@ void ConnectController::connectLineWuhu(Inputable *input, Outputable *output)
 void ConnectController::drawLine()
 {
 
-    qDebug()<<input;
-    qDebug()<<output;
-    qDebug()<<"linelist";
+//    qDebug()<<input;
+//    qDebug()<<output;
+    qDebug()<<"ConnectController::drawLine()";
     input =nullptr;
     output=nullptr;
 //    inputOrigin=nullptr;
@@ -34,8 +34,8 @@ void ConnectController::drawLine()
             NodeShowWindow::getInstance()->scene->addItem(item);
         }
 
-        qDebug()<<input;
-        qDebug()<<output;
+//        qDebug()<<input;
+//        qDebug()<<output;
     }
 }
 
@@ -49,7 +49,7 @@ ConnectController::ConnectController()
 
 void ConnectController::ConnectLine(QPushButton* port, AbstractGraphicsNode::PortType type)
 {
-    qDebug()<<"wuhuqifei";
+    qDebug()<<"ConnectController::ConnectLine";
 
     if(type==AbstractGraphicsNode::PortType::InputPort)
     {
@@ -67,8 +67,8 @@ void ConnectController::ConnectLine(QPushButton* port, AbstractGraphicsNode::Por
     }
 
 //    qDebug()<<port;
-    qDebug()<<input<<output;
-    qDebug()<<(void*)input<<(void*)output;
+//    qDebug()<<input<<output;
+//    qDebug()<<(void*)input<<(void*)output;
 
     if((void*)input==(void*)output){
         QMessageBox::information(NULL, "提示", "不能自己连自己哦！");

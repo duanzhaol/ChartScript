@@ -57,8 +57,6 @@ public:
 
 
 private slots:
-    void on_inputPort_clicked();
-    void on_outputPort_clicked();
     void on_dataArrayNodeName_editingFinished();
 //    void on_dataArrayNodeName_textChanged(const QString &arg1);
 };
