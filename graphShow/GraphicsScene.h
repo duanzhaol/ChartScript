@@ -5,6 +5,7 @@
 #include <QListWidgetItem>
 #include"item/ShapeItem/GraphicsRectItem.h"
 #include"item/ShapeItem/GraphicsEllipseItem.h"
+#include <QtCharts/QChart>
 /**
  * @brief
  * 自定义的场景类，继承自QGraphicsScene
@@ -21,10 +22,15 @@ public:
      */
     explicit GraphicsScene(QObject *parent = 0);
 
+	QImage *getBackGroundImage() const;
+	void setBackgroundImage(QImage *value);
+
 protected:
 
-    /**
-     * @brief
+	QImage*backgroundImage = nullptr;
+
+	/**
+	 * @brief
      * 鼠标点击事件（未被item接收到或点击了空白区域的在这里处理)
      * 如果是左键且按了ctrl，则增加当前item的选中（多选）
      * 如果左击空白区域，则清空选中
@@ -63,6 +69,10 @@ public slots:
 signals:
 	void mouseMove(const QPointF&);
 
+
+	// QGraphicsScene interface
+protected:
+	virtual void drawBackground(QPainter *painter, const QRectF &rect) override;
 };
 
 #endif // GRAPHICSSCENE_H

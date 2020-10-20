@@ -13,6 +13,7 @@ GraphicsView::GraphicsView(QWidget *parent): QGraphicsView(parent)
     setTransformationAnchor(QGraphicsView::AnchorUnderMouse);
     setResizeAnchor(QGraphicsView::AnchorUnderMouse);
 	setViewportUpdateMode(ViewportUpdateMode::FullViewportUpdate);
+	setAlignment(Qt::AlignLeft | Qt::AlignTop);
 }
 
 void GraphicsView::wheelEvent(QWheelEvent *event)

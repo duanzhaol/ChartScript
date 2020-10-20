@@ -4,6 +4,7 @@
 
 #include <QGraphicsView>
 #include <QObject>
+#include <QtCharts/QChartView>
 
 QT_BEGIN_NAMESPACE
 class QWheelEvent;
@@ -13,7 +14,7 @@ class GraphicsView:public QGraphicsView
 {
     Q_OBJECT
 public:
-    explicit GraphicsView(QWidget *parent = 0);
+	explicit GraphicsView(QWidget *parent = nullptr);
 
 protected:
     void wheelEvent(QWheelEvent *event) Q_DECL_OVERRIDE;

@@ -20,6 +20,8 @@ class GraphicsDataArrayNode : public AbstractGraphicsInnerDualputNode, public Ab
 {
     Q_OBJECT
 
+	QVariantList dataList;
+
 public:
     explicit GraphicsDataArrayNode(QWidget *parent = nullptr);
     ~GraphicsDataArrayNode();

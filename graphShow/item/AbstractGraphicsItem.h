@@ -27,6 +27,10 @@ public:
 
 	AbstractGraphicsItem(QGraphicsItem*parent);
 
+
+	//! 设置图形位置
+	virtual void setCoordinate(const QRectF&pos) = 0;
+
 protected:
 
 	/**
@@ -34,10 +38,6 @@ protected:
 	* @bug 会报错，信号发不过来，因此属性窗口无法产生实质性的改变
 	*/
 	virtual void SLOT_openAttributeWidget() = 0;
-
-	//! 设置图形位置
-	virtual void setCoordinate(const QRectF&pos) = 0;
-
 
 	/**
 	 * @brief

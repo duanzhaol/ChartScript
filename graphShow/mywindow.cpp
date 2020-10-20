@@ -178,8 +178,11 @@ void myWindow::on_backgroundSet_clicked()
 													   ";;Portable Bitmap(*.pbm)"
 													   ";;Portable Graymap(*.pgm)"));
 
-	this->setStyleSheet(QString(R"(QGraphicsView{ background-image:url(%1);})")
-						.arg(fileName));
+//	ui->graphicsView->setStyleSheet(QString(R"(QGraphicsView{ background-image:url(%1);})")
+//						.arg(fileName));
+	QImage image(fileName);
+	dynamic_cast<GraphicsScene*>(ui->graphicsView->scene())
+			->setBackgroundImage(&image);
 }
 
 void myWindow::on_exportPushbuttom_clicked()

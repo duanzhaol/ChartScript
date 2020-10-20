@@ -1,5 +1,6 @@
 ﻿#include "GraphShowInitializer.h"
 #include "mywindow.h"
+#include <QtCharts/QChart>
 
 GraphShowInitializer::GraphShowInitializer()
 {
