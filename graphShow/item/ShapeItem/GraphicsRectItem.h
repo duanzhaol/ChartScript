@@ -3,7 +3,7 @@
 #include <QGraphicsRectItem>
 #include "AbstractGraphicsShapeItem.h"
 
-class GraphicsRectItem :public AbstractGraphicsShapeItem<QGraphicsRectItem>
+class GraphicsRectItem :public AbstractGraphicsShapeItem
 {
 	Q_OBJECT
 public:

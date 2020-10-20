@@ -1,12 +1,12 @@
 ﻿#ifndef GRAPHICSELLIPSEITEM_H
 #define GRAPHICSELLIPSEITEM_H
 #include "../AbstractGraphicsItem.h"
-#include <QGraphicsEllipseItem>
+#include <QGraphicsRectItem>
 #include "../../AttributeDialog/ShapeItemDialog.h"
 #include "AbstractGraphicsShapeItem.h"
 
 
-class GraphicsEllipseItem :public AbstractGraphicsShapeItem<QGraphicsEllipseItem>
+class GraphicsEllipseItem :public AbstractGraphicsShapeItem
 {
 	Q_OBJECT
 public:

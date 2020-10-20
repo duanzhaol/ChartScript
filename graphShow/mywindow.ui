@@ -19,38 +19,8 @@
      <item>
       <widget class="QTabWidget" name="tabWidget">
        <property name="currentIndex">
-        <number>0</number>
+        <number>-1</number>
        </property>
-       <widget class="QWidget" name="tab">
-        <attribute name="title">
-         <string>Tab 1</string>
-        </attribute>
-        <widget class="ListWidget" name="listWidget1">
-         <property name="geometry">
-          <rect>
-           <x>0</x>
-           <y>0</y>
-           <width>141</width>
-           <height>511</height>
-          </rect>
-         </property>
-        </widget>
-       </widget>
-       <widget class="QWidget" name="tab_2">
-        <attribute name="title">
-         <string>Tab 2</string>
-        </attribute>
-        <widget class="QListWidget" name="listWidget2">
-         <property name="geometry">
-          <rect>
-           <x>0</x>
-           <y>1</y>
-           <width>141</width>
-           <height>511</height>
-          </rect>
-         </property>
-        </widget>
-       </widget>
       </widget>
      </item>
      <item>
@@ -85,6 +55,13 @@
            </property>
           </widget>
          </item>
+         <item>
+          <widget class="QPushButton" name="exportPushbuttom">
+           <property name="text">
+            <string>导出为</string>
+           </property>
+          </widget>
+         </item>
         </layout>
        </item>
        <item>
@@ -96,10 +73,10 @@
           </sizepolicy>
          </property>
          <property name="verticalScrollBarPolicy">
-          <enum>Qt::ScrollBarAlwaysOn</enum>
+          <enum>Qt::ScrollBarAlwaysOff</enum>
          </property>
          <property name="horizontalScrollBarPolicy">
-          <enum>Qt::ScrollBarAlwaysOn</enum>
+          <enum>Qt::ScrollBarAlwaysOff</enum>
          </property>
          <property name="sizeAdjustPolicy">
           <enum>QAbstractScrollArea::AdjustToContents</enum>
@@ -129,11 +106,6 @@
   </layout>
  </widget>
  <customwidgets>
-  <customwidget>
-   <class>ListWidget</class>
-   <extends>QListWidget</extends>
-   <header>GraphShow/ListWidget/ListWidget.h</header>
-  </customwidget>
   <customwidget>
    <class>GraphicsView</class>
    <extends>QGraphicsView</extends>

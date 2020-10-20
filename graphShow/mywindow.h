@@ -16,6 +16,8 @@ class myWindow : public QWidget
 {
     Q_OBJECT
 
+	ListWidget*listWidget1,*listWidget2;
+
 public:
     /**
      * @brief 平淡无奇的构造函数
@@ -47,11 +49,13 @@ private slots:
 
 	void on_backgroundSet_clicked();
 
+	void on_exportPushbuttom_clicked();
+
 private:
     Ui::myWindow *ui;
 signals:
     void sendChart(ChartItem* item);
-    void selectAll();
+	void selectAll(bool isSelect);
     void toTop();
 
 };

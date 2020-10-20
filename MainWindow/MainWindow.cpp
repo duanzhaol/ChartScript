@@ -9,7 +9,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
 	ui->setupUi(this);
 	this->setWindowTitle("Chart Script");
-	this->setWindowIcon(QIcon(R"(:/image/img/windowIcon)"));
+	this->setWindowIcon(QIcon(R"(:/image/img/ChartScript_Logo.jpg)"));
 }
 
 MainWindow::~MainWindow()

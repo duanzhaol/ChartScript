@@ -15,6 +15,7 @@ SOURCES += \
 	$$PWD/item/ShapeItem/AbstractGraphicsShapeItem.cpp \
 	$$PWD/item/ShapeItem/GraphicsEllipseItem.cpp \
 	$$PWD/item/ShapeItem/GraphicsRectItem.cpp \
+	$$PWD/item/ShapeItem/GraphicsTriangleItem.cpp \
     $$PWD/mywindow.cpp \
     $$PWD/qchartviewfactory.cpp \
     $$PWD/widget/SceneDialogTitle.cpp \
@@ -42,6 +43,7 @@ HEADERS += \
 	$$PWD/item/ShapeItem/AbstractGraphicsShapeItem.h \
 	$$PWD/item/ShapeItem/GraphicsEllipseItem.h \
 	$$PWD/item/ShapeItem/GraphicsRectItem.h \
+	$$PWD/item/ShapeItem/GraphicsTriangleItem.h \
 	$$PWD/mywindow.h \
 	$$PWD/qchartviewfactory.h \
 	$$PWD/widget/SceneDialogTitle.h \

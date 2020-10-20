@@ -1,6 +1,7 @@
 <RCC>
     <qresource prefix="/image">
         <file>img/windowIcon</file>
+        <file>img/ChartScript_Logo.jpg</file>
     </qresource>
     <qresource prefix="/"/>
 </RCC>

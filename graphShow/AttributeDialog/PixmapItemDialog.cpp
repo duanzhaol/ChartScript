@@ -24,9 +24,20 @@ QImage PixmapItemDialog::getImage() const
 
 void PixmapItemDialog::on_addImage_clicked()
 {
-	QString fileName = QFileDialog::getOpenFileName(this, tr("Open image"),
+	QString fileName = QFileDialog::getOpenFileName(this,
+													QStringLiteral("打开图片"),
 													R"(C:\)",
-													tr("Images (*.png)"));
+													tr("All image(*.bmp *.jpg *.jpeg *.png *.ppm *.xbm *.xpm *.gif *.pbm *.pgm)"
+													   ";;Windows Bitmap(*.bmp)"
+													   ";;Joint Photographic Experts Group(*.jpg)"
+													   ";;Joint Photographic Experts Group(*.jpeg)"
+													   ";;Portable Network Graphics(*.png)"
+													   ";;Portable Pixmap(*.ppm)"
+													   ";;X11 Bitmap(*.xbm)"
+													   ";;X11 Pixmap(*.xpm)"
+													   ";;Graphic Interchange Format(*.gif)"
+													   ";;Portable Bitmap(*.pbm)"
+													   ";;Portable Graymap(*.pgm)"));
 	image.load(fileName);
 	image = image.scaled(ui->imageShow->size());
 	ui->imageShow->setPixmap(QPixmap::fromImage(image));

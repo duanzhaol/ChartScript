@@ -3,7 +3,7 @@
 
 GraphicsEllipseItem :: GraphicsEllipseItem
 (qreal x, qreal y, qreal width, qreal height, QGraphicsItem *parent):
-	AbstractGraphicsShapeItem<QGraphicsEllipseItem>(x,y,width,height,parent)
+	AbstractGraphicsShapeItem(x,y,width,height,parent)
 {
 
 }

@@ -24,6 +24,7 @@
         <file>image/text.png</file>
         <file>image/textBox.png</file>
         <file>image/addPixmap.png</file>
+        <file>image/triangle.png</file>
     </qresource>
     <qresource prefix="/"/>
 </RCC>
