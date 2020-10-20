@@ -21,5 +21,10 @@
         <file>image/textunder.png</file>
         <file>image/zoomin.png</file>
         <file>image/zoomout.png</file>
+        <file>image/text.png</file>
+        <file>image/textBox.png</file>
+        <file>image/addPixmap.png</file>
+        <file>image/triangle.png</file>
     </qresource>
+    <qresource prefix="/"/>
 </RCC>

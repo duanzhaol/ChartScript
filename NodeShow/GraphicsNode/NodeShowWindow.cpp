@@ -26,7 +26,9 @@ auto getStart(){
 	return new GraphicsStartNode(new MovableProxyWidget);
 }
 
-
+auto getArrayNode(){
+    return new GraphicsTopArrayNode(new GraphicsDataArrayNode,new MovableProxyWidget);
+}
 
 //auto getArrayNode(){
 
@@ -110,6 +112,7 @@ NodeShowWindow::NodeShowWindow(QWidget *parent) :
 
     ui->graphicsView->setStyleSheet(R"(QGraphicsView{ background-image:url(:/img/img/beijing.png);})");//设置scene背景
 	ui->graphicsView->showMaximized();//全屏窗口打开
+
 	ui->graphicsView->setViewportUpdateMode(QGraphicsView::FullViewportUpdate);//流畅刷新
 
 }
@@ -190,14 +193,14 @@ void NodeShowWindow::on_listWidget_itemDoubleClicked(QListWidgetItem *item)
 		scene->addItem(start->getProxy());
 
 	}
-//    else if(item->text()=="数列结点"){
-//        qDebug()<<item->text();
-//        //GraphicsRectItem *rect=new GraphicsRectItem(0,0,100,100);
-//        //addItem(rect);
-//        auto array= getProxy2();
-//        scene->addItem(array);
+    else if(item->text()=="数列结点"){
+        qDebug()<<item->text();
+        //GraphicsRectItem *rect=new GraphicsRectItem(0,0,100,100);
+        //addItem(rect);
+        auto array= getArrayNode();
+        scene->addItem(array->getProxy());
 
-//    }
+    }
 //    else if(item->text()=="线图序列"){
 //		qDebug()<<item->text();
 //	   // GraphicsEllipseItem *ellipse=new GraphicsEllipseItem(0,0,100,100);

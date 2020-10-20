@@ -3,11 +3,10 @@
 
 
 
-GraphicsTextItem::GraphicsTextItem(QGraphicsItem *parent):
+GraphicsTextItem::GraphicsTextItem(int x, int y, QGraphicsItem *parent):
 	AbstractGraphicsItem(parent)
 {
 	setPlainText(QStringLiteral("请输入..."));
-
 }
 
 void GraphicsTextItem::setAttr()

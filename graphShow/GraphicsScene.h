@@ -3,8 +3,8 @@
 #include<QGraphicsScene>
 #include "ChartItem.h"
 #include <QListWidgetItem>
-#include"item/GraphicsRectItem.h"
-#include"item/GraphicsEllipseItem.h"
+#include"item/ShapeItem/GraphicsRectItem.h"
+#include"item/ShapeItem/GraphicsEllipseItem.h"
 /**
  * @brief
  * 自定义的场景类，继承自QGraphicsScene
@@ -41,13 +41,7 @@ protected:
      * @param event
      */
     void keyPressEvent(QKeyEvent *event);
-private:
-    /**
-     * @brief 存储已选中item的列表
-     * @bug 1.框选的不会加入列表2.单选的不会加入列表（这个很好解决，但是1不解决的情况下这个列表没法用）（
-     * 目前可以用selectedItems()代替
-     */
-    QList<ChartItem*> selectItems;
+
 public slots:
     /**
      * @brief 槽函数，删除所有选中的item
@@ -56,7 +50,7 @@ public slots:
     /**
      * @brief 槽函数，选择所有item
      */
-    void selectAll();
+	void selectAll(bool isSelect);
     /**
      * @brief 主题改变的槽函数，只改变该scene中已经选中的item
      * @param 目标主题的索引
@@ -65,6 +59,9 @@ public slots:
     void recieveChart(ChartItem *item);
     void recieveGraphics(QListWidgetItem *item);
     void toTop();
+
+signals:
+	void mouseMove(const QPointF&);
 
 };
 

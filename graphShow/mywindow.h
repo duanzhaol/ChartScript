@@ -5,7 +5,7 @@
 #include"GraphicsScene.h"
 #include"ListWidget/ListWidgetItem.h"
 #include"ListWidget/ListWidget.h"
-#include"item/GraphicsRectItem.h"
+#include"item/ShapeItem/GraphicsRectItem.h"
 namespace Ui {
 class myWindow;
 }
@@ -15,6 +15,8 @@ class myWindow;
 class myWindow : public QWidget
 {
     Q_OBJECT
+
+	ListWidget*listWidget1,*listWidget2;
 
 public:
     /**
@@ -34,10 +36,6 @@ private slots:
      * @brief 点击主题按钮，弹出主题窗口
      */
     void on_pushButton_theme_clicked();
-    /**
-     * @brief 点击标题按钮，弹出标题窗口
-     */
-    void on_pushButton_title_clicked();
 
     void sendChart_Transmitter(QListWidgetItem*item);
     void initialListWidget();
@@ -46,12 +44,18 @@ private slots:
 
     void on_pushButton_top_clicked();
 
+	void setCursorCoor(const QPointF&);
+
+
+	void on_backgroundSet_clicked();
+
+	void on_exportPushbuttom_clicked();
 
 private:
     Ui::myWindow *ui;
 signals:
     void sendChart(ChartItem* item);
-    void selectAll();
+	void selectAll(bool isSelect);
     void toTop();
 
 };

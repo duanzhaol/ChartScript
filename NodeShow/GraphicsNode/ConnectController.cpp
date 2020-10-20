@@ -95,6 +95,13 @@ void ConnectController::ConnectLine(QPushButton* port, AbstractGraphicsNode::Por
 
 }
 
+void ConnectController::clearPort()
+{
+    input=nullptr;
+    output=nullptr;
+    QMessageBox::information(NULL, "提示", "待连线结点已清空");
+}
+
 
 
 
