@@ -16,11 +16,11 @@ public:
 
     Inputable* input=nullptr;
     Outputable* output=nullptr;
-    AbstractGraphicsNode* inputOrigin=nullptr;
-    AbstractGraphicsNode* outputOrigin=nullptr;
+//    void* inputOrigin=nullptr;
+//    void* outputOrigin=nullptr;
 
 public slots:
-	void ConnectLine(AbstractGraphicsNode*,AbstractGraphicsNode::PortType);
+    void ConnectLine(QPushButton*,AbstractGraphicsNode::PortType);
 
 
 private:

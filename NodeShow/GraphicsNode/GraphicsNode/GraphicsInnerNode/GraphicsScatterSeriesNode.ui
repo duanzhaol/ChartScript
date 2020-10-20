@@ -33,50 +33,6 @@ border-radius:5px;</string>
     <string/>
    </property>
   </widget>
-  <widget class="Port" name="outputPort" native="true">
-   <property name="geometry">
-    <rect>
-     <x>710</x>
-     <y>70</y>
-     <width>16</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="minimumSize">
-    <size>
-     <width>16</width>
-     <height>16</height>
-    </size>
-   </property>
-   <property name="maximumSize">
-    <size>
-     <width>16</width>
-     <height>16</height>
-    </size>
-   </property>
-  </widget>
-  <widget class="Port" name="inputPort" native="true">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>70</y>
-     <width>16</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="minimumSize">
-    <size>
-     <width>16</width>
-     <height>16</height>
-    </size>
-   </property>
-   <property name="maximumSize">
-    <size>
-     <width>16</width>
-     <height>16</height>
-    </size>
-   </property>
-  </widget>
   <widget class="GraphicsDataArrayNode" name="XDataArray" native="true">
    <property name="geometry">
     <rect>
@@ -229,12 +185,115 @@ color: rgb(255, 255, 255);</string>
     <bool>true</bool>
    </property>
   </widget>
+  <widget class="OutputPort" name="outputPort">
+   <property name="geometry">
+    <rect>
+     <x>710</x>
+     <y>70</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>16777215</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+							 border: 1px solid #333333;
+							 padding: 4px;
+							 border-radius:8px;
+
+							 background-color: rgb(255, 255, 255);
+						 }
+
+						 QPushButton:hover {
+							 background-color: rgb(52, 167, 255);
+							 border-color: #444444;
+						 }
+
+						 QPushButton:pressed {
+							 background-color: rgb(46, 39, 239);
+							 border-color: #333333;
+							 color: yellow;
+						 }
+
+						 QPushButton:disabled {
+							 color: #333333;
+						 }</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="InputPort" name="inputPort">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>70</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>16777215</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+							 border: 1px solid #333333;
+							 padding: 4px;
+							 border-radius:8px;
+
+							 background-color: rgb(255, 255, 255);
+						 }
+
+						 QPushButton:hover {
+							 background-color: rgb(52, 167, 255);
+							 border-color: #444444;
+						 }
+
+						 QPushButton:pressed {
+							 background-color: rgb(46, 39, 239);
+							 border-color: #333333;
+							 color: yellow;
+						 }
+
+						 QPushButton:disabled {
+							 color: #333333;
+						 }</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
  </widget>
  <customwidgets>
   <customwidget>
-   <class>Port</class>
-   <extends>QWidget</extends>
-   <header>port.h</header>
+   <class>InputPort</class>
+   <extends>QPushButton</extends>
+   <header location="global">NodeShow/GraphicsNode/GraphicsNode/InputPort.h</header>
+  </customwidget>
+  <customwidget>
+   <class>OutputPort</class>
+   <extends>QPushButton</extends>
+   <header location="global">NodeShow/GraphicsNode/GraphicsNode/OutputPort.h</header>
   </customwidget>
   <customwidget>
    <class>GraphicsDataArrayNode</class>

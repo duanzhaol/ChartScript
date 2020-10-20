@@ -4,13 +4,11 @@
 #include <QListView>
 #include <QDebug>
 #include <QMessageBox>
-
 #include <Interpreter/Interpreter/InterpreterController.h>
-
 #include <Interpreter/Exception/NodeNameConflictException.h>
-
 #include <UTools/UniqueNamer.h>
 #include <NodeShowWindow.h>
+
 
 #pragma execution_character_set("utf-8")
 
@@ -50,9 +48,20 @@ GraphicsDataArrayNode::GraphicsDataArrayNode(QWidget *parent) :
     ui->inputPort->setParent(this);
     ui->outputPort->setParent(this);
 	this->initName();
+//    qDebug()<<"-------------";
+//    qDebug()<<ui->inputPort->parent()<<ui->outputPort->parent();
+//    qDebug()<<ui->inputPort->getNode()<<ui->outputPort->getNode();
+//    qDebug()<<"-------------";
 
 
 
+}
+
+GraphicsDataArrayNode::GraphicsDataArrayNode(TableArrayInterface *tableAarrayInterface, QWidget *parent):
+      tableArrayInterface(tableAarrayInterface),
+      ui(new Ui::GraphicsDataArrayNode)
+{
+    GraphicsDataArrayNode();
 }
 
 GraphicsDataArrayNode::~GraphicsDataArrayNode()
@@ -67,13 +76,14 @@ QComboBox* GraphicsDataArrayNode::getCombobox()
 
 NodeName GraphicsDataArrayNode::getNodeName() const
 {
+    return "占位";
     return tableArrayInterface->getArrayName();
 }
 
 void GraphicsDataArrayNode::setNodeName(const NodeName &newNodeName)
 {
     ui->dataArrayNodeName->setText(newNodeName);
-    tableArrayInterface->setArrayName(newNodeName);
+   // tableArrayInterface->setArrayName(newNodeName);
 }
 
 /**
@@ -84,14 +94,14 @@ void GraphicsDataArrayNode::setNodeName(const NodeName &newNodeName)
 QVariant GraphicsDataArrayNode::getNodeData() const
 {
     QVariant list(QVariant::Type::List);
-    list.setValue(tableArrayInterface->getArrayData());
+    //list.setValue(tableArrayInterface->getArrayData());
     return list;
 }
 
 void GraphicsDataArrayNode::setNodeData(const QVariant &newData)
 {
     ui->dataArrayNodeData->setText(newData.toString());
-    tableArrayInterface->setArrayData(newData.toList());
+   // tableArrayInterface->setArrayData(newData.toList());
 }
 
 OutputPort *GraphicsDataArrayNode::getOutputPort()
@@ -106,6 +116,7 @@ InputPort *GraphicsDataArrayNode::getInputPort()
 
 QVariant::Type GraphicsDataArrayNode::getElementType() const
 {
+    return QVariant::Type::Int;
     return tableArrayInterface->getArrayType();
 }
 
@@ -137,24 +148,16 @@ void GraphicsDataArrayNode::setElementType(QVariant::Type type)
 
 }
 
-class ArrayInterface{
-	//! 获取一列数据
-	virtual QVariantList getArrayData() = 0;
-    //! 获取数据类型
-	virtual QVariant::Type getArrayType() = 0;
-	//! 获取列的名字
-	virtual QString getArrayName() = 0;
-};
 
 void GraphicsDataArrayNode::on_inputPort_clicked()
 {
     //emit PortClicked(ui->inputPort,"inputPort");
-    emit PortClicked(this,PortType::InputPort);
+    emit PortClicked(ui->inputPort,PortType::InputPort);
 }
 
 void GraphicsDataArrayNode::on_outputPort_clicked()
 {
-    emit PortClicked(this,PortType::OutputPort);
+    emit PortClicked(ui->outputPort,PortType::OutputPort);
     //emit PortClicked(ui->outputPort,"outputPort");
 }
 
@@ -194,3 +197,5 @@ void GraphicsDataArrayNode::on_dataArrayNodeName_editingFinished()
 //        setNodeName(UniqueNamerPool::getNamer(NamerSeed::GraphShow).getUniqueName());
 //    }
 //}
+
+

@@ -8,6 +8,7 @@
 #include <QtCharts/QChartView>
 #include "graphShow/ChartItem.h"
 #include <QLineSeries>
+#include "GraphicsDataArrayNode.h"
 
 void LoadImage(){
     /*程序进入前的开场动画效果*/
@@ -32,16 +33,6 @@ int main(int argc,char*argv[]){
 
 	MainWindowInitializer::getInstance()->init();
 
-	QChart *c = new ChartItem;
-	QLineSeries *s = new QLineSeries;
-	s->append(1,11);
-	s->append(2,22);
-	c->addSeries(s);
-	c->createDefaultAxes();
-
-	QChartView *view = new QChartView;
-	view->setChart(c);
-	view->show();
 
 	app.exec();
 }

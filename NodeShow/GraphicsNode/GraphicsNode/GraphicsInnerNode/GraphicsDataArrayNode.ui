@@ -247,7 +247,7 @@ border-radius:5px;</string>
     <string>Array</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="outputPort">
+  <widget class="OutputPort" name="outputPort">
    <property name="geometry">
     <rect>
      <x>260</x>
@@ -296,7 +296,7 @@ border-radius:5px;</string>
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="inputPort">
+  <widget class="InputPort" name="inputPort">
    <property name="geometry">
     <rect>
      <x>0</x>
@@ -355,6 +355,18 @@ border-radius:5px;</string>
   <zorder>outputPort</zorder>
   <zorder>inputPort</zorder>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>InputPort</class>
+   <extends>QPushButton</extends>
+   <header location="global">NodeShow/GraphicsNode/GraphicsNode/InputPort.h</header>
+  </customwidget>
+  <customwidget>
+   <class>OutputPort</class>
+   <extends>QPushButton</extends>
+   <header location="global">NodeShow/GraphicsNode/GraphicsNode/OutputPort.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

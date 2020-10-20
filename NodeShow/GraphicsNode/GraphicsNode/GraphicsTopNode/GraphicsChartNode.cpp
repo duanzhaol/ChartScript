@@ -25,6 +25,8 @@ GraphicsChartNode::GraphicsChartNode(Proxy *proxy, QWidget *parent) :
 
 	proxy->setWidget(this);
 
+    ui->inputPort->setParent(this);
+    ui->outputPort->setParent(this);
 	this->initName();
 }
 
@@ -68,7 +70,7 @@ void GraphicsChartNode::on_addSeriesButton_clicked()
 	chartType=ui->comboBox->currentText();
 
 	if(chartType=="LineSeries"){
-		this->insertSeries<GraphicsLineSeriesNode>(QSize(730,150));
+        this->insertSeries<GraphicsLineSeriesNode>(QSize(730,150));
     }
 	else if(chartType=="PieSeries"){
 		this->insertSeries<GraphicsPieSeriesNode>(QSize(730,150));

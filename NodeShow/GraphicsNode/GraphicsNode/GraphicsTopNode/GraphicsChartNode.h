@@ -58,24 +58,18 @@ private slots:
 #ifdef START_TEMPLATE
 #include "ui_GraphicsChartNode.h"
 #include <type_traits>
+#include<QMessageBox>
 
 template<class GraphicsSeries>
 void GraphicsChartNode::insertSeries(const QSize&&nodeSize)
 {
-	QHBoxLayout  *series = new QHBoxLayout();
-
-	GraphicsSeries *node1=new GraphicsSeries(this);
-
-	node1->setTopProxy(this->getProxy());
-
-	seriesList.append(static_cast<AbstractSeriesNode*>(node1)); //添加到序列list里用于罗获取到图结点的所有序列
-
-	node1->setFixedSize(nodeSize);
-
-	//twoNodes->addSpacerItem(new QSpacerItem(20,130));
-	series->addWidget(node1);
-
-	this->ui->verticalLayout->addLayout(series);
+    QHBoxLayout  *series = new QHBoxLayout();
+    GraphicsSeries *node1=new GraphicsSeries(this);
+    node1->setTopProxy(this->getProxy());
+    seriesList.append(static_cast<AbstractSeriesNode*>(node1)); //添加到序列list里用于罗获取到图结点的所有序列
+    node1->setFixedSize(nodeSize);
+    series->addWidget(node1);
+    this->ui->verticalLayout->addLayout(series);
 }
 
 #endif

@@ -13,6 +13,7 @@
 #include <Interpreter/Interpreter/InterpreterController.h>
 #include <QDebug>
 #include <QPixmap>
+#include <GraphicsTopArrayNode.h>
 #pragma execution_character_set("utf-8")
 
 
@@ -22,9 +23,10 @@ auto getChart(){
 }
 
 auto getStart(){
-    qDebug()<<"startwuhu";
 	return new GraphicsStartNode(new MovableProxyWidget);
 }
+
+
 
 //auto getArrayNode(){
 
@@ -141,7 +143,7 @@ void NodeShowWindow::init()
 	item1->setSizeHint(QSize(140,130));
 
     QListWidgetItem *item2=new QListWidgetItem(ui->listWidget);
-    item2->setText("数列结点(占位，添加函数改变了)");
+    item2->setText("数列结点");
     item2->setIcon(QIcon(":/img/img/node/arrayNode.png"));
 
 

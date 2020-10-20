@@ -9,7 +9,11 @@ GraphicsLineSeriesNode::GraphicsLineSeriesNode(QWidget *parent) :
 
     ui->XDataArray->setParent(this);
     ui->YDataArray->setParent(this);
-	this->initName();
+
+    ui->inputPort->setParent(this);
+    ui->outputPort->setParent(this);
+
+    this->initName();
 
 
 //    qDebug()<<ui->XDataArray->mapToGlobal(this->pos());

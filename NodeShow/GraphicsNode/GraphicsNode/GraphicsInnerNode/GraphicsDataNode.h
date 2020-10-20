@@ -12,8 +12,6 @@ namespace Ui {
 class GraphicsDataNode;
 }
 
-using InputPort = QWidget;
-using OutputPort = QWidget;
 
 class GraphicsDataNode :
 		public AbstractGraphicsInnerDualputNode,

@@ -12,6 +12,7 @@ GraphicsStartNode::GraphicsStartNode(Proxy *proxy, QWidget *parent):
     ui->setupUi(this);
 
 	proxy->setWidget(this);
+    ui->outputPort->setParent(this);
 	this->initName();
 
 }

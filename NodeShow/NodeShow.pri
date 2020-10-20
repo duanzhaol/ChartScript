@@ -33,7 +33,9 @@ HEADERS += \
 	$$PWD/GraphicsNode/GraphicsNode/GraphicsTopNode/GraphicsChartNode.h \
 	$$PWD/GraphicsNode/GraphicsNode/GraphicsTopNode/GraphicsStartNode.h \
 	$$PWD/GraphicsNode/GraphicsNode/GraphicsTopNode/GraphicsTopArrayNode.h \
+	$$PWD/GraphicsNode/GraphicsNode/InputPort.h \
 	$$PWD/GraphicsNode/GraphicsNode/Inputable.h \
+	$$PWD/GraphicsNode/GraphicsNode/OutputPort.h \
 	$$PWD/GraphicsNode/GraphicsNode/Outputable.h \
 	$$PWD/GraphicsNode/NodeListWidget.h \
 	$$PWD/GraphicsNode/NodeListWidgetItem.h \
@@ -62,8 +64,10 @@ SOURCES += \
 	$$PWD/GraphicsNode/GraphicsNode/GraphicsTopNode/GraphicsChartNode.cpp \
 	$$PWD/GraphicsNode/GraphicsNode/GraphicsTopNode/GraphicsStartNode.cpp \
 	$$PWD/GraphicsNode/GraphicsNode/GraphicsTopNode/GraphicsTopArrayNode.cpp \
-	$$PWD/GraphicsNode/GraphicsNode/InputPortWidget.cpp \
-	$$PWD/GraphicsNode/GraphicsNode/OutputPortWidget.cpp \
+	$$PWD/GraphicsNode/GraphicsNode/InputPort.cpp \
+	$$PWD/GraphicsNode/GraphicsNode/Inputable.cpp \
+	$$PWD/GraphicsNode/GraphicsNode/OutputPort.cpp \
+	$$PWD/GraphicsNode/GraphicsNode/Outputable.cpp \
 	$$PWD/GraphicsNode/NodeListWidget.cpp \
 	$$PWD/GraphicsNode/NodeListWidgetItem.cpp \
 	$$PWD/GraphicsNode/NodeShowWindow.cpp \

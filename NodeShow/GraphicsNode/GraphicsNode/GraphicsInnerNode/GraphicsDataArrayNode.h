@@ -23,8 +23,10 @@ class GraphicsDataArrayNode : public AbstractGraphicsInnerDualputNode, public Ab
 
     TableArrayInterface*tableArrayInterface = nullptr;
 
+
 public:
     explicit GraphicsDataArrayNode(QWidget *parent = nullptr);
+    explicit GraphicsDataArrayNode(TableArrayInterface*tableAarrayInterface,QWidget*parent = nullptr);
     ~GraphicsDataArrayNode();
     QComboBox* getCombobox();
     QList<QVariant> dataArray;
