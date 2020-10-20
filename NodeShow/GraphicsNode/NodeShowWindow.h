@@ -7,6 +7,7 @@
 #include <QGraphicsScene>
 #include <QListWidgetItem>
 #include <QMainWindow>
+#include "TableView/GraphicsShowInterface/TableArrayInterface.h"
 
 namespace Ui {
 class NodeShowWindow;
@@ -31,6 +32,7 @@ public:
 
 signals:
     void MouseTypechanged();
+    void newArray(TableArrayInterface*);
 
 private slots:
 	void on_listWidget_itemDoubleClicked(QListWidgetItem *item);
