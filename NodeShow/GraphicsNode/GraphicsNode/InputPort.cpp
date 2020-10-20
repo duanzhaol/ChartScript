@@ -3,6 +3,7 @@
 #include <ConnectController.h>
 #include <QMouseEvent>
 #include "Inputable.h"
+#include <NodeShowWindow.h>
 #include <QDebug>
 
 InputPort::InputPort(QWidget*parent):QPushButton(parent)
@@ -48,16 +49,23 @@ Inputable *InputPort::getNode() const
     return node;
 }
 
-void InputPort::mousePressEvent(QMouseEvent *event)
+//void InputPort::mousePressEvent(QMouseEvent *event)
+//{
+
+//    QPushButton::mouseReleaseEvent(event);
+
+//    emit Inputclicked(this,AbstractGraphicsNode::PortType::InputPort);
+
+
+//}
+
+
+
+void InputPort::mouseReleaseEvent(QMouseEvent *event)
 {
-    qDebug()<<1;
     QPushButton::mouseReleaseEvent(event);
-    qDebug()<<2;
-
-    qDebug()<<3;
-    emit Inputclicked(this,AbstractGraphicsNode::PortType::InputPort);
-    qDebug()<<4;
-
-
+    if(NodeShowWindow::getInstance()->mouseType==NodeShowWindow::NodeShowMouseType::Connect)
+    {
+        emit Inputclicked(this,AbstractGraphicsNode::PortType::InputPort);
+    }
 }
-

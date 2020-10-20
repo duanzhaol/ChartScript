@@ -88,9 +88,7 @@ void NodeListWidget::reciveArray(TableArrayInterface *arrayInterface)
 //    //    image.save(url);
 
 
-    GraphicsDataArrayNode * node=new GraphicsDataArrayNode();
-    node->setTableArrayInterface(arrayInterface);
-    GraphicsTopArrayNode * topNode=new GraphicsTopArrayNode(node,new MovableProxyWidget);
+    GraphicsTopArrayNode * topNode=new GraphicsTopArrayNode(arrayInterface,new MovableProxyWidget);
 
 
     NodeListWidgetItem *item=new NodeListWidgetItem(this);
@@ -98,9 +96,7 @@ void NodeListWidget::reciveArray(TableArrayInterface *arrayInterface)
     item->setText(arrayInterface->getArrayName());
 //    item->setIcon(QIcon(p));
     item->setSizeHint(QSize(100,120));
-
-
-    this->addItemAll(topNode,item);
+    addItemAll(topNode,item);
 }
 
 

@@ -16,22 +16,6 @@
  * @bug ui里的信息数据更新不及时
  */
 
-TableArrayInterface *GraphicsDataArrayNode::getTableArrayInterface() const
-{
-    Q_ASSERT(tableArrayInterface != nullptr);
-    return tableArrayInterface;
-}
-
-void GraphicsDataArrayNode::setTableArrayInterface(TableArrayInterface *value)
-{
-    tableArrayInterface = value;
-    Q_ASSERT(tableArrayInterface!=nullptr);
-
-    setNodeData(tableArrayInterface->getArrayData());
-    setNodeName(tableArrayInterface->getArrayName());
-    setElementType(tableArrayInterface->getArrayType());
-}
-
 GraphicsDataArrayNode::GraphicsDataArrayNode(QWidget *parent) :
     ui(new Ui::GraphicsDataArrayNode)
 {
@@ -57,12 +41,7 @@ GraphicsDataArrayNode::GraphicsDataArrayNode(QWidget *parent) :
 
 }
 
-GraphicsDataArrayNode::GraphicsDataArrayNode(TableArrayInterface *tableAarrayInterface, QWidget *parent):
-      tableArrayInterface(tableAarrayInterface),
-      ui(new Ui::GraphicsDataArrayNode)
-{
-    GraphicsDataArrayNode();
-}
+
 
 GraphicsDataArrayNode::~GraphicsDataArrayNode()
 {
@@ -76,8 +55,7 @@ QComboBox* GraphicsDataArrayNode::getCombobox()
 
 NodeName GraphicsDataArrayNode::getNodeName() const
 {
-    return "占位";
-    return tableArrayInterface->getArrayName();
+    return  ui->dataArrayNodeName->text();
 }
 
 void GraphicsDataArrayNode::setNodeName(const NodeName &newNodeName)
@@ -93,15 +71,14 @@ void GraphicsDataArrayNode::setNodeName(const NodeName &newNodeName)
 
 QVariant GraphicsDataArrayNode::getNodeData() const
 {
-    QVariant list(QVariant::Type::List);
-    //list.setValue(tableArrayInterface->getArrayData());
-    return list;
+	return dataList;
 }
 
 void GraphicsDataArrayNode::setNodeData(const QVariant &newData)
 {
     ui->dataArrayNodeData->setText(newData.toString());
-   // tableArrayInterface->setArrayData(newData.toList());
+	dataList = newData.toList();
+
 }
 
 OutputPort *GraphicsDataArrayNode::getOutputPort()
@@ -116,8 +93,25 @@ InputPort *GraphicsDataArrayNode::getInputPort()
 
 QVariant::Type GraphicsDataArrayNode::getElementType() const
 {
-    return QVariant::Type::Int;
-    return tableArrayInterface->getArrayType();
+    QString comboxText = ui->comboBox->currentText();
+
+    if(comboxText=="int"){
+        return QVariant::Type::Int;
+    }
+    else if(comboxText=="String"){
+        return QVariant::Type::String;
+    }
+    else if(comboxText=="float"){
+        return QVariant::Type::Double;//无float类型
+    }
+    else if(comboxText=="double"){
+        return QVariant::Type::Double;
+    }
+    else if(comboxText=="long long"){
+        return QVariant::Type::LongLong;
+    }
+
+    return QVariant::Type::Invalid;
 }
 
 
@@ -128,7 +122,6 @@ QVariant::Type GraphicsDataArrayNode::getElementType() const
  */
 void GraphicsDataArrayNode::setElementType(QVariant::Type type)
 {
-    tableArrayInterface->setArrayType(type);
     if(type==QVariant::Type::Int)
     {
         ui->comboBox->currentText()="int";
@@ -147,7 +140,6 @@ void GraphicsDataArrayNode::setElementType(QVariant::Type type)
     }
 
 }
-
 
 void GraphicsDataArrayNode::on_inputPort_clicked()
 {

@@ -27,7 +27,7 @@ auto getStart(){
 }
 
 auto getArrayNode(){
-    return new GraphicsTopArrayNode(new GraphicsDataArrayNode,new MovableProxyWidget);
+    return nullptr;
 }
 
 //auto getArrayNode(){
@@ -201,7 +201,7 @@ void NodeShowWindow::on_listWidget_itemDoubleClicked(QListWidgetItem *item)
         //GraphicsRectItem *rect=new GraphicsRectItem(0,0,100,100);
         //addItem(rect);
         auto array= getArrayNode();
-        scene->addItem(array->getProxy());
+       // scene->addItem(array->getProxy());
     }
 //    else if(item->text()=="线图序列"){
 //		qDebug()<<item->text();

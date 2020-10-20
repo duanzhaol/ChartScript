@@ -5,11 +5,33 @@
 #include "AbstractGraphicsTopDualoutNode.h"
 #include "MovableProxyWidget.h"
 
+#include <TableView/GraphicsShowInterface/TableArrayInterface.h>
+
 class GraphicsTopArrayNode:public AbstractGraphicsTopDualoutNode
 {
-	GraphicsDataArrayNode*innerNode = nullptr;
+	class GraphicsInnerDataArrayNode:public GraphicsDataArrayNode{
+
+		TableArrayInterface*dataSource = nullptr;
+
+		// GraphicsNodeInterface interface
+	public:
+		GraphicsInnerDataArrayNode(TableArrayInterface*dataSource);
+		virtual NodeName getNodeName() const override;
+		virtual void setNodeName(const NodeName &newNodeName) override;
+
+		// GraphicsDataNodeInterface interface
+	public:
+		virtual QVariant getNodeData() const override;
+		virtual void setNodeData(const QVariant &newData) override;
+
+		// GraphicsArrayNodeInterface interface
+	public:
+		virtual QVariant::Type getElementType() const override;
+		virtual void setElementType(QVariant::Type type) override;
+	};
+	GraphicsInnerDataArrayNode*innerNode = nullptr;
 public:
-	GraphicsTopArrayNode(GraphicsDataArrayNode*innerDataArrayNode,MovableProxyWidget*proxy);
+	GraphicsTopArrayNode(TableArrayInterface*dataSource,MovableProxyWidget*proxy);
 
 	// Outputable interface
 public:
@@ -18,8 +40,7 @@ public:
 	// Inputable interface
 public:
 	virtual InputPort *getInputPort() override;
-	GraphicsDataArrayNode *getInnerNode() const;
-	void setInnerNode(GraphicsDataArrayNode *value);
+
 };
 
 #endif // GRAPHICSTOPARRAYNODE_H

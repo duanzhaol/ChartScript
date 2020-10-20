@@ -17,11 +17,16 @@ public:
     Inputable*getNode()const;
 
     // QWidget interface
-protected:
-    virtual void mousePressEvent(QMouseEvent *event) override;
+//protected:
+//    virtual void mousePressEvent(QMouseEvent *event) override;
+
 
 signals:
     void Inputclicked(InputPort*,AbstractGraphicsNode::PortType);
+
+    // QWidget interface
+protected:
+    virtual void mouseReleaseEvent(QMouseEvent *event) override;
 };
 
 #endif // INPUTPORT_H

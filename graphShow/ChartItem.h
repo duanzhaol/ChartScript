@@ -33,13 +33,13 @@ public:
      * @param widget 不懂
      */
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
-               QWidget *widget);
+			   QWidget *widget)override;
      /**
      * @brief ChartItem::SLOT_openAttributeWidget
      * 打开属性窗口的槽函数
      * @bug 会报错，信号发不过来，因此属性窗口无法产生实质性的改变
      */
-    void SLOT_openAttributeWidget();
+	void SLOT_openAttributeWidget()override;
 
 
 private slots:
@@ -53,7 +53,7 @@ private slots:
 
 
 	// AbstractGraphicsItem interface
-protected:
+public:
 	virtual void setCoordinate(const QRectF &pos) override;
 };
 

@@ -4,9 +4,22 @@
 #include "item/ShapeItem/GraphicsEllipseItem.h"
 #include "item/GraphicsTextItem.h"
 #include "item/GraphicsImageItem.h"
-GraphicsScene::GraphicsScene(QObject *parent):QGraphicsScene(parent)
+#include <QGraphicsView>
+GraphicsScene::GraphicsScene(QObject *parent):QGraphicsScene (parent)
 {
 	clearFocus();
+}
+
+QImage *GraphicsScene::getBackGroundImage() const
+{
+	Q_ASSERT(backgroundImage != nullptr);
+	return backgroundImage;
+}
+
+void GraphicsScene::setBackgroundImage(QImage *value)
+{
+	if(backgroundImage != nullptr)delete backgroundImage;
+	backgroundImage = new QImage(value->scaled(this->views().front()->size()));
 }
 
 void GraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
@@ -126,8 +139,8 @@ void GraphicsScene::ThemeChanged(int type)
 
 void GraphicsScene::recieveChart(ChartItem *item)
 {
-	qDebug()<<"123123";
 	addItem(item);
+	item->createDefaultAxes();
 }
 #include <QtCharts/QLineSeries>
 
@@ -140,13 +153,11 @@ void GraphicsScene::recieveGraphics(QListWidgetItem *item)
 		GraphicsRectItem *rect=new GraphicsRectItem(0,0,100,100);
 		addItem(rect);
 		ChartItem*item = new ChartItem;
-		item->setGeometry(0,0,100,100);
 		auto s = new QtCharts::QLineSeries;
 		s->append(1,1);
 		s->append(2,2);
-		item->createDefaultAxes();
 		item->addSeries(s);
-		addItem(item);
+		recieveChart(item);
 	}else if(item->text()==QStringLiteral("椭圆")){
 		qDebug()<<item->text();
 
@@ -182,3 +193,12 @@ void GraphicsScene::toTop()
 	}
 }
 
+
+
+void GraphicsScene::drawBackground(QPainter *painter, const QRectF &rect)
+{
+	if(backgroundImage == nullptr){
+		return;
+	}
+	painter->drawImage(rect,*backgroundImage,rect);
+}

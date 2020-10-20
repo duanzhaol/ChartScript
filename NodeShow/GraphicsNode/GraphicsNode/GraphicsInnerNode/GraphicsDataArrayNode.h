@@ -21,12 +21,10 @@ class GraphicsDataArrayNode : public AbstractGraphicsInnerDualputNode, public Ab
 {
     Q_OBJECT
 
-    TableArrayInterface*tableArrayInterface = nullptr;
-
+	QVariantList dataList;
 
 public:
     explicit GraphicsDataArrayNode(QWidget *parent = nullptr);
-    explicit GraphicsDataArrayNode(TableArrayInterface*tableAarrayInterface,QWidget*parent = nullptr);
     ~GraphicsDataArrayNode();
     QComboBox* getCombobox();
     QList<QVariant> dataArray;
@@ -57,8 +55,6 @@ public:
     virtual QVariant::Type getElementType() const override;
 	virtual void setElementType(QVariant::Type type) override;
 
-    TableArrayInterface *getTableArrayInterface() const;
-    void setTableArrayInterface(TableArrayInterface *value);
 
 private slots:
     void on_inputPort_clicked();
