@@ -1,7 +1,7 @@
 ﻿#include "GraphicsScene.h"
 #include<QDebug>
 #include <QGraphicsSceneMouseEvent>
-#include "item/GraphicsEllipseItem.h"
+#include "item/ShapeItem/GraphicsEllipseItem.h"
 #include "item/GraphicsTextItem.h"
 GraphicsScene::GraphicsScene(QObject *parent):QGraphicsScene(parent)
 {
@@ -122,7 +122,7 @@ void GraphicsScene::recieveChart(ChartItem *item)
 void GraphicsScene::recieveGraphics(QListWidgetItem *item)
 {
 
-    if(item->text()=="rect"){
+	if(item->text()==QStringLiteral("矩形")){
         qDebug()<<item->text();
         GraphicsRectItem *rect=new GraphicsRectItem(0,0,100,100);
         addItem(rect);
@@ -134,16 +134,16 @@ void GraphicsScene::recieveGraphics(QListWidgetItem *item)
 		item->createDefaultAxes();
 		item->addSeries(s);
 		addItem(item);
-    }else if(item->text()=="ellipse"){
+	}else if(item->text()==QStringLiteral("椭圆")){
         qDebug()<<item->text();
 
         GraphicsEllipseItem *ellipse=new GraphicsEllipseItem(0,0,100,100);
         addItem(ellipse);
     }
-	else if(item->text()=="text"){
+	else if(item->text()==QStringLiteral("文本框")){
 		qDebug()<<item->text();
 
-		GraphicsTextItem*text = new GraphicsTextItem;
+		GraphicsTextItem*text = new GraphicsTextItem(0,0);
 		addItem(text);
 	}
 }

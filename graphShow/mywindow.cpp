@@ -102,22 +102,25 @@ void myWindow::initialListWidget()
 
 
     ListWidgetItem *item3=new ListWidgetItem(ui->listWidget2);
-    item3->setText("rect");
+	item3->setText(QStringLiteral("矩形"));
 	item3->setIcon(QIcon(":/GraphShowImage/image/rect.png"));
     item3->setSizeHint(QSize(100,120));
 
     ListWidgetItem *item4=new ListWidgetItem(ui->listWidget2);
-    item4->setText("ellipse");
+	item4->setText(QStringLiteral("椭圆"));
 	item4->setIcon(QIcon(":/GraphShowImage/image/ellipse.png"));
     item4->setSizeHint(QSize(100,120));
 
 	ListWidgetItem *item5 = new ListWidgetItem(ui->listWidget2);
-	item5->setText("text");
+	item5->setText(QStringLiteral("文本框"));
+	item5->setIcon(QIcon(":/GraphShowImage/image/textBox.png"));
+	item5->setSizeHint(QSize(100,120));
 
    // ui->listWidget1->addItemAll(chart,item1);
 	//ui->listWidget1->addItemAll(chart,item2);
     ui->listWidget2->addItem(item3);
     ui->listWidget2->addItem(item4);
+	ui->listWidget2->addItem(item5);
     ui->listWidget1->show();
     ui->listWidget2->show();
 

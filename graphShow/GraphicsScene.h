@@ -3,8 +3,8 @@
 #include<QGraphicsScene>
 #include "ChartItem.h"
 #include <QListWidgetItem>
-#include"item/GraphicsRectItem.h"
-#include"item/GraphicsEllipseItem.h"
+#include"item/ShapeItem/GraphicsRectItem.h"
+#include"item/ShapeItem/GraphicsEllipseItem.h"
 /**
  * @brief
  * 自定义的场景类，继承自QGraphicsScene

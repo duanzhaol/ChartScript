@@ -5,7 +5,7 @@
 #include"GraphicsScene.h"
 #include"ListWidget/ListWidgetItem.h"
 #include"ListWidget/ListWidget.h"
-#include"item/GraphicsRectItem.h"
+#include"item/ShapeItem/GraphicsRectItem.h"
 namespace Ui {
 class myWindow;
 }

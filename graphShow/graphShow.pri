@@ -7,18 +7,19 @@ SOURCES += \
     $$PWD/ListWidget/ListWidget.cpp \
     $$PWD/ListWidget/ListWidgetItem.cpp \
 	$$PWD/item/AbstractGraphicsItem.cpp \
-    $$PWD/item/GraphicsEllipseItem.cpp \
-    $$PWD/item/GraphicsRectItem.cpp \
 	$$PWD/item/GraphicsTextItem.cpp \
     $$PWD/item/Select.cpp \
     $$PWD/item/SelectInterface.cpp \
+	$$PWD/item/ShapeItem/AbstractGraphicsShapeItem.cpp \
+	$$PWD/item/ShapeItem/GraphicsEllipseItem.cpp \
+	$$PWD/item/ShapeItem/GraphicsRectItem.cpp \
     $$PWD/mywindow.cpp \
     $$PWD/qchartviewfactory.cpp \
     $$PWD/widget/SceneDialogTitle.cpp \
     $$PWD/widget/sceneDialogTheme.cpp \
 	graphShow/ChartItem.cpp \
 	graphShow/GraphicsScene.cpp \
-	graphShow/chartattribute.cpp \
+	graphShow/chartattribute.cpp
 
 
 HEADERS += \
@@ -30,12 +31,13 @@ HEADERS += \
     $$PWD/ListWidget/ListWidget.h \
     $$PWD/ListWidget/ListWidgetItem.h \
 	$$PWD/item/AbstractGraphicsItem.h \
-    $$PWD/item/GraphicsEllipseItem.h \
-    $$PWD/item/GraphicsRectItem.h \
 	$$PWD/item/GraphicsShapeDefine.h \
 	$$PWD/item/GraphicsTextItem.h \
     $$PWD/item/Select.h \
     $$PWD/item/SelectInterface.h \
+	$$PWD/item/ShapeItem/AbstractGraphicsShapeItem.h \
+	$$PWD/item/ShapeItem/GraphicsEllipseItem.h \
+	$$PWD/item/ShapeItem/GraphicsRectItem.h \
 	$$PWD/mywindow.h \
 	$$PWD/qchartviewfactory.h \
 	$$PWD/widget/SceneDialogTitle.h \

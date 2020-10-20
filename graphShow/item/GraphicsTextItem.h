@@ -13,7 +13,7 @@ class GraphicsTextItem:public AbstractGraphicsItem<QGraphicsTextItem>
 
 	TextItemDialog*dialog = nullptr;
 public:
-	GraphicsTextItem(QGraphicsItem *parent = nullptr);
+	GraphicsTextItem(int x,int y,QGraphicsItem *parent = nullptr);
 private slots :
 	void setAttr();
 protected:

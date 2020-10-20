@@ -99,7 +99,6 @@ NodeShowWindow::NodeShowWindow(QWidget *parent) :
 	init();
 
 	ui->graphicsView->setStyleSheet(R"(QGraphicsView{ background-image:url(:/img/img/beijing.png);})");//设置scene背景
-
 	ui->graphicsView->setViewportUpdateMode(QGraphicsView::FullViewportUpdate);//流畅刷新
 
 }
