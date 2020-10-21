@@ -87,7 +87,6 @@ void NodeListWidget::reciveArray(TableArrayInterface *arrayInterface)
 
     GraphicsTopArrayNode * topNode=new GraphicsTopArrayNode(arrayInterface,new MovableProxyWidget);
 
-
     NodeListWidgetItem *item=new NodeListWidgetItem(this);
     item->setItemIndex(Nodeindex);
     item->setText(arrayInterface->getArrayName());

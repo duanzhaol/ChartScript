@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>res/all.png</file>
+        <file>res/ashbin.png</file>
+        <file>res/tradingvolume.png</file>
+        <file>res/topsales.png</file>
+        <file>res/Histogram.png</file>
+        <file>res/PieChart.png</file>
+        <file>res/StartWidget.jpg</file>
+        <file>res/StartWidget900.jpg</file>
+        <file>res/bk.jpg</file>
+    </qresource>
+</RCC>

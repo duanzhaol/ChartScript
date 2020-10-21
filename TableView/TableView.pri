@@ -1,8 +1,30 @@
-HEADERS += \
-	$$PWD/GraphicsShowInterface/TableArrayInterface.h \
-	$$PWD/TableModel/TableArrayModel.h \
-	$$PWD/TableModel/TableModel.h
+QT       += axcontainer 
+
+TRANSLATIONS = $$PWD/Translate_EN.ts \
+               $$PWD/Translate_CN.ts
 
 SOURCES += \
-	$$PWD/TableModel/TableArrayModel.cpp \
-	$$PWD/TableModel/TableModel.cpp
+    $$PWD/DataLoader.cpp \
+    $$PWD/MainWidget.cpp \
+    $$PWD/Setting.cpp \
+    $$PWD/TableModel/TableArrayItem.cpp \
+    $$PWD/TableModel/TableWidget.cpp \
+    $$PWD/TableViewInitialer.cpp
+
+
+HEADERS += \
+    $$PWD/DataLoader.h \
+    $$PWD/GraphicsShowInterface/TableArrayInterface.h \
+    $$PWD/MainWidget.h \
+    $$PWD/Setting.h \
+    $$PWD/TableModel/TableArrayItem.h \
+    $$PWD/TableModel/TableWidget.h \
+    $$PWD/TableViewInitialer.h
+
+FORMS += \
+    $$PWD/MainWidget.ui \
+    $$PWD/Setting.ui
+
+RESOURCES += \
+    $$PWD/img.qrc \
+    $$PWD/translator.qrc

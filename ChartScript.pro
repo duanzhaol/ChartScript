@@ -20,6 +20,7 @@ include(NodeShow/NodeShow.pri)
 include(Interpreter/Interpreter.pri)
 include(TableView/TableView.pri)
 include(MainWindow/MainWindow.pri)
+include(TableView/TableView.pri)
 
 
 # The following define makes your compiler emit warnings if you use

@@ -42,7 +42,11 @@ NodeShowWindow::NodeShowWindow(QWidget *parent) :
 {
 	ui->setupUi(this);
 
-    connect(this,&NodeShowWindow::MouseTypechanged,ConnectController::getInstance(),&ConnectController::clearPort);
+    connect(this,&NodeShowWindow::MouseTypechanged,
+            ConnectController::getInstance(),&ConnectController::clearPort);
+
+    connect(this,&NodeShowWindow::newArray,ui->listWidget_2,
+            &NodeListWidget::reciveArray);
 
 //    ui->tabWidget->addTab(NodeListWidget::getInstance(),"表格结点");
 

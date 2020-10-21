@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>Translate_CN.qm</file>
+        <file>Translate_EN.qm</file>
+    </qresource>
+</RCC>

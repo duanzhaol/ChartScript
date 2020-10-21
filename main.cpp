@@ -9,6 +9,7 @@
 #include "graphShow/ChartItem.h"
 #include <QLineSeries>
 #include "GraphicsDataArrayNode.h"
+#include <TableView/MainWidget.h>
 
 void LoadImage(){
     /*程序进入前的开场动画效果*/
@@ -31,8 +32,7 @@ int main(int argc,char*argv[]){
 
 	//LoadImage();
 
-	MainWindowInitializer::getInstance()->init();
-
+    MainWindowInitializer::getInstance()->init();
 
 	app.exec();
 }

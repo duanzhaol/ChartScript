@@ -2,6 +2,9 @@
 #include "MainWindow.h"
 #include "graphShow/GraphShowInitializer.h"
 #include "NodeShow/NodeShowInitializer.h"
+#include "TableView/TableViewInitialer.h"
+#include "TableView/MainWidget.h"
+#include "NodeShow/GraphicsNode/NodeShowWindow.h"
 
 
 MainWindowInitializer::MainWindowInitializer()
@@ -25,6 +28,16 @@ void MainWindowInitializer::init()
 
 	GraphShowInitializer::getInstance()->init();
 	mainWindow->addSubWindow(GraphShowInitializer::getInstance());
+
+    TableViewInitialer::getInstance()->init();
+    mainWindow->addSubWindow(TableViewInitialer::getInstance());
+
+    widget->connect(
+              dynamic_cast<MainWidget*>(TableViewInitialer::getInstance()->getWidget()),
+              &MainWidget::newArray,
+              dynamic_cast<NodeShowWindow*>(TableViewInitialer::getInstance()->getWidget()),
+              &NodeShowWindow::newArray
+        );
 
 	mainWindow->showMaximized();
 }
