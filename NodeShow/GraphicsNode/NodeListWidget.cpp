@@ -84,6 +84,8 @@ void NodeListWidget::reciveArray(TableArrayInterface *arrayInterface)
 //    //    url=url+QString(n)+".png";
 //    //    image.save(url);
 
+	qDebug()<<arrayInterface;
+
 
     GraphicsTopArrayNode * topNode=new GraphicsTopArrayNode(arrayInterface,new MovableProxyWidget);
 

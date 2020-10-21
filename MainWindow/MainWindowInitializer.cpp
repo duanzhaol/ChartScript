@@ -33,9 +33,9 @@ void MainWindowInitializer::init()
     mainWindow->addSubWindow(TableViewInitialer::getInstance());
 
     widget->connect(
-              dynamic_cast<MainWidget*>(TableViewInitialer::getInstance()->getWidget()),
+			  dynamic_cast<MainWidget*>(TableViewInitialer::getInstance()->getWidget()),
               &MainWidget::newArray,
-              dynamic_cast<NodeShowWindow*>(TableViewInitialer::getInstance()->getWidget()),
+			  dynamic_cast<NodeShowWindow*>(NodeShowInitializer::getInstance()->getWidget()),
               &NodeShowWindow::newArray
         );
 
