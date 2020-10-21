@@ -231,3 +231,8 @@ void TableWidget::checkChangeType()
         }
     }
 }
+
+QList<TableArrayItem *> &TableWidget::getItems()
+{
+    return items;
+}

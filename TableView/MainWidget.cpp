@@ -99,8 +99,6 @@ void MainWidget::on_addColumn_clicked()
         arrItem=table->insertColumn(current);
     }
     emit newArray(arrItem);
-    qDebug()<<"newArray";
-
 }
 
 void MainWidget::on_addRow_clicked()
@@ -177,6 +175,8 @@ void MainWidget::on_addNewTable_clicked()
 {
     TableWidget *table=new TableWidget(3,1);
     ui->tabWidget->addTab(table,"新建表格");
+    TableArrayItem* item=table->getItems().first();
+    emit newArray(item);
     //table->setHorizontalHeaderItem(0,new QTableWidgetItem("请命名"));
     //table->insertColumn(0);    //    item->setText("新建表格");
     //    ui->listWidget->addItem(item);
