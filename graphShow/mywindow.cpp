@@ -6,6 +6,7 @@
 #include <QStringListModel>
 #include <QPieSeries>
 #include <QFileDialog>
+#include <graphShow/AttributeDialog/BackgroundDialog.h>
 
 myWindow::myWindow(QWidget *parent) :
     QWidget(parent),
@@ -19,12 +20,25 @@ myWindow::myWindow(QWidget *parent) :
 void myWindow::setScene(GraphicsScene *myScene)
 {
     ui->graphicsView->setScene(myScene);
-	connect(listWidget1,&ListWidget::itemDoubleClicked,this,&myWindow::sendChart_Transmitter);
-    connect(this,&myWindow::sendChart,dynamic_cast<GraphicsScene*>(ui->graphicsView->scene()),&GraphicsScene::recieveChart);
-	connect(listWidget2,&QListWidget::itemDoubleClicked,dynamic_cast<GraphicsScene*>(ui->graphicsView->scene()),&GraphicsScene::recieveGraphics);
-    connect(this,&myWindow::selectAll,dynamic_cast<GraphicsScene*>(ui->graphicsView->scene()),&GraphicsScene::selectAll);
-    connect(this,&myWindow::toTop,dynamic_cast<GraphicsScene*>(ui->graphicsView->scene()),&GraphicsScene::toTop);
+
+	connect(listWidget1,&ListWidget::itemDoubleClicked,
+			this,&myWindow::sendChart_Transmitter);
+
+	connect(this,&myWindow::sendChart,
+			dynamic_cast<GraphicsScene*>(ui->graphicsView->scene()),&GraphicsScene::recieveChart);
+
+	connect(listWidget2,&QListWidget::itemDoubleClicked,
+			dynamic_cast<GraphicsScene*>(ui->graphicsView->scene()),&GraphicsScene::recieveGraphics);
+
+	connect(this,&myWindow::selectAll,
+			dynamic_cast<GraphicsScene*>(ui->graphicsView->scene()),&GraphicsScene::selectAll);
+
+	connect(this,&myWindow::toTop,
+			dynamic_cast<GraphicsScene*>(ui->graphicsView->scene()),&GraphicsScene::toTop);
+
 	connect(myScene,&GraphicsScene::mouseMove,this,&myWindow::setCursorCoor);
+
+	scene = myScene;
 }
 
 myWindow::~myWindow()
@@ -40,7 +54,8 @@ void myWindow::on_pushButton_theme_clicked()
 {
 	SceneDialogTheme *sceneDialogTheme=new SceneDialogTheme(this);
     sceneDialogTheme->show();
-    connect(sceneDialogTheme,&SceneDialogTheme::ThemeChange,dynamic_cast<GraphicsScene*>(ui->graphicsView->scene()),&GraphicsScene::ThemeChanged);
+	connect(sceneDialogTheme,&SceneDialogTheme::ThemeChange,
+			dynamic_cast<GraphicsScene*>(ui->graphicsView->scene()),&GraphicsScene::ThemeChanged);
 }
 
 /**
@@ -163,32 +178,23 @@ void myWindow::setCursorCoor(const QPointF &point)
 
 void myWindow::on_backgroundSet_clicked()
 {
-	QString fileName = QFileDialog::getOpenFileName(this,
-													QStringLiteral("打开图片"),
-													R"(C:\)",
-													tr("All image(*.bmp *.jpg *.jpeg *.png *.ppm *.xbm *.xpm *.gif *.pbm *.pgm)"
-													   ";;Windows Bitmap(*.bmp)"
-													   ";;Joint Photographic Experts Group(*.jpg)"
-													   ";;Joint Photographic Experts Group(*.jpeg)"
-													   ";;Portable Network Graphics(*.png)"
-													   ";;Portable Pixmap(*.ppm)"
-													   ";;X11 Bitmap(*.xbm)"
-													   ";;X11 Pixmap(*.xpm)"
-													   ";;Graphic Interchange Format(*.gif)"
-													   ";;Portable Bitmap(*.pbm)"
-													   ";;Portable Graymap(*.pgm)"));
-
-//	ui->graphicsView->setStyleSheet(QString(R"(QGraphicsView{ background-image:url(%1);})")
-//						.arg(fileName));
-	QImage image(fileName);
-	dynamic_cast<GraphicsScene*>(ui->graphicsView->scene())
-			->setBackgroundImage(&image);
+	BackgroundDialog* dialog = new BackgroundDialog(
+	{ui->graphicsView->getImage(),ui->graphicsView->backgroundBrush()},this);
+	connect(dialog,&BackgroundDialog::confirm,this,[this](const BackgroundDialog::Result&result){
+		if(result.image.has_value()){
+			ui->graphicsView->setImage(result.image.value());
+		}
+		else{
+			ui->graphicsView->setImage(QImage());
+		}
+		ui->graphicsView->setBackgroundBrush(result.brush);
+	});
+	dialog->show();
 }
 
 void myWindow::on_exportPushbuttom_clicked()
 {
 	emit selectAll(false);
-	QPixmap pixmap = ui->graphicsView->grab();
 	QString fileName = QFileDialog::getSaveFileName(this,
 								 QStringLiteral("保存图片"),
 								 R"(C:\)",
@@ -200,6 +206,7 @@ void myWindow::on_exportPushbuttom_clicked()
 									";;X11 Bitmap(*.xbm)"
 									";;X11 Pixmap(*.xpm)"));
 
-	qDebug()<<fileName<<endl;
-	pixmap.save(fileName,nullptr,100);
+	QPixmap *shortCut = ui->graphicsView->getPixmap();
+	shortCut->save(fileName,nullptr,100);
+
 }

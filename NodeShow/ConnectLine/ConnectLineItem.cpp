@@ -11,6 +11,12 @@ ConnectLineItem::ConnectLineItem(Inputable *inputNode,
 	:inputNode(inputNode),
 	  outputNode(outputNode)
 {
+
+	setFlags(QGraphicsItem::ItemIsSelectable|
+			 QGraphicsItem::ItemIsMovable|
+			 QGraphicsItem::ItemSendsGeometryChanges|
+			 QGraphicsItem::ItemIsFocusable);//设定选型
+
     /*到时候把连线放到构造函数外面，先判断再连，button点击事件*/
 
     try {
@@ -29,6 +35,8 @@ ConnectLineItem::ConnectLineItem(Inputable *inputNode,
 
 QRectF ConnectLineItem::boundingRect() const
 {
+	qDebug()<<"----------------------"<<endl;
+		qDebug()<<shape().controlPointRect();
 	return shape().controlPointRect();
 	//return QRectF(leftWidget->centerCoordinate,rightWidget->centerCoordinate);
 }

@@ -18,6 +18,8 @@ class myWindow : public QWidget
 
 	ListWidget*listWidget1,*listWidget2;
 
+	GraphicsScene*scene = nullptr;
+
 public:
     /**
      * @brief 平淡无奇的构造函数

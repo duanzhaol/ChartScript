@@ -1,19 +1,25 @@
-﻿#include "GraphicsView.h"
+﻿#include "GraphicsScene.h"
+#include "GraphicsView.h"
 #include <QWheelEvent>
 #include <QPoint>
 #include <QDebug>
+#include <QtMath>
 GraphicsView::GraphicsView(QWidget *parent): QGraphicsView(parent)
 {
     setDragMode(QGraphicsView::NoDrag);//(QGraphicsView::RubberBandDrag);//QGraphicsView::ScrollHandDrag
     scale_m = 1;//图形原始比例
 	//setStyleSheet("padding: 0px; border: 0px;");//无边框
     setMouseTracking(true);//跟踪鼠标位置
-    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);//隐藏水平条
-    setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);//隐藏竖条
     setTransformationAnchor(QGraphicsView::AnchorUnderMouse);
     setResizeAnchor(QGraphicsView::AnchorUnderMouse);
 	setViewportUpdateMode(ViewportUpdateMode::FullViewportUpdate);
 	setAlignment(Qt::AlignLeft | Qt::AlignTop);
+	QBrush brush;
+	brush.setColor(Qt::GlobalColor::white);
+	brush.setStyle(Qt::BrushStyle::NoBrush);
+	setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);//隐藏水平条
+	setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);//隐藏竖条
+	setBackgroundBrush(brush);
 }
 
 void GraphicsView::wheelEvent(QWheelEvent *event)
@@ -47,4 +53,36 @@ void GraphicsView::wheelEvent(QWheelEvent *event)
             update();
         }
     }
+}
+
+std::optional<QImage> GraphicsView::getImage() const
+{
+	return image;
+}
+
+void GraphicsView::setImage(const std::optional<QImage> &value)
+{
+	image = value->scaled(this->size());
+}
+
+QPixmap *GraphicsView::getPixmap()
+{
+	QPixmap *pixmap = new QPixmap(size());
+	pixmap->fill(Qt::white);
+	QPainter painter = QPainter(pixmap);
+
+	this->render(&painter);
+
+	return pixmap;
+}
+
+
+void GraphicsView::drawBackground(QPainter *painter, const QRectF &rect)
+{
+	QGraphicsView::drawBackground(painter,rect);
+
+	if(image.has_value()){
+		const QRectF drawRect(QPointF(0,0),size());
+		painter->drawImage(drawRect,image.value(),drawRect);
+	}
 }

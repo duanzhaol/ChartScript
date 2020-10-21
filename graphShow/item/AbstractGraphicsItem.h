@@ -10,6 +10,7 @@
 #include <QGraphicsEllipseItem>
 #include <QAbstractGraphicsShapeItem>
 #include <QChart>
+#include <QGraphicsScene>
 
 
 
@@ -165,6 +166,7 @@ protected:
 			   QWidget *widget);
 
 
+	QVariant itemChange(typename GraphicsItem::GraphicsItemChange change, const QVariant &value)override;
 };
 
 
@@ -236,7 +238,6 @@ void AbstractGraphicsItem<GraphicsItem>::mouseMoveEvent(QGraphicsSceneMouseEvent
 	if (m_bIsResizing)
 	{
 		QRectF newPlace=getNewPlace(m_bIsResizing,pos(),event->pos());
-		setPos(newPlace.x(),newPlace.y());
 		newPlace=mapFromScene(newPlace).boundingRect();
 		setCoordinate(newPlace);//改变大小
 	}
@@ -468,5 +469,22 @@ void AbstractGraphicsItem<GraphicsItem>::paint
 	}
 }
 
+template <class GraphicsItem>
+QVariant AbstractGraphicsItem<GraphicsItem>::itemChange
+(typename GraphicsItem::GraphicsItemChange change, const QVariant &value)
+{
+	if (change == ItemPositionChange && scene()) {
+		// value is the new position.
+		QPointF newPos = value.toPointF();
+		QRectF rect = scene()->sceneRect();
+		if (!rect.contains(newPos)) {
+			// Keep the item inside the scene rect.
+			newPos.setX(qMin(rect.right(), qMax(newPos.x(), rect.left())));
+			newPos.setY(qMin(rect.bottom(), qMax(newPos.y(), rect.top())));
+			return newPos;
+		}
+	}
+	return GraphicsItem::itemChange(change, value);
+}
 
 #endif // ABSTRACTGRAPHICSITEM_H

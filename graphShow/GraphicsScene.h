@@ -6,6 +6,7 @@
 #include"item/ShapeItem/GraphicsRectItem.h"
 #include"item/ShapeItem/GraphicsEllipseItem.h"
 #include <QtCharts/QChart>
+#include <optional>
 /**
  * @brief
  * 自定义的场景类，继承自QGraphicsScene
@@ -20,14 +21,10 @@ public:
      * @brief 构造函数
      * @param parent
      */
-    explicit GraphicsScene(QObject *parent = 0);
+	explicit GraphicsScene(QObject *parent = nullptr);
 
-	QImage *getBackGroundImage() const;
-	void setBackgroundImage(QImage *value);
 
 protected:
-
-	QImage*backgroundImage = nullptr;
 
 	/**
 	 * @brief
@@ -69,10 +66,6 @@ public slots:
 signals:
 	void mouseMove(const QPointF&);
 
-
-	// QGraphicsScene interface
-protected:
-	virtual void drawBackground(QPainter *painter, const QRectF &rect) override;
 };
 
 #endif // GRAPHICSSCENE_H

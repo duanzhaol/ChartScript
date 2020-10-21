@@ -1,25 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <author/>
- <comment/>
- <exportmacro/>
  <class>BackgroundDialog</class>
- <widget name="BackgroundDialog" class="QDialog">
+ <widget class="QDialog" name="BackgroundDialog">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>767</width>
+    <height>729</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget name="buttonBox" class="QDialogButtonBox">
+  <widget class="QDialogButtonBox" name="buttonBox">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>240</y>
+     <x>410</x>
+     <y>670</y>
      <width>341</width>
      <height>32</height>
     </rect>
@@ -31,41 +29,225 @@
     <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
    </property>
   </widget>
+  <widget class="QLabel" name="imageShow">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>140</y>
+     <width>691</width>
+     <height>511</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>70</y>
+     <width>661</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <item>
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>填充颜色</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="brushColor">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>200</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_4">
+      <item>
+       <widget class="QLabel" name="label_4">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string>填充样式</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="brushStyle">
+        <item>
+         <property name="text">
+          <string>No Brush</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>SolidPattern</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Dense1Pattern</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Dense2Pattern</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Dense3Pattern</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Dense4Pattern</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Dense5Pattern</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Dense6Pattern</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Dense7Pattern</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>HorPattern</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>VerPattern</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>CrossPattern</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>BDiagPattern</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>FDiagPattern</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>DiagCrossPattern</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>LinearGradientPattern</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>ConicalGradientPattern</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>RadialGradientPattern</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>41</x>
+     <y>11</y>
+     <width>661</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QLabel" name="label_2">
+      <property name="text">
+       <string>图片源：</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="fileNameShow">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>400</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="deleteImage">
+      <property name="text">
+       <string>清除图片</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="addImage">
+      <property name="text">
+       <string>添加图片</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
  </widget>
- <pixmapfunction/>
  <resources/>
- <connections>
-  <connection>
-   <sender>buttonBox</sender>
-   <signal>accepted()</signal>
-   <receiver>BackgroundDialog</receiver>
-   <slot>accept()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>248</x>
-     <y>254</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>157</x>
-     <y>274</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>buttonBox</sender>
-   <signal>rejected()</signal>
-   <receiver>BackgroundDialog</receiver>
-   <slot>reject()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>316</x>
-     <y>260</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>286</x>
-     <y>274</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>

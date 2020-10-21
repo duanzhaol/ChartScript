@@ -10,17 +10,6 @@ GraphicsScene::GraphicsScene(QObject *parent):QGraphicsScene (parent)
 	clearFocus();
 }
 
-QImage *GraphicsScene::getBackGroundImage() const
-{
-	Q_ASSERT(backgroundImage != nullptr);
-	return backgroundImage;
-}
-
-void GraphicsScene::setBackgroundImage(QImage *value)
-{
-	if(backgroundImage != nullptr)delete backgroundImage;
-	backgroundImage = new QImage(value->scaled(this->views().front()->size()));
-}
 
 void GraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
@@ -193,12 +182,3 @@ void GraphicsScene::toTop()
 	}
 }
 
-
-
-void GraphicsScene::drawBackground(QPainter *painter, const QRectF &rect)
-{
-	if(backgroundImage == nullptr){
-		return;
-	}
-	painter->drawImage(rect,*backgroundImage,rect);
-}
