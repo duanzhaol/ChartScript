@@ -8,7 +8,7 @@
 
 void AbstractNode::initName()
 {
-	this->setNodeName(UniqueNamerPool::getNamer(NamerSeed::GraphShow).getUniqueName());
+	this->setNodeName(UniqueNamerPool::getNamer(NamerSeed::VariantSeed).getUniqueName());
 }
 
 void AbstractNode::verifyConnectable(AbstractNode *node)

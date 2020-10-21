@@ -159,7 +159,7 @@ void GraphicsDataArrayNode::on_dataArrayNodeName_editingFinished()
 
         //messageBox
 		QMessageBox::information(nullptr, "结点命名重复", "请重新命名！");
-        setNodeName(UniqueNamerPool::getNamer(NamerSeed::GraphShow).getUniqueName());
+        setNodeName(UniqueNamerPool::getNamer(NamerSeed::VariantSeed).getUniqueName());
     }
 	setNodeName(ui->dataArrayNodeName->text());
 }
