@@ -35,6 +35,9 @@ NodeShowWindow::NodeShowWindow(QWidget *parent) :
 	  ui(new Ui::NodeShowWindow)
 {
 	ui->setupUi(this);
+    ui->mouseTypeState->setAlignment(Qt::AlignHCenter);
+    ui->lcdNumber->setDecMode();
+
 
     connect(this,&NodeShowWindow::MouseTypechanged,
             ConnectController::getInstance(),&ConnectController::clearPort);
@@ -139,7 +142,12 @@ void NodeShowWindow::createWindow()
 
 NodeShowWindow *NodeShowWindow::getInstance()
 {
-	return instance;
+    return instance;
+}
+
+void NodeShowWindow::setLcdNumber(int number)
+{
+    ui->lcdNumber->display(number);
 }
 
 void NodeShowWindow::init()

@@ -29,6 +29,7 @@ public:
 	QGraphicsScene*scene = new QGraphicsScene;
     enum class NodeShowMouseType{Move,Connect,Delete};
     NodeShowMouseType mouseType=NodeShowMouseType::Move;
+    void setLcdNumber(int number);
 
 signals:
     void MouseTypechanged();
@@ -51,7 +52,7 @@ private slots:
 
 
 private:
-	Ui::NodeShowWindow *ui;
+    Ui::NodeShowWindow *ui;
 	void init();
 };
 

@@ -28,9 +28,199 @@ QFrame
      <item>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
-        <layout class="QVBoxLayout" name="verticalLayout">
+        <layout class="QVBoxLayout" name="verticalLayout" stretch="1,16">
          <item>
-          <layout class="QHBoxLayout" name="horizontalLayout">
+          <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,1,1,1,1,4,1,1,1,1">
+           <item>
+            <widget class="QPushButton" name="addNewTable">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">
+
+QPushButton {
+						border:2px solid;
+border-radius:5px;
+background-color: rgba(221, 221, 221, 0);
+color: rgb(0, 0, 0);
+border-color:rgb(0, 0, 0);
+						 }
+
+						 QPushButton:hover {
+							 color: rgb(52, 167, 255);
+							 border-color: rgb(52, 167, 255);
+						 }
+
+						 QPushButton:pressed {
+							 color: rgb(46, 39, 239);
+							 border-color: rgb(46, 39, 239);
+						 }
+
+						 QPushButton:disabled {
+							 color: #333333;
+						 }</string>
+             </property>
+             <property name="text">
+              <string>新建表格</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="deleteRow">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">
+
+QPushButton {
+						border:2px solid;
+border-radius:5px;
+background-color: rgba(221, 221, 221, 0);
+color: rgb(0, 0, 0);
+border-color:rgb(0, 0, 0);
+						 }
+
+						 QPushButton:hover {
+							 color: rgb(52, 167, 255);
+							 border-color: rgb(52, 167, 255);
+						 }
+
+						 QPushButton:pressed {
+							 color: rgb(46, 39, 239);
+							 border-color: rgb(46, 39, 239);
+						 }
+
+						 QPushButton:disabled {
+							 color: #333333;
+						 }</string>
+             </property>
+             <property name="text">
+              <string>删除行</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="deleteColumn">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">
+
+QPushButton {
+						border:2px solid;
+border-radius:5px;
+background-color: rgba(221, 221, 221, 0);
+color: rgb(0, 0, 0);
+border-color:rgb(0, 0, 0);
+						 }
+
+						 QPushButton:hover {
+							 color: rgb(52, 167, 255);
+							 border-color: rgb(52, 167, 255);
+						 }
+
+						 QPushButton:pressed {
+							 color: rgb(46, 39, 239);
+							 border-color: rgb(46, 39, 239);
+						 }
+
+						 QPushButton:disabled {
+							 color: #333333;
+						 }</string>
+             </property>
+             <property name="text">
+              <string>删除列</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="addRow">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">
+
+QPushButton {
+						border:2px solid;
+border-radius:5px;
+background-color: rgba(221, 221, 221, 0);
+color: rgb(0, 0, 0);
+border-color:rgb(0, 0, 0);
+						 }
+
+						 QPushButton:hover {
+							 color: rgb(52, 167, 255);
+							 border-color: rgb(52, 167, 255);
+						 }
+
+						 QPushButton:pressed {
+							 color: rgb(46, 39, 239);
+							 border-color: rgb(46, 39, 239);
+						 }
+
+						 QPushButton:disabled {
+							 color: #333333;
+						 }</string>
+             </property>
+             <property name="text">
+              <string>添加行</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="addColumn">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">
+
+QPushButton {
+						border:2px solid;
+border-radius:5px;
+background-color: rgba(221, 221, 221, 0);
+color: rgb(0, 0, 0);
+border-color:rgb(0, 0, 0);
+						 }
+
+						 QPushButton:hover {
+							 color: rgb(52, 167, 255);
+							 border-color: rgb(52, 167, 255);
+						 }
+
+						 QPushButton:pressed {
+							 color: rgb(46, 39, 239);
+							 border-color: rgb(46, 39, 239);
+						 }
+
+						 QPushButton:disabled {
+							 color: #333333;
+						 }</string>
+             </property>
+             <property name="text">
+              <string>添加列</string>
+             </property>
+            </widget>
+           </item>
            <item>
             <spacer name="horizontalSpacer">
              <property name="orientation">
@@ -45,42 +235,38 @@ QFrame
             </spacer>
            </item>
            <item>
-            <widget class="QPushButton" name="addNewTable">
-             <property name="text">
-              <string>新建表格</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="deleteRow">
-             <property name="text">
-              <string>删除行</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="deleteColumn">
-             <property name="text">
-              <string>删除列</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="addRow">
-             <property name="text">
-              <string>添加行</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="addColumn">
-             <property name="text">
-              <string>添加列</string>
-             </property>
-            </widget>
-           </item>
-           <item>
             <widget class="QPushButton" name="importCsv">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">
+
+QPushButton {
+						border:2px solid;
+border-radius:5px;
+background-color: rgba(221, 221, 221, 0);
+color: rgb(0, 0, 0);
+border-color:rgb(0, 0, 0);
+						 }
+
+						 QPushButton:hover {
+							 color: rgb(52, 167, 255);
+							 border-color: rgb(52, 167, 255);
+						 }
+
+						 QPushButton:pressed {
+							 color: rgb(46, 39, 239);
+							 border-color: rgb(46, 39, 239);
+						 }
+
+						 QPushButton:disabled {
+							 color: #333333;
+						 }</string>
+             </property>
              <property name="text">
               <string>导入csv</string>
              </property>
@@ -88,6 +274,37 @@ QFrame
            </item>
            <item>
             <widget class="QPushButton" name="importExcel">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">
+
+QPushButton {
+						border:2px solid;
+border-radius:5px;
+background-color: rgba(221, 221, 221, 0);
+color: rgb(0, 0, 0);
+border-color:rgb(0, 0, 0);
+						 }
+
+						 QPushButton:hover {
+							 color: rgb(52, 167, 255);
+							 border-color: rgb(52, 167, 255);
+						 }
+
+						 QPushButton:pressed {
+							 color: rgb(46, 39, 239);
+							 border-color: rgb(46, 39, 239);
+						 }
+
+						 QPushButton:disabled {
+							 color: #333333;
+						 }</string>
+             </property>
              <property name="text">
               <string>导入Excel</string>
              </property>
@@ -95,6 +312,37 @@ QFrame
            </item>
            <item>
             <widget class="QPushButton" name="exportData">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">
+
+QPushButton {
+						border:2px solid;
+border-radius:5px;
+background-color: rgba(221, 221, 221, 0);
+color: rgb(0, 0, 0);
+border-color:rgb(0, 0, 0);
+						 }
+
+						 QPushButton:hover {
+							 color: rgb(52, 167, 255);
+							 border-color: rgb(52, 167, 255);
+						 }
+
+						 QPushButton:pressed {
+							 color: rgb(46, 39, 239);
+							 border-color: rgb(46, 39, 239);
+						 }
+
+						 QPushButton:disabled {
+							 color: #333333;
+						 }</string>
+             </property>
              <property name="text">
               <string>保存</string>
              </property>
@@ -102,6 +350,37 @@ QFrame
            </item>
            <item>
             <widget class="QPushButton" name="setting">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">
+
+QPushButton {
+						border:2px solid;
+border-radius:5px;
+background-color: rgba(221, 221, 221, 0);
+color: rgb(0, 0, 0);
+border-color:rgb(0, 0, 0);
+						 }
+
+						 QPushButton:hover {
+							 color: rgb(52, 167, 255);
+							 border-color: rgb(52, 167, 255);
+						 }
+
+						 QPushButton:pressed {
+							 color: rgb(46, 39, 239);
+							 border-color: rgb(46, 39, 239);
+						 }
+
+						 QPushButton:disabled {
+							 color: #333333;
+						 }</string>
+             </property>
              <property name="text">
               <string>设置</string>
              </property>
