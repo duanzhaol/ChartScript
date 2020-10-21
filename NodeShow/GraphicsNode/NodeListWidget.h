@@ -19,7 +19,7 @@ public:
     bool addItemAll(GraphicsTopArrayNode * node, QListWidgetItem *item);
 //    static NodeListWidget* getInstance();
     static void createWidget();
-    int Nodeindex=0;
+    int Nodeindex=10001;
 
 public slots:
     void reciveArray(TableArrayInterface *arrayInterface);

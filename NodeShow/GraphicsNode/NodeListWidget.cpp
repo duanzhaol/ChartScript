@@ -1,7 +1,7 @@
 ﻿#include "NodeListWidget.h"
 #include "NodeListWidgetItem.h"
 #include <QDebug>
-
+#pragma execution_character_set("utf-8")
 
 
 
@@ -9,11 +9,7 @@
 NodeListWidget::NodeListWidget(QWidget *parent):
 QListWidget(parent)
 {
-    NodeListWidgetItem *item=new NodeListWidgetItem(this);
-    item->setItemIndex(Nodeindex);
-    item->setText("arrayInterface->getArrayName()");
-    //    item->setIcon(QIcon(p));
-    item->setSizeHint(QSize(100,120));
+
 }
 
 void NodeListWidget::addArrayNode(GraphicsTopArrayNode * node)
@@ -40,7 +36,8 @@ bool NodeListWidget::addItemAll(GraphicsTopArrayNode * node, QListWidgetItem *it
     if(node!=nullptr&&item!=nullptr){
         addArrayNode(node);
         addItem(item);
-        qDebug()<<"当前长度:"<<arrayNodeList<<"  "<<count();
+
+        qDebug()<<"NodeListWidget::addItemAll "<<"结点Hash："<<arrayNodeList<<"  "<<"arrayNodeListd的当前长度:"<<count();
 
         Nodeindex++;
 
@@ -84,7 +81,7 @@ void NodeListWidget::reciveArray(TableArrayInterface *arrayInterface)
 //    //    url=url+QString(n)+".png";
 //    //    image.save(url);
 
-	qDebug()<<arrayInterface;
+    qDebug()<<"NodeListWidget::reciveArray"<<"接收到表格列信号："<<arrayInterface;
 
 
     GraphicsTopArrayNode * topNode=new GraphicsTopArrayNode(arrayInterface,new MovableProxyWidget);
