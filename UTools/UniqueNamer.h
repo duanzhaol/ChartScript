@@ -2,18 +2,23 @@
 #define UNIQUENAMER_H
 #include <QString>
 #include <QHash>
+#include <QSet>
 
 class UniqueNamer
 {
 	QString prefix,postfix;
 	int index;
+	QSet<QString> names;
 public:
 	UniqueNamer(const QString&prefix = QString(),const QString&postfix=QString(),const int startIndex = 0);
 	QString getUniqueName();
+	bool hasUsed(const QString&name)const;
+	void addName(const QString&name);
+	void removeName(const QString&name);
 };
 
 enum class NamerSeed:char{
-	GraphShow
+	VariantSeed
 };
 
 uint qHash(const NamerSeed&seed)noexcept;

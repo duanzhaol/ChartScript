@@ -177,7 +177,7 @@ border-radius:50%;
     <string notr="true">border:1px solid rgba(255, 255, 255, 0)</string>
    </property>
    <property name="text">
-    <string>起飞</string>
+    <string>null</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_2">

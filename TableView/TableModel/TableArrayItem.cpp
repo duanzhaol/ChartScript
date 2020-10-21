@@ -5,7 +5,7 @@
 #pragma execution_character_set("utf-8")
 TableArrayItem::TableArrayItem()
 {
-    data.append(QStringLiteral("请命名"));
+	data.append(QStringLiteral("abc"));
     data.append("string");
     data.append("0");
 }
@@ -79,20 +79,20 @@ void TableArrayItem::setArrayData(const QVariantList &newData)
 void TableArrayItem::onTypeChanged()
 {
     emit arrayTypeChanged();
-    qDebug()<<"typeChange";
+    //qDebug()<<"typeChange";
 }
 
 void TableArrayItem::onNameChanged()
 {
     emit arrayNameChanged();
-    qDebug()<<"NameChange";
+    //qDebug()<<"NameChange";
 
 }
 
 void TableArrayItem::onDataChanged()
 {
     emit arrayDataChanged();
-    qDebug()<<"DataChange";
+    //qDebug()<<"DataChange";
 
 }
 
@@ -100,6 +100,6 @@ void TableArrayItem::onDataChanged()
 void TableArrayItem::onArrayDelete()
 {
     emit arrayDelete();
-    qDebug()<<"DeleteChange";
+    //qDebug()<<"DeleteChange";
 
 }

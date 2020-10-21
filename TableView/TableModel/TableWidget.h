@@ -18,6 +18,7 @@ public:
     void removeColumn(int column);
     void removeRow(int row);
     void checkChangeType();
+    QList<TableArrayItem*>& getItems();
 private:
     QComboBox* createComboBox();
     void showList();

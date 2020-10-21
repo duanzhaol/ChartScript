@@ -3,7 +3,7 @@
 
 TableWidget::TableWidget(int row, int column, QWidget *parent):QTableWidget(row,column,parent)
 {
-    setItem(0,0,new QTableWidgetItem("请命名"));
+	setItem(0,0,new QTableWidgetItem("abc"));
     QComboBox *combobox=createComboBox();
     setCellWidget(1,0,combobox);
     connect(this,&TableWidget::cellChanged,this,&TableWidget::onCellChanged);
@@ -35,7 +35,7 @@ TableArrayItem* TableWidget::insertColumn(int column)
 
     TableArrayItem *arrItem=onAddColumn(column);
 
-    setItem(0,column,new QTableWidgetItem("请命名"));
+	setItem(0,column,new QTableWidgetItem("abc"));
     return arrItem;
 }
 
@@ -102,7 +102,12 @@ void TableWidget::onCellChanged(int rows, int columns)
     list.replace(rows,newCellData);
     //arrItem->getData().replace(rows,item(rows,columns)->data(0));//将list中表格对应位置的值设为当前表格该处的值
     //showList();
-    arrItem->onDataChanged();
+	if(rows==0){
+		arrItem->onNameChanged();
+	}else{
+		arrItem->onDataChanged();
+
+	}
 }
 /**
  * @brief TableWidget::onCellChanged
@@ -230,4 +235,9 @@ void TableWidget::checkChangeType()
             }
         }
     }
+}
+
+QList<TableArrayItem *> &TableWidget::getItems()
+{
+    return items;
 }

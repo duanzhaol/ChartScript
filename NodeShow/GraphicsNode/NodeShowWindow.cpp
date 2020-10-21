@@ -14,6 +14,7 @@
 #include <QDebug>
 #include <QPixmap>
 #include <GraphicsTopArrayNode.h>
+#include "Interpreter/Interpreter/InterpreterController.h"
 #pragma execution_character_set("utf-8")
 
 
@@ -26,13 +27,6 @@ auto getStart(){
 	return new GraphicsStartNode(new MovableProxyWidget);
 }
 
-auto getArrayNode(){
-    return nullptr;
-}
-
-//auto getArrayNode(){
-
-//}
 
 
 
@@ -47,6 +41,14 @@ NodeShowWindow::NodeShowWindow(QWidget *parent) :
 
     connect(this,&NodeShowWindow::newArray,ui->listWidget_2,
             &NodeListWidget::reciveArray);
+
+	auto s = getStart();
+
+	InterpreterController::getGlobalInstance()->setStartNode(s);
+
+	connect(ui->startCompileButton,&QPushButton::clicked,
+			dynamic_cast<GraphicsStartNode*>(InterpreterController::getGlobalInstance()->getStartNode()),
+			&GraphicsStartNode::start);
 
 //    ui->tabWidget->addTab(NodeListWidget::getInstance(),"表格结点");
 
@@ -69,7 +71,8 @@ NodeShowWindow::NodeShowWindow(QWidget *parent) :
 	//	auto g3= getProxy5();
 
 	//	auto g4= getProxy6();
-	auto s = getStart();
+
+
 
 	auto c= getChart();
 
@@ -147,17 +150,11 @@ void NodeShowWindow::init()
 	ui->listWidget->setResizeMode(QListWidget::Adjust);
 	ui->listWidget->setMovement(QListWidget::Static);
 
-	QListWidgetItem *item1=new QListWidgetItem(ui->listWidget);
-	item1->setText("开始结点");
-    item1->setIcon(QIcon(":/img/img/startNode.png"));
-	item1->setSizeHint(QSize(140,130));
+//	QListWidgetItem *item1=new QListWidgetItem(ui->listWidget);
+//	item1->setText("开始结点");
+//    item1->setIcon(QIcon(":/img/img/startNode.png"));
+//	item1->setSizeHint(QSize(140,130));
 
-    QListWidgetItem *item2=new QListWidgetItem(ui->listWidget);
-    item2->setText("数列结点");
-    item2->setIcon(QIcon(":/img/img/node/arrayNode.png"));
-
-
-    item2->setSizeHint(QSize(140,130));
 
 //	QListWidgetItem *item3=new QListWidgetItem(ui->listWidget);
 //	item3->setText("线图序列");
@@ -192,21 +189,14 @@ void NodeShowWindow::init()
 void NodeShowWindow::on_listWidget_itemDoubleClicked(QListWidgetItem *item)
 {
 
-	if(item->text()=="开始结点"){
-		qDebug()<<item->text();
-		//GraphicsRectItem *rect=new GraphicsRectItem(0,0,100,100);
-		//addItem(rect);
-		auto start= getStart();
-		scene->addItem(start->getProxy());
+//	if(item->text()=="开始结点"){
+//		qDebug()<<item->text();
+//		//GraphicsRectItem *rect=new GraphicsRectItem(0,0,100,100);
+//		//addItem(rect);
+//		auto start= getStart();
+//		scene->addItem(start->getProxy());
 
-	}
-    else if(item->text()=="数列结点"){
-        qDebug()<<item->text();
-        //GraphicsRectItem *rect=new GraphicsRectItem(0,0,100,100);
-        //addItem(rect);
-        auto array= getArrayNode();
-       // scene->addItem(array->getProxy());
-    }
+//	}
 //    else if(item->text()=="线图序列"){
 //		qDebug()<<item->text();
 //	   // GraphicsEllipseItem *ellipse=new GraphicsEllipseItem(0,0,100,100);
@@ -235,7 +225,7 @@ void NodeShowWindow::on_listWidget_itemDoubleClicked(QListWidgetItem *item)
 //		auto scatterSeries=getProxy6();
 //		scene->addItem(scatterSeries);
 //	}
-	else if(item->text()=="统计图结点"){
+	if(item->text()=="统计图结点"){
 		qDebug()<<item->text();
 		// GraphicsEllipseItem *ellipse=new GraphicsEllipseItem(0,0,100,100);
 		//addItem(ellipse);
@@ -272,14 +262,15 @@ void NodeShowWindow::on_listWidget_2_itemDoubleClicked(QListWidgetItem *item)
 {
     auto nodeItem=dynamic_cast<NodeListWidgetItem*>(item);
     int index=nodeItem->getItemIndex();
-    qDebug()<<ui->listWidget_2;
-    qDebug()<<nodeItem;
+	auto node = ui->listWidget_2->getArrayNode(index);
     //    Q_ASSERT(arrayNode!=nullptr);
     //    scene->addItem(arrayNode->getProxy());
 
+	scene->addItem(node->getProxy());
     qDebug()<<index;
 }
 
 
 NodeShowWindow* NodeShowWindow::instance = nullptr;
+
 
