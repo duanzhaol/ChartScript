@@ -1,6 +1,9 @@
 ﻿#include "NodeListWidget.h"
 #include "NodeListWidgetItem.h"
 #include <QDebug>
+#include <TableView/GraphicsShowInterface/TableArrayInterface.h>
+#include <TableView/GraphicsShowInterface/TableArrayInterface.h>
+#pragma execution_character_set("utf-8")
 
 
 
@@ -84,12 +87,19 @@ void NodeListWidget::reciveArray(TableArrayInterface *arrayInterface)
 //    //    url=url+QString(n)+".png";
 //    //    image.save(url);
 
-	qDebug()<<arrayInterface;
+	qDebug()<<arrayInterface->getArrayData();
+	qDebug()<<arrayInterface->getArrayName();
+	qDebug()<<arrayInterface->getArrayType();
 
 
     GraphicsTopArrayNode * topNode=new GraphicsTopArrayNode(arrayInterface,new MovableProxyWidget);
 
     NodeListWidgetItem *item=new NodeListWidgetItem(this);
+
+	connect(arrayInterface,&TableArrayInterface::arrayNameChanged,this,[=](){
+		item->setText(arrayInterface->getArrayName());
+	});
+
     item->setItemIndex(Nodeindex);
     item->setText(arrayInterface->getArrayName());
 //    item->setIcon(QIcon(p));

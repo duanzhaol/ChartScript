@@ -89,7 +89,9 @@ void MainWidget::on_addColumn_clicked()
     QList<QTableWidgetItem*> items = table->selectedItems();
     int current=-1;
     TableArrayItem *arrItem=nullptr;
+
     if(!items.isEmpty()){
+
         QTableWidgetItem* item=items.first();
         current= item->column()+1;
 
@@ -107,10 +109,12 @@ void MainWidget::on_addRow_clicked()
     QList<QTableWidgetItem*> items =table->selectedItems();
     int current=-1;
     if(!items.isEmpty()){
-        QTableWidgetItem* item=items.first();
-        current = item->row()+1;
+		if(items.first()->row()!=0&&items.first()->row()!=1){
+			QTableWidgetItem* item=items.first();
+			current = item->row()+1;
+			table->insertRow(current);
+		}
 
-        table->insertRow(current);
     }else{
         current=table->rowCount();
         table->insertRow(current);

@@ -12,6 +12,7 @@ ConnectController *ConnectController::getInstance()
 void ConnectController::connectLineWuhu(Inputable *input, Outputable *output)
 {
     ConnectLineItem *line =new ConnectLineItem(input,output);
+	NodeShowWindow::getInstance()->scene->addItem(line);
     LineList.append(line);
 
     drawLine();
@@ -28,15 +29,9 @@ void ConnectController::drawLine()
 //    inputOrigin=nullptr;
 //    outputOrigin=nullptr;
 
-    if(LineList.length()!=0){
-        foreach(auto item,LineList)
-        {
-            NodeShowWindow::getInstance()->scene->addItem(item);
-        }
 
 //        qDebug()<<input;
 //        qDebug()<<output;
-    }
 }
 
 

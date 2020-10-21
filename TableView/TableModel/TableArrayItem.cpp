@@ -5,7 +5,7 @@
 #pragma execution_character_set("utf-8")
 TableArrayItem::TableArrayItem()
 {
-    data.append(QStringLiteral("请命名"));
+	data.append(QStringLiteral("abc"));
     data.append("string");
     data.append("0");
 }

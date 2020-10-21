@@ -12,7 +12,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = ChartScript
 TEMPLATE = app
-
+CODECFORSRC = UTF8
 
 include(graphShow/graphShow.pri)
 include(UTools/UTools.pri)
