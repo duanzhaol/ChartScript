@@ -273,7 +273,6 @@ void NodeShowWindow::on_listWidget_2_itemDoubleClicked(QListWidgetItem *item)
 	auto node = ui->listWidget_2->getArrayNode(index);
     //    Q_ASSERT(arrayNode!=nullptr);
     //    scene->addItem(arrayNode->getProxy());
-
 	scene->addItem(node->getProxy());
     qDebug()<<index;
 }

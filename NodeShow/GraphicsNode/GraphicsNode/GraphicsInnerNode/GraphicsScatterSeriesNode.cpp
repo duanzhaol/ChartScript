@@ -14,6 +14,25 @@ GraphicsScatterSeriesNode::GraphicsScatterSeriesNode(QWidget *parent) :
     ui->inputPort->setParent(this);
     ui->outputPort->setParent(this);
 
+    /*初始化下拉框列表：dataArray是int long long float double*/
+    QComboBox* combox1 =ui->XDataArray->getCombobox();
+    combox1->clear();
+    combox1->addItem("int");
+    combox1->addItem("long long");
+    combox1->addItem("float");
+    combox1->addItem("double");
+
+    QComboBox* combox2 =ui->YDataArray->getCombobox();
+    combox2->clear();
+    combox2->addItem("int");
+    combox2->addItem("long long");
+    combox2->addItem("float");
+    combox2->addItem("double");
+
+
+
+
+
 	this->initName();
 
 }

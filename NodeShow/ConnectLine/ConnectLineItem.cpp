@@ -1,7 +1,7 @@
 ﻿#include "ConnectLineItem.h"
 #include"Interpreter/Interpreter/InterpreterController.h"
 #include "Interpreter/GraphicsNodeInterface/GraphicsNodeInterface.h"
-
+#include "../GraphicsNode/ConnectController.h"
 #include <QDebug>
 #include <QPainter>
 
@@ -24,6 +24,15 @@ ConnectLineItem::ConnectLineItem(Inputable *inputNode,
             dynamic_cast<AbstractNode*>(outputNode),
             dynamic_cast<AbstractNode*>(inputNode)
             );
+
+        auto connectController=ConnectController::getInstance();
+        LineIndex=connectController->indexForLines;
+        connectController->indexForLines++;
+
+        connect(this,&ConnectLineItem::LineClickedWithDele,
+                ConnectController::getInstance(),
+                &ConnectController::removeLineItem);
+
     } catch (ImplicitTypeConversion &e) {
 		qDebug()<<e.getWhy();
 
@@ -49,6 +58,7 @@ QPainterPath ConnectLineItem::shape() const
 	return path;
 }
 
+#include <NodeShowWindow.h>
 #include <QDebug>
 #include <QMessageBox>
 
@@ -68,7 +78,7 @@ void ConnectLineItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *o
 	//qDebug()<<left<<right;
 
 	mArrow.clear();
-	double par = 12;//箭头部分三角形的腰长
+    double par = 50;//箭头部分三角形的腰长12
 	double slopy = atan2((right.y() - left.y()), (right.x() - left.x()));
 	double cosy = cos(slopy);
 	double siny = sin(slopy);
@@ -106,6 +116,10 @@ void ConnectLineItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *o
 void ConnectLineItem::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
     qDebug()<<"aha";
+    if(NodeShowWindow::getInstance()->mouseType==NodeShowWindow::NodeShowMouseType::Delete){
+        emit LineClickedWithDele(this);
+    }
+
 }
 
 
@@ -114,7 +128,11 @@ void ConnectLineItem::keyPressEvent(QKeyEvent *event)
     if(event->key()==Qt::Key_Delete)
     {
         qDebug()<<"aaaa";
+
     }
 
 
 }
+
+
+

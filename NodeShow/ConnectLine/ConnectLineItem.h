@@ -4,17 +4,19 @@
 #include <QGraphicsPolygonItem>
 #include <QGraphicsItem>
 #include<QtMath>
+#include <QObject>
 #include "Interpreter/Exception/ImplicitTypeConversion.h"
 #include "Interpreter/Exception/TypeUnconvertible.h"
 #include "GraphicsNode/Dualputable.h"
 
 
-class ConnectLineItem:public QGraphicsPolygonItem
+class ConnectLineItem:public QGraphicsPolygonItem,public QObject
 {
 
 public:
+    Q_OBJECT
 
-
+public:
   explicit ConnectLineItem(Inputable*inputPort,Outputable*outputPort);
 
   // QGraphicsItem interface
@@ -23,13 +25,16 @@ public:
   void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
   QPainterPath shape() const override;
 
-private:
+  int LineIndex=-1;
   Inputable*inputNode;
   Outputable*outputNode;
+
+private:
+
   QPolygonF mArrow;
 
-
-
+signals:
+    void LineClickedWithDele(ConnectLineItem*);
 
   // QGraphicsItem interface
 protected:
@@ -38,6 +43,9 @@ protected:
   // QGraphicsItem interface
 protected:
   virtual void keyPressEvent(QKeyEvent *event) override;
+
+
+
 };
 
 #endif // CONNECTLINEITEM_H

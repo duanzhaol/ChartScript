@@ -11,17 +11,22 @@ public:
 
     static ConnectController* getInstance();
     void connectLineWuhu(Inputable* input,Outputable* output);
-    QList<ConnectLineItem*> LineList;
+
+    QHash<int,ConnectLineItem*> LineList;
+
 	void drawLine();
+    ConnectLineItem* getLineItem(int index);
 
     Inputable* input=nullptr;
     Outputable* output=nullptr;
 //    void* inputOrigin=nullptr;
 //    void* outputOrigin=nullptr;
+    int indexForLines=20001;
 
 public slots:
     void ConnectLine(QPushButton*,AbstractGraphicsNode::PortType);
     void clearPort();
+    void removeLineItem(ConnectLineItem*);
 
 private:
     GraphicsDataArrayNode* arrayNode;
