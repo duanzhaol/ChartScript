@@ -102,6 +102,9 @@ void TableWidget::onCellChanged(int rows, int columns)
     list.replace(rows,newCellData);
     //arrItem->getData().replace(rows,item(rows,columns)->data(0));//将list中表格对应位置的值设为当前表格该处的值
     //showList();
+    if(rows==0){
+        arrItem
+    }
     arrItem->onDataChanged();
 }
 /**
