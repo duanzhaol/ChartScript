@@ -68,6 +68,8 @@ QVariant::Type TableArrayItem::getArrayType()
     }else if(type=="long long"){
         return QVariant::LongLong;
     }
+	Q_ASSERT_X(false,__FILE__+__LINE__,"unsupported type");
+	return QVariant::Invalid;
 }
 
 void TableArrayItem::setArrayType(const QVariant::Type newType)
