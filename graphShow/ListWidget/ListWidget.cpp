@@ -58,16 +58,13 @@ bool ListWidget::removeItemAll(int index)
 void ListWidget::reciveChart(GraphicsShowInterface *chartInterface)
 {
 	QString chartName=chartInterface->getName();
-	ChartItem* chart=dynamic_cast<ChartItem*>(chartInterface->getChart());
+	ChartItem* chart=chartInterface->getChart();
 	chart->createDefaultAxes();
-
-
-	qsrand(time(NULL));
-    int n = qrand() % 99999;//存储的随机数
 
 	QtCharts::QChartView *chartView = new QtCharts::QChartView(chart);
     chartView->setRenderHint(QPainter::Antialiasing);  //消除边缘
 	chartView->setChart(chart);
+	chartView->show();
 	//QPixmap p = QPixmap::grabWidget(chartView);
 	QPixmap p = chartView->grab();
 
@@ -77,7 +74,7 @@ void ListWidget::reciveChart(GraphicsShowInterface *chartInterface)
 //    image.save(url);
 
     ListWidgetItem *item=new ListWidgetItem(this);
-	item->setText("chartName");
+	item->setText(chartInterface->getName());
 	item->setIcon(QIcon(p));
     item->setSizeHint(QSize(100,120));
 	this->addItemAll(chart,item);

@@ -13,7 +13,8 @@ class AbstractChartNode:
         public GraphicsShowInterface,
 		public GraphicsChartNodeInterface
 {
-	Chart*chart = new Chart;
+	Chart*chart = nullptr;
+	bool d_isProcess = false;
 public:
 	AbstractChartNode();
 
@@ -21,6 +22,7 @@ public:
 public:
 	virtual QString getName() const override;
 	virtual Chart *getChart() const override;
+	bool isProcess()const;
 
 	// AbstractNode interface
 public:

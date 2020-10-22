@@ -17,13 +17,6 @@ void AbstractDataNode::process(AbstractNode* nextNode)
 	AbstractNode::process(nextNode);
 	if(dynamic_cast<AbstractDataNode*>(nextNode) != nullptr){
 		dynamic_cast<AbstractDataNode*>(nextNode)->setNodeData(this->getNodeData());
-        qDebug()<<"--------------";
-        qDebug()<<this->getNodeName();
-        qDebug()<<this->getModelTypeName();
-        qDebug()<<this->getNodeData();
-        qDebug()<<nextNode->getNodeName();
-        qDebug()<<nextNode->getModelTypeName();
-        qDebug()<<dynamic_cast<AbstractDataNode*>(nextNode)->getNodeData();
     }
 }
 

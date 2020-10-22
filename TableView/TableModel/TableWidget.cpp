@@ -120,7 +120,7 @@ void TableWidget::onTypeChanged(int type)
 {
     int count=0;
     for(TableArrayItem* item:items){
-        int index=dynamic_cast<QComboBox*>(cellWidget(1,count))->currentIndex();
+		int index=dynamic_cast<QComboBox*>(cellWidget(1,count++))->currentIndex();
         switch (index) {
         case 0:
             item->setArrayType(QVariant::String);

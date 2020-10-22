@@ -139,8 +139,6 @@ void GraphicsDataArrayNode::setElementType(QVariant::Type type)
         ui->comboBox->setCurrentText("String");
     }
 
-    qDebug()<<ui->comboBox->currentText();
-
 }
 
 

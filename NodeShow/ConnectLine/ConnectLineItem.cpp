@@ -19,17 +19,6 @@ ConnectLineItem::ConnectLineItem(Inputable *inputNode,
 
     /*到时候把连线放到构造函数外面，先判断再连，button点击事件*/
 
-    try {
-        InterpreterController::getGlobalInstance()->addConnect(
-            dynamic_cast<AbstractNode*>(outputNode),
-            dynamic_cast<AbstractNode*>(inputNode)
-            );
-    } catch (ImplicitTypeConversion &e) {
-		qDebug()<<e.getWhy();
-
-    } catch(TypeUnconvertible &e){
-		qDebug()<<e.getWhy();//加个警告框就行
-    }
 //    qDebug()<<"lineCreated";
 }
 

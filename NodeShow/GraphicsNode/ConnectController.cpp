@@ -2,6 +2,8 @@
 #include "NodeShowWindow.h"
 #include <QDebug>
 #include <QMessageBox>
+#include <QMessageBox>
+#include <Interpreter/Interpreter/InterpreterController.h>
 #pragma execution_character_set("utf-8")
 
 ConnectController *ConnectController::getInstance()
@@ -11,6 +13,21 @@ ConnectController *ConnectController::getInstance()
 
 void ConnectController::connectLineWuhu(Inputable *input, Outputable *output)
 {
+
+
+	try {
+		InterpreterController::getGlobalInstance()->addConnect(
+			dynamic_cast<AbstractNode*>(input),
+			dynamic_cast<AbstractNode*>(output)
+			);
+	} catch (ImplicitTypeConversion &e) {
+		QMessageBox::warning(nullptr,"错误",e.getWhy());
+		clearPort();
+		return;
+	} catch(TypeUnconvertible &e){
+		QMessageBox::information(nullptr,"警告",e.getWhy());
+	}
+
     ConnectLineItem *line =new ConnectLineItem(input,output);
 	NodeShowWindow::getInstance()->scene->addItem(line);
     LineList.append(line);
@@ -45,20 +62,16 @@ ConnectController::ConnectController()
 
 void ConnectController::ConnectLine(QPushButton* port, AbstractGraphicsNode::PortType type)
 {
-    qDebug()<<"ConnectController::ConnectLine";
-
     if(type==AbstractGraphicsNode::PortType::InputPort)
     {
 
         input=dynamic_cast<InputPort*>(port)->getNode();
-        qDebug()<<"inputPortSetted";
         NodeShowWindow::getInstance()->setLcdNumber(1);
     }
     else if(type==AbstractGraphicsNode::PortType::OutputPort)
     {
 
         output=dynamic_cast<OutputPort*>(port)->getNode();
-        qDebug()<<"outputPortSetted";
         NodeShowWindow::getInstance()->setLcdNumber(1);
     }
 
@@ -67,7 +80,7 @@ void ConnectController::ConnectLine(QPushButton* port, AbstractGraphicsNode::Por
 //    qDebug()<<(void*)input<<(void*)output;
 
     if((void*)input==(void*)output){
-        QMessageBox::information(NULL, "提示", "不能自己连自己哦！");
+		QMessageBox::information(nullptr,"提示", "不能自己连自己哦！");
 
         input =nullptr;
         output=nullptr;
@@ -82,10 +95,7 @@ void ConnectController::ConnectLine(QPushButton* port, AbstractGraphicsNode::Por
 
     if(input!=nullptr&&output!=nullptr)
     {
-
-        qDebug()<<"readytoConnect";
         connectLineWuhu(input,output);
-        qDebug()<<"Connected";
     }
 
 
@@ -96,7 +106,7 @@ void ConnectController::clearPort()
     input=nullptr;
     output=nullptr;
     NodeShowWindow::getInstance()->setLcdNumber(0);
-    QMessageBox::information(NULL, "提示", "待连线结点已清空");
+	QMessageBox::information(nullptr, "提示", "待连线结点已清空");
 }
 
 

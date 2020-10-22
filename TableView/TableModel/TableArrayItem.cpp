@@ -2,10 +2,12 @@
 
 #include <QTableWidgetItem>
 #include<QDebug>
+#include "UTools/UniqueNamer.h"
 #pragma execution_character_set("utf-8")
 TableArrayItem::TableArrayItem()
 {
-	data.append(QStringLiteral("abc"));
+	QString initName = UniqueNamerPool::getNamer(NamerSeed::VariantSeed).getUniqueName();
+	data.append(initName);
     data.append("string");
     data.append("0");
 }

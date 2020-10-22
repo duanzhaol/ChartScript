@@ -9,6 +9,7 @@
 void AbstractNode::initName()
 {
 	this->setNodeName(UniqueNamerPool::getNamer(NamerSeed::VariantSeed).getUniqueName());
+	InterpreterController::getGlobalInstance()->addNode(this);
 }
 
 void AbstractNode::verifyConnectable(AbstractNode *node)
