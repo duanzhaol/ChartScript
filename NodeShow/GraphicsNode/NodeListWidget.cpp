@@ -9,14 +9,11 @@
 
 
 
+
 NodeListWidget::NodeListWidget(QWidget *parent):
 QListWidget(parent)
 {
-    NodeListWidgetItem *item=new NodeListWidgetItem(this);
-    item->setItemIndex(Nodeindex);
-    item->setText("arrayInterface->getArrayName()");
-    //    item->setIcon(QIcon(p));
-    item->setSizeHint(QSize(100,120));
+
 }
 
 void NodeListWidget::addArrayNode(GraphicsTopArrayNode * node)
@@ -43,7 +40,8 @@ bool NodeListWidget::addItemAll(GraphicsTopArrayNode * node, QListWidgetItem *it
     if(node!=nullptr&&item!=nullptr){
         addArrayNode(node);
         addItem(item);
-        qDebug()<<"当前长度:"<<arrayNodeList<<"  "<<count();
+
+        qDebug()<<"NodeListWidget::addItemAll "<<"结点Hash："<<arrayNodeList<<"  "<<"arrayNodeListd的当前长度:"<<count();
 
         Nodeindex++;
 
@@ -87,9 +85,13 @@ void NodeListWidget::reciveArray(TableArrayInterface *arrayInterface)
 //    //    url=url+QString(n)+".png";
 //    //    image.save(url);
 
-	qDebug()<<arrayInterface->getArrayData();
-	qDebug()<<arrayInterface->getArrayName();
-	qDebug()<<arrayInterface->getArrayType();
+
+    qDebug()<<"NodeListWidget::reciveArray"<<"接收到表格列信号："<<arrayInterface;
+
+//	qDebug()<<arrayInterface->getArrayData();
+//	qDebug()<<arrayInterface->getArrayName();
+//	qDebug()<<arrayInterface->getArrayType();
+
 
 
     GraphicsTopArrayNode * topNode=new GraphicsTopArrayNode(arrayInterface,new MovableProxyWidget);
@@ -102,8 +104,8 @@ void NodeListWidget::reciveArray(TableArrayInterface *arrayInterface)
 
     item->setItemIndex(Nodeindex);
     item->setText(arrayInterface->getArrayName());
-//    item->setIcon(QIcon(p));
-    item->setSizeHint(QSize(100,120));
+    item->setIcon(QIcon(":/img/img/node/arrayNode.png"));
+    item->setSizeHint(QSize(100,20));
     addItemAll(topNode,item);
 }
 

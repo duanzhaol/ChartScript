@@ -26,7 +26,8 @@ void ConnectController::drawLine()
     qDebug()<<"ConnectController::drawLine()";
     input =nullptr;
     output=nullptr;
-//    inputOrigin=nullptr;
+    NodeShowWindow::getInstance()->setLcdNumber(0);
+    //    inputOrigin=nullptr;
 //    outputOrigin=nullptr;
 
 
@@ -51,14 +52,14 @@ void ConnectController::ConnectLine(QPushButton* port, AbstractGraphicsNode::Por
 
         input=dynamic_cast<InputPort*>(port)->getNode();
         qDebug()<<"inputPortSetted";
-
+        NodeShowWindow::getInstance()->setLcdNumber(1);
     }
     else if(type==AbstractGraphicsNode::PortType::OutputPort)
     {
 
         output=dynamic_cast<OutputPort*>(port)->getNode();
         qDebug()<<"outputPortSetted";
-
+        NodeShowWindow::getInstance()->setLcdNumber(1);
     }
 
 //    qDebug()<<port;
@@ -94,6 +95,7 @@ void ConnectController::clearPort()
 {
     input=nullptr;
     output=nullptr;
+    NodeShowWindow::getInstance()->setLcdNumber(0);
     QMessageBox::information(NULL, "提示", "待连线结点已清空");
 }
 

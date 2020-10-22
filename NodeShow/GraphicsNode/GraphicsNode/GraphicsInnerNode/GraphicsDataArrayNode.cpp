@@ -124,20 +124,22 @@ void GraphicsDataArrayNode::setElementType(QVariant::Type type)
 {
     if(type==QVariant::Type::Int)
     {
-        ui->comboBox->currentText()="int";
+        ui->comboBox->setCurrentText("int");
     }
     else if(type==QVariant::Type::LongLong)
     {
-        ui->comboBox->currentText()="long long";
+        ui->comboBox->setCurrentText("long long");
     }
     else if(type==QVariant::Type::Double)
     {
-        ui->comboBox->currentText()="double";
+        ui->comboBox->setCurrentText("double");
     }
     else if(type==QVariant::Type::String)
     {
-        ui->comboBox->currentText()="String";
+        ui->comboBox->setCurrentText("String");
     }
+
+    qDebug()<<ui->comboBox->currentText();
 
 }
 

@@ -99,20 +99,20 @@ void TableArrayItem::setArrayData(const QVariantList &newData)
 void TableArrayItem::onTypeChanged()
 {
     emit arrayTypeChanged();
-    //qDebug()<<"typeChange";
+    qDebug()<<"typeChange";
 }
 
 void TableArrayItem::onNameChanged()
 {
     emit arrayNameChanged();
-    //qDebug()<<"NameChange";
+    qDebug()<<"NameChange";
 
 }
 
 void TableArrayItem::onDataChanged()
 {
     emit arrayDataChanged();
-    //qDebug()<<"DataChange";
+    qDebug()<<"DataChange";
 
 }
 
@@ -120,6 +120,6 @@ void TableArrayItem::onDataChanged()
 void TableArrayItem::onArrayDelete()
 {
     emit arrayDelete();
-    //qDebug()<<"DeleteChange";
+    qDebug()<<"DeleteChange";
 
 }

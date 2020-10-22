@@ -1,5 +1,6 @@
 ﻿#include "GraphicsPieSeriesNode.h"
 #include "ui_GraphicsPieSeriesNode.h"
+#include <QDebug>
 
 
 GraphicsPieSeriesNode::GraphicsPieSeriesNode(QWidget *parent) :
@@ -22,6 +23,8 @@ GraphicsPieSeriesNode::GraphicsPieSeriesNode(QWidget *parent) :
     /*初始化两个数列结点的名称*/
     ui->LabelArray->setNodeName("标签数列");
     ui->NumberArray->setNodeName("数据数列");//int long long float double
+    ui->LabelArray->setElementType(QVariant::String);
+    ui->NumberArray->setElementType(QVariant::Int);
 
 //    /*标题lineedit文字居中*/
 //    ui->PieSeriesName->setAlignment( Qt::AlignHCenter);

@@ -10,6 +10,9 @@
     <height>168</height>
    </rect>
   </property>
+  <property name="cursor">
+   <cursorShape>OpenHandCursor</cursorShape>
+  </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
@@ -48,6 +51,9 @@ background-color: rgb(121, 121, 121);
          <width>20</width>
          <height>20</height>
         </size>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
         <string notr="true">QPushButton {
@@ -219,6 +225,9 @@ color: rgb(255, 255, 255);</string>
              <bold>true</bold>
             </font>
            </property>
+           <property name="cursor">
+            <cursorShape>PointingHandCursor</cursorShape>
+           </property>
            <property name="styleSheet">
             <string notr="true">QComboBox {border-radius:10px;background:rgb(97, 97, 97);color:#ffffff;
 padding-left:15px;
@@ -297,6 +306,9 @@ background:rgb(94,167,255);
              <bold>true</bold>
             </font>
            </property>
+           <property name="cursor">
+            <cursorShape>PointingHandCursor</cursorShape>
+           </property>
            <property name="styleSheet">
             <string notr="true">border:2px solid rgb(255, 255, 255) ;
 border-radius:5px;
@@ -355,6 +367,9 @@ color: rgb(255, 255, 255);</string>
          <width>20</width>
          <height>20</height>
         </size>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
         <string notr="true">QPushButton {

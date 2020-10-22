@@ -35,6 +35,9 @@ NodeShowWindow::NodeShowWindow(QWidget *parent) :
 	  ui(new Ui::NodeShowWindow)
 {
 	ui->setupUi(this);
+    ui->mouseTypeState->setAlignment(Qt::AlignHCenter);
+    ui->lcdNumber->setDecMode();
+
 
     connect(this,&NodeShowWindow::MouseTypechanged,
             ConnectController::getInstance(),&ConnectController::clearPort);
@@ -139,7 +142,12 @@ void NodeShowWindow::createWindow()
 
 NodeShowWindow *NodeShowWindow::getInstance()
 {
-	return instance;
+    return instance;
+}
+
+void NodeShowWindow::setLcdNumber(int number)
+{
+    ui->lcdNumber->display(number);
 }
 
 void NodeShowWindow::init()
@@ -150,10 +158,10 @@ void NodeShowWindow::init()
 	ui->listWidget->setResizeMode(QListWidget::Adjust);
 	ui->listWidget->setMovement(QListWidget::Static);
 
-	QListWidgetItem *item1=new QListWidgetItem(ui->listWidget);
-	item1->setText("开始结点");
-    item1->setIcon(QIcon(":/img/img/startNode.png"));
-	item1->setSizeHint(QSize(140,130));
+//	QListWidgetItem *item1=new QListWidgetItem(ui->listWidget);
+//	item1->setText("开始结点");
+//    item1->setIcon(QIcon(":/img/img/startNode.png"));
+//	item1->setSizeHint(QSize(140,130));
 
 
 //	QListWidgetItem *item3=new QListWidgetItem(ui->listWidget);
