@@ -19,7 +19,7 @@ public:
     bool addItemAll(GraphicsTopArrayNode * node, QListWidgetItem *item);
 //    static NodeListWidget* getInstance();
     static void createWidget();
-    int Nodeindex=0;
+	int Nodeindex=10001;//表格结点和item的唯一编号
 
 public slots:
     void reciveArray(TableArrayInterface *arrayInterface);

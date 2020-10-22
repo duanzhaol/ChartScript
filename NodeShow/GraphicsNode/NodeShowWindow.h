@@ -50,7 +50,6 @@ private slots:
 //    void recieveNodeArrays(QListWidgetItem *item);
 
 
-
 private:
 	Ui::NodeShowWindow *ui;
 	void init();

@@ -1,4 +1,5 @@
 ﻿#include "GraphicsTopArrayNode.h"
+#include <QDebug>
 
 GraphicsTopArrayNode::GraphicsTopArrayNode
 (TableArrayInterface *dataSource, MovableProxyWidget *proxy):
@@ -25,6 +26,21 @@ GraphicsTopArrayNode::GraphicsInnerDataArrayNode::GraphicsInnerDataArrayNode
 	dataSource(dataSource)
 {
 	Q_ASSERT(dataSource != nullptr);
+	connect(dataSource,&TableArrayInterface::arrayNameChanged,this,[=](){
+		GraphicsDataArrayNode::setNodeName(dataSource->getArrayName());
+	});
+
+	connect(dataSource,&TableArrayInterface::arrayDataChanged,this,[=](){
+		GraphicsDataArrayNode::setNodeData(dataSource->getArrayData());
+	});
+
+	connect(dataSource,&TableArrayInterface::arrayTypeChanged,this,[=](){
+		GraphicsDataArrayNode::setElementType(dataSource->getArrayType());
+	});
+
+	connect(dataSource,&TableArrayInterface::arrayDelete,this,[=](){
+		this->deleteLater();
+	});
 }
 
 NodeName GraphicsTopArrayNode::GraphicsInnerDataArrayNode::getNodeName() const

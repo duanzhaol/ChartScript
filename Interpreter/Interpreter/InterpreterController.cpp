@@ -8,6 +8,7 @@ InterpreterController::InterpreterController()
 
 void InterpreterController::dfsInterprete(AbstractNode *startNode)
 {
+	qDebug()<<startNode->getNodeName();
 	startNode->process(nullptr);
 	for(auto&nextNode:this->graph[startNode->getNodeName()]){
 		startNode->process(nextNode);
@@ -33,6 +34,7 @@ void InterpreterController::addConnect(AbstractNode *outputNode, AbstractNode *i
 {
 	inputNode->verifyConnectable(outputNode);
 	this->graph[outputNode->getNodeName()].insert(inputNode);
+	qDebug()<<this->graph;
 }
 
 void InterpreterController::removeConnect(AbstractNode *outputNode, AbstractNode *inputNode)

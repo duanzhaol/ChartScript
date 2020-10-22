@@ -25,18 +25,18 @@ ConnectLineItem::ConnectLineItem(Inputable *inputNode,
             dynamic_cast<AbstractNode*>(inputNode)
             );
     } catch (ImplicitTypeConversion &e) {
-        qDebug()<<e.getWhy();
+		qDebug()<<e.getWhy();
 
     } catch(TypeUnconvertible &e){
-        qDebug()<<e.getWhy();//加个警告框就行
+		qDebug()<<e.getWhy();//加个警告框就行
     }
-    qDebug()<<"lineCreated";
+//    qDebug()<<"lineCreated";
 }
 
 QRectF ConnectLineItem::boundingRect() const
 {
-	qDebug()<<"----------------------"<<endl;
-		qDebug()<<shape().controlPointRect();
+//	qDebug()<<"----------------------"<<endl;
+//		qDebug()<<shape().controlPointRect();
 	return shape().controlPointRect();
 	//return QRectF(leftWidget->centerCoordinate,rightWidget->centerCoordinate);
 }
