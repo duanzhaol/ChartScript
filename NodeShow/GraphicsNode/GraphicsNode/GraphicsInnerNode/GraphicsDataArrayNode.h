@@ -59,6 +59,7 @@ public:
 private slots:
     void on_dataArrayNodeName_editingFinished();
 //    void on_dataArrayNodeName_textChanged(const QString &arg1);
+	void on_showData_clicked();
 };
 
 

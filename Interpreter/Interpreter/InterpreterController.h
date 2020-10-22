@@ -44,6 +44,7 @@ public:
 	 * @return return the global unique Interpreter Controller.
 	 */
 	static InterpreterController* getGlobalInstance();
+	bool hasConncted(AbstractNode*outputNode,AbstractNode*inputNode)const;
 	void setStartNode(AbstractNode*start);
 	bool hasNodeName(const NodeName&nodeName)const;
 	void addNode(AbstractNode*newNode);

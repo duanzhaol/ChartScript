@@ -17,19 +17,6 @@
 #include "Interpreter/Interpreter/InterpreterController.h"
 #pragma execution_character_set("utf-8")
 
-
-
-auto getChart(){
-	return new GraphicsChartNode(new MovableProxyWidget);
-}
-
-auto getStart(){
-	return new GraphicsStartNode(new MovableProxyWidget);
-}
-
-
-
-
 NodeShowWindow::NodeShowWindow(QWidget *parent) :
 	  QMainWindow(parent),
 	  ui(new Ui::NodeShowWindow)
@@ -38,89 +25,25 @@ NodeShowWindow::NodeShowWindow(QWidget *parent) :
     ui->mouseTypeState->setAlignment(Qt::AlignHCenter);
     ui->lcdNumber->setDecMode();
 
-
     connect(this,&NodeShowWindow::MouseTypechanged,
             ConnectController::getInstance(),&ConnectController::clearPort);
 
     connect(this,&NodeShowWindow::newArray,ui->listWidget_2,
             &NodeListWidget::reciveArray);
 
-	auto s = getStart();
+	GraphicsStartNode*start = new GraphicsStartNode(new MovableProxyWidget);
 
-	InterpreterController::getGlobalInstance()->setStartNode(s);
+	InterpreterController::getGlobalInstance()->setStartNode(start);
 
-	connect(ui->startCompileButton,&QPushButton::clicked,
-			dynamic_cast<GraphicsStartNode*>(InterpreterController::getGlobalInstance()->getStartNode()),
-			&GraphicsStartNode::start);
-
-//    ui->tabWidget->addTab(NodeListWidget::getInstance(),"表格结点");
-
-
-//    connect(ui->listWidget_2,&NodeListWidget::itemDoubleClicked,this,SLOT(on_listWidget_2_itemDoubleClicked(NodeListWidgetItem * item)));
-
-
-
+	connect(ui->startCompileButton,&QPushButton::clicked,start,&GraphicsStartNode::start);
 
 	ui->graphicsView->setScene(scene);
+
 	ui->graphicsView->setStyleSheet("padding:0px;border:0px");
 
-
-
-
-	/*生成widget并获得代理*/
-	//	auto p1 = getProxy1(),p2 = getProxy1(),p3=getProxy2();
-	//	auto g1= getProxy3();
-	//	auto g2= getProxy4();
-	//	auto g3= getProxy5();
-
-	//	auto g4= getProxy6();
-
-
-
-	auto c= getChart();
-
-	/*往场景里添加各代理widget（graphicsItem）*/
-	//	scene->addItem(p1);
-	//	scene->addItem(p2);
-	//	scene->addItem(p3);
-
-	//	scene->addItem(g1);
-	//	scene->addItem(g2);
-	//	scene->addItem(g3);
-	//	scene->addItem(g4);
-
-    scene->addItem(s->getProxy());
-
-	scene->addItem(c->getProxy());
-
-	/*生成节点间的连接线*/
-	//	auto line =  new ConnectLineItem(p2,p1);
-	//	auto line2 = new ConnectLineItem(p1,s);
-	//	auto line3 = new ConnectLineItem(p3,p2);
-	//	auto line4 = new ConnectLineItem(g1,p3);
-	//	auto line5 = new ConnectLineItem(g2,g1);
-	//	auto line6 = new ConnectLineItem(g3,g2);
-	//	auto line7 = new ConnectLineItem(g4,g3);
-
-   // auto line8 = new ConnectLineItem(c,s);
-
-
-	InterpreterController::getGlobalInstance()->setStartNode(
-		dynamic_cast<AbstractNode*>(s));
-
-	/*把连接线添加到场景中*/
-	//	scene->addItem(line);
-	//	scene->addItem(line2);
-	//	scene->addItem(line3);
-	//	scene->addItem(line4);
-	//	scene->addItem(line5);
-	//	scene->addItem(line6);
-	//	scene->addItem(line7);
-
-   // scene->addItem(line8);
+	scene->addItem(start->getProxy());
 
 	init();
-
 
     ui->graphicsView->setStyleSheet(R"(QGraphicsView{ background-image:url(:/img/img/beijing.png);})");//设置scene背景
 	ui->graphicsView->showMaximized();//全屏窗口打开
@@ -158,38 +81,12 @@ void NodeShowWindow::init()
 	ui->listWidget->setResizeMode(QListWidget::Adjust);
 	ui->listWidget->setMovement(QListWidget::Static);
 
-//	QListWidgetItem *item1=new QListWidgetItem(ui->listWidget);
-//	item1->setText("开始结点");
-//    item1->setIcon(QIcon(":/img/img/startNode.png"));
-//	item1->setSizeHint(QSize(140,130));
+	QListWidgetItem *chartItem=new QListWidgetItem(ui->listWidget);
+	chartItem->setText("统计图结点");
 
+	chartItem->setIcon(QIcon(":/img/img/node/chartNode.png"));
 
-//	QListWidgetItem *item3=new QListWidgetItem(ui->listWidget);
-//	item3->setText("线图序列");
-//	item3->setIcon(QIcon(":/img/node/img/node/lineSeriesNode.png"));
-//	item3->setSizeHint(QSize(140,130));
-
-//	QListWidgetItem *item4=new QListWidgetItem(ui->listWidget);
-//	item4->setText("区域图序列");
-//	item4->setIcon(QIcon(":/img/node/img/node/areaSeries.png"));
-//	item4->setSizeHint(QSize(140,130));
-
-//	QListWidgetItem *item5=new QListWidgetItem(ui->listWidget);
-//	item5->setText("饼图序列");
-//	item5->setIcon(QIcon(":/img/node/img/node/pieSeries.png"));
-//	item5->setSizeHint(QSize(140,130));
-
-//	QListWidgetItem *item6=new QListWidgetItem(ui->listWidget);
-//	item6->setText("散点图序列");
-//	item6->setIcon(QIcon(":/img/node/img/node/scatterSeries.png"));
-//	item6->setSizeHint(QSize(140,130));
-
-	QListWidgetItem *item7=new QListWidgetItem(ui->listWidget);
-	item7->setText("统计图结点");
-
-	item7->setIcon(QIcon(":/img/img/node/chartNode.png"));
-
-	item7->setSizeHint(QSize(140,130));
+	chartItem->setSizeHint(QSize(140,130));
 
 }
 
@@ -197,53 +94,12 @@ void NodeShowWindow::init()
 void NodeShowWindow::on_listWidget_itemDoubleClicked(QListWidgetItem *item)
 {
 
-//	if(item->text()=="开始结点"){
-//		qDebug()<<item->text();
-//		//GraphicsRectItem *rect=new GraphicsRectItem(0,0,100,100);
-//		//addItem(rect);
-//		auto start= getStart();
-//		scene->addItem(start->getProxy());
-
-//	}
-//    else if(item->text()=="线图序列"){
-//		qDebug()<<item->text();
-//	   // GraphicsEllipseItem *ellipse=new GraphicsEllipseItem(0,0,100,100);
-//		//addItem(ellipse);
-//		auto lineSeries=getProxy4();
-//		scene->addItem(lineSeries);
-//	}
-//	else if(item->text()=="区域图序列"){
-//		qDebug()<<item->text();
-//		// GraphicsEllipseItem *ellipse=new GraphicsEllipseItem(0,0,100,100);
-//		//addItem(ellipse);
-//		auto areaSeries=getProxy3();
-//		scene->addItem(areaSeries);
-//	}
-//	else if(item->text()=="饼图序列"){
-//		qDebug()<<item->text();
-//		// GraphicsEllipseItem *ellipse=new GraphicsEllipseItem(0,0,100,100);
-//		//addItem(ellipse);
-//		auto pieSeries=getProxy5();
-//		scene->addItem(pieSeries);
-//	}
-//	else if(item->text()=="散点图序列"){
-//		qDebug()<<item->text();
-//		// GraphicsEllipseItem *ellipse=new GraphicsEllipseItem(0,0,100,100);
-//		//addItem(ellipse);
-//		auto scatterSeries=getProxy6();
-//		scene->addItem(scatterSeries);
-//	}
 	if(item->text()=="统计图结点"){
-		qDebug()<<item->text();
-		// GraphicsEllipseItem *ellipse=new GraphicsEllipseItem(0,0,100,100);
-		//addItem(ellipse);
-		auto chart=getChart();
-		scene->addItem(chart->getProxy());
+		GraphicsChartNode*chartNode = new GraphicsChartNode(new MovableProxyWidget);
+		scene->addItem(chartNode->getProxy());
 	}
 
 }
-
-
 
 void NodeShowWindow::on_MoveButton_clicked()
 {
@@ -271,11 +127,7 @@ void NodeShowWindow::on_listWidget_2_itemDoubleClicked(QListWidgetItem *item)
     auto nodeItem=dynamic_cast<NodeListWidgetItem*>(item);
     int index=nodeItem->getItemIndex();
 	auto node = ui->listWidget_2->getArrayNode(index);
-    //    Q_ASSERT(arrayNode!=nullptr);
-    //    scene->addItem(arrayNode->getProxy());
-
 	scene->addItem(node->getProxy());
-    qDebug()<<index;
 }
 
 

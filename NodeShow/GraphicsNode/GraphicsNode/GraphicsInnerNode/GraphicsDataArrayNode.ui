@@ -162,30 +162,6 @@ border-radius:50%;
     <string/>
    </property>
   </widget>
-  <widget class="QLineEdit" name="dataArrayNodeData">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>90</y>
-     <width>201</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Segoe UI</family>
-     <pointsize>9</pointsize>
-     <weight>50</weight>
-     <bold>false</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">border:1px solid rgba(255, 255, 255, 0)</string>
-   </property>
-   <property name="text">
-    <string>null</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
@@ -357,26 +333,39 @@ border-radius:5px;</string>
     <string/>
    </property>
   </widget>
+  <widget class="QPushButton" name="showData">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>90</y>
+     <width>89</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>查看数据</string>
+   </property>
+  </widget>
   <zorder>nodeBackground</zorder>
   <zorder>comboBox</zorder>
   <zorder>label</zorder>
-  <zorder>dataArrayNodeData</zorder>
   <zorder>label_2</zorder>
   <zorder>dataArrayNodeName</zorder>
   <zorder>label_3</zorder>
   <zorder>outputPort</zorder>
   <zorder>inputPort</zorder>
+  <zorder>showData</zorder>
  </widget>
  <customwidgets>
-  <customwidget>
-   <class>InputPort</class>
-   <extends>QPushButton</extends>
-   <header location="global">NodeShow/GraphicsNode/GraphicsNode/InputPort.h</header>
-  </customwidget>
   <customwidget>
    <class>OutputPort</class>
    <extends>QPushButton</extends>
    <header location="global">NodeShow/GraphicsNode/GraphicsNode/OutputPort.h</header>
+  </customwidget>
+  <customwidget>
+   <class>InputPort</class>
+   <extends>QPushButton</extends>
+   <header location="global">NodeShow/GraphicsNode/GraphicsNode/InputPort.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

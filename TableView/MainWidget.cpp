@@ -15,6 +15,7 @@ MainWidget::MainWidget(QWidget *parent) :
 {
     ui->setupUi(this);
 
+	on_addNewTable_clicked();
 
 
 }

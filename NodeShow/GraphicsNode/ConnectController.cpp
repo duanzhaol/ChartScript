@@ -14,6 +14,20 @@ ConnectController *ConnectController::getInstance()
 void ConnectController::connectLineWuhu(Inputable *input, Outputable *output)
 {
 
+	if(InterpreterController::getGlobalInstance()->hasConncted(
+				dynamic_cast<AbstractNode*>(input),
+				dynamic_cast<AbstractNode*>(output))
+			){
+		QMessageBox::warning(nullptr,"警告","已经连接过了");
+		clearPort();
+		return;
+	}
+
+	if(dynamic_cast<AbstractGraphicsNode*>(input)==dynamic_cast<AbstractGraphicsNode*>(output)){
+		QMessageBox::warning(nullptr,"警告","不能自己连自己");
+		clearPort();
+		return;
+	}
 
 	try {
 		InterpreterController::getGlobalInstance()->addConnect(
@@ -38,18 +52,11 @@ void ConnectController::connectLineWuhu(Inputable *input, Outputable *output)
 void ConnectController::drawLine()
 {
 
-//    qDebug()<<input;
-//    qDebug()<<output;
     qDebug()<<"ConnectController::drawLine()";
     input =nullptr;
     output=nullptr;
     NodeShowWindow::getInstance()->setLcdNumber(0);
-    //    inputOrigin=nullptr;
-//    outputOrigin=nullptr;
 
-
-//        qDebug()<<input;
-//        qDebug()<<output;
 }
 
 
@@ -75,23 +82,6 @@ void ConnectController::ConnectLine(QPushButton* port, AbstractGraphicsNode::Por
         NodeShowWindow::getInstance()->setLcdNumber(1);
     }
 
-//    qDebug()<<port;
-//    qDebug()<<input<<output;
-//    qDebug()<<(void*)input<<(void*)output;
-
-    if((void*)input==(void*)output){
-		QMessageBox::information(nullptr,"提示", "不能自己连自己哦！");
-
-        input =nullptr;
-        output=nullptr;
-//        inputOrigin=nullptr;
-//        outputOrigin=nullptr;
-
-        return;
-    }
-
-//    if(input!=nullptr&&output!=nullptr&&inputOrigin!=nullptr&&outputOrigin!=nullptr)
-//    {
 
     if(input!=nullptr&&output!=nullptr)
     {
@@ -106,7 +96,9 @@ void ConnectController::clearPort()
     input=nullptr;
     output=nullptr;
     NodeShowWindow::getInstance()->setLcdNumber(0);
+#ifdef QT_DEBUG
 	QMessageBox::information(nullptr, "提示", "待连线结点已清空");
+#endif
 }
 
 

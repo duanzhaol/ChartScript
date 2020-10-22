@@ -8,6 +8,7 @@
 #include <Interpreter/Exception/NodeNameConflictException.h>
 #include <UTools/UniqueNamer.h>
 #include <NodeShowWindow.h>
+#include <QListWidget>
 
 
 #pragma execution_character_set("utf-8")
@@ -22,20 +23,11 @@ GraphicsDataArrayNode::GraphicsDataArrayNode(QWidget *parent) :
     ui->setupUi(this);
     ui->comboBox->setView(new QListView());
 
-
-    //    qDebug()<<this->mapTo(NodeShowWindow::getInstance(),this->pos());
-
-    /*两个单独lineedit文字居中*/
     ui->dataArrayNodeName->setAlignment( Qt::AlignHCenter); //数据节点的名字居中显示
-    ui->dataArrayNodeData->setAlignment( Qt::AlignHCenter); //数据节点的数据居中显示
 
     ui->inputPort->setParent(this);
     ui->outputPort->setParent(this);
 	this->initName();
-//    qDebug()<<"-------------";
-//    qDebug()<<ui->inputPort->parent()<<ui->outputPort->parent();
-//    qDebug()<<ui->inputPort->getNode()<<ui->outputPort->getNode();
-//    qDebug()<<"-------------";
 
 
 
@@ -76,9 +68,7 @@ QVariant GraphicsDataArrayNode::getNodeData() const
 
 void GraphicsDataArrayNode::setNodeData(const QVariant &newData)
 {
-    ui->dataArrayNodeData->setText(newData.toString());
 	dataList = newData.toList();
-
 }
 
 OutputPort *GraphicsDataArrayNode::getOutputPort()
@@ -179,3 +169,48 @@ void GraphicsDataArrayNode::on_dataArrayNodeName_editingFinished()
 //}
 
 
+
+void GraphicsDataArrayNode::on_showData_clicked()
+{
+	QListWidget*list = new QListWidget;
+
+	list->setStyleSheet(R"(
+					QListWidget {
+						alternate-background-color: yellow;
+					}
+
+					QListWidget{
+						show-decoration-selected: 1;
+				   }
+				   QListWidget::item:alternate {
+					   background: #EEEEEE;
+				   }
+
+				   QListWidget::item:selected {
+					   border: 1px solid #6a6ea9;
+				   }
+
+				   QListWidget::item:selected:!active {
+					   background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+												   stop: 0 #ABAFE5, stop: 1 #8588B2);
+				   }
+
+				   QListWidget::item:selected:active {
+					   background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+												   stop: 0 #6a6ea9, stop: 1 #888dd9);
+				   }
+
+				   QListWidget::item:hover {
+					   background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+												   stop: 0 #FAFBFE, stop: 1 #DCDEF1);
+				   }
+				  )");
+
+	int size = dataList.size();
+	list->addItem(QString("数据共有%1项,为:\n").arg(size));
+	for(int index = 0;index <size;++index){
+		list->addItem(dataList[index].toString());
+	}
+	connect(list,&QListWidget::close,list,&QListWidget::deleteLater);
+	list->show();
+}

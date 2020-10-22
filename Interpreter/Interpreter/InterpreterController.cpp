@@ -53,6 +53,15 @@ InterpreterController *InterpreterController::getGlobalInstance()
 	return InterpreterController::globalController;
 }
 
+bool InterpreterController::hasConncted(AbstractNode *outputNode, AbstractNode *inputNode) const
+{
+	auto iterator = this->graph.find(outputNode->getNodeName());
+	if(iterator == this->graph.end()){
+		return false;
+	}
+	return iterator.value().contains(inputNode);
+}
+
 void InterpreterController::setStartNode(AbstractNode *start)
 {
 	this->startNode = start;
