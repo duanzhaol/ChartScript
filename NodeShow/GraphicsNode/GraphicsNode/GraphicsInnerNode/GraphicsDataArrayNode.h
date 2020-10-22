@@ -25,6 +25,7 @@ class GraphicsDataArrayNode : public AbstractGraphicsInnerDualputNode, public Ab
 
 public:
     explicit GraphicsDataArrayNode(QWidget *parent = nullptr);
+	explicit GraphicsDataArrayNode(const QString name,QWidget*parent = nullptr);
     ~GraphicsDataArrayNode();
     QComboBox* getCombobox();
     QList<QVariant> dataArray;

@@ -14,23 +14,7 @@ MainWidget::MainWidget(QWidget *parent) :
     ui(new Ui::MainWidget)
 {
     ui->setupUi(this);
-
-	on_addNewTable_clicked();
-
-
 }
-//    QListWidgetItem* item = new QListWidgetItem();
-//    item->setData(0,tr("信息统计表"));
-//    item->setData(Qt::UserRole + 1,"222");//其他数据
-//    ui->listWidget->addItem(item);
-//    ui->listWidget->addItem(new QListWidgetItem(tr("趋势记录表")));
-//    ui->listWidget->addItem(new QListWidgetItem(tr("平均年收入")));
-//    //点击
-//    connect(ui->listWidget,SIGNAL(itemClicked(QListWidgetItem*)),this,SLOT(ListItemClicked(QListWidgetItem*)));
-
-//    //右键
-//    ui->listWidget->setContextMenuPolicy(Qt::CustomContextMenu);
-
 
 MainWidget::~MainWidget()
 {
@@ -46,41 +30,6 @@ void MainWidget::createWidget()
 {
     instance = new MainWidget;
 }
-
-
-
-
-
-//void MainWidget::setTable(int row,int col,QString s)
-//{
-//    for(int i = 0;i < row;i++)
-//    {
-//        for(int j = 0;j < col;j++)
-//        {
-//            QTableWidgetItem* item = new QTableWidgetItem();
-//            item->setText(s);
-//            ui->tableWidget->setItem(i,j,item);//必须新建item指针
-//        }
-//    }
-////    ui->tableWidget->clear();
-
-//}
-
-//void MainWidget::ListItemClicked(QListWidgetItem* item)
-//{
-
-//    QString s = item->text();
-////    qDebug() << t;
-//    int row = 0, col = 0;
-//    if(s == tr("信息统计表"))    row = 6,col = 5;
-//    if(s == tr("趋势记录表"))    row = 1,col = 1;
-//    if(s == tr("平均年收入"))    row = 2,col = 2;
-//    ui->tableWidget->setColumnCount(row);
-//    ui->tableWidget->setRowCount(col);
-//    setTable(row,col,s);
-//}
-
-
 
 void MainWidget::on_addColumn_clicked()
 {
@@ -182,11 +131,6 @@ void MainWidget::on_addNewTable_clicked()
     ui->tabWidget->addTab(table,"新建表格");
     TableArrayItem* item=table->getItems().first();
     emit newArray(item);
-    //table->setHorizontalHeaderItem(0,new QTableWidgetItem("请命名"));
-    //table->insertColumn(0);    //    item->setText("新建表格");
-    //    ui->listWidget->addItem(item);
-    //    ui->tableWidget->setColumnCount(1);
-    //    ui->tableWidget->setRowCount(1);
 
 }
 

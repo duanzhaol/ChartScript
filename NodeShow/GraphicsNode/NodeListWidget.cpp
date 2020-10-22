@@ -65,48 +65,23 @@ bool NodeListWidget::addItemAll(GraphicsTopArrayNode * node, QListWidgetItem *it
 void NodeListWidget::reciveArray(TableArrayInterface *arrayInterface)
 {
 
-//    ChartItem* chart=dynamic_cast<ChartItem*>(chartInterface->getChart());
-//    chart->createDefaultAxes();
+	GraphicsTopArrayNode * topNode=new GraphicsTopArrayNode(arrayInterface,new MovableProxyWidget);
 
-
-//    qsrand(time(NULL));
-//    int n = qrand() % 99999;//存储的随机数
-
-
-//    QtCharts::QChartView *chartView = new QtCharts::QChartView(chart);
-//    chartView->setRenderHint(QPainter::Antialiasing);  //消除边缘
-//    chartView->setChart(chart);
-
-//    //QPixmap p = QPixmap::grabWidget(chartView);
-//    QPixmap p = chartView->grab();
-
-//    //    QImage image=p.toImage();
-//    //	QString url=":/img/image/";//前缀
-//    //    url=url+QString(n)+".png";
-//    //    image.save(url);
-
-
-    qDebug()<<"NodeListWidget::reciveArray"<<"接收到表格列信号："<<arrayInterface;
-
-//	qDebug()<<arrayInterface->getArrayData();
-//	qDebug()<<arrayInterface->getArrayName();
-//	qDebug()<<arrayInterface->getArrayType();
-
-
-
-    GraphicsTopArrayNode * topNode=new GraphicsTopArrayNode(arrayInterface,new MovableProxyWidget);
-
-    NodeListWidgetItem *item=new NodeListWidgetItem(this);
+	NodeListWidgetItem *item=new NodeListWidgetItem(this);
 
 	connect(arrayInterface,&TableArrayInterface::arrayNameChanged,this,[=](){
 		item->setText(arrayInterface->getArrayName());
 	});
 
-    item->setItemIndex(Nodeindex);
-    item->setText(arrayInterface->getArrayName());
-    item->setIcon(QIcon(":/img/img/node/arrayNode.png"));
-    item->setSizeHint(QSize(100,20));
-    addItemAll(topNode,item);
+	connect(arrayInterface,&TableArrayInterface::arrayDelete,this,[=]{
+		this->removeItemWidget(item);
+	});
+
+	item->setItemIndex(Nodeindex);
+	item->setText(arrayInterface->getArrayName());
+	item->setIcon(QIcon(":/img/img/node/arrayNode.png"));
+	item->setSizeHint(QSize(100,20));
+	addItemAll(topNode,item);
 }
 
 

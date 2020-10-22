@@ -207,6 +207,9 @@ border-radius:5px;</string>
    <property name="text">
     <string> 数列节点</string>
    </property>
+   <property name="readOnly">
+    <bool>true</bool>
+   </property>
   </widget>
   <widget class="QLabel" name="label_3">
    <property name="geometry">

@@ -7,6 +7,7 @@
 #include <QPieSeries>
 #include <QFileDialog>
 #include <graphShow/AttributeDialog/BackgroundDialog.h>
+#include <Interpreter/Transmitter/GraphShowTransmitter.h>
 
 myWindow::myWindow(QWidget *parent) :
     QWidget(parent),
@@ -21,13 +22,13 @@ void myWindow::setScene(GraphicsScene *myScene)
 {
     ui->graphicsView->setScene(myScene);
 
-	connect(listWidget1,&ListWidget::itemDoubleClicked,
+	connect(chartListWidget,&ListWidget::itemDoubleClicked,
 			this,&myWindow::sendChart_Transmitter);
 
 	connect(this,&myWindow::sendChart,
 			dynamic_cast<GraphicsScene*>(ui->graphicsView->scene()),&GraphicsScene::recieveChart);
 
-	connect(listWidget2,&QListWidget::itemDoubleClicked,
+	connect(designElementsListWidget,&QListWidget::itemDoubleClicked,
 			dynamic_cast<GraphicsScene*>(ui->graphicsView->scene()),&GraphicsScene::recieveGraphics);
 
 	connect(this,&myWindow::selectAll,
@@ -37,6 +38,9 @@ void myWindow::setScene(GraphicsScene *myScene)
 			dynamic_cast<GraphicsScene*>(ui->graphicsView->scene()),&GraphicsScene::toTop);
 
 	connect(myScene,&GraphicsScene::mouseMove,this,&myWindow::setCursorCoor);
+
+	connect(&GraphShowTransmitter::getInstance(),&GraphShowTransmitter::sendChart,
+			chartListWidget,&ListWidget::reciveChart);
 
 	scene = myScene;
 }
@@ -65,88 +69,69 @@ void myWindow::on_pushButton_theme_clicked()
  */
 void myWindow::sendChart_Transmitter(QListWidgetItem *item)
 {
-	int row=listWidget1->row(item);
-    qDebug()<<row;
-	ChartItem* chart=listWidget1->getChart(row);
+	int row=chartListWidget->row(item);
+	ChartItem* chart=chartListWidget->getChart(row);
     emit sendChart(chart);
 }
 
 void myWindow::initialListWidget()
 {
-	listWidget1 = new ListWidget(ui->tabWidget);
-	listWidget2 = new ListWidget(ui->tabWidget);
+	chartListWidget = new ListWidget(ui->tabWidget);
+	designElementsListWidget = new ListWidget(ui->tabWidget);
 
-	listWidget1->setParent(ui->tabWidget);
-	listWidget1->setViewMode(QListView::IconMode);
+	chartListWidget->setParent(ui->tabWidget);
+	chartListWidget->setViewMode(QListView::IconMode);
     //设置QListWidget中单元项的图片大小
-	listWidget1->setIconSize(QSize(100,100));
+	chartListWidget->setIconSize(QSize(100,100));
     //设置QListWidget中单元项的间距
-	listWidget1->setSpacing(10);
+	chartListWidget->setSpacing(10);
     //设置自动适应布局调整（Adjust适应，Fixed不适应），默认不适应
-	listWidget1->setResizeMode(QListWidget::Adjust);
+	chartListWidget->setResizeMode(QListWidget::Adjust);
     //设置不能移动
-	listWidget1->setMovement(QListWidget::Static);
+	chartListWidget->setMovement(QListWidget::Static);
 
-	listWidget2->setParent(ui->tabWidget);
-	listWidget2->setViewMode(QListView::IconMode);
-	listWidget2->setIconSize(QSize(100,100));
-	listWidget2->setSpacing(10);
-	listWidget2->setResizeMode(QListWidget::Adjust);
-	listWidget2->setMovement(QListWidget::Static);
+	designElementsListWidget->setParent(ui->tabWidget);
+	designElementsListWidget->setViewMode(QListView::IconMode);
+	designElementsListWidget->setIconSize(QSize(100,100));
+	designElementsListWidget->setSpacing(10);
+	designElementsListWidget->setResizeMode(QListWidget::Adjust);
+	designElementsListWidget->setMovement(QListWidget::Static);
 
-    ChartItem *chart =  new ChartItem();
-    chart->createDefaultAxes();
-    //圆饼图元素
-    auto pie = new ::QtCharts::QPieSeries;
-    //添加测试数据
-    pie->append(new ::QtCharts::QPieSlice("blue",20));
-    pie->append(new ::QtCharts::QPieSlice("red",20));
-    qDebug() <<"左键点击选中了一个chart！";
-    chart->addSeries(pie);
-    pie->setVisible(true);
-    chart->setVisible(true);
-    chart->setPos(5,5);
-    chart->setGeometry(5,5,800,800);
-    chart->setFlag(QGraphicsItem::ItemIsMovable,true);
-    chart->setFlag(QGraphicsItem::ItemIsSelectable,true);
-    chart->acceptDrops();
-
-
-	ListWidgetItem *item3=new ListWidgetItem(listWidget2);
+	ListWidgetItem *item3=new ListWidgetItem(designElementsListWidget);
 	item3->setText(QStringLiteral("矩形"));
 	item3->setIcon(QIcon(":/GraphShowImage/image/rect.png"));
     item3->setSizeHint(QSize(100,120));
 
-	ListWidgetItem *item4=new ListWidgetItem(listWidget2);
+	ListWidgetItem *item4=new ListWidgetItem(designElementsListWidget);
 	item4->setText(QStringLiteral("椭圆"));
 	item4->setIcon(QIcon(":/GraphShowImage/image/ellipse.png"));
     item4->setSizeHint(QSize(100,120));
 
-	ListWidgetItem *item5 = new ListWidgetItem(listWidget2);
+	ListWidgetItem *item5 = new ListWidgetItem(designElementsListWidget);
 	item5->setText(QStringLiteral("文本框"));
 	item5->setIcon(QIcon(":/GraphShowImage/image/textBox.png"));
 	item5->setSizeHint(QSize(100,120));
 
-	ListWidgetItem *item6 = new ListWidgetItem(listWidget2);
+	ListWidgetItem *item6 = new ListWidgetItem(designElementsListWidget);
 	item6->setText(QStringLiteral("图片"));
 	item6->setIcon(QIcon(":/GraphShowImage/image/addPixmap.png"));
 	item6->setSizeHint(QSize(100,120));
 
-	ListWidgetItem *item7 = new ListWidgetItem(listWidget2);
+	ListWidgetItem *item7 = new ListWidgetItem(designElementsListWidget);
 	item7->setText(QStringLiteral("三角形"));
 	item7->setIcon(QIcon(":/GraphShowImage/image/triangle.png"));
 	item7->setSizeHint(QSize(100,120));
 
    // listWidget1->addItemAll(chart,item1);
 	//listWidget1->addItemAll(chart,item2);
-	listWidget2->addItem(item3);
-	listWidget2->addItem(item4);
-	listWidget2->addItem(item5);
-	listWidget2->addItem(item6);
-	listWidget2->addItem(item7);
+	designElementsListWidget->addItem(item3);
+	designElementsListWidget->addItem(item4);
+	designElementsListWidget->addItem(item5);
+	designElementsListWidget->addItem(item6);
+	designElementsListWidget->addItem(item7);
 
-	ui->tabWidget->addTab(listWidget1,QStringLiteral("统计图元素"));
-	ui->tabWidget->addTab(listWidget2,QStringLiteral("设计元素"));
+	ui->tabWidget->addTab(chartListWidget,QStringLiteral("统计图元素"));
+	ui->tabWidget->addTab(designElementsListWidget,QStringLiteral("设计元素"));
 
 }
 

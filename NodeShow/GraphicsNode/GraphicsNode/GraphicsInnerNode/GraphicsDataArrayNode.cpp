@@ -28,9 +28,19 @@ GraphicsDataArrayNode::GraphicsDataArrayNode(QWidget *parent) :
     ui->inputPort->setParent(this);
     ui->outputPort->setParent(this);
 	this->initName();
+}
 
+GraphicsDataArrayNode::GraphicsDataArrayNode(const QString name, QWidget *parent):
+	ui(new Ui::GraphicsDataArrayNode)
+{
+	ui->setupUi(this);
+	ui->comboBox->setView(new QListView());
 
+	ui->dataArrayNodeName->setAlignment( Qt::AlignHCenter); //数据节点的名字居中显示
 
+	ui->inputPort->setParent(this);
+	ui->outputPort->setParent(this);
+	ui->dataArrayNodeName->setText(name);
 }
 
 
@@ -153,22 +163,6 @@ void GraphicsDataArrayNode::on_dataArrayNodeName_editingFinished()
     }
 	setNodeName(ui->dataArrayNodeName->text());
 }
-
-//void GraphicsDataArrayNode::on_dataArrayNodeName_textChanged(const QString &arg1)
-//{
-//    try {
-
-//        this->testNodeNameIfDuplicate(arg1);
-//    } catch (NodeNameConflictException e) {
-//        qDebug()<<e.getWhy();
-
-//        //messageBox
-//        QMessageBox::information(NULL, "结点命名重复", "请重新命名！");
-//        setNodeName(UniqueNamerPool::getNamer(NamerSeed::GraphShow).getUniqueName());
-//    }
-//}
-
-
 
 void GraphicsDataArrayNode::on_showData_clicked()
 {

@@ -10,6 +10,8 @@ TableArrayItem::TableArrayItem()
 	data.append(initName);
     data.append("string");
     data.append("0");
+
+
 }
 /**
  * @brief TableArrayItem::getArrayData
@@ -93,8 +95,7 @@ void TableArrayItem::setArrayName(const QString &newArrayName)
 
 void TableArrayItem::setArrayData(const QVariantList &newData)
 {
-    //考虑newData长度超出原本表格的大小??
-    for(int i=2;i<data.length();i++){
+	for(int i=2;i<data.length();i++){
         data.replace(i,newData.at(i-2));
     }
 

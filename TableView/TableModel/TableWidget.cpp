@@ -1,29 +1,16 @@
 ﻿#include "TableWidget.h"
+#include <QHeaderView>
 #pragma execution_character_set("utf-8")
 
 TableWidget::TableWidget(int row, int column, QWidget *parent):QTableWidget(row,column,parent)
 {
-	setItem(0,0,new QTableWidgetItem("abc"));
     QComboBox *combobox=createComboBox();
     setCellWidget(1,0,combobox);
     connect(this,&TableWidget::cellChanged,this,&TableWidget::onCellChanged);
     void (QComboBox::*index)(int) = &QComboBox::currentIndexChanged;
     connect(combobox,index,this,&TableWidget::onTypeChanged);
-    onAddColumn(0);
+	setItem(0,0,new QTableWidgetItem(onAddColumn(0)->getArrayName()));
 	this->setAlternatingRowColors(true);
-	setStyleSheet(R"(
-				  QTableWidget {
-					  color: white;                                       /*表格内文字颜色*/
-					  gridline-color: black;                              /*表格内框颜色*/
-					  background-color: rgb(108, 108, 108);               /*表格内背景色*/
-					  alternate-background-color: rgb(64, 64, 64);
-					  selection-color: white;                             /*选中区域的文字颜色*/
-					  selection-background-color: rgb(77, 77, 77);        /*选中区域的背景色*/
-					  border: 2px groove gray;
-					  border-radius: 0px;
-					  padding: 2px 4px;
-				  }
-				  )");
 }
 
 void TableWidget::appendArrayItem(TableArrayItem *item)
@@ -34,7 +21,6 @@ void TableWidget::appendArrayItem(TableArrayItem *item)
 void TableWidget::addArrayItem(TableArrayItem *item, int column)
 {
     items.insert(column,item);
-    //showList();
 }
 
 
@@ -49,7 +35,7 @@ TableArrayItem* TableWidget::insertColumn(int column)
 
     TableArrayItem *arrItem=onAddColumn(column);
 
-	setItem(0,column,new QTableWidgetItem("abc"));
+	setItem(0,column,new QTableWidgetItem(arrItem->getArrayName()));
     return arrItem;
 }
 
