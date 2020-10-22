@@ -8,8 +8,8 @@
 
 ConnectLineItem::ConnectLineItem(Inputable *inputNode,
                                  Outputable *outputNode)
-	:inputNode(inputNode),
-	  outputNode(outputNode)
+    :inputNode(inputNode),
+      outputNode(outputNode)
 {
 
 	setFlags(QGraphicsItem::ItemIsSelectable|
@@ -78,7 +78,7 @@ void ConnectLineItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *o
 	//qDebug()<<left<<right;
 
 	mArrow.clear();
-    double par = 50;//箭头部分三角形的腰长12
+    double par = 25;//箭头部分三角形的腰长12
 	double slopy = atan2((right.y() - left.y()), (right.x() - left.x()));
 	double cosy = cos(slopy);
 	double siny = sin(slopy);
@@ -123,16 +123,7 @@ void ConnectLineItem::mousePressEvent(QGraphicsSceneMouseEvent *event)
 }
 
 
-void ConnectLineItem::keyPressEvent(QKeyEvent *event)
-{
-    if(event->key()==Qt::Key_Delete)
-    {
-        qDebug()<<"aaaa";
 
-    }
-
-
-}
 
 
 

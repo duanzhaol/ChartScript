@@ -10,12 +10,12 @@
 #include "GraphicsNode/Dualputable.h"
 
 
-class ConnectLineItem:public QGraphicsPolygonItem,public QObject
+class ConnectLineItem:public QObject,public QGraphicsPolygonItem
 {
 
 public:
     Q_OBJECT
-
+    Q_INTERFACES(QGraphicsItem)
 public:
   explicit ConnectLineItem(Inputable*inputPort,Outputable*outputPort);
 
@@ -40,9 +40,6 @@ signals:
 protected:
   virtual void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
 
-  // QGraphicsItem interface
-protected:
-  virtual void keyPressEvent(QKeyEvent *event) override;
 
 
 
