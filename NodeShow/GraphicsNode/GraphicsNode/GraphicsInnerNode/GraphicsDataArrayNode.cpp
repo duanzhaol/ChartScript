@@ -73,11 +73,14 @@ void GraphicsDataArrayNode::setNodeName(const NodeName &newNodeName)
 
 QVariant GraphicsDataArrayNode::getNodeData() const
 {
-	return dataList;
+	QVariant v(dataList);
+	v.setValue(dataList);
+	return v;
 }
 
 void GraphicsDataArrayNode::setNodeData(const QVariant &newData)
 {
+	Q_ASSERT(newData.type() == QVariant::List);
 	dataList = newData.toList();
 }
 

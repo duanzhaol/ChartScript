@@ -2,7 +2,6 @@
 #include "NodeShowWindow.h"
 #include <QDebug>
 #include <QMessageBox>
-#include <QMessageBox>
 #include <Interpreter/Interpreter/InterpreterController.h>
 #pragma execution_character_set("utf-8")
 
@@ -31,8 +30,8 @@ void ConnectController::connectLineWuhu(Inputable *input, Outputable *output)
 
 	try {
 		InterpreterController::getGlobalInstance()->addConnect(
-			dynamic_cast<AbstractNode*>(input),
-			dynamic_cast<AbstractNode*>(output)
+			dynamic_cast<AbstractNode*>(output),
+			dynamic_cast<AbstractNode*>(input)
 			);
 	} catch (ImplicitTypeConversion &e) {
 		QMessageBox::warning(nullptr,"错误",e.getWhy());
@@ -44,7 +43,7 @@ void ConnectController::connectLineWuhu(Inputable *input, Outputable *output)
 
     ConnectLineItem *line =new ConnectLineItem(input,output);
 	NodeShowWindow::getInstance()->scene->addItem(line);
-    LineList.append(line);
+    LineList.insert(line->LineIndex,line);
 
     drawLine();
 }
@@ -56,8 +55,20 @@ void ConnectController::drawLine()
     input =nullptr;
     output=nullptr;
     NodeShowWindow::getInstance()->setLcdNumber(0);
-
 }
+
+ConnectLineItem *ConnectController::getLineItem(int index)
+{
+    QHash<int, ConnectLineItem*>::iterator i = LineList.find(index);
+    if (i != LineList.end()) {
+        return i.value();
+    }
+    else{
+        return nullptr;
+    }
+}
+
+
 
 
 
@@ -99,6 +110,16 @@ void ConnectController::clearPort()
 #ifdef QT_DEBUG
 	QMessageBox::information(nullptr, "提示", "待连线结点已清空");
 #endif
+}
+
+void ConnectController::removeLineItem(ConnectLineItem *item)
+{
+    NodeShowWindow::getInstance()->scene->removeItem(item);
+    InterpreterController::getGlobalInstance()->
+        removeConnect(dynamic_cast<AbstractNode*>(item->outputNode),
+                      dynamic_cast<AbstractNode*>(item->inputNode));
+    LineList.remove(item->LineIndex);
+    item->~ConnectLineItem();
 }
 
 

@@ -1,15 +1,15 @@
 ﻿#include "ConnectLineItem.h"
 #include"Interpreter/Interpreter/InterpreterController.h"
 #include "Interpreter/GraphicsNodeInterface/GraphicsNodeInterface.h"
-
+#include "../GraphicsNode/ConnectController.h"
 #include <QDebug>
 #include <QPainter>
 
 
 ConnectLineItem::ConnectLineItem(Inputable *inputNode,
                                  Outputable *outputNode)
-	:inputNode(inputNode),
-	  outputNode(outputNode)
+    :inputNode(inputNode),
+      outputNode(outputNode)
 {
 
 	setFlags(QGraphicsItem::ItemIsSelectable|
@@ -17,9 +17,6 @@ ConnectLineItem::ConnectLineItem(Inputable *inputNode,
 			 QGraphicsItem::ItemSendsGeometryChanges|
 			 QGraphicsItem::ItemIsFocusable);//设定选型
 
-    /*到时候把连线放到构造函数外面，先判断再连，button点击事件*/
-
-//    qDebug()<<"lineCreated";
 }
 
 QRectF ConnectLineItem::boundingRect() const
@@ -38,6 +35,7 @@ QPainterPath ConnectLineItem::shape() const
 	return path;
 }
 
+#include <NodeShowWindow.h>
 #include <QDebug>
 #include <QMessageBox>
 
@@ -57,7 +55,7 @@ void ConnectLineItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *o
 	//qDebug()<<left<<right;
 
 	mArrow.clear();
-	double par = 12;//箭头部分三角形的腰长
+    double par = 25;//箭头部分三角形的腰长12
 	double slopy = atan2((right.y() - left.y()), (right.x() - left.x()));
 	double cosy = cos(slopy);
 	double siny = sin(slopy);
@@ -95,15 +93,14 @@ void ConnectLineItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *o
 void ConnectLineItem::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
     qDebug()<<"aha";
-}
-
-
-void ConnectLineItem::keyPressEvent(QKeyEvent *event)
-{
-    if(event->key()==Qt::Key_Delete)
-    {
-        qDebug()<<"aaaa";
+    if(NodeShowWindow::getInstance()->mouseType==NodeShowWindow::NodeShowMouseType::Delete){
+        emit LineClickedWithDele(this);
     }
 
-
 }
+
+
+
+
+
+

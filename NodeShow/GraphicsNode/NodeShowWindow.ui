@@ -328,7 +328,7 @@ border-color:rgb(0, 0, 0);
       <item>
        <widget class="ScalingGraphicsView" name="graphicsView">
         <property name="cursor" stdset="0">
-         <cursorShape>ArrowCursor</cursorShape>
+         <cursorShape>CrossCursor</cursorShape>
         </property>
        </widget>
       </item>

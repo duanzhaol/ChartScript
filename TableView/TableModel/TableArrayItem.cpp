@@ -23,23 +23,7 @@ QVariantList TableArrayItem::getArrayData()
 {
 	QVariantList returnData = data.mid(2);
 	for(QVariant&v:returnData){
-		switch (this->getArrayType()) {
-		case QVariant::String:
-			v.setValue(v.toString());
-			break;
-		case QVariant::Int:
-			v.setValue(v.toInt());
-			break;
-		case QVariant::LongLong:
-			v.setValue(v.toLongLong());
-			break;
-		case QVariant::Double:
-			v.setValue(v.toDouble());
-			break;
-		default:
-			Q_ASSERT_X(false,__FILE__+__LINE__,"no support type!");
-			break;
-		}
+		v.convert(this->getArrayType());
 	}
 	return returnData;
 }
