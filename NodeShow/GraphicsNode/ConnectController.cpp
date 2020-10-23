@@ -3,6 +3,7 @@
 #include <QDebug>
 #include <QMessageBox>
 #include <Interpreter/Interpreter/InterpreterController.h>
+#pragma execution_character_set("utf-8")
 
 ConnectController *ConnectController::getInstance()
 {
@@ -98,7 +99,6 @@ void ConnectController::ConnectLine(QPushButton* port, AbstractGraphicsNode::Por
         connectLineWuhu(input,output);
     }
 
-
 }
 
 void ConnectController::clearPort()
@@ -118,11 +118,7 @@ void ConnectController::removeLineItem(ConnectLineItem *item)
         removeConnect(dynamic_cast<AbstractNode*>(item->outputNode),
                       dynamic_cast<AbstractNode*>(item->inputNode));
     LineList.remove(item->LineIndex);
-    item->~ConnectLineItem();
+	delete item;
 }
-
-
-
-
 
 ConnectController* ConnectController::instance=new ConnectController();

@@ -136,35 +136,22 @@ void GraphicsScene::recieveChart(ChartItem *item)
 #include <graphShow/item/ShapeItem/GraphicsTriangleItem.h>
 void GraphicsScene::recieveGraphics(QListWidgetItem *item)
 {
-
 	if(item->text()==QStringLiteral("矩形")){
-		qDebug()<<item->text();
 		GraphicsRectItem *rect=new GraphicsRectItem(0,0,100,100);
 		addItem(rect);
-		ChartItem*item = new ChartItem;
-		auto s = new QtCharts::QLineSeries;
-		s->append(1,1);
-		s->append(2,2);
-		item->addSeries(s);
-		recieveChart(item);
 	}else if(item->text()==QStringLiteral("椭圆")){
-		qDebug()<<item->text();
-
 		GraphicsEllipseItem *ellipse=new GraphicsEllipseItem(0,0,100,100);
 		addItem(ellipse);
 	}
 	else if(item->text()==QStringLiteral("文本框")){
-		qDebug()<<item->text();
 		GraphicsTextItem*text = new GraphicsTextItem(0,0);
 		addItem(text);
 	}
 	else if(item->text()==QStringLiteral("图片")){
-		qDebug()<<item->text();
 		GraphicsImageItem*text = new GraphicsImageItem(0,0,100,100);
 		addItem(text);
 	}
 	else if(item->text()==QStringLiteral("三角形")){
-		qDebug()<<item->text();
 		GraphicsTriangleItem*text = new GraphicsTriangleItem(0,0,100,100);
 		addItem(text);
 	}

@@ -50,5 +50,3 @@ SOURCES += main.cpp \
 
 FORMS +=
 
-QMAKE_CXXFLAGS += /utf-8
-
