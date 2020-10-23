@@ -5,7 +5,10 @@
 #include <QPushButton>
 
 class Outputable;
-
+/**
+ * @brief
+ * 各个图节点的输出端口
+ */
 class OutputPort:public QPushButton
 {
     Q_OBJECT

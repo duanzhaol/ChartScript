@@ -7,6 +7,12 @@
 #include <QtCharts/QPieSeries>
 #include <QtCharts/QPieSlice>
 
+/**
+ * @brief
+ * 抽象饼状图图序列节点。
+ * process方法收集饼状图内部数据生成散点序列
+ */
+
 class AbstractPieSeries:
 		public AbstractSeriesNode,
 		public GraphicsPieNodeInterface

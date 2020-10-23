@@ -6,6 +6,12 @@
 #include <TableView/GraphicsShowInterface/TableArrayInterface.h>
 #include <GraphicsNode/GraphicsTopNode/GraphicsTopArrayNode.h>
 
+/**
+ * @brief
+ * 用于显示图节点的列表，以选取添加图节点
+ * @see NodeListWidgetItem
+ */
+
 class NodeListWidget:public QListWidget
 {
     Q_OBJECT

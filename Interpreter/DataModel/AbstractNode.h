@@ -5,15 +5,24 @@
 #include "../Interpreter/ModelCodingInterface.h"
 #include "../GraphicsNodeInterface/GraphicsNodeInterface.h"
 
-/**
- * @brief The AbstractNode class,the base class of all DataModel which also called node
- */
-
+//! 每一个节点的名称
 using NodeName = QString;
 
+/**
+ * @brief
+ * 每一个节点的类型
+ */
 enum class ModelType:char{
 	Invalid,Start,Data,Array,Chart,AreaSeries,LineSeries,PieSeries,ScatterSeries
 };
+
+/**
+ * @brief
+ * 所有抽象节点的父类，所有编译数据结构的基本单元。
+ * 包括每种节点内部处理方式的方法：
+ * @codeline virtual void process(AbstractNode*nextNode);
+ * @implements ModelCodingInterface
+ */
 
 class AbstractNode:
 		public GraphicsNodeInterface,

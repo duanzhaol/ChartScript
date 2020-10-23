@@ -4,6 +4,12 @@
 #include <QList>
 #include <QVariant>
 
+/**
+ * @brief
+ * 数组对象类型，包装了一组数据，作为语言的一个内置数据结构。
+ * @tparam  T 数组元素的类型，如int,double,string等
+ */
+
 template<typename T>
 class Array:public QList<T>
 {

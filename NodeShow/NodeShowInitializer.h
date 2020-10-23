@@ -2,7 +2,10 @@
 #define NODESHOWINITIALIZER_H
 
 #include "InitInterface/AbstractInitializer.h"
-
+/**
+ * @brief
+ * 初始化图节点编程模块的初始化器
+ */
 class NodeShowInitializer:public AbstractInitializer
 {
 	static NodeShowInitializer *instance;

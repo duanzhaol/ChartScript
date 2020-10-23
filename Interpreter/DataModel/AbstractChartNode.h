@@ -6,7 +6,13 @@
 #include "../GraphicsNodeInterface/GraphicsChartNodeInterface.h"
 
 
-
+/**
+ * @brief
+ * 抽象统计图节点，包括对节点内部序列process顺序的调度以及组装并生成统计图。
+ * @note
+ * 实现了GraphicsShowInterface，将统计图发往设计部分
+ * 实现了GraphicsChartNodeInterface，使之能实例化为统计图节点
+ */
 
 class AbstractChartNode:
 		public AbstractNode,

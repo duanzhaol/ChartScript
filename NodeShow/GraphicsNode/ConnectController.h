@@ -4,6 +4,12 @@
 #include <QObject>
 #include <GraphicsDataArrayNode.h>
 
+/**
+ * @brief
+ * 图节点编程中的连接线控制器。
+ * 监听图节点中输入输出端口的信号，判断连接的合法性并连接两个端口
+ */
+
 class ConnectController:public QObject
 {
     Q_OBJECT

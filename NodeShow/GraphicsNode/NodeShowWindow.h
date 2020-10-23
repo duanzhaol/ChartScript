@@ -12,7 +12,10 @@
 namespace Ui {
 class NodeShowWindow;
 }
-
+/**
+ * @brief 图节点模块的主窗口。
+ * 包含图节点模块资源的初始化、窗口的组织
+ */
 class NodeShowWindow : public QMainWindow
 {
 	Q_OBJECT

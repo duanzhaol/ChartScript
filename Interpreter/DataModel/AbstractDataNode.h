@@ -6,8 +6,8 @@
 #include <QVariant>
 
 /**
- * @brief The AbstractDataNode class
- *
+ * @brief
+ * 抽象数据节点，保存单个数据的内容和类型，process实现数据间传递。
  */
 
 

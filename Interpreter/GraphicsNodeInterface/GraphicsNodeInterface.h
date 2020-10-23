@@ -4,10 +4,15 @@
 #include <QString>
 using NodeName = QString;
 
+/**
+ * @interface GraphicsNodeInterface
+ * 抽象节点接口，所有编译单元接口的父类
+ */
+
 class GraphicsNodeInterface{
 public:
 
-	virtual NodeName getNodeName()const = 0;
+    virtual NodeName getNodeName()const = 0;
     virtual void setNodeName(const NodeName&newNodeName) = 0;
 
 };

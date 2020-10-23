@@ -4,6 +4,10 @@
 #include "../../DataModel/AbstractNode.h"
 #include "NodeShow/GraphicsNode/GraphicsNode/AbstractGraphicsNode.h"
 
+
+/**
+ * @brief 初始化区域单行代码解释器
+ */
 class InitCodeLineInterpreter
 {
 	InitCodeLineInterpreter();

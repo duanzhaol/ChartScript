@@ -5,6 +5,12 @@
 #include "../../GraphicsNodeInterface/GraphicsXYNodeInterface.h"
 #include <QtCharts/QLineSeries>
 
+/**
+ * @brief
+ * 抽象折线图序列节点。
+ * process方法收集折线图内部数据生成散点序列
+ */
+
 class AbstractLineSeriesNode:
 		public AbstractSeriesNode,
 		public GraphicsXYNodeInterface

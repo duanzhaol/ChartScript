@@ -7,6 +7,12 @@ namespace Ui {
 class ShapeItemDialog;
 }
 
+/**
+ * @brief
+ * 基本形状元素对话框的返回结果，包括用户对基本设计元素的边框和填充设置的颜色和样式
+ * @see ShapeItemDialog
+ * @see AbstractGraphicsShapeItem
+ */
 struct ShapeAttribute{
 	QColor penColor,brushColor;
 	Qt::PenStyle penStyle;
@@ -20,6 +26,11 @@ struct ShapeAttribute{
 	}
 };
 
+/**
+ * @brief
+ * 用于设置基本设计元素的边框和填充
+ * @see AbstractGraphicsShapeItem
+ */
 class ShapeItemDialog : public QDialog
 {
 	Q_OBJECT

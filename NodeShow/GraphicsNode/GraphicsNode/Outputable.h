@@ -9,10 +9,10 @@
 #include <QGraphicsProxyWidget>
 
 /**
- * @interface
+ * @interface Outputable
+ * 所有拥有输出端口的图节点的接口，实现该接口的子类能够被连接输出端口
  */
 
-//using OutputPort = QWidget;
 
 class Outputable{
 public:

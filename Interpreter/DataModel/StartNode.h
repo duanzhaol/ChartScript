@@ -3,6 +3,11 @@
 
 #include "AbstractNode.h"
 
+/**
+ * @brief
+ * 抽象起点
+ */
+
 class StartNode:public AbstractNode{
 public:
 	StartNode();

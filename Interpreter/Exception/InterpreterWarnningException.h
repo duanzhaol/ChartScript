@@ -2,6 +2,10 @@
 #define INTERPRETERWARNNINGEXCEPTION_H
 
 #include "InterpreterException.h"
+/**
+ * @exception InterpreterWarnningException
+ * @brief 编译警告异常的父类
+ */
 class InterpreterWarnningException:public InterpreterException{
 
 };

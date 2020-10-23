@@ -4,6 +4,12 @@
 #include "../AbstractNode.h"
 #include <QtCharts/QAbstractSeries>
 
+/**
+ * @brief
+ * 抽象序列节点。
+ * process方法收集序列内部的数据生成一个序列
+ */
+
 class AbstractSeriesNode:public AbstractNode
 {
 public:

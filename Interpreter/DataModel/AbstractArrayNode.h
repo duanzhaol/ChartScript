@@ -4,6 +4,12 @@
 #include "AbstractDataNode.h"
 #include "../GraphicsNodeInterface/GraphicsArrayNodeInterface.h"
 
+/**
+ * @brief
+ * 抽象数列节点，数列数据类型的编译单元
+ * process方法实现了数列间数据转移
+ */
+
 class AbstractArrayNode:
 		public AbstractDataNode,
 		public GraphicsArrayNodeInterface

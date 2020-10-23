@@ -5,8 +5,9 @@
 #include <QVariant>
 
 /**
- * @brief The TypeUnconvertible class
- * use this to handle type cast exception when two node want to establish connection.
+ * @exception TypeUnconvertible
+ * @brief
+ * 类型不可转换错误
  * @example
  * if port A has data which type is int and port B has data which type is double,
  * then this exception will never be throwed.

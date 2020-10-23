@@ -3,6 +3,11 @@
 
 #include "../../DataModel/AbstractNode.h"
 
+/**
+ * @brief
+ * 模块名称解释器，解释模块的名称
+ */
+
 class ModelNameInterpreter
 {
 	ModelNameInterpreter();

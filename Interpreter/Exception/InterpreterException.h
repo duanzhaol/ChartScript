@@ -5,8 +5,8 @@
 #include <QString>
 
 /**
- * @brief the base class of all interpreter related exception
- * @note call function what to get exception imformation
+ * @exception InterpreterException
+ * 所有解释器相关异常的父类
  */
 
 class InterpreterException:public std::exception

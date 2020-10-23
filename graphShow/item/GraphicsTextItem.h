@@ -5,7 +5,11 @@
 #include <QGraphicsTextItem>
 #include "../AttributeDialog/TextItemDialog.h"
 
-
+/**
+ * @brief The GraphicsTextItem class
+ * 文本框对象，用于像设计元素添加文本框
+ * @tparam QGraphicsTextItem 选择文本框作为绘制、碰撞检测的基类
+ */
 
 class GraphicsTextItem:public AbstractGraphicsItem<QGraphicsTextItem>
 {

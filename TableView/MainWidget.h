@@ -13,7 +13,7 @@ namespace Ui {
 class MainWidget;
 }
 /**
- * @brief The MainWidget class
+ * @brief
  * 表格界面的主窗口类
  * 会发送创建新列的信号
  */

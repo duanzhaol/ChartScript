@@ -9,7 +9,7 @@ namespace Ui {
 class Setting;
 }
 /**
- * @brief The Setting class
+ * @brief
  * 张远写的设置界面，好像没什么用
  */
 class Setting : public QDialog

@@ -1,5 +1,10 @@
-#ifndef SELECTINTERFACE_H
+﻿#ifndef SELECTINTERFACE_H
 #define SELECTINTERFACE_H
+
+/**
+ * @brief The SelectInterface class
+ * @todo 未实现
+ */
 
 
 class SelectInterface

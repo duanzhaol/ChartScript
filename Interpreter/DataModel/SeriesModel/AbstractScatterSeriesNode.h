@@ -5,6 +5,12 @@
 #include "../../GraphicsNodeInterface/GraphicsXYNodeInterface.h"
 #include <QtCharts/QScatterSeries>
 
+/**
+ * @brief
+ * 抽象散点图序列节点。
+ * process方法收集散点图内部数据生成散点序列
+ */
+
 class AbstractScatterSeriesNode:
 		public AbstractSeriesNode,
 		public GraphicsXYNodeInterface

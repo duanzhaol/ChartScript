@@ -8,10 +8,9 @@
 #include "InputPort.h"
 
 /**
- * @interface
+ * @interface Inputable
+ * 所有拥有输入端口的图节点的接口，实现该接口的子类能够被连接输入端口
  */
-
-//using InputPort = QWidget;
 
 class Inputable{
 public:

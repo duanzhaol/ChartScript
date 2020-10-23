@@ -9,6 +9,11 @@ namespace Ui {
 class TextItemDialog;
 }
 
+/**
+ * @brief
+ * 文本框编辑对话框，用于编辑文本框
+ */
+
 class TextItemDialog : public QDialog
 {
 	Q_OBJECT

@@ -8,13 +8,24 @@ namespace Ui {
 class BackgroundDialog;
 }
 
+/**
+ * @brief
+ * 用于在图表设计时添加背景图片或设置背景颜色的对话框。
+ */
+
 class BackgroundDialog : public QDialog
 {
 	Q_OBJECT
 
 public:
+	/**
+	 * @brief
+	 * 对话框获取到用户设置的背景后，用这个结构体来返回设置结果
+	 */
 	struct Result{
+		//! 用户设置的图片。如果optional中未空，则表示清除图片
 		std::optional<QImage>image;
+		//! 用户设置的背景填充，包括颜色和样式
 		QBrush brush;
 	}result;
 

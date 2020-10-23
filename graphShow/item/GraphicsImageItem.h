@@ -6,6 +6,11 @@
 #include <QImage>
 #include "../AttributeDialog/PixmapItemDialog.h"
 
+/**
+ * @brief 图片设计元素，用于添加图片元素。
+ * @tparam QGraphicsRectItem 选择矩形作为绘制和碰撞检测的基类。
+ */
+
 class GraphicsImageItem:public QObject,public AbstractGraphicsItem<QGraphicsRectItem>
 {
 	Q_OBJECT

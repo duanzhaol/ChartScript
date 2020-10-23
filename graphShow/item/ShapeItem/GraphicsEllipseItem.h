@@ -5,6 +5,10 @@
 #include "../../AttributeDialog/ShapeItemDialog.h"
 #include "AbstractGraphicsShapeItem.h"
 
+/**
+ * @brief The GraphicsEllipseItem class
+ * 椭圆设计元素，用于添加一个椭圆。
+ */
 
 class GraphicsEllipseItem :public AbstractGraphicsShapeItem
 {

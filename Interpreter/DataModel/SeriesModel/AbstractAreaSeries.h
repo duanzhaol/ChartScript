@@ -6,6 +6,12 @@
 #include <QtCharts/QLineSeries>
 #include <QtCharts/QAreaSeries>
 
+/**
+ * @brief
+ * 抽象区域图序列节点。
+ * process方法收集区域图内部数据生成散点序列
+ */
+
 class AbstractAreaSeries:
 		public AbstractSeriesNode,
 		public GraphicsAreaNodeInterface

@@ -3,6 +3,11 @@
 #include <QGraphicsRectItem>
 #include "AbstractGraphicsShapeItem.h"
 
+/**
+ * @brief
+ * 矩形设计元素，用与添加矩形元素
+ */
+
 class GraphicsRectItem :public AbstractGraphicsShapeItem
 {
 	Q_OBJECT

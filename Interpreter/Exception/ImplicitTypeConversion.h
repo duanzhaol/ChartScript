@@ -3,7 +3,10 @@
 
 #include "InterpreterWarnningException.h"
 #include <QVariant>
-
+/**
+ * @exception ImplicitTypeConversion
+ * @brief 隐式类型转换警告
+ */
 class ImplicitTypeConversion:public InterpreterWarnningException
 {
 	QVariant::Type outputNodeType,inputNodeType;

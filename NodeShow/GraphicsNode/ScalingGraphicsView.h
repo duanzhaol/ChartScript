@@ -7,7 +7,10 @@
 QT_BEGIN_NAMESPACE
 class QWheelEvent;
 QT_END_NAMESPACE
-
+/**
+ * @brief
+ * 重写QGraphicsView，对图节点模块的显示实现放缩功能
+ */
 class ScalingGraphicsView:public QGraphicsView
 {
     Q_OBJECT

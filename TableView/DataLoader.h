@@ -5,7 +5,7 @@
 #include<QTableWidget>
 #include "TableModel/TableWidget.h"
 /**
- * @brief The DataLoader class
+ * @brief
  * 导入csv和excel，现在存在一些bug，应该是创建行列的地方出了问题
  */
 class DataLoader

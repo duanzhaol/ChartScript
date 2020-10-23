@@ -12,7 +12,12 @@ namespace Ui {
 class GraphicsDataNode;
 }
 
-
+/**
+ * @brief
+ * 数据图节点
+ * @implements GraphicsDataNodeInterface
+ * @implements GraphicsNodeInterface
+ */
 class GraphicsDataNode :
 		public AbstractGraphicsInnerDualputNode,
 		public AbstractDataNode

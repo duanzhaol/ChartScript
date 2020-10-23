@@ -5,7 +5,10 @@
 
 #include <QListWidgetItem>
 
-
+/**
+ * @brief NodeListWIdgetItem里的每一项，对应一个类型的图节点
+ * @see NodeListWidget
+ */
 
 class NodeListWidgetItem:public QListWidgetItem
 {

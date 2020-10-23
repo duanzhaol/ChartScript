@@ -16,7 +16,12 @@
 namespace Ui {
 class GraphicsDataArrayNode;
 }
-
+/**
+ * @brief
+ * 数列图节点
+ * @implements GraphicsArrayNodeInterface
+ * @implements GraphicsNodeInterface
+ */
 class GraphicsDataArrayNode : public AbstractGraphicsInnerDualputNode, public AbstractArrayNode
 {
     Q_OBJECT

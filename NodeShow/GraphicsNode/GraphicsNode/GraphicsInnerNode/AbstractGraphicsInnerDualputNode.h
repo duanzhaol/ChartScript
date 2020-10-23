@@ -4,6 +4,12 @@
 #include "AbstractGraphicsInnerNode.h"
 #include "../Dualputable.h"
 
+/**
+ * @brief
+ * 拥有输入输出端口的内部图节点。
+ * @implements Dualputable
+ */
+
 class AbstractGraphicsInnerDualputNode:
 		public AbstractGraphicsInnerNode,
 		public Dualputable

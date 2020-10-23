@@ -6,6 +6,12 @@
 #include <QPair>
 #include "../../NodeShow/GraphicsNode/GraphicsNode/AbstractGraphicsNode.h"
 
+/**
+ * @brief
+ * 节点连接区域解释器。
+ * 解释多行连接代码
+ * @see ConnectionLineInterpreter
+ */
 
 class ConnectionAreaInterpreter
 {

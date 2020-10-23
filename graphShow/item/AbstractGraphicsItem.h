@@ -12,7 +12,21 @@
 #include <QChart>
 #include <QGraphicsScene>
 
-
+/**
+ * @brief 设计元素的类模板，由此可以衍生出多种不同的设计元素类，这些设计元素都具有移动、选择、放缩、编辑等功能。
+ * 这些功能具有高度相似性，但由于绘制方式的差异导致父类不同，选择使用类模板将相似行为统一。
+ * @tparam GraphicsItem
+ * 所有设计元素对象的父类，使得不同的设计元素能够根据自身的行为、绘制方式来选择对应的父类（如椭圆、矩形、文本框等）。
+ * @example
+ * 如下代码所示，矩形对象选择QGraphicsRectItem作为父类，获得矩形的绘制、碰撞检测，
+ * 并从AbstractGraphicsItem处获得移动、选择、放缩、编辑等功能。
+ * @code
+ * class Rect:public AbstractGraphicsItem<QGraphicsRectItem>{
+ *     protected:
+ *     void paint(QPainter*painter){QGraphicsRectItem::paint(painter);}
+ * };
+ * @endcode
+ */
 
 template <class GraphicsItem>
 class AbstractGraphicsItem:public GraphicsItem

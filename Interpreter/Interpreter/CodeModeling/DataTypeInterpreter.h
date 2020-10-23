@@ -4,6 +4,11 @@
 #include "../../DataModel/AbstractNode.h"
 #include <QVariant>
 
+/**
+ * @brief
+ * 数据类型解释器，用于解释数据类型
+ */
+
 class DataTypeInterpreter
 {
 	DataTypeInterpreter();

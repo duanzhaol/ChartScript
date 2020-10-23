@@ -4,6 +4,12 @@
 #include "../../DataModel/AbstractNode.h"
 #include <QVariant>
 
+/**
+ * @brief
+ * 数据对象解释器。
+ * 组合数据类型、名称、内容解释器
+ */
+
 class DataInterpreter
 {
 	DataInterpreter();

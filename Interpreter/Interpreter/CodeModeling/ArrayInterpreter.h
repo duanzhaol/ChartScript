@@ -3,6 +3,11 @@
 
 #include "../../DataModel/AbstractDataNode.h"
 
+/**
+ * @brief
+ * 数组解释器，解释数组代码对象
+ */
+
 class ArrayInterpreter
 {
 	ArrayInterpreter();

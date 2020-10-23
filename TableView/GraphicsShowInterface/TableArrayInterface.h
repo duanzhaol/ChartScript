@@ -2,7 +2,7 @@
 #define TABLEARRAYINTERFACE_H
 #include <QVariant>
 /**
- * @brief The TableArrayInterface class
+ * @brief
  * 与NodeShow部分对接的接口类
  * 使得NodeShow可以从TableView获取到一列数据的引用，并可以进行修改
  */

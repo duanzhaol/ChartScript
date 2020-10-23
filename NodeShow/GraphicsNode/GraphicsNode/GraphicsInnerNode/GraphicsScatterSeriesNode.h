@@ -10,7 +10,12 @@
 namespace Ui {
 class GraphicsScatterSeriesNode;
 }
-
+/**
+ * @brief
+ * 散点图序列节点
+ * @implements GraphicsXYNodeInterface
+ * @implements GraphicsNodeInterface
+ */
 class GraphicsScatterSeriesNode :
 		public AbstractGraphicsInnerDualputNode,
 		public AbstractScatterSeriesNode

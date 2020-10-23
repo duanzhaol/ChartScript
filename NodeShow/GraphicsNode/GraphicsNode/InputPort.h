@@ -8,6 +8,11 @@
 
 class Inputable;
 
+/**
+ * @brief
+ * 各个图节点的输入端口
+ */
+
 class InputPort:public QPushButton
 {
     Q_OBJECT

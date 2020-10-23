@@ -3,6 +3,10 @@
 
 #include "AbstractGraphicsItem.h"
 
+/**
+* @def GRAPHICS_SHAPDE_DEFINE_H(GraphicsType)
+* 为GraphicsShapeItem的子类生成公共的声明代码
+*/
 #define GRAPHICS_SHAPDE_DEFINE_H(GraphicsType) \
 class GraphicsType :public QObject,public AbstractGraphicsItem<Q##GraphicsType> \
 { \
@@ -17,6 +21,10 @@ protected: \
 
 
 
+/**
+* @def GRAPHICS_SHAPDE_DEFINE_CPP(GraphicsType)
+* 为GraphicsShapeItem的子类生成公共的定义代码
+*/
 
 #define GRAPHICS_SHAPDE_DEFINE_CPP(GraphicsType) \
 GraphicsType :: GraphicsType \

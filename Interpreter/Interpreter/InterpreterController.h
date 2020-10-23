@@ -7,12 +7,9 @@
 #include <functional>
 
 /**
- * @brief The InterpreterController class
- * use to Handle a Interprete`s Process.
- *
- * @example
- *
- *
+ * @brief
+ * 图节点解释器。
+ * 组织所有AbstractNode，将其编译运行。
  */
 
 class InterpreterController{

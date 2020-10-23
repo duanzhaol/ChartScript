@@ -3,6 +3,12 @@
 
 #include "InterpreterException.h"
 
+/**
+ * @exception InterpreterErrorException
+ * @brief
+ * 编译错误的父类
+ */
+
 class InterpreterErrorException:public InterpreterException{
 public:
 	InterpreterErrorException()=default;

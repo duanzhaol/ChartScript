@@ -4,6 +4,12 @@
 #include "AbstractGraphicsTopNode.h"
 #include "../Dualputable.h"
 
+/**
+ * @brief
+ * 有用输入输出端口的顶层节点
+ * @implements Dualputable
+ */
+
 class AbstractGraphicsTopDualoutNode:
 		public AbstractGraphicsTopNode,
 		public Dualputable

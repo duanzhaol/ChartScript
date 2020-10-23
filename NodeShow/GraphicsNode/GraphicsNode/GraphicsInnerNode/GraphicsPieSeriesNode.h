@@ -10,7 +10,12 @@
 namespace Ui {
 class GraphicsPieSeriesNode;
 }
-
+/**
+ * @brief
+ * 饼状图序列节点
+ * @implements GraphicsPieNodeInterface
+ * @implements GraphicsNodeInterface
+ */
 class GraphicsPieSeriesNode :
 		public AbstractGraphicsInnerDualputNode,
 		public AbstractPieSeries

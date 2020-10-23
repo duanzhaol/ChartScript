@@ -6,6 +6,10 @@
 namespace Ui {
 class Port;
 }
+/**
+ * @brief
+ * 单个端口
+ */
 
 class Port : public QWidget
 {

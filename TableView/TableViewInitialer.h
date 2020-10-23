@@ -3,7 +3,7 @@
 #include "../InitInterface/AbstractInitializer.h"
 
 /**
- * @brief The TableViewInitialer class
+ * @brief
  * 表格界面初始化
  */
 class TableViewInitialer:public AbstractInitializer

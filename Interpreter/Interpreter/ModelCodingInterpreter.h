@@ -4,6 +4,13 @@
 #include "InterpreterController.h"
 #include <QSet>
 
+/**
+ * @brief
+ * 图节点编程代码化的编译器。
+ * 该编译其组织所有ModelCodingInterface生成文本代码
+ * @see ModelCodingInterface
+ */
+
 class ModelCodingInterpreter
 {
 	InterpreterController*controller;

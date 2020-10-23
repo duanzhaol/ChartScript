@@ -9,6 +9,10 @@
 #include "Interpreter/Exception/TypeUnconvertible.h"
 #include "GraphicsNode/Dualputable.h"
 
+/**
+ * @brief
+ * 连接线图元素，用于在图节点编程部分绘制连接线
+ */
 
 class ConnectLineItem:public QObject,public QGraphicsPolygonItem
 {

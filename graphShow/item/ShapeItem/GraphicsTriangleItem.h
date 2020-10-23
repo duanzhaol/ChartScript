@@ -4,6 +4,11 @@
 #include "AbstractGraphicsShapeItem.h"
 #include <QGraphicsRectItem>
 
+/**
+ * @brief
+ * 三角形元素，用于添加三角形
+ */
+
 class GraphicsTriangleItem:public AbstractGraphicsShapeItem
 {
 public:

@@ -6,9 +6,20 @@
 #include "MovableProxyWidget.h"
 
 #include <TableView/GraphicsShowInterface/TableArrayInterface.h>
+/**
+ * @brief
+ * 顶层数组节点。
+ * 通过控制GraphicsInnerDataArrayNode实现对数组数据的图节点化
+ */
 
 class GraphicsTopArrayNode:public AbstractGraphicsTopDualoutNode
 {
+	/**
+	 * @brief
+	 * 顶层数组节点的内部数据节点。
+	 * 重写了GraphicsDataArrayNode的数据操作方式，将数据源改为TableArrayInterface，
+	 * 实现与表格模块的通信
+	 */
 	class GraphicsInnerDataArrayNode:public GraphicsDataArrayNode{
 
 		TableArrayInterface*dataSource = nullptr;
