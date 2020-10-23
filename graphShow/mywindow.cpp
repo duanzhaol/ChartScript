@@ -13,7 +13,6 @@ myWindow::myWindow(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::myWindow)
 {
-    //ui->graphicsView->
     ui->setupUi(this);
     initialListWidget();
 }
