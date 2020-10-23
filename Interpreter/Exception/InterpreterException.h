@@ -6,7 +6,7 @@
 
 /**
  * @exception InterpreterException
- * 所有解释器相关异常的父类
+ * @brief 所有解释器相关异常的父类
  */
 
 class InterpreterException:public std::exception

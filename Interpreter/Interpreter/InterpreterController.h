@@ -10,6 +10,11 @@
  * @brief
  * 图节点解释器。
  * 组织所有AbstractNode，将其编译运行。
+ * @throw ImplicitTypeConversion
+ * @throw InterpreterErrorException
+ * @throw NodeNameConflictException
+ * @throw TypeUnconvertible
+ * @throw InterpreterWarnningException
  */
 
 class InterpreterController{

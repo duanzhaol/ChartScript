@@ -6,7 +6,7 @@
 
 /**
  * @interface GraphicsDataNodeInterface
- * 数据节点接口，实现该接口的子类能够成为数据节点的编译单元
+ * @brief 数据节点接口，实现该接口的子类能够成为数据节点的编译单元
  */
 
 

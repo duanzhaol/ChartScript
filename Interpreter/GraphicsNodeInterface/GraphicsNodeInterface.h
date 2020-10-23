@@ -6,7 +6,7 @@ using NodeName = QString;
 
 /**
  * @interface GraphicsNodeInterface
- * 抽象节点接口，所有编译单元接口的父类
+ * @brief 抽象节点接口，所有编译单元接口的父类
  */
 
 class GraphicsNodeInterface{

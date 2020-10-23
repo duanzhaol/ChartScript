@@ -13,6 +13,7 @@
 #include <QGraphicsScene>
 
 /**
+ * @class AbstractGraphicsItem
  * @brief 设计元素的类模板，由此可以衍生出多种不同的设计元素类，这些设计元素都具有移动、选择、放缩、编辑等功能。
  * 这些功能具有高度相似性，但由于绘制方式的差异导致父类不同，选择使用类模板将相似行为统一。
  * @tparam GraphicsItem

@@ -5,7 +5,7 @@
 
 /**
  * @interface GraphicsArrayNodeInterface
- * 数列节点接口，实现该接口的子类能够成为数列节点的编译单元
+ * @brief 数列节点接口，实现该接口的子类能够成为数列节点的编译单元
  */
 
 class GraphicsArrayNodeInterface{
