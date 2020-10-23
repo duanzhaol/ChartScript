@@ -7,8 +7,6 @@
 ListWidget::ListWidget(QWidget *parent)
 {
     setMouseTracking(true);
-	connect(&GraphShowTransmitter::getInstance(),&GraphShowTransmitter::sendChart,
-			this,&ListWidget::reciveChart);
 }
 
 ChartItem *ListWidget::getChart(int index)
@@ -32,7 +30,6 @@ bool ListWidget::addItemAll(ChartItem *chart, ListWidgetItem *item)
     if(chart!=nullptr&&item!=nullptr){
         addChart(chart);
         addItem(item);
-        qDebug()<<"当前长度:"<<chartItemList.length()<<"  "<<count();
         return true;
     }else{
         return false;
@@ -58,12 +55,8 @@ bool ListWidget::removeItemAll(int index)
 void ListWidget::reciveChart(GraphicsShowInterface *chartInterface)
 {
 	QString chartName=chartInterface->getName();
-	ChartItem* chart=dynamic_cast<ChartItem*>(chartInterface->getChart());
+	ChartItem* chart=chartInterface->getChart();
 	chart->createDefaultAxes();
-
-
-	qsrand(time(NULL));
-    int n = qrand() % 99999;//存储的随机数
 
 	QtCharts::QChartView *chartView = new QtCharts::QChartView(chart);
     chartView->setRenderHint(QPainter::Antialiasing);  //消除边缘
@@ -71,13 +64,8 @@ void ListWidget::reciveChart(GraphicsShowInterface *chartInterface)
 	//QPixmap p = QPixmap::grabWidget(chartView);
 	QPixmap p = chartView->grab();
 
-//    QImage image=p.toImage();
-//	QString url=":/img/image/";//前缀
-//    url=url+QString(n)+".png";
-//    image.save(url);
-
-    ListWidgetItem *item=new ListWidgetItem(this);
-	item->setText("chartName");
+	ListWidgetItem *item=new ListWidgetItem(this);
+	item->setText(chartInterface->getName());
 	item->setIcon(QIcon(p));
     item->setSizeHint(QSize(100,120));
 	this->addItemAll(chart,item);

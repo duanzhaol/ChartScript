@@ -50,4 +50,3 @@ SOURCES += main.cpp \
 
 FORMS +=
 
-

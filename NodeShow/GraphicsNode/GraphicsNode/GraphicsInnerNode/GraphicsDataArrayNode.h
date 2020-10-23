@@ -25,6 +25,7 @@ class GraphicsDataArrayNode : public AbstractGraphicsInnerDualputNode, public Ab
 
 public:
     explicit GraphicsDataArrayNode(QWidget *parent = nullptr);
+	explicit GraphicsDataArrayNode(const QString name,QWidget*parent = nullptr);
     ~GraphicsDataArrayNode();
     QComboBox* getCombobox();
     QList<QVariant> dataArray;
@@ -59,6 +60,7 @@ public:
 private slots:
     void on_dataArrayNodeName_editingFinished();
 //    void on_dataArrayNodeName_textChanged(const QString &arg1);
+	void on_showData_clicked();
 };
 
 

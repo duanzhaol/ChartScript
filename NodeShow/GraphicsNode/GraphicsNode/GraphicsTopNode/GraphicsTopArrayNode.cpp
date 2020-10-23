@@ -22,25 +22,28 @@ InputPort *GraphicsTopArrayNode::getInputPort()
 
 
 GraphicsTopArrayNode::GraphicsInnerDataArrayNode::GraphicsInnerDataArrayNode
-(TableArrayInterface *dataSource):
-	dataSource(dataSource)
+(TableArrayInterface *talbeInterface):
+	GraphicsDataArrayNode(talbeInterface->getArrayName(),nullptr),
+	dataSource(talbeInterface)
 {
-	Q_ASSERT(dataSource != nullptr);
-	connect(dataSource,&TableArrayInterface::arrayNameChanged,this,[=](){
-		GraphicsDataArrayNode::setNodeName(dataSource->getArrayName());
+
+	Q_ASSERT(talbeInterface != nullptr);
+	connect(talbeInterface,&TableArrayInterface::arrayNameChanged,this,[=](){
+		GraphicsDataArrayNode::setNodeName(talbeInterface->getArrayName());
 	});
 
-	connect(dataSource,&TableArrayInterface::arrayDataChanged,this,[=](){
-		GraphicsDataArrayNode::setNodeData(dataSource->getArrayData());
+	connect(talbeInterface,&TableArrayInterface::arrayDataChanged,this,[=](){
+		GraphicsDataArrayNode::setNodeData(talbeInterface->getArrayData());
 	});
 
-	connect(dataSource,&TableArrayInterface::arrayTypeChanged,this,[=](){
-		GraphicsDataArrayNode::setElementType(dataSource->getArrayType());
+	connect(talbeInterface,&TableArrayInterface::arrayTypeChanged,this,[=](){
+		GraphicsDataArrayNode::setElementType(talbeInterface->getArrayType());
 	});
 
-	connect(dataSource,&TableArrayInterface::arrayDelete,this,[=](){
+	connect(talbeInterface,&TableArrayInterface::arrayDelete,this,[=](){
 		this->deleteLater();
 	});
+
 }
 
 NodeName GraphicsTopArrayNode::GraphicsInnerDataArrayNode::getNodeName() const
@@ -50,7 +53,7 @@ NodeName GraphicsTopArrayNode::GraphicsInnerDataArrayNode::getNodeName() const
 
 void GraphicsTopArrayNode::GraphicsInnerDataArrayNode::setNodeName(const NodeName &newNodeName)
 {
-	return dataSource->setArrayName(newNodeName);
+	dataSource->setArrayName(newNodeName);
 }
 
 QVariant GraphicsTopArrayNode::GraphicsInnerDataArrayNode::getNodeData() const

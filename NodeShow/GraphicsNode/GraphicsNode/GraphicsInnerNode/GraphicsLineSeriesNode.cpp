@@ -13,6 +13,17 @@ GraphicsLineSeriesNode::GraphicsLineSeriesNode(QWidget *parent) :
     ui->inputPort->setParent(this);
     ui->outputPort->setParent(this);
 
+	auto initCombox = [](QComboBox*combox)->void{
+		combox->clear();
+		combox->addItem("int");
+		combox->addItem("long long");
+		combox->addItem("float");
+		combox->addItem("double");
+	};
+
+	initCombox(ui->XDataArray->getCombobox());
+	initCombox(ui->YDataArray->getCombobox());
+
     this->initName();
 
 

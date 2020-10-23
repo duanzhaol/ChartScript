@@ -2,6 +2,7 @@
 #include "NodeShowWindow.h"
 #include <QDebug>
 #include <QMessageBox>
+#include <Interpreter/Interpreter/InterpreterController.h>
 #pragma execution_character_set("utf-8")
 
 ConnectController *ConnectController::getInstance()
@@ -11,9 +12,38 @@ ConnectController *ConnectController::getInstance()
 
 void ConnectController::connectLineWuhu(Inputable *input, Outputable *output)
 {
+
+	if(InterpreterController::getGlobalInstance()->hasConncted(
+				dynamic_cast<AbstractNode*>(input),
+				dynamic_cast<AbstractNode*>(output))
+			){
+		QMessageBox::warning(nullptr,"警告","已经连接过了");
+		clearPort();
+		return;
+	}
+
+	if(dynamic_cast<AbstractGraphicsNode*>(input)==dynamic_cast<AbstractGraphicsNode*>(output)){
+		QMessageBox::warning(nullptr,"警告","不能自己连自己");
+		clearPort();
+		return;
+	}
+
+	try {
+		InterpreterController::getGlobalInstance()->addConnect(
+			dynamic_cast<AbstractNode*>(output),
+			dynamic_cast<AbstractNode*>(input)
+			);
+    } catch (TypeUnconvertible &e) {
+		QMessageBox::warning(nullptr,"错误",e.getWhy());
+		clearPort();
+		return;
+    } catch(ImplicitTypeConversion &e){
+		QMessageBox::information(nullptr,"警告",e.getWhy());
+	}
+
     ConnectLineItem *line =new ConnectLineItem(input,output);
 	NodeShowWindow::getInstance()->scene->addItem(line);
-    LineList.append(line);
+    LineList.insert(line->LineIndex,line);
 
     drawLine();
 }
@@ -21,18 +51,24 @@ void ConnectController::connectLineWuhu(Inputable *input, Outputable *output)
 void ConnectController::drawLine()
 {
 
-//    qDebug()<<input;
-//    qDebug()<<output;
     qDebug()<<"ConnectController::drawLine()";
     input =nullptr;
     output=nullptr;
-//    inputOrigin=nullptr;
-//    outputOrigin=nullptr;
-
-
-//        qDebug()<<input;
-//        qDebug()<<output;
+    NodeShowWindow::getInstance()->setLcdNumber(0);
 }
+
+ConnectLineItem *ConnectController::getLineItem(int index)
+{
+    QHash<int, ConnectLineItem*>::iterator i = LineList.find(index);
+    if (i != LineList.end()) {
+        return i.value();
+    }
+    else{
+        return nullptr;
+    }
+}
+
+
 
 
 
@@ -44,49 +80,24 @@ ConnectController::ConnectController()
 
 void ConnectController::ConnectLine(QPushButton* port, AbstractGraphicsNode::PortType type)
 {
-    qDebug()<<"ConnectController::ConnectLine";
-
     if(type==AbstractGraphicsNode::PortType::InputPort)
     {
 
         input=dynamic_cast<InputPort*>(port)->getNode();
-        qDebug()<<"inputPortSetted";
-
+        NodeShowWindow::getInstance()->setLcdNumber(1);
     }
     else if(type==AbstractGraphicsNode::PortType::OutputPort)
     {
 
         output=dynamic_cast<OutputPort*>(port)->getNode();
-        qDebug()<<"outputPortSetted";
-
+        NodeShowWindow::getInstance()->setLcdNumber(1);
     }
 
-//    qDebug()<<port;
-//    qDebug()<<input<<output;
-//    qDebug()<<(void*)input<<(void*)output;
-
-    if((void*)input==(void*)output){
-        QMessageBox::information(NULL, "提示", "不能自己连自己哦！");
-
-        input =nullptr;
-        output=nullptr;
-//        inputOrigin=nullptr;
-//        outputOrigin=nullptr;
-
-        return;
-    }
-
-//    if(input!=nullptr&&output!=nullptr&&inputOrigin!=nullptr&&outputOrigin!=nullptr)
-//    {
 
     if(input!=nullptr&&output!=nullptr)
     {
-
-        qDebug()<<"readytoConnect";
         connectLineWuhu(input,output);
-        qDebug()<<"Connected";
     }
-
 
 }
 
@@ -94,11 +105,20 @@ void ConnectController::clearPort()
 {
     input=nullptr;
     output=nullptr;
-    QMessageBox::information(NULL, "提示", "待连线结点已清空");
+    NodeShowWindow::getInstance()->setLcdNumber(0);
+#ifdef QT_DEBUG
+	QMessageBox::information(nullptr, "提示", "待连线结点已清空");
+#endif
 }
 
-
-
-
+void ConnectController::removeLineItem(ConnectLineItem *item)
+{
+    NodeShowWindow::getInstance()->scene->removeItem(item);
+    InterpreterController::getGlobalInstance()->
+        removeConnect(dynamic_cast<AbstractNode*>(item->outputNode),
+                      dynamic_cast<AbstractNode*>(item->inputNode));
+    LineList.remove(item->LineIndex);
+	delete item;
+}
 
 ConnectController* ConnectController::instance=new ConnectController();

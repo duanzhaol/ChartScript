@@ -22,6 +22,20 @@ GraphicsAreaSeriesNode::GraphicsAreaSeriesNode(QWidget *parent) :
     ui->inputPort->setParent(this);
     ui->outputPort->setParent(this);
 
+	auto initCombox = [](QComboBox*combox)->void{
+		combox->clear();
+		combox->addItem("int");
+		combox->addItem("long long");
+		combox->addItem("float");
+		combox->addItem("double");
+	};
+
+	initCombox(ui->upperXArray->getCombobox());
+	initCombox(ui->upperYArray->getCombobox());
+	initCombox(ui->bottomXArray->getCombobox());
+	initCombox(ui->bottomYArray->getCombobox());
+
+
 
 //    /*标题lineedit文字居中*/
 //    ui->AreaSeriesName->setAlignment( Qt::AlignHCenter); //数据节点的名字居中显示

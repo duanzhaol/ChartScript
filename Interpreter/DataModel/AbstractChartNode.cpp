@@ -17,11 +17,17 @@ Chart *AbstractChartNode::getChart() const
 	return this->chart;
 }
 
+bool AbstractChartNode::isProcess() const
+{
+	return d_isProcess;
+}
+
 #include <QLineSeries>
 #include <QDebug>
 
 void AbstractChartNode::process(AbstractNode *nextNode)
 {
+	this->chart = new Chart;
 	auto seriesList = this->getAllSeries();
 	for(auto&series:seriesList){
 		series->process(nextNode);
@@ -29,6 +35,8 @@ void AbstractChartNode::process(AbstractNode *nextNode)
 	}
 
 	emit GraphShowTransmitter::getInstance().sendChart(this);
+
+	d_isProcess = true;
 
 }
 

@@ -1,4 +1,5 @@
 ﻿#include "AbstractPieSeries.h"
+#include <QDebug>
 
 AbstractPieSeries::AbstractPieSeries()
 {
@@ -12,10 +13,9 @@ void AbstractPieSeries::process(AbstractNode *nextNode)
 	AbstractSeriesNode::process(nextNode);
 	QStringList labelList = this->getLabels()->getNodeData().toStringList();
 	QVariantList dataList = this->getData()->getNodeData().toList();
-
 	int size = qMin(labelList.size(),dataList.size());
 
-	for(int index = 0;index < size; ++size){
+	for(int index = 0;index < size; ++index){
 		this->series->append(new QtCharts::QPieSlice(labelList[index],dataList[index].toDouble()));
 	}
 }

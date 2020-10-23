@@ -14,53 +14,60 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="1,10">
+   <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="1,10">
     <item>
-     <widget class="QTabWidget" name="tabWidget">
-      <property name="font">
-       <font>
-        <family>Microsoft YaHei UI</family>
-       </font>
-      </property>
-      <property name="currentIndex">
-       <number>1</number>
-      </property>
-      <widget class="QWidget" name="tab_3">
-       <attribute name="title">
-        <string>空结点</string>
-       </attribute>
-       <widget class="QListWidget" name="listWidget">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>0</y>
-          <width>161</width>
-          <height>911</height>
-         </rect>
+     <layout class="QVBoxLayout" name="verticalLayout_2" stretch="2,1">
+      <item>
+       <widget class="QTabWidget" name="tabWidget">
+        <property name="font">
+         <font>
+          <family>Microsoft YaHei UI</family>
+         </font>
         </property>
-       </widget>
-      </widget>
-      <widget class="QWidget" name="tab_4">
-       <attribute name="title">
-        <string>表格结点</string>
-       </attribute>
-       <widget class="NodeListWidget" name="listWidget_2">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>10</y>
-          <width>161</width>
-          <height>661</height>
-         </rect>
+        <property name="currentIndex">
+         <number>0</number>
         </property>
+        <widget class="QWidget" name="tab_3">
+         <attribute name="title">
+          <string>空结点</string>
+         </attribute>
+         <widget class="QListWidget" name="listWidget">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>161</width>
+            <height>911</height>
+           </rect>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="tab_4">
+         <attribute name="title">
+          <string>表格结点</string>
+         </attribute>
+         <widget class="NodeListWidget" name="listWidget_2">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>10</y>
+            <width>161</width>
+            <height>661</height>
+           </rect>
+          </property>
+         </widget>
+        </widget>
        </widget>
-      </widget>
-     </widget>
+      </item>
+      <item>
+       <widget class="QPlainTextEdit" name="plainTextEdit"/>
+      </item>
+     </layout>
     </item>
     <item>
-     <layout class="QVBoxLayout" name="verticalLayout" stretch="1,20">
+     <layout class="QVBoxLayout" name="verticalLayout" stretch="1,20,1">
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="2,2,2,2,2,6">
+       <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="2,2,2,2,2,5">
         <item>
          <spacer name="horizontalSpacer_3">
           <property name="orientation">
@@ -88,11 +95,34 @@
             <pointsize>14</pointsize>
            </font>
           </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
           <property name="styleSheet">
-           <string notr="true">border:2px solid rgb(0, 0, 0) ;
-border-radius:5px;
-background-color: rgba(221, 221, 221, 0);
-color: rgb(0, 0, 0);</string>
+           <string notr="true">
+
+QPushButton {
+							border:2px solid;
+							border-radius:5px;
+							color: rgb(0, 220, 0);
+							border-color: rgb(0, 220, 0);
+						
+						 }
+
+						 QPushButton:hover {
+							 color: rgb(0, 170, 0);
+							 border-color: rgb(0, 170, 0);
+						 }
+
+						 QPushButton:pressed {
+							border-color: rgb(0, 0, 0);
+							color: rgb(0, 0, 0);
+							 
+						 }
+
+						 QPushButton:disabled {
+							 color: #333333;
+						 }</string>
           </property>
           <property name="text">
            <string>开始编译</string>
@@ -117,12 +147,16 @@ color: rgb(0, 0, 0);</string>
           <property name="font">
            <font>
             <family>Microsoft YaHei UI</family>
-            <pointsize>12</pointsize>
+            <pointsize>14</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
            </font>
           </property>
+          <property name="cursor">
+           <cursorShape>ForbiddenCursor</cursorShape>
+          </property>
           <property name="styleSheet">
-           <string notr="true">border:2px solid rgb(0, 0, 0) ;
-border-radius:5px;
+           <string notr="true">border-bottom:2px solid rgb(76, 130, 255) ;
 background-color: rgba(221, 221, 221, 0);
 color: rgb(76, 130, 255);</string>
           </property>
@@ -160,11 +194,33 @@ color: rgb(76, 130, 255);</string>
               <pointsize>14</pointsize>
              </font>
             </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
             <property name="styleSheet">
-             <string notr="true">border:2px solid rgb(0, 0, 0) ;
+             <string notr="true">
+
+QPushButton {
+						border:2px solid;
 border-radius:5px;
 background-color: rgba(221, 221, 221, 0);
-color: rgb(0, 0, 0);</string>
+color: rgb(0, 0, 0);
+border-color:rgb(0, 0, 0);
+						 }
+
+						 QPushButton:hover {
+							 color: rgb(52, 167, 255);
+							 border-color: rgb(52, 167, 255);
+						 }
+
+						 QPushButton:pressed {
+							 color: rgb(46, 39, 239);
+							 border-color: rgb(46, 39, 239);
+						 }
+
+						 QPushButton:disabled {
+							 color: #333333;
+						 }</string>
             </property>
             <property name="text">
              <string>Move</string>
@@ -185,11 +241,33 @@ color: rgb(0, 0, 0);</string>
               <pointsize>14</pointsize>
              </font>
             </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
             <property name="styleSheet">
-             <string notr="true">border:2px solid rgb(0, 0, 0) ;
+             <string notr="true">
+
+QPushButton {
+						border:2px solid;
 border-radius:5px;
 background-color: rgba(221, 221, 221, 0);
-color: rgb(0, 0, 0);</string>
+color: rgb(0, 0, 0);
+border-color:rgb(0, 0, 0);
+						 }
+
+						 QPushButton:hover {
+							 color: rgb(52, 167, 255);
+							 border-color: rgb(52, 167, 255);
+						 }
+
+						 QPushButton:pressed {
+							 color: rgb(46, 39, 239);
+							 border-color: rgb(46, 39, 239);
+						 }
+
+						 QPushButton:disabled {
+							 color: #333333;
+						 }</string>
             </property>
             <property name="text">
              <string>Connect</string>
@@ -210,11 +288,33 @@ color: rgb(0, 0, 0);</string>
               <pointsize>14</pointsize>
              </font>
             </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
             <property name="styleSheet">
-             <string notr="true">border:2px solid rgb(0, 0, 0) ;
+             <string notr="true">
+
+QPushButton {
+						border:2px solid;
 border-radius:5px;
 background-color: rgba(221, 221, 221, 0);
-color: rgb(0, 0, 0);</string>
+color: rgb(0, 0, 0);
+border-color:rgb(0, 0, 0);
+						 }
+
+						 QPushButton:hover {
+							 color: rgb(52, 167, 255);
+							 border-color: rgb(52, 167, 255);
+						 }
+
+						 QPushButton:pressed {
+							 color: rgb(46, 39, 239);
+							 border-color: rgb(46, 39, 239);
+						 }
+
+						 QPushButton:disabled {
+							 color: #333333;
+						 }</string>
             </property>
             <property name="text">
              <string>Delete</string>
@@ -226,7 +326,46 @@ color: rgb(0, 0, 0);</string>
        </layout>
       </item>
       <item>
-       <widget class="ScalingGraphicsView" name="graphicsView"/>
+       <widget class="ScalingGraphicsView" name="graphicsView">
+        <property name="cursor" stdset="0">
+         <cursorShape>CrossCursor</cursorShape>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="0,0">
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="font">
+           <font>
+            <family>Agency FB</family>
+            <pointsize>11</pointsize>
+           </font>
+          </property>
+          <property name="cursor">
+           <cursorShape>ForbiddenCursor</cursorShape>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">border:1px solid rgb(76, 130, 255) ;
+background-color: rgba(221, 221, 221, 0);
+color: rgb(76, 130, 255);</string>
+          </property>
+          <property name="text">
+           <string>待连线结点数</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLCDNumber" name="lcdNumber">
+          <property name="cursor">
+           <cursorShape>WhatsThisCursor</cursorShape>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(15, 111, 255);</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
      </layout>
     </item>
@@ -238,7 +377,7 @@ color: rgb(0, 0, 0);</string>
      <x>0</x>
      <y>0</y>
      <width>1288</width>
-     <height>25</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

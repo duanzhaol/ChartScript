@@ -17,7 +17,7 @@ void AbstractDataNode::process(AbstractNode* nextNode)
 	AbstractNode::process(nextNode);
 	if(dynamic_cast<AbstractDataNode*>(nextNode) != nullptr){
 		dynamic_cast<AbstractDataNode*>(nextNode)->setNodeData(this->getNodeData());
-	}
+    }
 }
 
 

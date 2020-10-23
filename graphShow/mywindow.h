@@ -16,7 +16,7 @@ class myWindow : public QWidget
 {
     Q_OBJECT
 
-	ListWidget*listWidget1,*listWidget2;
+	ListWidget*chartListWidget,*designElementsListWidget;
 
 	GraphicsScene*scene = nullptr;
 

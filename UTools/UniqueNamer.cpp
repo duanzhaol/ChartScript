@@ -9,7 +9,9 @@ qDebug()<<prefix<<endl;
 
 QString UniqueNamer::getUniqueName()
 {
-	return prefix + (QString::number(++index)) + postfix;
+	QString name = prefix + (QString::number(++index)) + postfix;
+	addName(name);
+	return name;
 }
 
 bool UniqueNamer::hasUsed(const QString &name) const

@@ -1,6 +1,7 @@
 ﻿#include "InterpreterController.h"
 #include <QDebug>
 #include "../Exception/NodeNameConflictException.h"
+#include "../DataModel/AbstractChartNode.h"
 InterpreterController::InterpreterController()
 {
 
@@ -8,7 +9,6 @@ InterpreterController::InterpreterController()
 
 void InterpreterController::dfsInterprete(AbstractNode *startNode)
 {
-	qDebug()<<startNode->getNodeName();
 	startNode->process(nullptr);
 	for(auto&nextNode:this->graph[startNode->getNodeName()]){
 		startNode->process(nextNode);
@@ -27,6 +27,13 @@ InterpreterController::InterpreterController(StartNode*startNode):
 void InterpreterController::interprete()
 {
 	this->dfsInterprete(this->startNode);
+	//! @note process all chart node after dfsInterprete which has not been processed.
+	for(AbstractNode*node:nodes.values()){
+		AbstractChartNode*chartNode = dynamic_cast<AbstractChartNode*>(node);
+		if(chartNode && !chartNode->isProcess()){
+			chartNode->process(nullptr);
+		}
+	}
 }
 
 
@@ -34,7 +41,6 @@ void InterpreterController::addConnect(AbstractNode *outputNode, AbstractNode *i
 {
 	inputNode->verifyConnectable(outputNode);
 	this->graph[outputNode->getNodeName()].insert(inputNode);
-	qDebug()<<this->graph;
 }
 
 void InterpreterController::removeConnect(AbstractNode *outputNode, AbstractNode *inputNode)
@@ -45,6 +51,15 @@ void InterpreterController::removeConnect(AbstractNode *outputNode, AbstractNode
 InterpreterController *InterpreterController::getGlobalInstance()
 {
 	return InterpreterController::globalController;
+}
+
+bool InterpreterController::hasConncted(AbstractNode *outputNode, AbstractNode *inputNode) const
+{
+	auto iterator = this->graph.find(outputNode->getNodeName());
+	if(iterator == this->graph.end()){
+		return false;
+	}
+	return iterator.value().contains(inputNode);
 }
 
 void InterpreterController::setStartNode(AbstractNode *start)

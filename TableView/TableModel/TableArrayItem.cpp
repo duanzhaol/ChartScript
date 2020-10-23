@@ -2,12 +2,16 @@
 
 #include <QTableWidgetItem>
 #include<QDebug>
+#include "UTools/UniqueNamer.h"
 #pragma execution_character_set("utf-8")
 TableArrayItem::TableArrayItem()
 {
-	data.append(QStringLiteral("abc"));
+	QString initName = UniqueNamerPool::getNamer(NamerSeed::VariantSeed).getUniqueName();
+	data.append(initName);
     data.append("string");
     data.append("0");
+
+
 }
 /**
  * @brief TableArrayItem::getArrayData
@@ -17,7 +21,11 @@ TableArrayItem::TableArrayItem()
  */
 QVariantList TableArrayItem::getArrayData()
 {
-    return data.mid(2);
+	QVariantList returnData = data.mid(2);
+	for(QVariant&v:returnData){
+		v.convert(this->getArrayType());
+	}
+	return returnData;
 }
 
 QVariantList& TableArrayItem::getData()
@@ -46,6 +54,8 @@ QVariant::Type TableArrayItem::getArrayType()
     }else if(type=="long long"){
         return QVariant::LongLong;
     }
+	Q_ASSERT_X(false,__FILE__+__LINE__,"unsupported type");
+	return QVariant::Invalid;
 }
 
 void TableArrayItem::setArrayType(const QVariant::Type newType)
@@ -69,8 +79,7 @@ void TableArrayItem::setArrayName(const QString &newArrayName)
 
 void TableArrayItem::setArrayData(const QVariantList &newData)
 {
-    //考虑newData长度超出原本表格的大小??
-    for(int i=2;i<data.length();i++){
+	for(int i=2;i<data.length();i++){
         data.replace(i,newData.at(i-2));
     }
 

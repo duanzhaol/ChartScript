@@ -47,6 +47,9 @@ background: rgba(73, 255, 109,0);
      <pointsize>9</pointsize>
     </font>
    </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
    <property name="styleSheet">
     <string notr="true">
 QComboBox {border-radius:10px;background:rgb(97, 97, 97);color:#ffffff;
@@ -143,6 +146,9 @@ background:rgb(94,167,255);
      <height>10000</height>
     </size>
    </property>
+   <property name="cursor">
+    <cursorShape>OpenHandCursor</cursorShape>
+   </property>
    <property name="styleSheet">
     <string notr="true">
 
@@ -154,30 +160,6 @@ border-radius:50%;
    </property>
    <property name="text">
     <string/>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="dataArrayNodeData">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>90</y>
-     <width>201</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Segoe UI</family>
-     <pointsize>9</pointsize>
-     <weight>50</weight>
-     <bold>false</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">border:1px solid rgba(255, 255, 255, 0)</string>
-   </property>
-   <property name="text">
-    <string>起飞</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_2">
@@ -225,6 +207,9 @@ border-radius:5px;</string>
    <property name="text">
     <string> 数列节点</string>
    </property>
+   <property name="readOnly">
+    <bool>true</bool>
+   </property>
   </widget>
   <widget class="QLabel" name="label_3">
    <property name="geometry">
@@ -267,6 +252,9 @@ border-radius:5px;</string>
      <width>16777215</width>
      <height>16777215</height>
     </size>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton {
@@ -317,6 +305,9 @@ border-radius:5px;</string>
      <height>16777215</height>
     </size>
    </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
    <property name="styleSheet">
     <string notr="true">QPushButton {
 							 border: 1px solid #333333;
@@ -345,26 +336,39 @@ border-radius:5px;</string>
     <string/>
    </property>
   </widget>
+  <widget class="QPushButton" name="showData">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>90</y>
+     <width>89</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>查看数据</string>
+   </property>
+  </widget>
   <zorder>nodeBackground</zorder>
   <zorder>comboBox</zorder>
   <zorder>label</zorder>
-  <zorder>dataArrayNodeData</zorder>
   <zorder>label_2</zorder>
   <zorder>dataArrayNodeName</zorder>
   <zorder>label_3</zorder>
   <zorder>outputPort</zorder>
   <zorder>inputPort</zorder>
+  <zorder>showData</zorder>
  </widget>
  <customwidgets>
-  <customwidget>
-   <class>InputPort</class>
-   <extends>QPushButton</extends>
-   <header location="global">NodeShow/GraphicsNode/GraphicsNode/InputPort.h</header>
-  </customwidget>
   <customwidget>
    <class>OutputPort</class>
    <extends>QPushButton</extends>
    <header location="global">NodeShow/GraphicsNode/GraphicsNode/OutputPort.h</header>
+  </customwidget>
+  <customwidget>
+   <class>InputPort</class>
+   <extends>QPushButton</extends>
+   <header location="global">NodeShow/GraphicsNode/GraphicsNode/InputPort.h</header>
   </customwidget>
  </customwidgets>
  <resources/>
