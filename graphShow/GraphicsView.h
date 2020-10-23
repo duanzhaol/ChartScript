@@ -10,7 +10,10 @@
 QT_BEGIN_NAMESPACE
 class QWheelEvent;
 QT_END_NAMESPACE
-
+/**
+ * @brief The GraphicsView class
+ * 自定义的QGraphicsView，主要对鼠标位置进行滚轮缩放
+ */
 class GraphicsView:public QGraphicsView
 {
     Q_OBJECT

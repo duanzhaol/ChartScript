@@ -33,11 +33,11 @@ void ConnectController::connectLineWuhu(Inputable *input, Outputable *output)
 			dynamic_cast<AbstractNode*>(output),
 			dynamic_cast<AbstractNode*>(input)
 			);
-	} catch (ImplicitTypeConversion &e) {
+    } catch (TypeUnconvertible &e) {
 		QMessageBox::warning(nullptr,"错误",e.getWhy());
 		clearPort();
 		return;
-	} catch(TypeUnconvertible &e){
+    } catch(ImplicitTypeConversion &e){
 		QMessageBox::information(nullptr,"警告",e.getWhy());
 	}
 

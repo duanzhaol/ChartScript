@@ -5,6 +5,10 @@
 #include<QMouseEvent>
 #include"graphShow/ChartItem.h"
 #include"../../Interpreter/GraphicsShowInterface/GraphicsShowInterface.h"
+/**
+ * @brief The ListWidget class
+ * 左侧的列表，可以保存qchart，显示缩略图，双击显示
+ */
 class ListWidget: public QListWidget
 {
     Q_OBJECT

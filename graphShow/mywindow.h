@@ -10,7 +10,7 @@ namespace Ui {
 class myWindow;
 }
 /**
- * @brief 主窗口类
+ * @brief 统计图显示界面主窗口类
  */
 class myWindow : public QWidget
 {

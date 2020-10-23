@@ -1,4 +1,4 @@
-#ifndef SETTING_H
+﻿#ifndef SETTING_H
 #define SETTING_H
 
 #include <QDialog>
@@ -8,7 +8,10 @@
 namespace Ui {
 class Setting;
 }
-
+/**
+ * @brief The Setting class
+ * 张远写的设置界面，好像没什么用
+ */
 class Setting : public QDialog
 {
     Q_OBJECT

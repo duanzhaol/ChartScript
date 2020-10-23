@@ -83,6 +83,7 @@ void TableWidget::showList()
 /**
  * @brief TableWidget::onCellChanged
  * 确定行和列的更改，只重置一格的数据
+ * 如果行是0/1则发送名字
  * @param rows
  * @param columns
  */
@@ -120,7 +121,7 @@ void TableWidget::onTypeChanged(int type)
 {
     int count=0;
     for(TableArrayItem* item:items){
-		int index=dynamic_cast<QComboBox*>(cellWidget(1,count++))->currentIndex();
+        int index=dynamic_cast<QComboBox*>(cellWidget(1,count++))->currentIndex();
         switch (index) {
         case 0:
             item->setArrayType(QVariant::String);
