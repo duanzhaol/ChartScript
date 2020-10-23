@@ -2,7 +2,11 @@
 #define MAINWINDOWINITIALIZER_H
 
 #include "InitInterface/AbstractInitializer.h"
-
+/**
+ * @brief
+ * 程序住主窗口初始化器，初始化整个程序的资源，生成主窗口
+ * @ingroup MainWindow
+ */
 class MainWindowInitializer:public AbstractInitializer
 {
 	static MainWindowInitializer*instace;
@@ -21,3 +25,8 @@ public:
 };
 
 #endif // MAINWINDOWINITIALIZER_H
+
+/**
+ * @mainpage
+ * ChartSceript项目的代码文档
+ */

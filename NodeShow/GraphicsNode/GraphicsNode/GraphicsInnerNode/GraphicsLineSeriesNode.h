@@ -12,8 +12,6 @@ class GraphicsLineSeriesNode;
 /**
  * @brief
  * 折线图序列节点
- * @implements GraphicsXYNodeInterface
- * @implements GraphicsNodeInterface
  */
 class GraphicsLineSeriesNode :
 		public AbstractGraphicsInnerDualputNode,

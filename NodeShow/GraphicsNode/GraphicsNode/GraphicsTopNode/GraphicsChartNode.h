@@ -16,9 +16,6 @@ class GraphicsChartNode;
 /**
  * @brief
  * 统计图图节点
- * @implements GraphicsShowInterface
- * @implements GraphicsChartNodeInterface
- * @implements GraphicsNodeInterface
  */
 
 class GraphicsChartNode :

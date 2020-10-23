@@ -21,7 +21,6 @@ enum class ModelType:char{
  * 所有抽象节点的父类，所有编译数据结构的基本单元。
  * 包括每种节点内部处理方式的方法：
  * @codeline virtual void process(AbstractNode*nextNode);
- * @implements ModelCodingInterface
  */
 
 class AbstractNode:

@@ -14,7 +14,6 @@ class GraphicsStartNode;
 /**
  * @brief
  * 起点图节点
- * @implements Outputable
  */
 class GraphicsStartNode :
 		public AbstractGraphicsTopNode,

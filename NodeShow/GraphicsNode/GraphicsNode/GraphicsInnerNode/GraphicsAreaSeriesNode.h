@@ -14,8 +14,6 @@ class GraphicsAreaSeriesNode;
 /**
  * @brief
  * 序列图节点
- * @implements GraphicsAreaNodeInterface
- * @implements GraphicsNodeInterface
  */
 class GraphicsAreaSeriesNode :
 		public AbstractGraphicsInnerDualputNode,

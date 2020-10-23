@@ -9,6 +9,9 @@ namespace Ui {
 class MainWindow;
 }
 
+/**
+ * @brief 程序主窗口，组转所有模块的窗口。
+ */
 class MainWindow : public QWidget
 {
 	Q_OBJECT
