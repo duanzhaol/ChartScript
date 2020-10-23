@@ -3,7 +3,6 @@
 #include <QDebug>
 #include <QMessageBox>
 #include <Interpreter/Interpreter/InterpreterController.h>
-#pragma execution_character_set("utf-8")
 
 ConnectController *ConnectController::getInstance()
 {
