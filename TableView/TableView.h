@@ -10,30 +10,30 @@
 #include"TableModel/TableWidget.h"
 
 namespace Ui {
-class MainWidget;
+class TableView;
 }
 /**
  * @brief
  * 表格界面的主窗口类
  * 会发送创建新列的信号
  */
-class MainWidget : public QWidget
+class TableView : public QWidget
 {
     Q_OBJECT
 
-    static MainWidget*instance;
+	static TableView*instance;
 
-    MainWidget(QWidget*parent=nullptr);
+	TableView(QWidget*parent=nullptr);
 
-    ~MainWidget();
+	~TableView();
 
 public:
 
-    static MainWidget*getInstance();
+	static TableView*getInstance();
     static void createWidget();
 
 private:
-    Ui::MainWidget *ui;
+	Ui::TableView *ui;
     //void setTable(int,int,QString);
 
 

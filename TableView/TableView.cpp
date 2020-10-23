@@ -1,5 +1,5 @@
-﻿#include "MainWidget.h"
-#include "ui_MainWidget.h"
+﻿#include "TableView.h"
+#include "ui_TableView.h"
 #include "Setting.h"
 
 #pragma execution_character_set("utf-8")
@@ -9,29 +9,29 @@
 //2.维护一个tablelistwidget，用来保存表格
 //3.zycnm
 
-MainWidget::MainWidget(QWidget *parent) :
+TableView::TableView(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::MainWidget)
+	ui(new Ui::TableView)
 {
     ui->setupUi(this);
 }
 
-MainWidget::~MainWidget()
+TableView::~TableView()
 {
     delete ui;
 }
 
-MainWidget *MainWidget::getInstance()
+TableView *TableView::getInstance()
 {
     return instance;
 }
 
-void MainWidget::createWidget()
+void TableView::createWidget()
 {
-    instance = new MainWidget;
+    instance = new TableView;
 }
 
-void MainWidget::on_addColumn_clicked()
+void TableView::on_addColumn_clicked()
 {
 
     TableWidget *table=getTableNow();
@@ -53,7 +53,7 @@ void MainWidget::on_addColumn_clicked()
     emit newArray(arrItem);
 }
 
-void MainWidget::on_addRow_clicked()
+void TableView::on_addRow_clicked()
 {
     TableWidget *table=getTableNow();
     QList<QTableWidgetItem*> items =table->selectedItems();
@@ -71,7 +71,7 @@ void MainWidget::on_addRow_clicked()
     }
 }
 
-void MainWidget::on_deleteColumn_clicked()
+void TableView::on_deleteColumn_clicked()
 {
     TableWidget *table=getTableNow();
     QList<QTableWidgetItem*> items = table->selectedItems();
@@ -84,7 +84,7 @@ void MainWidget::on_deleteColumn_clicked()
 }
 
 
-void MainWidget::on_deleteRow_clicked()
+void TableView::on_deleteRow_clicked()
 {
     TableWidget *table=getTableNow();
     QList<QTableWidgetItem*> items = table->selectedItems();
@@ -97,7 +97,7 @@ void MainWidget::on_deleteRow_clicked()
 }
 
 
-void MainWidget::on_exportData_clicked()
+void TableView::on_exportData_clicked()
 {
     TableWidget *table=getTableNow();
     table->checkChangeType();
@@ -106,26 +106,26 @@ void MainWidget::on_exportData_clicked()
 
 
 
-void MainWidget::on_setting_clicked()
+void TableView::on_setting_clicked()
 {
     Setting setting;
     setting.exec();
 }
 
-void MainWidget::on_importCsv_clicked()
+void TableView::on_importCsv_clicked()
 {
     TableWidget *table=getTableNow();
     DataLoader *loader=new DataLoader(0,table);//type=0是csv
 
 }
 
-void MainWidget::on_importExcel_clicked()
+void TableView::on_importExcel_clicked()
 {
     TableWidget *table=getTableNow();
     DataLoader *loader=new DataLoader(1,table);//type=1是excel
 }
 
-void MainWidget::on_addNewTable_clicked()
+void TableView::on_addNewTable_clicked()
 {
     TableWidget *table=new TableWidget(3,1);
     ui->tabWidget->addTab(table,"新建表格");
@@ -134,11 +134,11 @@ void MainWidget::on_addNewTable_clicked()
 
 }
 
-TableWidget *MainWidget::getTableNow()
+TableWidget *TableView::getTableNow()
 {
     int index=ui->tabWidget->currentIndex();
     TableWidget *table=dynamic_cast<TableWidget*>(ui->tabWidget->widget(index));
     return table;
 }
 
-MainWidget* MainWidget::instance = nullptr;
+TableView* TableView::instance = nullptr;

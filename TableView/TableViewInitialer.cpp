@@ -1,5 +1,5 @@
 ﻿#include "TableViewInitialer.h"
-#include "MainWidget.h"
+#include "TableView.h"
 
 TableViewInitialer::TableViewInitialer()
 {
@@ -14,8 +14,8 @@ TableViewInitialer *TableViewInitialer::getInstance()
 
 void TableViewInitialer::init()
 {
-    MainWidget::createWidget();
-    widget = MainWidget::getInstance();
+    TableView::createWidget();
+    widget = TableView::getInstance();
 }
 
 QString TableViewInitialer::getWindowName() const

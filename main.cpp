@@ -9,7 +9,7 @@
 #include "graphShow/ChartItem.h"
 #include <QLineSeries>
 #include "GraphicsDataArrayNode.h"
-#include <TableView/MainWidget.h>
+#include <TableView/TableView.h>
 
 void LoadImage(){
     /*程序进入前的开场动画效果*/

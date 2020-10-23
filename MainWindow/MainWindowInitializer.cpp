@@ -3,7 +3,7 @@
 #include "graphShow/GraphShowInitializer.h"
 #include "NodeShow/NodeShowInitializer.h"
 #include "TableView/TableViewInitialer.h"
-#include "TableView/MainWidget.h"
+#include "TableView/TableView.h"
 #include "NodeShow/GraphicsNode/NodeShowWindow.h"
 
 
@@ -33,8 +33,8 @@ void MainWindowInitializer::init()
     mainWindow->addSubWindow(TableViewInitialer::getInstance());
 
     widget->connect(
-			  dynamic_cast<MainWidget*>(TableViewInitialer::getInstance()->getWidget()),
-              &MainWidget::newArray,
+			  dynamic_cast<TableView*>(TableViewInitialer::getInstance()->getWidget()),
+              &TableView::newArray,
 			  dynamic_cast<NodeShowWindow*>(NodeShowInitializer::getInstance()->getWidget()),
               &NodeShowWindow::newArray
         );

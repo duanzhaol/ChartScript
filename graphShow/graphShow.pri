@@ -5,6 +5,7 @@ SOURCES += \
 	$$PWD/AttributeDialog/TextEdit.cpp \
 	$$PWD/AttributeDialog/TextItemDialog.cpp \
 	$$PWD/GraphShowInitializer.cpp \
+	$$PWD/GraphShowWindow.cpp \
     $$PWD/GraphicsView.cpp \
     $$PWD/ListWidget/ListWidget.cpp \
     $$PWD/ListWidget/ListWidgetItem.cpp \
@@ -17,7 +18,6 @@ SOURCES += \
 	$$PWD/item/ShapeItem/GraphicsEllipseItem.cpp \
 	$$PWD/item/ShapeItem/GraphicsRectItem.cpp \
 	$$PWD/item/ShapeItem/GraphicsTriangleItem.cpp \
-    $$PWD/mywindow.cpp \
     $$PWD/qchartviewfactory.cpp \
     $$PWD/widget/SceneDialogTitle.cpp \
     $$PWD/widget/sceneDialogTheme.cpp \
@@ -33,6 +33,7 @@ HEADERS += \
 	$$PWD/AttributeDialog/TextEdit.h \
 	$$PWD/AttributeDialog/TextItemDialog.h \
 	$$PWD/GraphShowInitializer.h \
+	$$PWD/GraphShowWindow.h \
     $$PWD/GraphicsView.h \
     $$PWD/ListWidget/ListWidget.h \
     $$PWD/ListWidget/ListWidgetItem.h \
@@ -46,7 +47,6 @@ HEADERS += \
 	$$PWD/item/ShapeItem/GraphicsEllipseItem.h \
 	$$PWD/item/ShapeItem/GraphicsRectItem.h \
 	$$PWD/item/ShapeItem/GraphicsTriangleItem.h \
-	$$PWD/mywindow.h \
 	$$PWD/qchartviewfactory.h \
 	$$PWD/widget/SceneDialogTitle.h \
 	$$PWD/widget/sceneDialogTheme.h \
@@ -59,7 +59,7 @@ FORMS += \
 	$$PWD/AttributeDialog/PixmapItemDialog.ui \
 	$$PWD/AttributeDialog/ShapeItemDialog.ui \
 	$$PWD/AttributeDialog/TextItemDialog.ui \
-	$$PWD/mywindow.ui \
+	$$PWD/GraphShowWindow.ui \
 	$$PWD/widget/SceneDialogTitle.ui \
 	$$PWD/widget/scenedialogtheme.ui \
 	graphShow/chartattribute.ui

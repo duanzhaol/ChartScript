@@ -1,5 +1,5 @@
-﻿#include "mywindow.h"
-#include "ui_mywindow.h"
+﻿#include "GraphShowWindow.h"
+#include "ui_GraphShowWindow.h"
 #include"widget/sceneDialogTheme.h"
 #include"widget/SceneDialogTitle.h"
 #include<QDebug>
@@ -9,34 +9,34 @@
 #include <graphShow/AttributeDialog/BackgroundDialog.h>
 #include <Interpreter/Transmitter/GraphShowTransmitter.h>
 
-myWindow::myWindow(QWidget *parent) :
+GraphShowWindow::GraphShowWindow(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::myWindow)
+	ui(new Ui::GraphShowWindow)
 {
     ui->setupUi(this);
     initialListWidget();
 }
 
-void myWindow::setScene(GraphicsScene *myScene)
+void GraphShowWindow::setScene(GraphicsScene *myScene)
 {
     ui->graphicsView->setScene(myScene);
 
 	connect(chartListWidget,&ListWidget::itemDoubleClicked,
-			this,&myWindow::sendChart_Transmitter);
+			this,&GraphShowWindow::sendChart_Transmitter);
 
-	connect(this,&myWindow::sendChart,
+	connect(this,&GraphShowWindow::sendChart,
 			dynamic_cast<GraphicsScene*>(ui->graphicsView->scene()),&GraphicsScene::recieveChart);
 
 	connect(designElementsListWidget,&QListWidget::itemDoubleClicked,
 			dynamic_cast<GraphicsScene*>(ui->graphicsView->scene()),&GraphicsScene::recieveGraphics);
 
-	connect(this,&myWindow::selectAll,
+	connect(this,&GraphShowWindow::selectAll,
 			dynamic_cast<GraphicsScene*>(ui->graphicsView->scene()),&GraphicsScene::selectAll);
 
-	connect(this,&myWindow::toTop,
+	connect(this,&GraphShowWindow::toTop,
 			dynamic_cast<GraphicsScene*>(ui->graphicsView->scene()),&GraphicsScene::toTop);
 
-	connect(myScene,&GraphicsScene::mouseMove,this,&myWindow::setCursorCoor);
+	connect(myScene,&GraphicsScene::mouseMove,this,&GraphShowWindow::setCursorCoor);
 
 	connect(&GraphShowTransmitter::getInstance(),&GraphShowTransmitter::sendChart,
 			chartListWidget,&ListWidget::reciveChart);
@@ -44,7 +44,7 @@ void myWindow::setScene(GraphicsScene *myScene)
 	scene = myScene;
 }
 
-myWindow::~myWindow()
+GraphShowWindow::~GraphShowWindow()
 {
     delete ui;
 }
@@ -53,7 +53,7 @@ myWindow::~myWindow()
  * @brief myWindow::on_pushButton_theme_clicked
  * 点击主题改变按钮的槽函数
  */
-void myWindow::on_pushButton_theme_clicked()
+void GraphShowWindow::on_pushButton_theme_clicked()
 {
 	SceneDialogTheme *sceneDialogTheme=new SceneDialogTheme(this);
     sceneDialogTheme->show();
@@ -66,14 +66,14 @@ void myWindow::on_pushButton_theme_clicked()
  * 提取QListWidgetItem的索引对应的Chart，通过信号函数进行发送
  * @param item
  */
-void myWindow::sendChart_Transmitter(QListWidgetItem *item)
+void GraphShowWindow::sendChart_Transmitter(QListWidgetItem *item)
 {
 	int row=chartListWidget->row(item);
 	ChartItem* chart=chartListWidget->getChart(row);
     emit sendChart(chart);
 }
 
-void myWindow::initialListWidget()
+void GraphShowWindow::initialListWidget()
 {
 	chartListWidget = new ListWidget(ui->tabWidget);
 	designElementsListWidget = new ListWidget(ui->tabWidget);
@@ -141,17 +141,17 @@ void myWindow::initialListWidget()
  * @brief myWindow::on_pushButton_shadow_clicked
  * 点击了选择全部按钮
  */
-void myWindow::on_pushButton_shadow_clicked()
+void GraphShowWindow::on_pushButton_shadow_clicked()
 {
 	emit selectAll(true);
 }
 
-void myWindow::on_pushButton_top_clicked()
+void GraphShowWindow::on_pushButton_top_clicked()
 {
 	emit toTop();
 }
 
-void myWindow::setCursorCoor(const QPointF &point)
+void GraphShowWindow::setCursorCoor(const QPointF &point)
 {
 	ui->cursorCoor->setText(QStringLiteral("鼠标:")+QString("%1,%2")
 							.arg(point.x())
@@ -160,7 +160,7 @@ void myWindow::setCursorCoor(const QPointF &point)
 
 
 
-void myWindow::on_backgroundSet_clicked()
+void GraphShowWindow::on_backgroundSet_clicked()
 {
 	BackgroundDialog* dialog = new BackgroundDialog(
 	{ui->graphicsView->getImage(),ui->graphicsView->backgroundBrush()},this);
@@ -176,7 +176,7 @@ void myWindow::on_backgroundSet_clicked()
 	dialog->show();
 }
 
-void myWindow::on_exportPushbuttom_clicked()
+void GraphShowWindow::on_exportPushbuttom_clicked()
 {
 	emit selectAll(false);
 	QString fileName = QFileDialog::getSaveFileName(this,

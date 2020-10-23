@@ -2,7 +2,7 @@
 #define QCHARTVIEWFACTORY_H
 #include<QChartView>
 #include "GraphicsScene.h"
-#include "mywindow.h"
+#include "GraphShowWindow.h"
 /**
  * @brief 	在工厂中可以获得正确设定过的view
 
@@ -17,7 +17,7 @@ public:
      * @param 该view对应和的scene
      * @return view的指针
      */
-    QtCharts::QChartView* createView(GraphicsScene *sc,myWindow *win);
+    QtCharts::QChartView* createView(GraphicsScene *sc,GraphShowWindow *win);
 
 };
 

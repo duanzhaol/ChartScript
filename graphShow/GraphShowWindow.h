@@ -7,12 +7,12 @@
 #include"ListWidget/ListWidget.h"
 #include"item/ShapeItem/GraphicsRectItem.h"
 namespace Ui {
-class myWindow;
+class GraphShowWindow;
 }
 /**
  * @brief 统计图显示界面主窗口类
  */
-class myWindow : public QWidget
+class GraphShowWindow : public QWidget
 {
     Q_OBJECT
 
@@ -25,13 +25,13 @@ public:
      * @brief 平淡无奇的构造函数
      * @param parent
      */
-    explicit myWindow(QWidget *parent = nullptr);
+	explicit GraphShowWindow(QWidget *parent = nullptr);
     /**
      * @brief 设置当前窗口的Qgraphicsview的scene
      * @param GraphicsScene
      */
     void setScene(GraphicsScene *myScene);
-    ~myWindow();
+	~GraphShowWindow();
 
 private slots:
     /**
@@ -54,7 +54,7 @@ private slots:
 	void on_exportPushbuttom_clicked();
 
 private:
-    Ui::myWindow *ui;
+	Ui::GraphShowWindow *ui;
 signals:
     void sendChart(ChartItem* item);
 	void selectAll(bool isSelect);

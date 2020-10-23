@@ -1,5 +1,5 @@
 ﻿#include "GraphShowInitializer.h"
-#include "mywindow.h"
+#include "GraphShowWindow.h"
 #include <QtCharts/QChart>
 
 GraphShowInitializer::GraphShowInitializer()
@@ -9,7 +9,7 @@ GraphShowInitializer::GraphShowInitializer()
 
 void GraphShowInitializer::init()
 {
-	myWindow *myWindows=new myWindow();
+	GraphShowWindow *myWindows=new GraphShowWindow();
 	GraphicsScene *sc = new GraphicsScene();
 	myWindows->setScene(sc);
 	this->widget = myWindows;

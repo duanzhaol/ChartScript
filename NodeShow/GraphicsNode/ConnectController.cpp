@@ -42,6 +42,7 @@ void ConnectController::connectLineWuhu(Inputable *input, Outputable *output)
 	}
 
     ConnectLineItem *line =new ConnectLineItem(input,output);
+	connect(line,&ConnectLineItem::LineClickedWithDele,this,&ConnectController::removeLineItem);
 	NodeShowWindow::getInstance()->scene->addItem(line);
     LineList.insert(line->LineIndex,line);
 

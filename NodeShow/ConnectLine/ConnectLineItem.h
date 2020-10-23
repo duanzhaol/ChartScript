@@ -18,31 +18,31 @@ class ConnectLineItem:public QObject,public QGraphicsPolygonItem
 {
 
 public:
-    Q_OBJECT
-    Q_INTERFACES(QGraphicsItem)
+	Q_OBJECT
+	Q_INTERFACES(QGraphicsItem)
 public:
-  explicit ConnectLineItem(Inputable*inputPort,Outputable*outputPort);
+	explicit ConnectLineItem(Inputable*inputPort,Outputable*outputPort);
 
-  // QGraphicsItem interface
+	// QGraphicsItem interface
 public:
-  QRectF boundingRect() const override;
-  void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
-  QPainterPath shape() const override;
+	QRectF boundingRect() const override;
+	void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
+	QPainterPath shape() const override;
 
-  int LineIndex=-1;
-  Inputable*inputNode;
-  Outputable*outputNode;
+	int LineIndex=-1;
+	Inputable*inputNode;
+	Outputable*outputNode;
 
 private:
 
-  QPolygonF mArrow;
+	QPolygonF mArrow;
 
 signals:
-    void LineClickedWithDele(ConnectLineItem*);
+	void LineClickedWithDele(ConnectLineItem*);
 
-  // QGraphicsItem interface
+	// QGraphicsItem interface
 protected:
-  virtual void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
+	virtual void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
 
 
 

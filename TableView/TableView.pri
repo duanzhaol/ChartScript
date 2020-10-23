@@ -5,25 +5,25 @@ TRANSLATIONS = $$PWD/Translate_EN.ts \
 
 SOURCES += \
     $$PWD/DataLoader.cpp \
-    $$PWD/MainWidget.cpp \
     $$PWD/Setting.cpp \
     $$PWD/TableModel/TableArrayItem.cpp \
     $$PWD/TableModel/TableWidget.cpp \
+    $$PWD/TableView.cpp \
     $$PWD/TableViewInitialer.cpp
 
 
 HEADERS += \
     $$PWD/DataLoader.h \
     $$PWD/GraphicsShowInterface/TableArrayInterface.h \
-    $$PWD/MainWidget.h \
     $$PWD/Setting.h \
     $$PWD/TableModel/TableArrayItem.h \
     $$PWD/TableModel/TableWidget.h \
+    $$PWD/TableView.h \
     $$PWD/TableViewInitialer.h
 
 FORMS += \
-    $$PWD/MainWidget.ui \
-    $$PWD/Setting.ui
+    $$PWD/Setting.ui \
+    $$PWD/TableView.ui
 
 RESOURCES += \
     $$PWD/img.qrc \
