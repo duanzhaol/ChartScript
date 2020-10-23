@@ -14,8 +14,8 @@ void ConnectController::connectLineWuhu(Inputable *input, Outputable *output)
 {
 
 	if(InterpreterController::getGlobalInstance()->hasConncted(
-				dynamic_cast<AbstractNode*>(input),
-				dynamic_cast<AbstractNode*>(output))
+				dynamic_cast<AbstractNode*>(output),
+				dynamic_cast<AbstractNode*>(input))
 			){
 		QMessageBox::warning(nullptr,"警告","已经连接过了");
 		clearPort();

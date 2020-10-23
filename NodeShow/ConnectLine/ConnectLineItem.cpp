@@ -21,10 +21,7 @@ ConnectLineItem::ConnectLineItem(Inputable *inputNode,
 
 QRectF ConnectLineItem::boundingRect() const
 {
-//	qDebug()<<"----------------------"<<endl;
-//		qDebug()<<shape().controlPointRect();
 	return shape().controlPointRect();
-	//return QRectF(leftWidget->centerCoordinate,rightWidget->centerCoordinate);
 }
 
 
