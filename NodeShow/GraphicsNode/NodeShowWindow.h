@@ -8,6 +8,7 @@
 #include <QListWidgetItem>
 #include <QMainWindow>
 #include "TableView/GraphicsShowInterface/TableArrayInterface.h"
+#include <Interpreter/Interpreter/ModelCodingInterpreter.h>
 
 namespace Ui {
 class NodeShowWindow;
@@ -34,6 +35,8 @@ public:
     NodeShowMouseType mouseType=NodeShowMouseType::Move;
     void setLcdNumber(int number);
 
+
+
 signals:
     void MouseTypechanged();
     void newArray(TableArrayInterface*);
@@ -53,6 +56,8 @@ private slots:
 //public slots:
 //    void recieveNodeArrays(QListWidgetItem *item);
 
+
+    void on_toCodeButton_clicked();
 
 private:
     Ui::NodeShowWindow *ui;

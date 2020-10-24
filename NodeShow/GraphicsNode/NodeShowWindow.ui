@@ -333,13 +333,15 @@ border-color:rgb(0, 0, 0);
        </widget>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="0,0">
+       <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="0,0,0">
         <item>
          <widget class="QLabel" name="label">
           <property name="font">
            <font>
-            <family>Agency FB</family>
-            <pointsize>11</pointsize>
+            <family>Microsoft YaHei UI</family>
+            <pointsize>14</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
            </font>
           </property>
           <property name="cursor">
@@ -362,6 +364,58 @@ color: rgb(76, 130, 255);</string>
           </property>
           <property name="styleSheet">
            <string notr="true">color: rgb(15, 111, 255);</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="toCodeButton">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="sizeIncrement">
+           <size>
+            <width>0</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Microsoft YaHei UI</family>
+            <pointsize>12</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+
+QPushButton {
+						border:2px solid;
+border-radius:5px;
+background-color: rgba(221, 221, 221, 0);
+color: rgb(0, 0, 0);
+border-color:rgb(0, 0, 0);
+						 }
+
+						 QPushButton:hover {
+							 color: rgb(52, 167, 255);
+							 border-color: rgb(52, 167, 255);
+						 }
+
+						 QPushButton:pressed {
+							 color: rgb(46, 39, 239);
+							 border-color: rgb(46, 39, 239);
+						 }
+
+						 QPushButton:disabled {
+							 color: #333333;
+						 }</string>
+          </property>
+          <property name="text">
+           <string>导出图设计场景为代码</string>
           </property>
          </widget>
         </item>

@@ -14,6 +14,7 @@
 #include <QDebug>
 #include <QPixmap>
 #include <GraphicsTopArrayNode.h>
+#include <QFileDialog>
 #include "Interpreter/Interpreter/InterpreterController.h"
 #pragma execution_character_set("utf-8")
 
@@ -49,6 +50,7 @@ NodeShowWindow::NodeShowWindow(QWidget *parent) :
 	ui->graphicsView->showMaximized();//全屏窗口打开
 
 	ui->graphicsView->setViewportUpdateMode(QGraphicsView::FullViewportUpdate);//流畅刷新
+
 
 
 }
@@ -131,6 +133,29 @@ void NodeShowWindow::on_listWidget_2_itemDoubleClicked(QListWidgetItem *item)
 }
 
 
+
+void NodeShowWindow::on_toCodeButton_clicked()
+{
+    ModelCodingInterpreter* modelCodingInterpreter=new ModelCodingInterpreter(
+        InterpreterController::getGlobalInstance());
+
+    QString code=modelCodingInterpreter->coding();
+
+
+        QString fileName = QFileDialog::getSaveFileName(this,
+                                                        QStringLiteral("SaveCode"),
+                                                        R"(C:\)",
+                                                        tr("Text files (*.txt)"));
+        QFile myfile(fileName);//创建一个输出文件的文档
+        if (myfile.open(QFile::WriteOnly|QFile::Text))//注意WriteOnly是往文本中写入的时候用，ReadOnly是在读文本中内容的时候用，Truncate表示将原来文件中的内容清空
+        {
+            QTextStream out(&myfile);
+            out << code;
+            myfile.close();
+        }
+
+
+        modelCodingInterpreter->~ModelCodingInterpreter();
+}
+
 NodeShowWindow* NodeShowWindow::instance = nullptr;
-
-
