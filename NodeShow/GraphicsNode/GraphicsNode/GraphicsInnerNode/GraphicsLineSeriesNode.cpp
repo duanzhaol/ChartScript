@@ -42,12 +42,12 @@ GraphicsLineSeriesNode::~GraphicsLineSeriesNode()
 
 NodeName GraphicsLineSeriesNode::getNodeName() const
 {
-    return ui->lineSeriesName->text();
+	return ui->LineSeriesName->text();
 }
 
 void GraphicsLineSeriesNode::setNodeName(const NodeName &newNodeName)
 {
-    ui->lineSeriesName->setText(newNodeName);
+	ui->LineSeriesName->setText(newNodeName);
 }
 
 AbstractArrayNode *GraphicsLineSeriesNode::getXData() const

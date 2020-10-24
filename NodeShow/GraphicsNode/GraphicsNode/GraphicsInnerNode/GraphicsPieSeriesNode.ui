@@ -90,55 +90,6 @@ border-radius:5px;</string>
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="PieSeriesName">
-   <property name="geometry">
-    <rect>
-     <x>630</x>
-     <y>0</y>
-     <width>101</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="minimumSize">
-    <size>
-     <width>30</width>
-     <height>0</height>
-    </size>
-   </property>
-   <property name="maximumSize">
-    <size>
-     <width>160</width>
-     <height>120</height>
-    </size>
-   </property>
-   <property name="font">
-    <font>
-     <family>Arial Rounded MT Bold</family>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="layoutDirection">
-    <enum>Qt::LeftToRight</enum>
-   </property>
-   <property name="autoFillBackground">
-    <bool>false</bool>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">border:1px solid rgb(255, 255, 255) ;
-border-radius:5px;
-background-color: rgba(221, 221, 221, 0);
-color: rgb(255, 255, 255);</string>
-   </property>
-   <property name="text">
-    <string>序列名</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-   <property name="wordWrap">
-    <bool>true</bool>
-   </property>
-  </widget>
   <widget class="QLabel" name="PieSeriesType">
    <property name="geometry">
     <rect>
@@ -292,13 +243,46 @@ color: rgb(255, 255, 255);</string>
     <string/>
    </property>
   </widget>
+  <widget class="QLineEdit" name="PieSeriesName">
+   <property name="geometry">
+    <rect>
+     <x>630</x>
+     <y>0</y>
+     <width>101</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:1px solid rgb(255, 255, 255) ;
+border-radius:5px;
+background-color: rgba(221, 221, 221, 0);
+color: rgb(255, 255, 255);</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="AreaSeriesName">
+   <property name="geometry">
+    <rect>
+     <x>560</x>
+     <y>130</y>
+     <width>101</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:1px solid rgb(255, 255, 255) ;
+border-radius:5px;
+background-color: rgba(221, 221, 221, 0);
+color: rgb(255, 255, 255);</string>
+   </property>
+  </widget>
   <zorder>label</zorder>
   <zorder>LabelArray</zorder>
   <zorder>NumberArray</zorder>
-  <zorder>PieSeriesName</zorder>
   <zorder>PieSeriesType</zorder>
   <zorder>inputPort</zorder>
   <zorder>outputPort</zorder>
+  <zorder>PieSeriesName</zorder>
+  <zorder>AreaSeriesName</zorder>
  </widget>
  <customwidgets>
   <customwidget>

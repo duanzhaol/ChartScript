@@ -15,7 +15,7 @@ void AbstractScatterSeriesNode::process(AbstractNode *nextNode)
 
 	int size = qMin(x.size(),y.size());
 
-	for(int index = 0;index < size; ++size){
+	for(int index = 0;index < size; ++index){
 		this->series->append(x[index].toDouble(),y[index].toDouble());
 	}
 }
