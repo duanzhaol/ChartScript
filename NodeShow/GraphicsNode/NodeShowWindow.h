@@ -34,7 +34,7 @@ public:
     enum class NodeShowMouseType{Move,Connect,Delete};
     NodeShowMouseType mouseType=NodeShowMouseType::Move;
     void setLcdNumber(int number);
-
+    ModelCodingInterpreter* modelCodingInterpreter;
 
 
 signals:
@@ -58,6 +58,9 @@ private slots:
 
 
     void on_toCodeButton_clicked();
+
+
+    void on_checkCodeButton_clicked();
 
 private:
     Ui::NodeShowWindow *ui;

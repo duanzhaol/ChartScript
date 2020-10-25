@@ -30,7 +30,7 @@ using namespace QtCharts;
 int main(int argc,char*argv[]){
 	QApplication app(argc,argv);
 
-//	LoadImage();
+    LoadImage();
 
     MainWindowInitializer::getInstance()->init();
 

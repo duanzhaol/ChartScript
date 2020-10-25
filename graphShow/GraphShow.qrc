@@ -25,6 +25,7 @@
         <file>image/textBox.png</file>
         <file>image/addPixmap.png</file>
         <file>image/triangle.png</file>
+        <file>image/beijing.png</file>
     </qresource>
     <qresource prefix="/"/>
 </RCC>

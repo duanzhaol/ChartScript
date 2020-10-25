@@ -15,6 +15,8 @@ GraphShowWindow::GraphShowWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     initialListWidget();
+
+    ui->graphicsView->setStyleSheet(R"(QGraphicsView{ background-image:url(:/GraphShowImage/image/beijing.png);border:3px solid rgb(0,0,0);border-radius:10px;})");
 }
 
 void GraphShowWindow::setScene(GraphicsScene *myScene)

@@ -16,7 +16,7 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="1,10">
     <item>
-     <layout class="QVBoxLayout" name="verticalLayout_2" stretch="2,1">
+     <layout class="QVBoxLayout" name="verticalLayout_2" stretch="2,0,0">
       <item>
        <widget class="QTabWidget" name="tabWidget">
         <property name="font">
@@ -25,7 +25,7 @@
          </font>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>1</number>
         </property>
         <widget class="QWidget" name="tab_3">
          <attribute name="title">
@@ -52,7 +52,7 @@
             <x>0</x>
             <y>10</y>
             <width>161</width>
-            <height>661</height>
+            <height>741</height>
            </rect>
           </property>
          </widget>
@@ -60,7 +60,53 @@
        </widget>
       </item>
       <item>
-       <widget class="QPlainTextEdit" name="plainTextEdit"/>
+       <widget class="QPushButton" name="checkCodeButton">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Microsoft YaHei UI</family>
+          <pointsize>11</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">
+
+QPushButton {
+						border:2px solid;
+border-radius:5px;
+background-color: rgba(221, 221, 221, 0);
+color: rgb(0, 0, 0);
+border-color:rgb(0, 0, 0);
+						 }
+
+						 QPushButton:hover {
+							 color: rgb(52, 167, 255);
+							 border-color: rgb(52, 167, 255);
+						 }
+
+						 QPushButton:pressed {
+							 color: rgb(46, 39, 239);
+							 border-color: rgb(46, 39, 239);
+						 }
+
+						 QPushButton:disabled {
+							 color: #333333;
+						 }</string>
+        </property>
+        <property name="text">
+         <string>查看图设计代码</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QTextEdit" name="textEdit"/>
       </item>
      </layout>
     </item>

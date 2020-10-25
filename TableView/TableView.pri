@@ -22,7 +22,6 @@ HEADERS += \
     $$PWD/TableViewInitialer.h
 
 FORMS += \
-    $$PWD/Setting.ui \
     $$PWD/TableView.ui
 
 RESOURCES += \

@@ -46,11 +46,13 @@ NodeShowWindow::NodeShowWindow(QWidget *parent) :
 
 	init();
 
-    ui->graphicsView->setStyleSheet(R"(QGraphicsView{ background-image:url(:/img/img/beijing.png);})");//设置scene背景
+    ui->graphicsView->setStyleSheet(R"(QGraphicsView{ background-image:url(:/img/img/beijing.png);border:3px solid rgb(0,0,0);border-radius:10px;})");//设置scene背景
 	ui->graphicsView->showMaximized();//全屏窗口打开
 
 	ui->graphicsView->setViewportUpdateMode(QGraphicsView::FullViewportUpdate);//流畅刷新
 
+    modelCodingInterpreter=new ModelCodingInterpreter(
+        InterpreterController::getGlobalInstance());
 
 
 }
@@ -136,11 +138,11 @@ void NodeShowWindow::on_listWidget_2_itemDoubleClicked(QListWidgetItem *item)
 
 void NodeShowWindow::on_toCodeButton_clicked()
 {
-    ModelCodingInterpreter* modelCodingInterpreter=new ModelCodingInterpreter(
-        InterpreterController::getGlobalInstance());
+
 
     QString code=modelCodingInterpreter->coding();
 
+    ui->textEdit->setText(code);
 
         QString fileName = QFileDialog::getSaveFileName(this,
                                                         QStringLiteral("SaveCode"),
@@ -158,4 +160,14 @@ void NodeShowWindow::on_toCodeButton_clicked()
         modelCodingInterpreter->~ModelCodingInterpreter();
 }
 
+
+void NodeShowWindow::on_checkCodeButton_clicked()
+{
+
+
+    ui->textEdit->setText(modelCodingInterpreter->coding());
+}
+
 NodeShowWindow* NodeShowWindow::instance = nullptr;
+
+
